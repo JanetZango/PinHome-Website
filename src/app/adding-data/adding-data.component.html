@@ -1,13 +1,37 @@
-<div style="text-align:center">
+<!-- <head>
+
+</head>
+
+<body>
+  <div class="top">
+    <h2>PinHome Database</h2>
+  </div>
+  <div class="container">
+    <div class="middle">
+      <div class="orgName">
+        <input #organization placeholder="Name of Organization" class="org-wide" type="text">
+        <br>
+        <input #contactDetails class="org" placeholder="Phone" type="number">
+        <textarea id="address" rows="5" class="theOrg" placeholder="Physical Address" #address type="text"></textarea>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</body> -->
+<!-- <div style="text-align:center">
   <p>title###########</p>
   Name of the Organization:
   <br>
   <br>
   <input #organization type="text">
+  <br>
   <br> Address of the Organization:
   <br>
   <br>
-  <input #address type="text">
+  <input id="address" #address type="text">
   <br>
   <br>
   <br> Contact Details:
@@ -18,6 +42,11 @@
   <br>
   <input #email type="email">
   <br>
+  <br>
+  <br>About the Organization:
+  <br>
+  <br>
+  <input #AboutOrg type="text">
   <br>Price:
   <br>
   <input #price type="number">
@@ -36,5 +65,59 @@
   <img src="{{url}}">
   <br>
   <br>
-  <button (click)="AddingData(organization.value,address.value,contactDetails.value,select.value,email.value,price.value) ">Save Data</button>
-</div>
+  <button id="btn" (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value) ">Save Data</button>
+  <br>
+
+
+
+  <button (click)="initMap(address.value)">click me</button>
+
+
+  
+  <div id="map" style="height:250px"></div>
+
+</div> -->
+
+<head>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="theBody">
+      <h3>Organization Details</h3>
+      <p>The details entered will be stored to PinHome's database and will be accessible through the PinHome app that can be
+        found in Android PlayStore &trade;</p>
+      <div class="inputs">
+        <input #organization placeholder="Name of Organization" class="org-wide" type="text">
+        <br>
+        <div class="sep">
+          <input #contactDetails class="org" placeholder="Phone" type="number">
+          <input #email class="org" placeholder="Email" type="email">
+          <br>
+          <textarea id="address" placeholder="Physical Address" class="orgHeight" rows="4" #address type="text"></textarea>
+          <textarea rows="4" class="orgHeight" #AboutOrg placeholder="Description" type="text"></textarea>
+          <select #select class="org-wide-select" style="margin-top: 10px">
+            <option value="Orphanage">Orphanage</option>
+            <option value="children">Disabilities Home for children</option>
+            <option value="adults">Disabilities Home for adults</option>
+            <option value="old age">Old Age Homes</option>
+          </select>
+          <div id="map"></div>
+          <div class="statement">
+            <p align="center">Uploads</p>
+            
+          </div>
+          <div class="logoUpload">
+            <label id="lblForLogo" for="logo">Upload Logo</label>
+            <input  type="file" accept="image/*" (change)="InsertPicture($event)" id="logo">
+          </div>
+          <div class="theImage">
+            <img class="theLogo" src={{url}} alt="">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
