@@ -1,0 +1,40 @@
+<div style="text-align:center">
+  <p>title###########</p>
+  Name of the Organization:
+  <br>
+  <br>
+  <input #organization type="text">
+  <br> Address of the Organization:
+  <br>
+  <br>
+  <input #address type="text">
+  <br>
+  <br>
+  <br> Contact Details:
+  <br>
+  <input #contactDetails type="number">
+  <br>
+  <br>Email:
+  <br>
+  <input #email type="email">
+  <br>
+  <br>Price:
+  <br>
+  <input #price type="number">
+  <br>
+  <br> Category:
+  <br>
+  <select #select>
+    <option value="Orphanage">Orphanage</option>
+    <option value="children">Disabilities Home for children</option>
+    <option value="adults">Disabilities Home for adults</option>
+    <option value="old age">Old Age Homes</option>
+  </select>
+  <br>
+  <br>
+  <input type="file" accept="image/*" (change)="InsertPicture($event)">
+  <img src="{{url}}">
+  <br>
+  <br>
+  <button (click)="AddingData(organization.value,address.value,contactDetails.value,select.value,email.value,price.value) ">Save Data</button>
+</div>
