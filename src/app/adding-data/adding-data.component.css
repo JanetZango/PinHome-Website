@@ -243,6 +243,7 @@ body{
     padding-top: 15px;
 }
 .galImg{
+    padding-top: 20px;
     height: 250px;
 }
 #theGal{
@@ -299,4 +300,18 @@ body{
     margin-top: 12px;
     /* margin-bottom: 10px; */
     padding: 5px;
+}
+.submitter{
+    height: 50px;
+    width: 100%;
+    background: #13b8ca7a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px inset grey;
+}
+.submitter:active{
+    height: 50px;
+    width: 100%;
+    background: #00e5ff7a;
+    border-radius: 10px;
+    box-shadow: 0 0 0px inset grey;
 }
