@@ -207,13 +207,16 @@ select{
     color: white;
     z-index: 1;
     /* border: 2px solid white; */
-    padding: 10px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #13b8ca7a;
+    background: #13b8ca;
     border-radius: 5px;
     transition: 300ms;
+    padding-bottom: 10px;
 }
 .uploader:active{
     position: absolute;
@@ -252,18 +255,19 @@ body{
 #galInput{
     /* border: 2px solid black; */
     padding: 10px;
-    background: #13b8ca7a;
+    background: #13b8ca;
     position: absolute;
     border-radius: 5px;
     left: 50%;
     transform: translateX(-50%);
     top: 0;
     box-shadow: 0 5px 15px grey;
+    color: white;
 }
 #galInput:active{
     /* border: 2px solid black; */
     padding: 10px;
-    background: #0e8491;
+    background: #28e9ff;
     position: absolute;
     border-radius: 5px;
     left: 50%;
@@ -274,7 +278,7 @@ body{
 #galInput:hover{
     /* border: 2px solid black; */
     padding: 10px;
-    background: #1390ca7a;
+    background: #1390ca;
     position: absolute;
     border-radius: 5px;
     left: 50%;
@@ -304,9 +308,11 @@ body{
 .submitter{
     height: 50px;
     width: 100%;
-    background: #13b8ca7a;
+    background: #13b8ca;
     border-radius: 10px;
-    box-shadow: 0 0 10px inset grey;
+    box-shadow: 0 0 10px grey;
+    color: white;
+    
 }
 .submitter:active{
     height: 50px;
