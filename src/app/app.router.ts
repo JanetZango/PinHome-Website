@@ -8,7 +8,7 @@ import { AddingDataComponent } from './adding-data/adding-data.component';
 
 
 export const router: Routes = [
-    { path: '', redirectTo: 'app', pathMatch: 'full' },
+    { path: '', redirectTo: 'adding-data', pathMatch: 'full' },
     { path: 'adding-data', component: AddingDataComponent },
 ];
 

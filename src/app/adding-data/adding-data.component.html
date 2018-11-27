@@ -79,8 +79,7 @@
 </div> -->
 
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -92,38 +91,59 @@
       <div class="inputs">
         <div class="cover">
           <div class="uploader">
-            <label color="white" for="theCover"><i class="material-icons">camera</i>Upload Cover Photo</label>
-            <input type="file" id="theCover">
+            <label color="white" align="center" for="theCover">
+              <i class="material-icons">camera</i> {{coverPhoto}}</label>
+            <input type="file" accept="image/*" (change)="InsertPicture($event)" id="theCover">
           </div>
-          <img class="cover" src={{coverUrl}} alt="">
+          <div class="theCover">
+          <div class="DP">
+              <div class="logoUpload">
+                <label id="lblForLogo" for="logo">{{logoPhoto}}</label>
+                <input type="file" accept="image/*" (change)="InsertLogo($event)" id="logo">
+              </div>
+              <div class="theImage">
+                <img class="theLogo" src={{urlLogo}} alt="">
+              </div>            
+            </div>
+          <img class="cover" src={{urlCover}} alt="">
+          </div>
         </div>
+        <br>
         <input #organization placeholder="Name of Organization" class="org-wide" type="text">
         <br>
         <div class="sep">
           <input #contactDetails class="org" placeholder="Phone" type="number">
           <input #email class="org" placeholder="Email" type="email">
           <br>
-          <textarea id="address" placeholder="Physical Address" class="orgHeight" rows="4" #address type="text"></textarea>
+          <input id="address" placeholder="Physical Address" class="orgHeight" rows="4" #address (change)="initMap(address.value)"
+            type="text">
           <textarea rows="4" class="orgHeight" #AboutOrg placeholder="Description" type="text"></textarea>
           <select #select class="org-wide-select" style="margin-top: 10px">
             <option value="Orphanage">Orphanage</option>
-            <option value="children">Disabilities Home for children</option>
-            <option value="adults">Disabilities Home for adults</option>
+            <option value="Disability">Disability</option>
             <option value="old age">Old Age Homes</option>
+            <option value="theraphy">Theraphy</option>
+            <option value="Psychiatric">Psychiatric centres/Hospital</option>
+            <option value="social centre">Social Centre</option>
+            <option value="Rehab">Rehab</option>
           </select>
-          <div id="map"></div>
+          <div id="map"></div><br>
+          <div class="pricing">
+            <label for="pricer">R  </label>
+            <input type="number" id="pricer">
+          </div>
+          <div class="uploads">
           <div class="statement">
-            <p align="center">Uploads</p>
-            
-          </div>
-          <div class="logoUpload">
-            <label id="lblForLogo" for="logo">Upload Logo</label>
-            <input  type="file" accept="image/*" (change)="InsertPicture($event)" id="logo">
-          </div>
-          <div class="theImage">
-            <img class="theLogo" src={{url}} alt="">
+            <p class="wordUploads" align="center">Uploads</p>
           </div>
 
+
+          </div>
+          <div class="gal">
+            <label for="theGal" id="galInput">Upload Images</label>
+            <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)"><br>
+            <img class="galImg" src="{{urlGallery}}" alt="">
+          </div>
         </div>
       </div>
     </div>
