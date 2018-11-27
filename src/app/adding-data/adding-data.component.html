@@ -1,83 +1,3 @@
-<!-- <head>
-
-</head>
-
-<body>
-  <div class="top">
-    <h2>PinHome Database</h2>
-  </div>
-  <div class="container">
-    <div class="middle">
-      <div class="orgName">
-        <input #organization placeholder="Name of Organization" class="org-wide" type="text">
-        <br>
-        <input #contactDetails class="org" placeholder="Phone" type="number">
-        <textarea id="address" rows="5" class="theOrg" placeholder="Physical Address" #address type="text"></textarea>
-
-      </div>
-
-
-    </div>
-  </div>
-
-</body> -->
-<!-- <div style="text-align:center">
-  <p>title###########</p>
-  Name of the Organization:
-  <br>
-  <br>
-  <input #organization type="text">
-  <br>
-  <br> Address of the Organization:
-  <br>
-  <br>
-  <input id="address" #address type="text">
-  <br>
-  <br>
-  <br> Contact Details:
-  <br>
-  <input #contactDetails type="number">
-  <br>
-  <br>Email:
-  <br>
-  <input #email type="email">
-  <br>
-  <br>
-  <br>About the Organization:
-  <br>
-  <br>
-  <input #AboutOrg type="text">
-  <br>Price:
-  <br>
-  <input #price type="number">
-  <br>
-  <br> Category:
-  <br>
-  <select #select>
-    <option value="Orphanage">Orphanage</option>
-    <option value="children">Disabilities Home for children</option>
-    <option value="adults">Disabilities Home for adults</option>
-    <option value="old age">Old Age Homes</option>
-  </select>
-  <br>
-  <br>
-  <input type="file" accept="image/*" (change)="InsertPicture($event)">
-  <img src="{{url}}">
-  <br>
-  <br>
-  <button id="btn" (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value) ">Save Data</button>
-  <br>
-
-
-
-  <button (click)="initMap(address.value)">click me</button>
-
-
-  
-  <div id="map" style="height:250px"></div>
-
-</div> -->
-
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -130,7 +50,7 @@
           <div id="map"></div><br>
           <div class="pricing">
             <label for="pricer">R  </label>
-            <input type="number" id="pricer">
+            <input type="number" #price id="pricer">
           </div>
           <div class="uploads">
           <div class="statement">
@@ -147,5 +67,6 @@
         </div>
       </div>
     </div>
+    <button (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value)">Save Data</button>
   </div>
 </body>
