@@ -79,7 +79,8 @@
 </div> -->
 
 <head>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -89,6 +90,13 @@
       <p>The details entered will be stored to PinHome's database and will be accessible through the PinHome app that can be
         found in Android PlayStore &trade;</p>
       <div class="inputs">
+        <div class="cover">
+          <div class="uploader">
+            <label color="white" for="theCover"><i class="material-icons">camera</i>Upload Cover Photo</label>
+            <input type="file" id="theCover">
+          </div>
+          <img class="cover" src={{coverUrl}} alt="">
+        </div>
         <input #organization placeholder="Name of Organization" class="org-wide" type="text">
         <br>
         <div class="sep">

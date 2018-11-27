@@ -18,6 +18,7 @@ export class AddingDataComponent {
   organization;
   contactDetails;
   address;
+  coverUrl="../../assets/imgs/default-cover.jpg";
 
   homelist: AngularFireList<any>;
   items: Observable<any[]>;
