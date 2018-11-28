@@ -13,6 +13,7 @@ declare var google;
 export class AddingDataComponent {
   coverPhoto="Upload Cover Photo";
   logoPhoto="Upload Logo";
+  galleryupload="Upload Images";
   long;
   latitude;
   urlCover="../../assets/imgs/default-cover.jpg";
@@ -50,9 +51,9 @@ export class AddingDataComponent {
       let myLatLng = { lat: this.latitude, lng: this.longitude };
       this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 19,
+        zoom: 17,
         center: myLatLng,
-        mapTypeId: 'terrain'
+        // mapTypeId: 'terrain'
       });
       let marker = new google.maps.Marker({
         position: myLatLng,
@@ -105,6 +106,7 @@ export class AddingDataComponent {
         this.urlGallery = event.target.result;
       }
       reader.readAsDataURL(event.target.files[0]);
+      this.galleryupload="Upload More"
     }
   }
   AddingData(organization, address, contactDetails, email, AboutOrg, price, select) {
