@@ -1,0 +1,38 @@
+<head>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="statement">
+      Welcome to the PinHome Database, please fill in the form to get satrted with adding your nonprofit organisation to the database.  
+    </div>
+    <div class="form">
+
+      <div class="intro">
+        <h3>Register as an incorporator</h3>
+      </div>
+
+      <input class="text-field" type="text" #fName placeholder="First Name">
+      <input class="text-field" type="text" #sName placeholder="Last Name">
+      <input class="text-field" type="text" #orgName placeholder="Organisation">
+      <input class="text-field" type="text" #email placeholder="Email">
+      <input class="text-field" type="number" #mobile placeholder="Mobile">
+      <input class="text-field" type="number" #tel placeholder="Telephone">
+      <input class="text-field" type="password" #password placeholder="Password">
+      <input class="text-field" type="password" #Confirm placeholder="Confirm Password">
+      <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
+      <div class="button" routerLink="/adding-data">
+        <p>
+          REGISTER
+        </p>
+      </div>
+      <br>
+      <a routerLink="/sign-in">Already have an account?</a>
+    
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  
+</body>
