@@ -1,0 +1,96 @@
+
+<div class="container" *ngFor="let i of Orgs | async">
+  <h1>
+    Your Profile
+  </h1>
+
+  <div align="center">
+    <img class="ProPic" src="../../assets/imgs/11_faces.jpg">
+  </div>
+
+  <div class="bar">
+    <h1 class="h1">Account Details</h1>
+  </div>
+
+  <table class="whole" align="center">
+    <tr>
+      <td class="title">
+        Name :
+      </td>
+      <td class="name">
+        {{i.Firstname}}
+      </td>
+    </tr>
+
+    <tr>
+      <td class="title">
+        Surname :
+      </td>
+      <td class="name">
+        {{i.Lastname}}
+      </td>
+    </tr>
+
+    <tr>
+      <td class="title">
+        Email Adress :
+      </td>
+      <td class="name">
+        {{email}}
+      </td>
+    </tr>
+
+    <tr>
+      <td class="title">
+        Mobile No. :
+      </td>
+      <td class="name">
+        {{i.Mobile}}
+      </td>
+    </tr>
+  </table>
+
+  <div class="bar">
+    <h1 class="h1">Organisation Details</h1>
+  </div>
+
+  <div >
+    <img class="coverPic" src="../../assets/imgs/default-cover.jpg">
+  </div>
+
+  <div align="center" class="logo">
+    <img  class="round2" src="../../assets/imgs/icon.png">
+  </div>
+  
+  <table class="whole2" align="center">
+    <tr>
+      <td class="title">
+        Organisation Name :
+      </td>
+      <td class="name">
+          {{i.OrganisationName}}
+      </td>
+     </tr>
+      <tr>
+        <td class="title">
+          Organisation Cat :
+        </td>
+        <td class="name">
+          Old aged home
+        </td>
+      </tr>
+
+      <tr>
+        <td class="title">
+          Organisation Tel. :
+        </td>
+        <td class="name">
+          {{i.Telephone}}
+        </td>
+      </tr>  
+  </table>
+
+  
+</div>
+
+

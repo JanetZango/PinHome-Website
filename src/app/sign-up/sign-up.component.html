@@ -23,7 +23,7 @@
       <input class="text-field" type="password" #password placeholder="Password">
       <input class="text-field" type="password" #Confirm placeholder="Confirm Password">
       <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
-      <div class="button" routerLink="/adding-data">
+      <div class="button" routerLink="/adding-data" (click)="register(fName.value, sName.value,orgName.value,email.value,mobile.value,tel.value,password.value,Confirm.value)">
         <p>
           REGISTER
         </p>
