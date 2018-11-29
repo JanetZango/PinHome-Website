@@ -4,12 +4,20 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 
   orgDetails: AngularFireList<any>;
  Orgs: Observable<any[]>
@@ -27,6 +35,7 @@ export class ProfileComponent implements OnInit {
       changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))));
      });
   }
+
 
 
 

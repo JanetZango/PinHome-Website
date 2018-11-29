@@ -11,12 +11,15 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 
+
 export const router: Routes = [
-    { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+    { path: '', redirectTo: 'profile', pathMatch: 'full' },
     { path: 'adding-data', component: AddingDataComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent },
+
     {path: 'profile', component: ProfileComponent}
+
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
