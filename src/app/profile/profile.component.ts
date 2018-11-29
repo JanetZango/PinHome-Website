@@ -13,21 +13,21 @@ import { map } from 'rxjs/operators';
 export class ProfileComponent implements OnInit {
 
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+ 
 
   orgDetails: AngularFireList<any>;
  Orgs: Observable<any[]>
  userId;
  dbPath
+ email;
   constructor(private authen : AngularFireAuth, private db: AngularFireDatabase) { }
 
   ngOnInit() {
     this.authen.authState.subscribe(data =>{
       this.userId =  data.uid;
+      console.log(data.uid)
+      this.email = data.email;
+      console.log(this.email)
       this.dbPath =  'Websiteprofiles/' + this.userId; 
       this.orgDetails= this.db.list(this.dbPath);
       this.Orgs = this.orgDetails.snapshotChanges().pipe(
