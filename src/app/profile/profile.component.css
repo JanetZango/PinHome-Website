@@ -1,0 +1,91 @@
+.container{
+    position: absolute;
+    color: black;
+    width: 60vw;
+    height: 135vh;
+    border: 8px solid #20676e;
+    /* margin-left: 20vw; */
+    left: 50%;
+    transform: translateX(-53%);
+    background-color: rgb(225, 226, 224);
+}
+
+h1{
+    color: #20676e;
+    font-weight: 100;
+    text-align: center;
+}
+
+.h1{
+    color: white;
+    font-weight: 100;
+}
+
+.round{
+    border: solid 8px #20676e6e;
+    width: 150px;
+    height: 150px;
+    border-radius: 250px;
+}
+
+.ProPic{
+    width: 150px;
+    height: 150px;
+    border-radius: 250px;
+}
+
+.bar{
+    /* height: vh; */
+    background-color: #20676e;
+    position: relative;
+    top: 20px;
+}
+
+p{
+    text-align: left;
+    font-size: 2em;
+    font-weight: 100;
+    color: rgb(0, 0, 0);
+    padding: 10px
+}
+
+.whole{
+    /* border: solid 2px #20676e; */
+    width: 40vw;
+    position: relative;
+    top: 10px;
+}
+.whole2{
+    /* border: solid 2px #20676e; */
+    width: 40vw;
+    position: relative;
+    bottom: 50px;
+}
+.title{
+    font-size: 1.5em;
+}
+
+.name{
+    font-size: 1.5em;
+    text-align: right;
+}
+
+.coverPic{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* border: #20676e solid 2px; */
+}
+
+.round2{
+    width: 150px;
+    height: 150px;
+    border-radius: 250px;
+    position: relative;
+    bottom: 50px;
+}
+
+.logo{
+    /* border: #20676e solid */
+}
+

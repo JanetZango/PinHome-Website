@@ -12,6 +12,7 @@ import { AddingDataComponent } from './adding-data/adding-data.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { GreetingComponent } from './greeting/greeting.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { GreetingComponent } from './greeting/greeting.component';
     SignUpComponent,
     SignInComponent,
     GreetingComponent,
+    ProfileComponent,
 
 
   ],
