@@ -17,13 +17,13 @@
         <input class="text-field" type="password" #password placeholder="Password">
         <div class="forgot">Forgot Password</div>
         <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
-        <div class="button"  routerLink="/adding-data">
-          <p>
-            REGISTER
+        <div class="button"  routerLink="/adding-data" (click)="login(email.value,password.value)">
+          <p> 
+            Login
           </p>
         </div>
         <br>
-        <a routerLink="/sign-up">I am new here</a>
+        <a routerLink="/sign-up">Register here</a>
       </div>
     </div>
     
