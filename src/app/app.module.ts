@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { routes } from './app.router';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 
@@ -30,7 +31,9 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     routes,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
