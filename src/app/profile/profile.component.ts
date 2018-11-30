@@ -12,9 +12,6 @@ import { map } from 'rxjs/operators';
 })
 export class ProfileComponent implements OnInit {
 
-
- 
-
   orgDetails: AngularFireList<any>;
  Orgs: Observable<any[]>
  userId;

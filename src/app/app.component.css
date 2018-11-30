@@ -21,6 +21,14 @@
     background: #13b8ca7a;
     border-radius: 50px;
 }
+.DP{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 15%;
+    right: 5%;
+}
 @media screen and (max-width: 420px){
     .theBody{
         box-shadow: 0 5px 10px grey;
@@ -41,7 +49,7 @@
     }
     .icon{
         margin-top: 5px;
-        height: 70px;
+        height: 55px;
         background: #13b8ca7a;
         border-radius: 50px;
     }
