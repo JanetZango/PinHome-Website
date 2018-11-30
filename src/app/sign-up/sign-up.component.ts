@@ -33,6 +33,7 @@ export class SignUpComponent implements OnInit {
             OrganisationName: orgName,
             Mobile: mobile,
             Telephone:tel});   
+            alert('u have logged in')
           })},
           error => 
           {

@@ -23,7 +23,9 @@ export class SignInComponent implements OnInit {
          this.results = this.authen.authState.subscribe(data =>{
           this.userId =  data.uid;
           // accpt(data)
+          alert('u have logged in')
           console.log(data);
+      
           })}, 
           error => 
           {
