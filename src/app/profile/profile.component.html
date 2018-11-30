@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" *ngFor="let i of Orgs | async">
   <h1>
     Your Acccount
   </h1>
@@ -18,7 +18,7 @@
         Name :
       </td>
       <td class="name">
-        Lebogang
+        {{i.Firstname}}
       </td>
     </tr>
 
@@ -27,7 +27,7 @@
         Surname :
       </td>
       <td class="name">
-        Thipenyane
+        {{i.Lastname}}
       </td>
     </tr>
 
@@ -36,7 +36,7 @@
         Email Adress :
       </td>
       <td class="name">
-        lebothipenyane@gmail.com
+        {{email}}
       </td>
     </tr>
 
@@ -45,7 +45,7 @@
         Mobile No. :
       </td>
       <td class="name">
-        074 905 4945
+        {{i.Mobile}}
       </td>
     </tr>
   </table>
@@ -68,7 +68,7 @@
         Organisation Name:
       </td>
       <td class="name">
-        Little Rose
+          {{i.OrganisationName}}
       </td>
      </tr>
       <tr>
@@ -76,7 +76,7 @@
           Organisation Cat :
         </td>
         <td class="name">
-          Orphanage Home
+          Old aged home
         </td>
       </tr>
 
@@ -85,7 +85,7 @@
           Organisation Tel. :
         </td>
         <td class="name">
-          011 846 2493
+          {{i.Telephone}}
         </td>
       </tr>  
   </table>
@@ -94,11 +94,4 @@
 </div>
 
 
-<div *ngFor="let i of Orgs | async">
-  <p>{{i.Firstname}}</p>
-  <p>{{i.Lastname}}</p>
-  <p>{{i.Mobile}}</p>
-  <p>{{i.OrganisationName}}</p>
-  <p>{{i.Telephone}}</p>
-</div>
 
