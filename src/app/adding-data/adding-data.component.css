@@ -36,7 +36,7 @@
   }
   
   .container{
-    background: url("../../assets/imgs/12.jpg");
+    background: url("../../assets/imgs/theHand.jpg");
     background-size: cover;
     background-position: center;
     width: 99vw;
@@ -68,7 +68,7 @@ p{
 }
 .inputs{
     width: 100%;
-    background: white;
+    background: rgba(255, 255, 255, 0.719);
     padding: 10px;
     margin-left: -10px;
     box-shadow: 0 5px 10px grey;
@@ -82,8 +82,9 @@ p{
     border: 1px solid #136a74;
     border-radius: 5px;
     box-shadow: 0 5px 10px  #136a7441;
-    background-color: #84919265;
-    color: #136a74;
+    background-color: #8491928c;
+    color: #000000;
+    font-weight: bold;
     
 }
 .overlay{
@@ -110,7 +111,8 @@ p{
     box-shadow: 0 5px 10px  #136a7441;
     border-radius: 5px;
     background-color: #84919265;
-    color: #136a74;
+    color: #000000;
+    font-weight: bold;
 }
 select{
     background: rgb(201, 201, 201);
@@ -128,7 +130,8 @@ select{
     border: 1px solid #136a74;
     border-radius: 5px;
     background-color: #84919265;
-    color: #136a74;
+    color: #000000;
+    font-weight: bold;
 }
 .sep{
     display: flex;
