@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" *ngFor="let i of Orgs | async">
   <h1>
     Your Acccount
   </h1>
@@ -18,7 +18,7 @@
         Name :
       </td>
       <td class="name">
-        Lebogang
+        {{i.Firstname}}
       </td>
     </tr>
 
@@ -27,7 +27,7 @@
         Surname :
       </td>
       <td class="name">
-        Thipenyane
+        {{i.Lastname}}
       </td>
     </tr>
 
@@ -36,7 +36,7 @@
         Email Adress :
       </td>
       <td class="name">
-        lebothipenyane@gmail.com
+        {{email}}
       </td>
     </tr>
 
@@ -45,7 +45,7 @@
         Mobile No. :
       </td>
       <td class="name">
-        074 905 4945
+        {{i.Mobile}}
       </td>
     </tr>
   </table>
@@ -67,16 +67,26 @@
       <td class="title">
         Organisation Name:
       </td>
+<<<<<<< HEAD
       <td class="name2">
         Little Rose
+=======
+      <td class="name">
+          {{i.OrganisationName}}
+>>>>>>> 0a4c6d7b36bb4b922573f859d98a156f56cf2548
       </td>
      </tr>
       <tr>
         <td class="title">
           Organisation Cat :
         </td>
+<<<<<<< HEAD
         <td class="name2">
           Orphanage Home
+=======
+        <td class="name">
+          Old aged home
+>>>>>>> 0a4c6d7b36bb4b922573f859d98a156f56cf2548
         </td>
       </tr>
 
@@ -84,8 +94,13 @@
         <td class="title">
           Organisation Tel. :
         </td>
+<<<<<<< HEAD
         <td class="name2">
           011 846 2493
+=======
+        <td class="name">
+          {{i.Telephone}}
+>>>>>>> 0a4c6d7b36bb4b922573f859d98a156f56cf2548
         </td>
       </tr>  
   </table>
@@ -94,11 +109,4 @@
 </div>
 
 
-<div *ngFor="let i of Orgs | async">
-  <p>{{i.Firstname}}</p>
-  <p>{{i.Lastname}}</p>
-  <p>{{i.Mobile}}</p>
-  <p>{{i.OrganisationName}}</p>
-  <p>{{i.Telephone}}</p>
-</div>
 

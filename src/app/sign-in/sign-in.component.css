@@ -11,6 +11,9 @@
     margin-top: 20px;
     transition: 400ms;
 }
+.forgot{
+    padding-top: 10px;
+}
 .form{
     background: whitesmoke;
     width: 90%;
