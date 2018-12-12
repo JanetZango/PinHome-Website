@@ -61,13 +61,26 @@ p{
     position: relative;
     bottom: 50px;
 }
+/* td{
+    border: 2px solid red
+} */
 .title{
     font-size: 1.5em;
 }
 
 .name{
     font-size: 1.5em;
-    text-align: right;
+    text-align: left;
+    position: relative;
+    left: 20%;
+
+}
+
+.name2{
+    font-size: 1.5em;
+    text-align: left;
+    position: relative;
+    left: 12px;
 }
 
 .coverPic{
@@ -87,5 +100,107 @@ p{
 
 .logo{
     /* border: #20676e solid */
+}
+
+
+
+@media screen and (max-width : 500px){
+
+    .container{
+        position: absolute;
+        color: black;
+        width: 109%;
+        height: 125vh;
+        /* border: 8px solid #20676e; */
+        /* margin-left: 20vw; */
+        left: 53%;
+        transform: translateX(-53%);
+        background-color: rgb(225, 226, 224);
+        position: relative;
+        top: 20px;
+    }
+    
+    h1{
+        color: #20676e;
+        font-weight: 100;
+        text-align: center;
+    }
+    
+    .h1{
+        color: white;
+        font-weight: 100;
+    }
+    
+    .round{
+        /* border: solid 8px #20676e6e; */
+        width: 100px;
+        height: 100px;
+        border-radius: 250px;
+    }
+    
+    .ProPic{
+        width: 150px;
+        height: 150px;
+        border-radius: 250px;
+    }
+    
+    .bar{
+        /* height: vh; */
+        background-color: #20676e;
+        position: relative;
+        top: 20px;
+    }
+    
+    p{
+        text-align: left;
+        font-size: 2em;
+        font-weight: 100;
+        color: rgb(0, 0, 0);
+        padding: 10px
+    }
+    
+    .whole{
+        /* border: solid 2px #20676e; */
+        width: 100vw;
+        position: relative;
+        top: 10px;
+    }
+    .whole2{
+      /* border: solid 2px #20676e; */
+      width: 100vw;
+      position: relative;
+      top: -40px;
+    }
+    .title{
+        font-size: 1.2em;
+    }
+    
+    .name{
+        font-size: 1.2em;
+        text-align: left;
+        position: relative;
+        left: 10%;
+    }
+    
+    .coverPic{
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        /* border: #20676e solid 2px; */
+    }
+    
+    .round2{
+        width: 120px;
+        height: 120px;
+        border-radius: 250px;
+        position: relative;
+        bottom: 50px;
+    }
+    
+    .logo{
+        /* border: #20676e solid */
+    }
+    
+
 }
 
