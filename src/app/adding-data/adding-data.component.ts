@@ -127,7 +127,7 @@ export class AddingDataComponent {
         longitude: data.lng,
         latitude: data.lat
       });
- 
+      alert('Data has been added ')
     })
   }
 }

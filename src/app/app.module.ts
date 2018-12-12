@@ -14,8 +14,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { ProfileComponent } from './profile/profile.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
