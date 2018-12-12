@@ -3,8 +3,8 @@
 </head>
 
 <body>
+  <div class="content">
   <div class="container">
-
     <div class="statement">
       Welcome to the PinHome Database, please fill in the form to get satrted with adding your nonprofit organisation to the database.  
     </div>
@@ -14,13 +14,13 @@
         <h3>Register as an incorporator</h3>
       </div>
 
-      <input class="text-field" type="text" #fName placeholder="First Name">
-      <input class="text-field" type="text" #sName placeholder="Last Name">
-      <input class="text-field" type="text" #orgName placeholder="Organisation">
-      <input class="text-field" type="text" #email placeholder="Email">
-      <input class="text-field" type="number" #mobile placeholder="Mobile">
-      <input class="text-field" type="number" #tel placeholder="Telephone">
-      <input class="text-field" type="password" #password placeholder="Password">
+      <input class="text-field" type="text" #fName placeholder="First Name"><br>
+      <input class="text-field" type="text" #sName placeholder="Last Name"><br>
+      <input class="text-field" type="text" #orgName placeholder="Organisation"><br>
+      <input class="text-field" type="text" #email placeholder="Email"><br>
+      <input class="text-field" type="number" #mobile placeholder="Mobile"><br>
+      <input class="text-field" type="number" #tel placeholder="Telephone"><br>
+      <input class="text-field" type="password" #password placeholder="Password"><br>
       <input class="text-field" type="password" #Confirm placeholder="Confirm Password">
       <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
       <div class="button" routerLink="/adding-data" (click)="register(fName.value, sName.value,orgName.value,email.value,mobile.value,tel.value,password.value,Confirm.value)">
@@ -34,5 +34,5 @@
     </div>
     <router-outlet></router-outlet>
   </div>
-  
+</div>
 </body>
