@@ -1,35 +1,123 @@
 .theBody{
-    box-shadow: 0 5px 10px grey;
+    position: sticky;
+    box-shadow: 0 1px 1px black;
     padding-left: 10px;
     padding-top: 1px;
     padding-right: 10px;
-    height: 100%;
-    position: relative;
+    /* height: 100%; */
+    /* position: relative; */
     background: #136a74;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    width: 100vw;
-    margin-left: -10px;
-    margin-top: -10px;
+    width: 99%;
+    /* height: 100vh; */
+    margin: 0 auto;
+    /* margin-left: -10px;
+    margin-top: -10px; */
+}
+h1{
+    font-size: 30px;
+    margin-top: 25px;
+    margin-left: 80px;
+    position: absolute;
+    
+}
+.topContainer{
+    /* border: 2px solid red; */
+    height: 90px;
+}
+.signInUp{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .header{
     display: flex;
+    margin: 0 auto;
+    /* border: 2px solid blue; */
+    width: 80%;
 }
 .icon{
     margin-top: 5px;
-    height: 70px;
-    background: #13b8ca7a;
-    border-radius: 50px;
+    margin-left: 20px;
+    height: 60px;
+    /* background: #13b8ca7a; */
+    /* border-radius: 50px; */
+}
+a{
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: 14px;
 }
 .DP{
     width: 50px;
     height: 50px;
     border-radius: 50px;
     position: absolute;
-    top: 15%;
-    right: 5%;
+    top: 10px;
+    right: 12%;
 }
-@media screen and (max-width: 420px){
+.links{
+    /* border: 2px solid red; */
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    padding-bottom: 5px;
+}
+
+.greeting{
+    height: 100vh;
+    width: 100vw;
+    margin-left: -20px;
+    /* border: 2px solid white; */
+    background-image: url("../assets/imgs/12.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+.welcMessage{
+    /* border: 2px solid; */
+    text-align: center;
+    padding-top: 30vh;
+    color: white;
+    font-size: 25px
+}
+.theButton{
+    width: 150px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+    transition: 500ms;
+}
+.theButton:hover{
+    width: 150px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.24);
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+.theButton:active{
+    width: 150px;
+    height: 30px;
+    background: white;
+    color: black;
+    /* border: 3px solid white; */
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+/* @media screen and (max-width: 420px){
     .theBody{
         box-shadow: 0 5px 10px grey;
         padding-left: 10px;
@@ -60,4 +148,4 @@
         transform: translateY(-75%);
         font-size: 20px;
     }
-}
+} */

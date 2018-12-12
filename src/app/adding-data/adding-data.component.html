@@ -5,7 +5,6 @@
 <body>
   <div class="container">
     <div class="theBody">
-      <button routerLink="/profile" >profile</button>
       <h3>Organization Details</h3>
       <p>The details entered will be stored to PinHome's database and will be accessible through the PinHome app that can be
         found in Android PlayStore &trade;</p>
@@ -17,16 +16,16 @@
             <input type="file" accept="image/*" (change)="InsertPicture($event)" id="theCover">
           </div>
           <div class="theCover">
-          <div class="DP">
+            <div class="DP">
               <div class="logoUpload">
                 <label id="lblForLogo" for="logo">{{logoPhoto}}</label>
                 <input type="file" accept="image/*" (change)="InsertLogo($event)" id="logo">
               </div>
               <div class="theImage">
                 <img class="theLogo" src={{urlLogo}} alt="">
-              </div>            
+              </div>
             </div>
-          <img class="cover" src={{urlCover}} alt="">
+            <img class="cover" src={{urlCover}} alt="">
           </div>
         </div>
         <br>
@@ -36,9 +35,8 @@
           <input #contactDetails class="org" placeholder="Phone" type="number">
           <input #email class="org" placeholder="Email" type="email">
           <br>
-          <input id="address" placeholder="Physical Address" class="orgHeight" rows="4" #address (change)="initMap(address.value)"
-            type="text">
-          <textarea rows="4" class="orgHeight" #AboutOrg placeholder="Description" type="text"></textarea>
+          <input id="address" placeholder="Physical Address" class="orgHeight" #address (change)="initMap(address.value)" type="text">
+          <input class="orgHeight" #AboutOrg placeholder="Description" type="text">
           <select #select class="org-wide-select" style="margin-top: 10px">
             <option value="Orphanage">Orphanage</option>
             <option value="Disability">Disability</option>
@@ -48,27 +46,39 @@
             <option value="social centre">Social Centre</option>
             <option value="Rehab">Rehab</option>
           </select>
-          <div id="map"></div><br>
-          <div class="pricing">
-            <label for="pricer">R  </label>
-            <input type="number" #price id="pricer">
+          <div class="myCover">
+            <div class="overlay">
+            </div>
+            <div id="map">
           </div>
+          </div>
+          <br>
           <div class="uploads">
-          <div class="statement">
-            <p class="wordUploads" align="center">Gallery</p>
-          </div>
+            <div class="statement">
+              <p class="wordUploads" align="center">Gallery</p>
+            </div>
 
 
           </div>
           <div class="gal">
-            <label for="theGal" id="galInput">Upload Images</label>
-            <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)"><br>
+            <label for="theGal" id="galInput">
+              <i class="material-icons">camera</i> Upload Photo
+            </label>
+            <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)">
+            <br>
             <img class="galImg" src="{{urlGallery}}" alt="">
           </div>
         </div>
-      <button class="submitter" (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value)">Save Data</button>
+        <button class="submitter" (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value)">Save Data</button>
       </div>
 
     </div>
   </div>
 </body>
+
+<!-- <head>
+
+</head>
+<body class="theBody">
+  
+</body> -->

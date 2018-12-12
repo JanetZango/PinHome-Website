@@ -1,13 +1,30 @@
 <body class="theBody">
-    <div class="header">
-        <img class="icon" src="../assets/imgs/PinHome icon.png" alt="">
-        <h1>PinHome Database</h1>
+    <div class="topContainer">
+        <div class="header">
+            <img class="icon" (click)="show()" src="../assets/imgs/PinHome icon.png" alt="">
+            <h1>PinHome Database</h1>
+        </div>
+        <div class="profile" routerLink="profile">
+            <img class="DP" src="../assets/imgs/Dp.jpg" alt="">
+        </div>
+        <div class="links">
+            <a routerLink="sign-in">Register Organisation</a>
+            <div class="signInUp">
+                <a routerLink="sign-in">Sign In</a> |
+                <a routerLink="sign-up">Sign Up</a>
+            </div>
+        </div>
     </div>
-    <div class="profile">
-        <img class="DP" src="../assets/imgs/Dp.jpg" alt="">
-    </div>
-    <div>
-        <!-- <a routerLink="sign-in">Register Organisation</a>   -->
+
+    <div class="greeting">
+
+        <div class="message">
+            <h4 class="welcMessage">Welcome! Click Start </h4>
+            <div class="theButton">
+                <a routerLink="sign-in" (click)="show()">START</a>
+            </div>
+        </div>
+
     </div>
     <router-outlet></router-outlet>
 </body>
