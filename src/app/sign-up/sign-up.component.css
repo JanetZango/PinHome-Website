@@ -1,4 +1,7 @@
-
+p{
+    position: relative;
+    margin-top:10px;
+}
 h3{ 
     color: #136a74;
         font-weight: 100;

@@ -1,4 +1,12 @@
-
+p{
+    position: relative;
+    margin-top:10px;
+}
+.theTable{
+    /* border: red solid 2px; */
+    position: relative;
+    left:45px
+}
 h3{
     color: #136a74;
     font-weight: 100;
@@ -64,13 +72,13 @@ h3{
     /* height: 40px; */
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 5px;
+    padding-left: 20px;
     padding-right: 5px;
     border-radius: 50px;
     transition: 400ms;
     border: 1px solid #136a74;
     background-color: #84919265;
-    color: white;
+    color: black;
     
 }
 .intro{

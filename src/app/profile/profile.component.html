@@ -1,11 +1,11 @@
-
+<div class="content">
 <div class="container" *ngFor="let i of Orgs | async">
   <h1>
     Your Acccount
   </h1>
 
   <div align="center">
-    <img class="ProPic" src="../../assets/imgs/11_faces.jpg">
+    <img class="ProPic" src="{{i.downloadurl}}">
   </div>
 
   <div class="bar">
@@ -67,8 +67,8 @@
       <td class="title">
         Organisation Name:
       </td>
-      <td class="name">
-          {{i.OrganisationName}}
+      <td class="name2">
+        Little Rose
       </td>
      </tr>
       <tr>
@@ -89,9 +89,5 @@
         </td>
       </tr>  
   </table>
-
-  
 </div>
-
-
-
+</div>
