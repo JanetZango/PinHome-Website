@@ -1,28 +1,25 @@
-<head>
-</head>
 <body>
   <div class="content">
-  <div class="container">
-    <div class="statement">
-      Welcome! Please fill in the details to sign in
-    </div>
-    <div class="form">
-      <div class="intro">
-        <h3>Login as an incorporator</h3>
+    <div class="container">
+      <div class="statement">
+        Welcome! Please fill in the details to sign in
       </div>
-      <input class="text-field" type="text" #email placeholder="Email"><br>
-      <input class="text-field" type="password" #password placeholder="Password">
-      <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
-      <div class="button" (click)="login(email.value, password.value)">
-        <p class="P">
-          SIGN IN
-        </p>
-      </div>
-      <br>
-       <!-- <a routerLink="/sign-up">Sign Up</a> -->
+      <div class="form">
+        <div class="intro">
+          <h3>Login as an incorporator</h3>
+        </div>
+        <input class="text-field" type="text" #email placeholder="Email">
+        <br>
+        <input class="text-field" type="password" #password placeholder="Password">
+        <div class="space"></div>
+        <div class="button" (click)="login(email.value, password.value)">
+          <p class="P">
+            SIGN IN
+          </p>
+        </div>
+        <br>
         <a href="" (click)="forgotpassword(email.value)">Forgot Password</a>
+      </div>
     </div>
   </div>
-</div>
-
 </body>
