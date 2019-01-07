@@ -20,38 +20,32 @@
     transform: translateX(-53%);
     background-color: rgba(225, 226, 224, 0.527);
 }
-
 h1{
     color: #20676e;
     font-weight: 100;
     text-align: center;
 }
-
 .h1{
     color: white;
     font-weight: 100;
 }
-
 .round{
     border: solid 8px #20676e6e;
     width: 150px;
     height: 150px;
     border-radius: 250px;
 }
-
 .ProPic{
     width: 150px;
     height: 150px;
     border-radius: 250px;
 }
-
 .bar{
     /* height: vh; */
     background-color: #20676e;
     position: relative;
     top: 20px;
 }
-
 p{
     text-align: left;
     font-size: 2em;
@@ -59,7 +53,6 @@ p{
     color: rgb(0, 0, 0);
     padding: 10px
 }
-
 .whole{
     /* border: solid 2px #20676e; */
     width: 40vw;
@@ -78,29 +71,24 @@ p{
 .title{
     font-size: 1.5em;
 }
-
 .name{
     font-size: 1.5em;
     text-align: left;
     position: relative;
     left: 20%;
-
 }
-
 .name2{
     font-size: 1.5em;
     text-align: left;
     position: relative;
     left: 12px;
 }
-
 .coverPic{
     width: 100%;
     height: 250px;
     object-fit: cover;
     /* border: #20676e solid 2px; */
 }
-
 .round2{
     width: 150px;
     height: 150px;
@@ -108,13 +96,9 @@ p{
     position: relative;
     bottom: 50px;
 }
-
 .logo{
     /* border: #20676e solid */
 }
-
-
-
 @media screen and (max-width : 500px){
     .content{
         height: 140vh;
@@ -223,6 +207,4 @@ p{
         /* border: #20676e solid */
     }
     
-
 }
-

@@ -11,5 +11,13 @@ export class AppComponent {
   url: any;
 
 
+  show(){
+    alert('message');
+
+    var greet = document.getElementsByClassName("greeting") as HTMLCollectionOf <HTMLElement>;
+
+    greet[0].style.display = "none";
+  }
+
  
 }

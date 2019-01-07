@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 
+
 export const router: Routes = [
     { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
     { path: 'adding-data', component: AddingDataComponent },
