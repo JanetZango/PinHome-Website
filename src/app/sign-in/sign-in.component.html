@@ -15,9 +15,6 @@
       </div>
       <input class="text-field" type="text" #email placeholder="Email"><br>
       <input class="text-field" type="password" #password placeholder="Password">
-      <div class="forgot">
-        <a href="">Forgot Password</a>
-      </div>
       <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
       <div class="button" routerLink="/adding-data">
         <p>
@@ -25,6 +22,9 @@
         </p>
       </div>
       <br>
+      <div class="forgot">
+          <button (click)="forgotpassword(email.value)">Forgot Password</button>
+        </div>
      
     </div>
   </div>

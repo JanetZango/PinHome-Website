@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import { error } from 'util';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -31,4 +33,21 @@ export class SignInComponent implements OnInit {
           })
     })
   }
+
+  forgotpassword(email: string){
+    return new  Promise<void>((resolve, reject)=>{
+      this.authen.auth.sendPasswordResetEmail(email).then(()=>{
+     alert("Check your email")
+      }, Error =>{
+        alert("Something went wrong.")
+      });
+    
+    })
+    
+   
+    
+   
+  }
+
+
 }
