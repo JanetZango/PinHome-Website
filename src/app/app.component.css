@@ -57,6 +57,7 @@ a{
     height: 50px;
     border-radius: 50px;
     position: absolute;
+
     top: 10px;
     right: 12%;
 }
@@ -116,6 +117,7 @@ a{
     text-align: center;
     padding-top: 15px;
     margin: 0 auto;
+
 }
 /* @media screen and (max-width: 420px){
     .theBody{
