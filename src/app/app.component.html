@@ -4,14 +4,14 @@
             <img class="icon" (click)="show()" src="../assets/imgs/PinHome icon.png" alt="">
             <h1>PinHome Database</h1>
         </div>
-        <div class="profile" routerLink="profile">
-            <img class="DP" src="../assets/imgs/Dp.jpg" alt="">
+        <div class="profile" (click)="profile()" >
+            <img class="DP" src="{{img}}" alt="">
         </div>
         <div class="links">
             <a routerLink="sign-in">Register Organisation</a>
             <div class="signInUp">
-                <a routerLink="sign-in">Sign In</a> |
-                <a routerLink="sign-up">Sign Up</a>
+                <a routerLink="sign-in">{{sign}}</a> |
+                <a routerLink="sign-up">{{sign2}}</a>
             </div>
         </div>
     </div>
