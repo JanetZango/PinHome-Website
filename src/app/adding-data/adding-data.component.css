@@ -32,6 +32,10 @@
   
     font-feature-settings: 'liga';
   }
+  .CoverShadow{
+    text-shadow: 0px 0px 10px black
+  }
+
   body{
       /* background: rgba(255, 0, 0, 0.438); */
       background-size: cover;
@@ -42,10 +46,11 @@
     background-size: cover;
     background-position: center;
     width: 100vw;
-    height: 120vh;
+    height: 160vh;
+    margin-top: -6px;
     /* margin: 0 auto; */
-    margin-left: 50%;
-    transform: translateX(-51%)
+    margin-left: 49%;
+    transform: translateX(-49%)
 }
 h1,h3{
     color:black;
@@ -63,6 +68,7 @@ h3{
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    
     
 
 }
@@ -178,7 +184,7 @@ select{
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    background:   #136a747c;
+    background:   #136a743b;
     border-radius: 7px;
     box-shadow: 0 0 10px rgb(177, 177, 177);
     transition: 100ms;
@@ -209,7 +215,7 @@ select{
     height: 150px;
     width: 150px;
     object-fit: cover;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 150px;
 }
 .theImage{
@@ -218,6 +224,7 @@ select{
     border-radius: 150px;
     text-align: center;
     margin: 0 auto;
+    /* box-shadow: 0px 0px 10px #136a74; */
 
 }
 .myCover{
@@ -250,7 +257,7 @@ select{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background:  #136a743d;
+    background:  #136a7431;
     border-radius: 5px;
     transition: 300ms;
     padding-bottom: 10px;
@@ -398,4 +405,41 @@ body{
     height: 100vh;
     left: 35%;
     transform: translateX(-20%);
+}
+
+@media screen and (max-width: 420px){
+    .container{
+        background: url("../../assets/imgs/theHand.jpg");
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 200vh;
+        /* margin: 0 auto; */
+        margin-left: 46%;
+        margin-top: -1.6%;
+        transform: translateX(-51%)
+    }
+
+    .inputs{
+        width: 110%;
+        background: rgba(245, 245, 245, 0.63);
+        padding: 10px;
+        margin-left: -60px;
+        box-shadow: 0 5px 10px grey;
+        /* margin-right: 10px; */
+    }
+
+    h3{
+        text-decoration: underline;
+        color: white;
+        padding-right: 60px;
+        padding-bottom: 20px;
+    }
+
+    p{
+        padding-right: 60px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: white;
+    }
 }
