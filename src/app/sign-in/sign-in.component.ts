@@ -34,17 +34,6 @@ export class SignInComponent implements OnInit {
           })
   }
 
-
-    forgotpassword(email: string){
-    return new  Promise<void>((resolve, reject)=>{
-      this.authen.auth.sendPasswordResetEmail(email).then(()=>{
-     alert("Check your email")
-      }, Error =>{
-        alert("Opp something went wrong.")
-      });
-    })
-  }
-
   forgotpassword(email: string){
     return new  Promise<void>((resolve, reject)=>{
       this.authen.auth.sendPasswordResetEmail(email).then(()=>{
