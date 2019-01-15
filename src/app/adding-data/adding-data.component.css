@@ -362,3 +362,40 @@ body{
     left: 35%;
     transform: translateX(-20%);
 }
+
+@media screen and (max-width: 420px){
+    .container{
+        background: url("../../assets/imgs/theHand.jpg");
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 200vh;
+        /* margin: 0 auto; */
+        margin-left: 46%;
+        margin-top: -1.6%;
+        transform: translateX(-51%)
+    }
+
+    .inputs{
+        width: 110%;
+        background: rgba(245, 245, 245, 0.63);
+        padding: 10px;
+        margin-left: -60px;
+        box-shadow: 0 5px 10px grey;
+        /* margin-right: 10px; */
+    }
+
+    h3{
+        text-decoration: underline;
+        color: white;
+        padding-right: 60px;
+        padding-bottom: 20px;
+    }
+
+    p{
+        padding-right: 60px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: white;
+    }
+}
