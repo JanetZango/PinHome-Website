@@ -1,12 +1,13 @@
 .theBody{
     position: sticky;
     box-shadow: 0 1px 1px black;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     padding-top: 1px;
-    padding-right: 10px;
+    /* padding-right: 10px; */
     /* height: 100%; */
     /* position: relative; */
     background: #136a74;
+    transform: translateX(-1%);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     width: 100vw;
@@ -25,6 +26,8 @@ h1{
 .topContainer{
     /* border: 2px solid red; */
     height: 90px;
+    width: 90%;
+    /* border: 2px solid red */
 }
 .signInUp{
     position: absolute;
@@ -71,7 +74,7 @@ a{
 
 .greeting{
     height: 100vh;
-    width: 100vw;
+    width: 90vw;
     margin-left: -20px;
     /* border: 2px solid white; */
     background-image: url("../assets/imgs/12.jpg");
@@ -83,7 +86,7 @@ a{
 .welcMessage{
     /* border: 2px solid; */
     text-align: center;
-    padding-top: 30vh;
+    padding-top: -50vh;
     color: white;
     font-size: 25px
 }
@@ -119,6 +122,21 @@ a{
     margin: 0 auto;
 
 }
+
+.Reg{
+    position: absolute;
+    left: 2%;
+    bottom: -18px;
+    z-index: 100000;
+}
+
+.signInUp{
+    position: absolute;
+    right: -165px;
+    top:5px;
+    z-index: 1000000;
+}
+
 @media screen and (max-width: 420px){
 
     .theBody{

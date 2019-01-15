@@ -11,14 +11,14 @@
       <div class="inputs">
         <div class="cover">
           <div class="uploader">
-            <label color="white" align="center" for="theCover">
+            <label class="CoverShadow" color="white" align="center" for="theCover">
               <i class="material-icons">camera</i> {{coverPhoto}}</label>
             <input type="file" accept="image/*" (change)="InsertPicture($event)" id="theCover">
           </div>
           <div class="theCover">
             <div class="DP">
               <div class="logoUpload">
-                <label id="lblForLogo" for="logo">{{logoPhoto}}</label>
+                <label class="CoverShadow" id="lblForLogo" for="logo">{{logoPhoto}}</label>
                 <input type="file" accept="image/*" (change)="InsertLogo($event)" id="logo">
               </div>
               <div class="theImage">
