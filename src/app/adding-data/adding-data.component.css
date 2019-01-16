@@ -80,6 +80,7 @@ h3{
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    /* border: 2px solid red; */
     
     
 
@@ -97,7 +98,7 @@ p{
     /* margin-right: 10px; */
 }
 .org-wide{
-    width: 98.2%;
+    width: 98.8%;
     max-width: 850px;
     height: 25px;
     padding: 5px;
@@ -126,7 +127,7 @@ p{
 .org{
     margin-top: 10px;
     height: 25px;
-    max-width: 410px;
+    max-width: 411px;
     width: 100%;
     padding: 5px;
     border: 1px solid #136a74;
@@ -161,7 +162,9 @@ select{
 .sep{
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-between;
+    /* border: 2px solid green */
 }
 #map{
     height:250px;
