@@ -180,8 +180,10 @@ select{
 }
 .statement{
     width: 100%;
-    background: #13b8ca;
-    height: 50px;
+    /* background: #13b8ca; */
+    /* height: 50px; */
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 .wordUploads{
     padding-top: 15px;
