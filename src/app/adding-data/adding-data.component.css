@@ -457,3 +457,49 @@ body{
         color: white;
     }
 }
+.customAlert{
+    z-index: 1;
+    position: absolute;
+    background: whitesmoke;
+    width: 100%;
+    height: 10%;
+    color: #222;
+    position: relative;
+    top: 50%;
+    left: -100%;
+    box-shadow: 0 5px 15px grey;
+    transition: 300ms;
+}
+.text{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bold;
+}
+.confirmer{
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 5px;
+    transition: 300ms;
+    position: absolute;
+    right: 10%;
+    box-shadow: 0 5px 15px grey;
+}
+.confirmer:active{
+    width: 50px;
+    height: 50px;
+    background: rgb(0, 216, 0);
+    border-radius: 5px;position: absolute;
+    right: 10%;
+    box-shadow: 0 5px 10px black;
+}
+.OK{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}

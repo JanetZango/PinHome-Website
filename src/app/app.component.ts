@@ -46,7 +46,6 @@ export class AppComponent {
 
   show(){
     alert('message');
-
     var greet = document.getElementsByClassName("greeting") as HTMLCollectionOf <HTMLElement>;
     greet[0].style.display = "none";
   }
@@ -56,7 +55,12 @@ export class AppComponent {
       alert('please login first')
     }
     else{
+
       this.router.navigate(['/profile'])
     }
+  }
+  signin(){
+    window.location.reload();
+    this.router.navigate(['/sign-in'])
   }
 }

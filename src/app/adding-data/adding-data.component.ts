@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormsModule} from '@angular/forms' 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { promise } from 'protractor';
@@ -16,15 +17,18 @@ export class AddingDataComponent {
   galleryupload="Upload Images";
   long;
   latitude;
+  name;
   urlCover="../../assets/imgs/default-cover.jpg";
   organization;
-  contactDetails;
+  contacts;
+  message;
+  OrganizationAdress;
   address: any
   lat: any;
   lng;
   urlLogo: any;
   urlGallery: any;
-  email;
+  emailAdd;
   AboutOrg;
   select;
   price;
@@ -109,25 +113,59 @@ export class AddingDataComponent {
       this.galleryupload="Upload More"
     }
   }
-  AddingData(organization, address, contactDetails, email, AboutOrg, price, select) {
-    this.getcoo(address).then((data: any) => {
-      console.log(data.lat);
+  AddingData(event) {
+    
+    let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf <HTMLElement>;
+    let h = window.innerHeight;
+    console.log(this.select);
+  if (this.name == undefined){
+  this.message = "Please enter the name of your organization";
+  }
+  else if (this.contacts == undefined){
+    this.message = "Please enter the contact details of your organization";
+  }
+  else if (this.emailAdd == undefined){
+    this.message = "Please enter the email Address of your organization";
+  }
+  else if (this.OrganizationAdress == undefined){
+    this.message = "Please enter the Physical Address of your organization";
+  }
+  else if (this.AboutOrg == undefined){
+    this.message = "Please enter the description of your organization";
+  }
+  else if (this.select == undefined){
+    this.message = "Please select the type of your organization";
+  }
+  else if (this.logoPhoto !="Choose a different logo"){
+    this.message = "Please upload the logo of your organization";
+  }
+  else {
+    this.getcoo(this.OrganizationAdress).then((data: any) => {
       this.long = data.lat;
-      console.log(this.long);
       this.homelist = this.db.list('OrganizationList');
       this.homelist.push({
-        OrganizationName: organization,
-        OrganizationAdress: address,
-        ContactDetails: contactDetails,
-        Email: email,
-        AboutOrg: AboutOrg,
-        Price: price,
-        Category: select,
+        OrganizationName: this.name,
+        OrganizationAdress: this.OrganizationAdress,
+        ContactDetails: this.contacts,
+        Email: this.emailAdd,
+        AboutOrg: this.AboutOrg,
+        //Price: price,
+        Category: this.select,
         Url: this.urlCover,
         longitude: data.lng,
         latitude: data.lat
       });
- 
+      this.message = "your data has been added"
     })
+  }
+
+    alerter[0].style.top = (h/1.5) + "px";
+    alerter[0].style.left = "0"; 
+  }
+
+  dismissAlert(){
+    let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf <HTMLElement>;
+    alerter[0].style.left = "-100%";
+
   }
 }
