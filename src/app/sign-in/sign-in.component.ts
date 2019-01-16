@@ -17,6 +17,7 @@ export class SignInComponent implements OnInit {
   constructor(private authen : AngularFireAuth, private db: AngularFireDatabase, public router: Router) { }
 
   ngOnInit() {
+    this.authen.auth.signOut();
   }
 
 
