@@ -25,28 +25,37 @@
     </div>
     <div class="container">
       <div class="statement">
-        Welcome to the PinHome Database, please fill in the form to get satrted with adding your nonprofit organisation
+        Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit organisation
         to the database.
       </div>
       <div class="form">
 
         <div class="intro">
-          <h3>Register as an incorporator</h3>
+          <h3 class="theH3">Register as an incorporator</h3>
         </div>
 
         <input class="text-field" type="text" [(ngModel)]="fName" placeholder="First Name"><br>
         <input class="text-field" type="text" [(ngModel)]="sName" placeholder="Last Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="orgName" placeholder="Organisation"><br>
+        <input class="text-field" type="text" [(ngModel)]="orgName" placeholder="Organisation Name"><br>
         <input class="text-field" type="text" [(ngModel)]="email" placeholder="Email"><br>
-        <input class="text-field" type="number" min="1" [(ngModel)]="mobile" placeholder="Mobile" max="9999999999"><br>
-        <input class="text-field" type="number" min="1" [(ngModel)]="tel" placeholder="Telephone"><br>
+        <div class="thePlaceholder">
+          Mobile +27
+        </div>
+        <input class="text-field" type="text" min="1" [(ngModel)]="mobile" placeholder="e.g(81 123 4567)" max="10" id="theText"><br>
+        <div class="thePlaceholder">
+          Tel. +27
+        </div>
+        <input class="text-field" type="text" min="1" [(ngModel)]="tel" placeholder="e.g(11 980 1234)"  max="10" id="theText"><br>
         <input class="text-field" type="password" [(ngModel)]="password" placeholder="Password"><br>
         <input class="text-field" type="password" [(ngModel)]="Confirm" placeholder="Confirm Password">
         <div class="space"></div>
         <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
+        <div class="theBtn">
+
+        </div>
         <div class="button" (click)="register($event)">
           <p>
-            SIGN UP
+            Sign Up
           </p>
         </div>
         <br>
@@ -58,9 +67,7 @@
   </div>
 
   <div class="holder">
-    <div class="or">
-      or
-    </div>
+
     <div class="buttonClick" (click)="goToSignIn()">
       Sign In
     </div>
