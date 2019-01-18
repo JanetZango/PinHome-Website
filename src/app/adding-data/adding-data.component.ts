@@ -62,6 +62,11 @@ export class AddingDataComponent {
       });
     })
   }
+
+  scroll(event){
+    console.log("scrolling");
+    
+  }
   getcoo(address) {
     return new Promise((accpt, rej) => {
       let geocoder = new google.maps.Geocoder();
