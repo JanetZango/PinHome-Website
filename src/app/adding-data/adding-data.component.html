@@ -53,7 +53,7 @@
           <br>
           <textarea id="theAddress" [(ngModel)]="OrganizationAdress" placeholder="Physical Address" class="orgHeight"
             #address (change)="initMap(address.value)" type="text"></textarea>
-          <textarea class="orgHeight" [(ngModel)]="AboutOrg" placeholder="Description" id="about" type="text"></textarea>
+          <textarea class="orgHeight" [(ngModel)]="AboutOrg" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
 
           <select [(ngModel)]="select" class="org-wide-select" id="selector" style="margin-top: 10px">
             <option value="Orphanage">Orphanage</option>

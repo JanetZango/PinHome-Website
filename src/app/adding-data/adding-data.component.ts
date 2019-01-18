@@ -277,6 +277,6 @@ export class AddingDataComponent {
   dismissAlert() {
     let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
     alerter[0].style.left = "-100%";
-
+    this.message = "";
   }
 }
