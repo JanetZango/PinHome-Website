@@ -1,5 +1,5 @@
 .theBody{
-    position: sticky;
+    position: fixed;
     box-shadow: 0 1px 1px black;
     /* padding-left: 10px; */
     padding-top: 1px;
@@ -10,9 +10,10 @@
     transform: translateX(-1%);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    width: 100vw;
+    width: 100.5vw;
     /* height: 100vh; */
     margin: 0 auto;
+    height: 120px;
     /* margin-left: -10px;
     margin-top: -10px; */
 }
@@ -197,4 +198,91 @@ a{
         z-index: 1000000;
     }
 
+}
+.divver{
+        height: 0px;
+}
+
+.customAlert1{
+    z-index: 100000;
+    position: absolute;
+    background: whitesmoke;
+    width: 55%;
+    height: 15vh;
+    color: #222;
+    position: relative;
+    top: 50%;
+    left: -100%;
+    box-shadow: 0 5px 15px grey;
+    transition: 300ms;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.651);
+}
+.text{
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bold;
+}
+.confirmer{
+    width: 50px;
+    height: 50px;
+    background: #136a74;
+    border-radius: 5px;
+    transition: 300ms;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 15px grey;
+}
+.confirmer:active{
+    width: 50px;
+    height: 50px;
+    background: #0f808d;
+    border-radius: 5px;position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 10px black;
+}
+.OK{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}
+
+.buttonClick{
+    position: absolute;
+    right: 5%;
+    bottom: 25%;
+    height: 20px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 150px;
+    /* background: #4e0000; */
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: 200ms;
+}
+.buttonClick:active{
+    position: absolute;
+    right: 5%;
+    bottom: 25%;
+    height: 20px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 150px;
+    background: #940000;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
+    text-align: center;
+    transition: 200ms;
 }

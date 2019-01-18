@@ -1,30 +1,55 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <body class="theBody">
-    <div class="topContainer">
-        <div class="header">
-            <img class="icon" (click)="show()" src="../assets/imgs/PinHome icon.png" alt="">
-            <h1>PinHome Database</h1>
-        </div>
-        <div class="profile" (click)="profile()" >
-            <img class="DP" src="{{img}}" alt="">
-        </div>
-        <div class="links">
-            <a routerLink="sign-in" class="Reg">Register Organisation</a>
-            <div class="signInUp">
-                <a (click)="signin()">{{sign}}</a> |
-                <a routerLink="sign-up">{{sign2}}</a>
+    <div class="everything">
+            <div class="buttonClick" (click)="signOut()">
+                    Sign Out
+                  </div>
+    
+        
+    
+        <div class="topContainer">
+            <div class="header">
+                <img class="icon" (click)="show()" src="../assets/imgs/PinHome icon.png" alt="">
+                <h1>PinHome Database</h1>
+            </div>
+            <div class="profile" (click)="profile()">
+                <img class="DP" src="{{img}}" alt="">
+            </div>
+            <div class="links">
+                <!-- <a routerLink="sign-in" class="Reg">Register Organisation</a> -->
+                <!-- <div class="signInUp">
+                    Sign Out
+                </div> -->
+    
             </div>
         </div>
-    </div>
-
-    <div class="greeting">
-
-        <div class="message">
-            <h4 class="welcMessage">Welcome! <br>Click Start </h4>
-            <div class="theButton">
-                <a routerLink="sign-in" (click)="show()">START</a>
+        <div class="divver">
+    
+            <div class="customAlert1">
+                <div class="text">
+                    {{message}}
+                </div>
+                <div class="confirmer" (click)="dismissAlert()">
+                    <div class="OK">
+                        OK
+                    </div>
+                </div>
             </div>
+    
         </div>
-
+        <!-- <div class="greeting">
+    
+            <div class="message">
+                <h4 class="welcMessage">Welcome! <br>Click Start </h4>
+                <div class="theButton">
+                    <a routerLink="sign-in" (click)="show()">START</a>
+                </div>
+            </div>
+    
+        </div> -->
     </div>
+        
     <router-outlet></router-outlet>
 </body>
