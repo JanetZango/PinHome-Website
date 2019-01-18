@@ -1,12 +1,26 @@
 <body>
-  <div class="content">
+  <div class="divver">
+        <div class="customAlert0">
+        <div class="text">
+          <img src="../../assets/imgs/custom alert/loader.gif" alt="" class="loading"><br>
+          {{message}}
+        </div>
+        <div class="confirmer" id="theOkay" (click)="dismissAlert()">
+          <div class="OK">
+            OK
+          </div>
+        </div>
+      </div>
+  </div>
 
+  <div class="content">
     <div class="container">
       <div class="statement">
-       <h1>Welcome</h1>
-         <h2> We're super excited to have you on board!</h2>
+        <h1>Welcome</h1>
+        <h2> We're super excited to have you on board!</h2>
       </div>
       <div class="form">
+        
         <div class="intro">
           <h3>Login as an incorporator</h3>
         </div>
@@ -20,9 +34,20 @@
           </p>
         </div>
         <br>
-        <a href="" (click)="forgotpassword(email.value)">Forgot Password</a>
+        <div class="forgot" (click)="forgotpassword(email.value)">
+          <p>Forgot your password? Click here</p>
+        </div>
+        
       </div>
 
+    </div>
+  </div>
+  <div class="holder">
+    <div class="or">
+      or
+    </div>
+    <div class="buttonClick" (click)="goToSignUp()">
+      Sign Up
     </div>
   </div>
 </body>

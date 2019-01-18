@@ -3,10 +3,25 @@
 </head>
 
 <body>
+  <!-- <div class="holder">
+      </div> -->
   <div class="container">
+    <div class="customAlert">
+      <div class="text">
+        {{message}}
+      </div>
+      <div class="confirmer" (click)="dismissAlert()">
+        <div class="OK">
+          OK
+        </div>
+
+      </div>
+
+    </div>
     <div class="theBody">
       <h3>Organization Details</h3>
-      <p>The details entered will be stored to PinHome's database and will be accessible through the PinHome app that can be
+      <p>The details entered will be stored to PinHome's database and will be accessible through the PinHome app that
+        can be
         found in Android PlayStore &trade;</p>
       <div class="inputs">
         <div class="cover">
@@ -21,7 +36,7 @@
                 <label class="CoverShadow" id="lblForLogo" for="logo">{{logoPhoto}}</label>
                 <input type="file" accept="image/*" (change)="InsertLogo($event)" id="logo">
               </div>
-              <div class="theImage">
+              <div class="theImage" id="myLogo">
                 <img class="theLogo" src={{urlLogo}} alt="">
               </div>
             </div>
@@ -29,16 +44,18 @@
           </div>
         </div>
         <br>
-        <input #organization placeholder="Name of Organization" class="org-wide" type="text">
+        <input #organization placeholder="Name of Organization" [(ngModel)]="name" class="org-wide" id="orgName" type="text">
         <br>
         <div class="sep">
-          <input #contactDetails class="org" placeholder="Phone" type="number" min="1"  maxlength="10">
-          <input #email class="org" placeholder="Email" type="email">
+          <input #contactDetails [(ngModel)]="contacts" class="org" placeholder="Phone" id="orgContacts" type="number"
+            min="1" maxlength="10">
+          <input #email [(ngModel)]="emailAdd" class="org" placeholder="Email" id="theEmail" type="email">
           <br>
-          <textarea id="address" placeholder="Physical Address" class="orgHeight" #address (change)="initMap(address.value)" type="text"></textarea>
-          <textarea class="orgHeight" #AboutOrg placeholder="Description" type="text"></textarea>
+          <textarea id="theAddress" [(ngModel)]="OrganizationAdress" placeholder="Physical Address" class="orgHeight"
+            #address (change)="initMap(address.value)" type="text"></textarea>
+          <textarea class="orgHeight" [(ngModel)]="AboutOrg" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
 
-          <select #select class="org-wide-select" style="margin-top: 10px">
+          <select [(ngModel)]="select" class="org-wide-select" id="selector" style="margin-top: 10px">
             <option value="Orphanage">Orphanage</option>
             <option value="Disability">Disability</option>
             <option value="old age">Old Age Homes</option>
@@ -48,32 +65,53 @@
             <option value="Rehab">Rehab</option>
           </select>
           <div class="myCover">
-          <div class="overlay">
+            <div class="overlay">
             </div>
             <div id="map">
-          </div>
-          <div class="tempMap">
-            <img class="theMapTemp" src="../../assets/imgs/Map Template/map.gif" alt="">
-          </div>
+            </div>
+            <div class="tempMap">
+              <img class="theMapTemp" src="../../assets/imgs/Map Template/map.gif" alt="">
+            </div>
           </div>
           <br>
           <div class="uploads">
             <div class="statement">
               <!-- <p class="wordUploads" align="center">Gallery</p> -->
-          <div class="gal">
-            <label for="theGal" id="galInput">
-              <i class="material-icons">camera</i> Upload Photo
-            </label>
-            <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)">
-            <br>
-            <img class="galImg" src="{{urlGallery}}" alt="">
-          </div>
+              <p id="instruction">Upload a few photos for your viewers and clients to get more familiar with your organisation.</p>
+              <div class="gal">
+                
+                <label for="theGal" id="galInput">
+
+                  <i class="material-icons">camera</i> Upload Photo
+                </label>
+                <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)" multiple="multiple">
+                <br>
+                <label for="theGal1" id="galInput1">
+
+                  <i class="material-icons">camera</i> Upload Photo
+                </label>
+                <input type="file" accept="image/*" id="theGal1" (change)="InsertGallery1($event)">
+                <br>
+                <label for="theGal2" id="galInput2">
+
+                  <i class="material-icons">camera</i> Upload Photo
+                </label>
+                <input type="file" accept="image/*" id="theGal2" (change)="InsertGallery2($event)">
+
+</div>
+                <div class="theFlex">
+                  <img class="galImg" src="{{urlGallery}}" alt="">
+
+                  <img class="galImg1" src="{{urlGallery1}}" alt="">
+                  <img class="galImg2" src="{{urlGallery2}}" alt="">
+                </div>
+              
             </div>
 
 
           </div>
         </div>
-        <button class="submitter" (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value)">Save Data</button>
+        <button class="submitter" (click)="AddingData($event)">Save Data</button>
       </div>
 
     </div>

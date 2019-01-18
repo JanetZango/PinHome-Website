@@ -1,6 +1,7 @@
 .content{
-    height: 140vh;
-    width: 100vw;
+    height: 90vh;
+    overflow-y: scroll;
+    width: 101.5vw;
     position: relative;
     right: 20px;
     background-image: url('../../assets/imgs/theHand.jpg');

@@ -14,12 +14,12 @@ h3{
     font-weight: 100;
 }
 .content{
-    height: 83vh;
-    width: 100vw;
+    height: 86.4vh;
+    width: 101.5%;
     position: relative;
     right: 20px;
     background-image: url('../../assets/imgs/theHand.jpg');
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
    background-repeat: no-repeat;
    background-position: center;  
@@ -166,4 +166,138 @@ a{
         /* box-shadow: 10px 10px 0 #136a749d */
     }
 
+}
+
+.holder{
+    z-index: 1;
+    height: 0;
+    /* border: 2px solid red; */
+    width: 99vw;
+    transform: translateX(1.01vw);
+    position: absolute;
+    bottom: -60vh;
+}
+.buttonClick{
+    position: absolute;
+    left: 50%;
+    top: 100vh;
+    transform: translateX(-68%);
+    top: 5px;
+    width: 100%;
+    max-width: 150px;
+    background: #094349;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
+    text-align: center;
+    transition: 200ms;
+}
+.buttonClick:active{
+    position: absolute;
+    left: 50%;
+    top: 100vh;
+    transform: translateX(-68%);
+    top: 5px;
+    width: 100%;
+    max-width: 150px;
+    background: #096c77;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
+    text-align: center;
+}
+
+.or{
+    width: 20px;
+    /* border: 2px solid green; */
+    text-align: center;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-180%);
+    text-shadow: 0 0 5px black;
+    font-weight: bolder;
+}
+.divver{
+    height: 0px;
+}
+
+.customAlert0{
+    z-index: 100000;
+    position: absolute;
+    background: whitesmoke;
+    width: 55%;
+    height: 15vh;
+    color: #222;
+    position: relative;
+    top: 50%;
+    left: -100%;
+    box-shadow: 0 5px 15px grey;
+    transition: 300ms;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.651);
+}
+.text{
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bold;
+}
+.confirmer{
+    width: 50px;
+    height: 50px;
+    background: #136a74;
+    border-radius: 5px;
+    transition: 300ms;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 15px grey;
+}
+.confirmer:active{
+    width: 50px;
+    height: 50px;
+    background: #0f808d;
+    border-radius: 5px;position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 10px black;
+}
+.OK{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+
+}
+
+.holder{
+    z-index: 1;
+    height: 0;
+    /* border: 2px solid red; */
+    width: 99vw;
+    transform: translateX(1.01vw);
+    position: absolute;
+    bottom: -70vh;
+}
+.loading{
+    height: 120px;
+    margin: 0 auto;
+    display: none;
+}
+.forgot{
+    background: transparent;
+    color: #045f69;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-decoration: underline;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 0.1px;
 }
