@@ -15,48 +15,71 @@ import {Router} from'@angular/router';
 export class AppComponent {
   url: any;
   state;
-  sign = "Sign In";
-  sign2 = "Sign Up";
   img = "../assets/imgs/Dp.jpg"
   orgDetails: AngularFireList<any>;
  Orgs: Observable<any[]>
  userId;
- dbPath
+ dbPath;
+ message;
  email;
 
   constructor(private authen : AngularFireAuth, public router: Router, private db: AngularFireDatabase){
     console.log('ok')
+    let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
+    let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
+
     this.authen.auth.onAuthStateChanged(user =>{
       console.log(user)
       if (user){
         this.state = 1;
-        this.sign = "Sign Out";
-        this.sign2 = "";
-        this.router.navigate(['/adding-data'])
+        prof[0].style.display = "block";
+        signOutBtn[0].style.display = "block";
+        this.router.navigate(['/adding-data']);
       }
       else{
         console.log('no user')
         this.state = 0;
+        this.router.navigate(['/sign-in']);
+        prof[0].style.display = "none";
+        signOutBtn[0].style.display = "none";
       }
-      console.log(this.sign)
      });
   }
 
 
 
   show(){
-    alert('message');
-
-    var greet = document.getElementsByClassName("greeting") as HTMLCollectionOf <HTMLElement>;
-    greet[0].style.display = "none";
+    this.router.navigate(['/adding-data']);
   }
 
+  // dismissAlert(){
+  //   let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf <HTMLElement>;
+  //   alerter[0].style.left = "-100%";
+  // }
+
   profile(){
+    let alerter = document.getElementsByClassName('customAlert1') as HTMLCollectionOf <HTMLElement>;
+    let h = window.innerHeight;
+
+
     if (this.state == 0){
-      alert('please login first')
+      alerter[0].style.top = (h/3.5) + "px";
+      alerter[0].style.left = "50%"; 
+      alerter[0].style.zIndex = "10000"
+      alerter[0].style.transform = "translateX(-50%)"
+      this.message = "You have to sign in to view your your profile, click 'Sign In' or 'Sign Up' to get started."
     }
     else{
+
       this.router.navigate(['/profile'])
     }
+  }
+  // signin(){
+  //   window.location.reload();
+  //   this.router.navigate(['/sign-in'])
+  // }
+
+  signOut(){
+    this.router.navigate(['/sign-in'])
   }
 }

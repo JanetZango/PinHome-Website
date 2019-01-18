@@ -42,13 +42,13 @@
   }
   
   .container{
+    overflow-y: scroll;
     background: url("../../assets/imgs/theHand.jpg");
     background-size: cover;
     background-position: center;
     width: 100vw;
-    height: 99vh;
-    overflow-y: scroll;
-    margin-top: -6px;
+    height: 90vh;
+    /* margin-top: -6px; */
     /* margin: 0 auto; */
     margin-left: 49%;
     transform: translateX(-49%)
@@ -326,12 +326,81 @@ body{
 }
 .galImg{
     padding-top: 20px;
-    height: 250px;
+    height: 150px;
+    width: 100%;
+    max-width: 250px;
+    object-fit: cover;
+    transition: 300ms;
+}
+.galImg1{
+    padding-top: 20px;
+    height: 150px;
+    width: 100%;
+    max-width: 250px;
+    object-fit: cover;
+    transition: 300ms;
+}
+.galImg2{
+    padding-top: 20px;
+    height: 150px;
+    width: 100%;
+    max-width: 250px;
+    object-fit: cover;
+    transition: 300ms;
 }
 #theGal{
     display: none;
 }
+#theGal1{
+    display: none;
+}
+#theGal2{
+    display: none;
+}
 #galInput{
+
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background:  #136a74;
+    position: absolute;
+    border-radius: 5px;
+    left: 25%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+    color: white;
+    transition: 300ms;
+}
+#galInput:active{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background: #28e9ff;
+    position: absolute;
+    border-radius: 5px;
+    left: 25%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+}
+#galInput:hover{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background: #1390ca;
+    position: absolute;
+    border-radius: 5px;
+    left: 25%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+}
+
+#galInput1{
 
     padding-left: 30px;
     padding-top: 5px;
@@ -347,7 +416,7 @@ body{
     color: white;
     transition: 300ms;
 }
-#galInput:active{
+#galInput1:active{
     padding-left: 30px;
     padding-top: 5px;
     padding-bottom: 8px;
@@ -360,7 +429,7 @@ body{
     top: 0;
     box-shadow: 0 5px 15px grey;
 }
-#galInput:hover{
+#galInput1:hover{
     padding-left: 30px;
     padding-top: 5px;
     padding-bottom: 8px;
@@ -369,6 +438,92 @@ body{
     position: absolute;
     border-radius: 5px;
     left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+}
+
+#galInput2{
+
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background:  #136a74;
+    position: absolute;
+    border-radius: 5px;
+    left: 75%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+    color: white;
+    transition: 300ms;
+}
+#galInput2:active{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background: #28e9ff;
+    position: absolute;
+    border-radius: 5px;
+    left: 75%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+}
+#galInput2:hover{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background: #1390ca;
+    position: absolute;
+    border-radius: 5px;
+    left: 75%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+}
+
+#galInput3{
+
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background:  #136a74;
+    position: absolute;
+    border-radius: 5px;
+    left: 75%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+    color: white;
+    transition: 300ms;
+}
+#galInput3:active{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background: #28e9ff;
+    position: absolute;
+    border-radius: 5px;
+    left: 75%;
+    transform: translateX(-50%);
+    top: 0;
+    box-shadow: 0 5px 15px grey;
+}
+#galInput3:hover{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    background: #1390ca;
+    position: absolute;
+    border-radius: 5px;
+    left: 75%;
     transform: translateX(-50%);
     top: 0;
     box-shadow: 0 5px 15px grey;
@@ -426,17 +581,17 @@ body{
 }
 
 @media screen and (max-width: 420px){
-    .container{
+    /* .container{
         background: url("../../assets/imgs/theHand.jpg");
         background-size: cover;
         background-position: center;
         width: 100vw;
-        height: 200vh;
+        height: 200vh; */
         /* margin: 0 auto; */
-        margin-left: 46%;
+        /* margin-left: 46%;
         margin-top: -1.6%;
         transform: translateX(-51%)
-    }
+    } */
 
     .inputs{
         width: 110%;
@@ -460,4 +615,110 @@ body{
         text-align: center;
         color: white;
     }
+}
+.customAlert{
+    z-index: 1;
+    position: absolute;
+    background: whitesmoke;
+    width: 50%;
+    height: 15%;
+    color: #222;
+    position: relative;
+    top: 50%;
+    left: -100%;
+    box-shadow: 0 5px 15px grey;
+    transition: 300ms;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.651);
+}
+.text{
+    position: relative;
+    top: 25%;
+    transform: translateY(-50%);
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+.confirmer{
+    width: 50px;
+    height: 50px;
+    background: #136a74;
+    border-radius: 5px;
+    transition: 300ms;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 15px grey;
+}
+.confirmer:active{
+    width: 50px;
+    height: 50px;
+    background: #0f808d;
+    border-radius: 5px;position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 10px black;
+}
+.OK{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}
+
+.holder{
+    z-index: 1;
+    height: 0;
+    /* border: 2px solid red; */
+    width: 99vw;
+    transform: translateX(1.01vw);
+    position: absolute;
+    top: 0vh;
+}
+/* .buttonClick{
+    position: absolute;
+    right: 5%;
+    top: 100vh;
+    transform: translateX(-50%);
+    top: 5px;
+    width: 100%;
+    max-width: 150px;
+    background: #4e0000;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
+    text-align: center;
+    transition: 200ms;
+}
+.buttonClick:active{
+    position: absolute;
+    right: 5%;
+    top: 100vh;
+    transform: translateX(-50%);
+    top: 5px;
+    width: 100%;
+    max-width: 150px;
+    background: #940000;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
+    text-align: center;
+    transition: 200ms;
+} */
+
+.theFlex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+    /* border: 2px solid red; */
+}
+#instruction{
+    color: black;
+   
+    text-align: center;
 }
