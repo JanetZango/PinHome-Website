@@ -48,11 +48,9 @@ export class AppComponent {
 
 
 
-  // show(){
-  //   alert('message');
-  //   var greet = document.getElementsByClassName("greeting") as HTMLCollectionOf <HTMLElement>;
-  //   greet[0].style.display = "none";
-  // }
+  show(){
+    this.router.navigate(['/adding-data']);
+  }
 
   // dismissAlert(){
   //   let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf <HTMLElement>;
