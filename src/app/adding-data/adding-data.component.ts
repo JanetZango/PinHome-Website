@@ -100,7 +100,7 @@ export class AddingDataComponent {
         this.urlLogo = event.target.result;
       }
       reader.readAsDataURL(event.target.files[0]);
-      this.logoPhoto ="Choose another logo";
+      this.logoPhoto ="Choose a different logo";
     }
     
   }

@@ -32,11 +32,12 @@
         <input #organization placeholder="Name of Organization" class="org-wide" type="text">
         <br>
         <div class="sep">
-          <input #contactDetails class="org" placeholder="Phone" type="number">
+          <input #contactDetails class="org" placeholder="Phone" type="number" min="1"  maxlength="10">
           <input #email class="org" placeholder="Email" type="email">
           <br>
-          <input id="address" placeholder="Physical Address" class="orgHeight" #address (change)="initMap(address.value)" type="text">
-          <input class="orgHeight" #AboutOrg placeholder="Description" type="text">
+          <textarea id="address" placeholder="Physical Address" class="orgHeight" #address (change)="initMap(address.value)" type="text"></textarea>
+          <textarea class="orgHeight" #AboutOrg placeholder="Description" type="text"></textarea>
+
           <select #select class="org-wide-select" style="margin-top: 10px">
             <option value="Orphanage">Orphanage</option>
             <option value="Disability">Disability</option>
@@ -47,19 +48,18 @@
             <option value="Rehab">Rehab</option>
           </select>
           <div class="myCover">
-            <div class="overlay">
+          <div class="overlay">
             </div>
             <div id="map">
+          </div>
+          <div class="tempMap">
+            <img class="theMapTemp" src="../../assets/imgs/Map Template/map.gif" alt="">
           </div>
           </div>
           <br>
           <div class="uploads">
             <div class="statement">
-              <p class="wordUploads" align="center">Gallery</p>
-            </div>
-
-
-          </div>
+              <!-- <p class="wordUploads" align="center">Gallery</p> -->
           <div class="gal">
             <label for="theGal" id="galInput">
               <i class="material-icons">camera</i> Upload Photo
@@ -67,6 +67,10 @@
             <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)">
             <br>
             <img class="galImg" src="{{urlGallery}}" alt="">
+          </div>
+            </div>
+
+
           </div>
         </div>
         <button class="submitter" (click)="AddingData(organization.value,address.value,contactDetails.value,email.value,AboutOrg.value,price.value,select.value)">Save Data</button>

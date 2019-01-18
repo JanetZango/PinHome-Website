@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public":  "dist/PinHomeWeb",
+    "public": "dist/PinHomeWeb",
     "ignore": [
       "firebase.json",
       "**/.*",

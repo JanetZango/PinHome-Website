@@ -19,6 +19,9 @@
     word-wrap: normal;
     white-space: wrap;
     direction: ltr;
+    position: absolute;
+    left: 5px;
+    top: 3px;
 
     /* margin-top: 15px; */
   
@@ -28,7 +31,6 @@
     -moz-osx-font-smoothing: grayscale;
   
     font-feature-settings: 'liga';
-
   }
   .CoverShadow{
     text-shadow: 0px 0px 10px black
@@ -50,6 +52,18 @@
     /* margin: 0 auto; */
     margin-left: 49%;
     transform: translateX(-49%)
+}
+.tempMap{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 250px;
+}
+.theMapTemp{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 h1,h3{
     color:black;
@@ -109,7 +123,7 @@ p{
     max-width: 850px;
     height: 40px;
     padding: 5px;
-    box-shadow: 0 5px 10px  #136a7441;
+    box-shadow: 0 5px 10px  #136a7400;
 }
 .org{
     margin-top: 10px;
@@ -125,9 +139,12 @@ p{
     font-weight: bold;
 }
 select{
-    background: rgb(201, 201, 201);
+    background: rgba(201, 201, 201, 0.651);
     border: 0px solid transparent;
+    border: 2px solid white;
+    box-shadow: 0 2px 10px black; 
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 .orgHeight{
     margin-top: 10px;
@@ -167,8 +184,10 @@ select{
 }
 .statement{
     width: 100%;
-    background: #13b8ca;
-    height: 50px;
+    /* background: #13b8ca; */
+    /* height: 50px; */
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 .wordUploads{
     padding-top: 15px;
@@ -205,7 +224,7 @@ select{
     padding-bottom: 11px;
     padding-left: 16px;
     padding-right: 16px;
-    background:  #08a4b6;
+    background: #1390ca;    
     border-radius: 7px;
     color: white;
     box-shadow: 0 0 10px rgb(177, 177, 177);
@@ -251,7 +270,7 @@ select{
     z-index: 1;
 
     padding-top: 5px;
-    padding-left: 10px;
+    padding-left: 30px;
     padding-right: 10px;
     left: 50%;
     top: 50%;
@@ -265,14 +284,31 @@ select{
     position: absolute;
     color: white;
     z-index: 1;
-
-    padding: 10px;
+    padding-top: 5px;
+    padding-left: 30px;
+    padding-right: 10px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     background: #28e9ff;
     border-radius: 5px;
 }
+.uploader:hover{
+    position: absolute;
+    color: white;
+    z-index: 1;
+    padding-top: 5px;
+    padding-left: 30px;
+    padding-right: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #1390ca;
+    border-radius: 5px;
+}
+
+
+
 .uploads{
 
     width: 100%;
@@ -297,7 +333,10 @@ body{
 }
 #galInput{
 
-    padding: 10px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
     background:  #136a74;
     position: absolute;
     border-radius: 5px;
@@ -306,10 +345,13 @@ body{
     top: 0;
     box-shadow: 0 5px 15px grey;
     color: white;
+    transition: 300ms;
 }
 #galInput:active{
-
-    padding: 10px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
     background: #28e9ff;
     position: absolute;
     border-radius: 5px;
@@ -319,8 +361,10 @@ body{
     box-shadow: 0 5px 15px grey;
 }
 #galInput:hover{
-
-    padding: 10px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-right: 8px;
     background: #1390ca;
     position: absolute;
     border-radius: 5px;
@@ -357,10 +401,17 @@ body{
     color: white;
     
 }
+.submitter:hover{
+    height: 50px;
+    width: 100%;
+    background: #1390ca;
+    border-radius: 10px;
+    box-shadow: 0 0 0px inset grey;
+}
 .submitter:active{
     height: 50px;
     width: 100%;
-    background: #00e5ff7a;
+    background: #26565c7a;
     border-radius: 10px;
     box-shadow: 0 0 0px inset grey;
 }
