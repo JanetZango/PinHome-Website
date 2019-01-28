@@ -199,9 +199,10 @@ a{
     }
 
 }
-.divver{
+/* .divver{
         height: 0px;
-}
+        border: 2px solid red;
+} */
 
 .customAlert1{
     z-index: 100000;
