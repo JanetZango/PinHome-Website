@@ -50,9 +50,14 @@ h3{
     transition: 400ms;
     
 }
-.forgot{
+.iForgot{
     padding-top: 10px;
+    /* padding-bottom: 20px; */
 }
+/* .iForgot{
+    position: relative;
+    padding-top: 0px;
+} */
 .form{
     background: rgba(245, 245, 245, 0.63);
     width: 90%;
@@ -92,6 +97,10 @@ h3{
 .intro{
     transition: 400ms;
     width: 100%;
+}
+.theH3{
+    font-weight: bold;
+
 }
 .space{
     height: 10px;
@@ -283,7 +292,7 @@ a{
     width: 99vw;
     transform: translateX(1.01vw);
     position: absolute;
-    bottom: -70vh;
+    bottom: -61vh;
 }
 .loading{
     height: 120px;

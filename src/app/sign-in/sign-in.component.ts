@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Observable } from 'rxjs';
@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
   userId;
   message;
 
-  constructor(private authen : AngularFireAuth, private db: AngularFireDatabase, public router: Router) { }
+  constructor(private authen : AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
         this.authen.auth.signOut();
@@ -29,7 +29,8 @@ export class SignInComponent implements OnInit {
   }
 
 
-  login(email,password){
+login(email,password,  doneCallback: () => void){
+  this._ngZone.run(() =>{
     let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
     let theOK = document.getElementById("theOkay" );
     let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
@@ -69,7 +70,7 @@ export class SignInComponent implements OnInit {
             leader[0].style.display = "none";
           })
     }
-
+  });
   }
   
   dismissAlert() {
@@ -78,10 +79,10 @@ export class SignInComponent implements OnInit {
     this.message = "" 
   }
 
-  forgotpassword(email){
 
-    
 
+forgotpassword(email){
+  this._ngZone.run(() =>{
     let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
     let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
     let theOK = document.getElementById("theOkay" );
@@ -89,8 +90,14 @@ export class SignInComponent implements OnInit {
     myAlert[0].style.left = "25%";
     theOK.style.display = "none";
     leader[0].style.display = "block";
-
     this.message = "Loading"
+    if (email ==  undefined || email == ""){
+      this.message = "Please enter your email address to reset your password"
+    myAlert[0].style.left = "25%";
+    theOK.style.display = "block";
+    leader[0].style.display = "none";
+    }
+    else {
     return new  Promise<void>((resolve, reject)=>{
       this.authen.auth.sendPasswordResetEmail(email).then(()=>{
         myAlert[0].style.left = "25%"
@@ -102,9 +109,11 @@ export class SignInComponent implements OnInit {
         this.message = Error.message
         theOK.style.display = "block";
         leader[0].style.display = "none";
+        this.message = Error.message;
       });
-    
     })
+  }
+})
   }
 
 

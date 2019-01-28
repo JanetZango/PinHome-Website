@@ -90,6 +90,10 @@ table{
 }
 .leftTD{
     width: 40%;
+    padding-left: 200px;
+}
+.rightTD{
+    padding-left: 200px;
 }
 td{
     padding-left: 10px;

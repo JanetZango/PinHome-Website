@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable, from } from 'rxjs';
@@ -8,6 +8,7 @@ import { promise, Capability } from 'protractor';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from'@angular/router';
 declare var google;
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-adding-data',
   templateUrl: './adding-data.component.html',
@@ -29,7 +30,7 @@ export class AddingDataComponent {
   lat: any;
   lng;
   urlLogo: any;
-  urlGallery: any;
+  urlGallery = undefined;
   emailAdd;
   AboutOrg;
   select;
@@ -38,18 +39,18 @@ export class AddingDataComponent {
   homelist: AngularFireList<any>;
   items: Observable<any[]>;
   state;
-  urlGallery1:any;
-  urlGallery2:any;
+  urlGallery1 =  undefined;
+  urlGallery2 = undefined;
   city:any;
 
-  constructor(public db: AngularFireDatabase, private authen : AngularFireAuth, private router: Router) {
+  constructor(public db: AngularFireDatabase, private authen : AngularFireAuth, private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
+    this._ngZone.run(() =>{
     this.homelist = db.list('messages');
     this.items = this.homelist.snapshotChanges().pipe(
       map(changes =>
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     );
-
     this.authen.auth.onAuthStateChanged(user =>{
       console.log(user)
       if (user){
@@ -63,9 +64,11 @@ export class AddingDataComponent {
         this.router.navigate(['/sign-in'])
       }
      });
+    })
   }
 
   initMap(address) {
+    this._ngZone.run(() =>{
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
       
@@ -86,6 +89,19 @@ export class AddingDataComponent {
         title: 'Hello World!'
       });
     })
+  })
+  }
+
+  change(value){
+    // this.cdRef.detectChanges();
+    console.log("changing");
+    this.contacts= value.length > 10 ? value.substring(0,1) : value;
+
+    if(value == 0){
+      console.log("the val");
+      
+    }
+    
   }
 
   scroll(event){
@@ -93,7 +109,9 @@ export class AddingDataComponent {
     
   }
   getcoo(address) {
+
     return new Promise((accpt, rej) => {
+      this._ngZone.run(() =>{
       let geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'address': address }, function (results, status) {
         var arr = results[0].address_components;
@@ -111,8 +129,10 @@ export class AddingDataComponent {
         }
       });
     })
+  })
   }
   InsertPicture(event: any) {
+    this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (event: any) => {
@@ -121,8 +141,10 @@ export class AddingDataComponent {
       reader.readAsDataURL(event.target.files[0]);
       this.coverPhoto = "Choose another cover photo"
     }
+  })
   }
   InsertLogo(event: any) {
+    this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (event: any) => {
@@ -131,9 +153,10 @@ export class AddingDataComponent {
       reader.readAsDataURL(event.target.files[0]);
       this.logoPhoto = "Choose a different logo";
     }
-
+  })
   }
   InsertGallery(event: any) {
+    this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (event: any) => {
@@ -142,8 +165,10 @@ export class AddingDataComponent {
       reader.readAsDataURL(event.target.files[0]);
       this.galleryupload = "Upload More"
     }
+  })
   }
   InsertGallery1(event: any) {
+    this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (event: any) => {
@@ -152,8 +177,10 @@ export class AddingDataComponent {
       reader.readAsDataURL(event.target.files[0]);
       this.galleryupload = "Upload More"
     }
+  })
   }
   InsertGallery2(event: any) {
+    this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (event: any) => {
@@ -162,8 +189,10 @@ export class AddingDataComponent {
       reader.readAsDataURL(event.target.files[0]);
       this.galleryupload = "Upload More"
     }
+  })
   }
   AddingData(event) {
+    this._ngZone.run(() =>{
     let emptySpace = document.getElementById("orgName");
     let emptySpace1 = document.getElementById("orgContacts");
     let emptySpace2 = document.getElementById("theEmail");
@@ -224,6 +253,13 @@ export class AddingDataComponent {
       emptySpace6.style.boxShadow = "0 0 5px red";
       this.message = "Please upload the logo of your organization";
     }
+  else if (this.urlGallery == undefined || this.urlGallery1 == undefined || this.urlGallery2 == undefined){
+    this.message = "Please upload at least 3 Gallery pictures";
+  }
+  else if(this.contacts.length  < 10|| this.contacts.length > 10){
+    this.message = "Phone number not complete";
+  }
+  
     else {
       this.getcoo(this.OrganizationAdress).then((data: any) => {
         this.long = data.lat;
@@ -231,7 +267,7 @@ export class AddingDataComponent {
         this.homelist.push({
           OrganizationName: this.name,
           OrganizationAdress: this.OrganizationAdress,
-          ContactDetails: this.contacts,
+          ContactDetails: "0" + this.contacts,
           Email: this.emailAdd,
           AboutOrg: this.AboutOrg,
           Category: this.select,
@@ -248,6 +284,17 @@ export class AddingDataComponent {
         alerter[0].style.left = "50%"; 
 
         this.message = "Your information has been added."
+        this.emailAdd = "";
+        this.AboutOrg = "";
+        this.select = "";
+        this.OrganizationAdress = "";
+        this.name = "";
+        this.urlGallery = "";
+        this.urlGallery1 = "";
+        this.urlGallery2 = "";
+        this.urlCover = "";
+        this.urlLogo = "";
+        this.contacts = "";
       })
     }
 
@@ -276,7 +323,7 @@ export class AddingDataComponent {
     alerter[0].style.top = (mes / 1.5) + "px";
     alerter[0].style.left = "50%";
     alerter[0].style.transform = "translateX(-54%)"
-
+  })
   }
 
   dismissAlert() {

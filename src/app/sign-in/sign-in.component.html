@@ -22,20 +22,20 @@
       <div class="form">
         
         <div class="intro">
-          <h3>Login as an incorporator</h3>
+          <h3 class="theH3">Login as an incorporator</h3>
         </div>
         <input class="text-field" type="text" #email placeholder="Email">
         <br>
         <input class="text-field" type="password" #password placeholder="Password">
         <div class="space"></div>
-        <div class="button" (click)="login(email.value, password.value)">
+        <div class="button" (click)="login(email.value,password.value, $event)">
           <p class="P">
-            SIGN IN
+            Sign In
           </p>
         </div>
-        <br>
+        <!-- <br> -->
         <div class="forgot" (click)="forgotpassword(email.value)">
-          <p>Forgot your password? Click here</p>
+          <p class="iForgot">Forgot your password? Click here</p>
         </div>
         
       </div>
@@ -43,9 +43,9 @@
     </div>
   </div>
   <div class="holder">
-    <div class="or">
+    <!-- <div class="or">
       or
-    </div>
+    </div> -->
     <div class="buttonClick" (click)="goToSignUp()">
       Sign Up
     </div>

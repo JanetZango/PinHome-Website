@@ -99,7 +99,7 @@ p{
     /* margin-right: 10px; */
 }
 .org-wide{
-    width: 98.8%;
+    width: 98.7%;
     max-width: 850px;
     height: 25px;
     padding: 5px;
@@ -109,6 +109,7 @@ p{
     background-color: #8491928c;
     color: #000000;
     font-weight: bold;
+    justify-content: space-between
     
 }
 .overlay{
@@ -125,10 +126,32 @@ p{
     padding: 5px;
     box-shadow: 0 5px 10px  #136a7400;
 }
+table{
+    margin-left: -5px;
+    padding-top: 10px;
+    padding-bottom: -5px;
+    width: 102%;
+    /* border: 2px solid red; */
+}
+td{
+    /* border: 2px solid green; */
+}
 .org{
-    margin-top: 10px;
     height: 25px;
-    max-width: 411px;
+    max-width: 314px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #136a74;
+    box-shadow: 0 5px 10px  #136a7441;
+    border-radius: 5px;
+    background-color: #84919265;
+    color: #000000;
+    font-weight: bold;
+}
+.org1{
+
+    height: 25px;
+    max-width: 410px;
     width: 100%;
     padding: 5px;
     border: 1px solid #136a74;
@@ -149,7 +172,23 @@ select{
 .orgHeight{
     margin-top: 10px;
     height: 90px;
-    max-width: 405px;
+    max-width: 408px;
+    width: 100%;
+    box-shadow: 0 5px 10px  #136a7441;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #136a74;
+    border-radius: 5px;
+    background-color: #84919265;
+    color: #000000;
+    font-weight: bold;
+    
+}
+.orgHeight1{
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 90px;
+    max-width: 408px;
     width: 100%;
     box-shadow: 0 5px 10px  #136a7441;
     padding: 5px;
@@ -165,6 +204,7 @@ select{
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
+    
     /* border: 2px solid green */
 }
 #map{
@@ -248,7 +288,7 @@ select{
 .myCover{
     height:250px;
     position: relative;
-    width: 100%;
+    width: 99.9%;
 }
 .cover{
     height: 250px;
@@ -313,6 +353,14 @@ select{
 
     width: 100%;
     padding-bottom: 10px;
+}
+#theLabel{
+    position: absolute;
+    right: 20px;
+    padding-top: 23px;
+    color: rgb(128, 126, 126);
+    font-size: 12px;
+    font-weight: bolder;
 }
 body{
     position: absolute;
@@ -635,7 +683,11 @@ body{
     position: relative;
     top: 25%;
     transform: translateY(-50%);
+<<<<<<< HEAD
     /* color: red; */
+=======
+    color: black;
+>>>>>>> 3469f76ef14519d55b4f997b660a18fad9d7cc7a
     text-align: center;
     font-weight: bold;
 }
@@ -660,6 +712,17 @@ body{
     transform: translateX(50%);
     bottom: 10px;
     box-shadow: 0 5px 10px black;
+}
+#orgContacts{
+    padding-left: 100px
+}
+.thePlaceholder{
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: rgb(54, 54, 54);
+    font-weight: bold
 }
 .OK{
     position: relative;

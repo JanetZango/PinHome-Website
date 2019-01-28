@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
@@ -19,13 +19,13 @@ export class SignUpComponent implements OnInit {
 
   fName; sName; orgName; email; mobile; tel; password; Confirm;
 
-  constructor(private authen: AngularFireAuth, public db: AngularFireDatabase, public router: Router) { }
+  constructor(private authen: AngularFireAuth, public db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
   }
 
-  register() {
-
+  register(event) {
+    this._ngZone.run(() =>{
     let yourAlert = document.getElementsByClassName("customAlert4") as HTMLCollectionOf<HTMLElement>;
     let myOk = document.getElementById("theOkay");
     let leader1 = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
@@ -37,6 +37,8 @@ export class SignUpComponent implements OnInit {
 
     myOk.style.display = "none";
     leader1[0].style.display = "block"
+    console.log(this.tel.length);
+    
 
     if (this.fName == undefined || this.fName == "") {
       leader1[0].style.display = "none"
@@ -108,12 +110,13 @@ export class SignUpComponent implements OnInit {
       // yourAlert[0].style.left = "50%";
       // yourAlert[0].style.transform = "translateX(-54%)"
     }
-    else if(this.mobile.length >=11 || this.mobile.length < 10){
+    else if(this.mobile.length  < 10|| this.mobile.length > 10){
       leader1[0].style.display = "none"
       myOk.style.display = "block";
-      this.message = "Error"
+      this.message = "Oops! It looks like your number has either exceed or is below 10 characters."
+      console.log(this.tel.length)
     }
-    else if(this.tel.length >=11 || this.tel.length < 10){
+    else if(this.tel.length < 10 || this.tel.length > 10){
       leader1[0].style.display = "none"
       myOk.style.display = "block";
       this.message = "Error"
@@ -133,9 +136,9 @@ export class SignUpComponent implements OnInit {
               Firstname: this.fName,
               Lastname: this.sName,
               OrganisationName: this.orgName,
-              Mobile: this.mobile,
+              Mobile: "0" + this.mobile,
               downloadurl: '../assets/imgs/Dp.jpg',
-              Telephone: this.tel
+              Telephone: "0" + this.tel
             });
             this.router.navigate(['/adding-data'])
           })
@@ -156,9 +159,7 @@ export class SignUpComponent implements OnInit {
         this.message = "Please make sure that your passwords match"
       }
     }
-
-
-
+    })
   }
 
   dismissAlert() {
@@ -168,6 +169,8 @@ export class SignUpComponent implements OnInit {
   }
 
   goToSignIn() {
+    this._ngZone.run(() =>{
     this.router.navigate(['/sign-in'])
+    })
   }
 }
