@@ -92,7 +92,7 @@ p{
 }
 .inputs{
     width: 100%;
-    background: rgba(245, 245, 245, 0.63);
+    background: rgb(245, 245, 245);
     padding: 10px;
     margin-left: -10px;
     box-shadow: 0 5px 10px grey;
@@ -141,7 +141,7 @@ p{
 select{
     background: rgba(201, 201, 201, 0.651);
     border: 0px solid transparent;
-    border: 2px solid white;
+    border: 2px solid #136a74;
     box-shadow: 0 2px 10px black; 
     margin-bottom: 10px;
     border-radius: 5px;
@@ -635,7 +635,7 @@ body{
     position: relative;
     top: 25%;
     transform: translateY(-50%);
-    color: red;
+    /* color: red; */
     text-align: center;
     font-weight: bold;
 }
