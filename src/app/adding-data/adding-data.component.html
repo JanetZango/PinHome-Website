@@ -20,8 +20,8 @@
     </div>
     <div class="theBody">
       <h3>Organization Details</h3>
-      <p>The details entered will be stored to PinHome's database and will be accessible through the PinHome App. 
-      </p>
+      <!-- <marquee><p>The details entered will be stored to PinHome's database and will be accessible through the PinHome App. 
+      </p></marquee> -->
       <div class="inputs">
         <div class="cover">
           <div class="uploader">
@@ -53,8 +53,8 @@
               </div>
           <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (ngModelChange)="change($event)" class="org" placeholder="e.g(721234567)" id="orgContacts" type="number"
             min="0" max="10">
-            </td>
-            <td>
+           <br>
+           <br>
           <input #email [(ngModel)]="emailAdd" class="org1" placeholder="Email" id="theEmail" type="email">
 
             </td>
@@ -63,8 +63,7 @@
             <td>
           <textarea id="theAddress" [(ngModel)]="OrganizationAdress" placeholder="Physical Address" class="orgHeight1"
             #address (change)="initMap(address.value)" type="text"></textarea>
-            </td>
-            <td>
+           <br>
           <textarea class="orgHeight" [(ngModel)]="AboutOrg" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
             </td>
           </tr>
@@ -98,7 +97,7 @@
           <div class="uploads">
             <div class="statement">
               <!-- <p class="wordUploads" align="center">Gallery</p> -->
-              <p id="instruction">Upload a few photos for your viewers and clients to get more familiar with your organisation.</p>
+              <p id="instruction" style="color: white; text-shadow: 0 0 20px black">Upload a few photos for your viewers and clients to get more familiar with your organisation.</p>
               <div class="gal">
                 
                 <label for="theGal" id="galInput">

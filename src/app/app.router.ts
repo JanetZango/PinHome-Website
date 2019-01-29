@@ -9,13 +9,14 @@ import { SignUpComponent } from './sign-up/sign-up.component'
 import { SignInComponent } from './sign-in/sign-in.component'
 import { ProfileComponent } from './profile/profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 
 
 
 export const router: Routes = [
-    { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+    { path: '', redirectTo: '', pathMatch: 'full' },
     { path: 'adding-data', component: AddingDataComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent },

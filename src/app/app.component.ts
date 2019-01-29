@@ -34,7 +34,7 @@ export class AppComponent {
         this.state = 1;
         prof[0].style.display = "block";
         signOutBtn[0].style.display = "block";
-        this.router.navigate(['/landing-page']);
+        this.router.navigate(['/adding-data']);
       }
       else{
         console.log('no user')
@@ -49,7 +49,7 @@ export class AppComponent {
 
 
   show(){
-    this.router.navigate(['/landing-page']);
+    this.router.navigate(['/adding-data']);
   }
 
   // dismissAlert(){
@@ -80,6 +80,6 @@ export class AppComponent {
   // }
 
   signOut(){
-    this.router.navigate(['/landing-page'])
+    this.router.navigate(['/sign-in'])
   }
 }

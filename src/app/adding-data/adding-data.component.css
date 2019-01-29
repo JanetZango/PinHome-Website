@@ -71,8 +71,10 @@ h1,h3{
     text-align: center;   
 }
 h3{
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: white;
+    padding-bottom: 60px;
+    font-size: 1.8em;
 }
 .theBody{
     width: 100%;
@@ -92,11 +94,12 @@ p{
 }
 .inputs{
     width: 100%;
-    background: rgba(245, 245, 245, 0.63);
+    /* background: rgb(245, 245, 245); */
     padding: 10px;
     margin-left: -10px;
-    box-shadow: 0 5px 10px grey;
+    box-shadow: 0px 30px 30px #ffffff;
     /* margin-right: 10px; */
+    padding-top: 20px 
 }
 .org-wide{
     width: 98.7%;
@@ -106,7 +109,7 @@ p{
     border: 1px solid #136a74;
     border-radius: 5px;
     box-shadow: 0 5px 10px  #136a7441;
-    background-color: #8491928c;
+    background-color: #ffffff;
     color: #000000;
     font-weight: bold;
     justify-content: space-between
@@ -138,33 +141,33 @@ td{
 }
 .org{
     height: 25px;
-    max-width: 314px;
-    width: 100%;
+    width: 98.7%;
+    max-width: 745px;
     padding: 5px;
     border: 1px solid #136a74;
     box-shadow: 0 5px 10px  #136a7441;
     border-radius: 5px;
-    background-color: #84919265;
+    background-color: #ffffff;
     color: #000000;
     font-weight: bold;
 }
 .org1{
 
     height: 25px;
-    max-width: 410px;
-    width: 100%;
+    width: 98.7%;
+    max-width: 840px;
     padding: 5px;
     border: 1px solid #136a74;
     box-shadow: 0 5px 10px  #136a7441;
     border-radius: 5px;
-    background-color: #84919265;
+    background-color: #ffffff;
     color: #000000;
     font-weight: bold;
 }
 select{
-    background: rgba(201, 201, 201, 0.651);
+    background: rgb(255, 255, 255);
     border: 0px solid transparent;
-    border: 2px solid white;
+    border: 2px solid #136a74;
     box-shadow: 0 2px 10px black; 
     margin-bottom: 10px;
     border-radius: 5px;
@@ -172,14 +175,14 @@ select{
 .orgHeight{
     margin-top: 10px;
     height: 90px;
-    max-width: 408px;
-    width: 100%;
+    width: 98.7%;
+    max-width: 838px;
     box-shadow: 0 5px 10px  #136a7441;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid #136a74;
     border-radius: 5px;
-    background-color: #84919265;
+    background-color: #ffffff;
     color: #000000;
     font-weight: bold;
     
@@ -188,14 +191,14 @@ select{
     margin-top: 10px;
     margin-right: 10px;
     height: 90px;
-    max-width: 408px;
-    width: 100%;
+    width: 98.7%;
+    max-width: 838px;
     box-shadow: 0 5px 10px  #136a7441;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid #136a74;
     border-radius: 5px;
-    background-color: #84919265;
+    background-color: #ffffff;
     color: #000000;
     font-weight: bold;
 }
@@ -221,6 +224,7 @@ select{
     top: 50%;
     transform: translateY(-50%);
     opacity: 1;
+    
 }
 .statement{
     width: 100%;
@@ -275,6 +279,8 @@ select{
     object-fit: cover;
     /* border: 1px solid black; */
     border-radius: 150px;
+    
+
 }
 .theImage{
     width: 150px;
@@ -579,8 +585,10 @@ body{
 .DP{
     z-index: 10000;
     position: absolute;
-    bottom: 5%;
-    left: 10px;
+    bottom: 60%;
+    right: 42%;
+    border: #0f808d96 5px solid;
+    
 
     border-radius: 150px;
     background: url("../../assets/imgs/icon.png");
