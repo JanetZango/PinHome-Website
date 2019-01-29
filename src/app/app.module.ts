@@ -15,6 +15,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SlideshowModule } from 'ng-simple-slideshow';
+
+
 
 
 @NgModule({
@@ -25,6 +29,8 @@ import { ProfileComponent } from './profile/profile.component';
     SignInComponent,
     GreetingComponent,
     ProfileComponent,
+    LandingPageComponent,
+    
 
 
   ],
@@ -34,8 +40,8 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
- 
+    FormsModule,
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,160 @@
+.container{
+    height: 100vh;
+    width: 100.5%;
+    /* background:red; */
+    position: relative;
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y: scroll;
+}
+.top{
+    width: 100%;
+    height: 30vh;
+    background: orange;
+    padding-left: 30px;
+    padding-top: 20px;
+    text-align: center;
+    border: 2px solid green
+}
+
+.images{
+    height: 100%;
+    max-height: 200px;
+}
+
+.storyStart{
+    display:block;
+    height: 60vh;
+    background: whitesmoke;
+    padding: 0px;
+}
+
+.desc{
+    text-align: center;
+    float: left;
+    font-size: 14px;
+    /* font-weight: bold; */
+    width: 60%;
+    margin: 0 auto;
+    color: black;
+    border: 1px solid grey;
+    height: 60vh
+}
+
+#instruction{
+    font-size: 14px;
+    font-weight: 550
+}
+
+.contact{
+    float: left;
+    width: 19%;
+    /* border: 2px solid white; */
+    border: 1px solid grey;
+    height: 60vh
+}
+
+.linkBtn{
+    padding: 5px;
+    width: 70%;
+    background: white;
+    color: black;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    margin-top: 5px;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.orgNews{
+    position: relative;
+    float: left;
+    padding-left: 10px;
+    /* margin-top: -25px; */
+    margin-right: -10px;
+    border-left: 1px solid grey;
+    color: white;
+    color: #222;
+    width: 20%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid grey;
+    height: 60vh;
+}
+
+.recents{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    /* float: left; */
+}
+
+.recents{
+    float: left;
+    display: block;
+}
+.labeler{
+    width: 100%;
+    /* border: 2px solid red; */
+    position: absolute;
+    left: 0;
+    background: white;
+}
+#theID{
+    /* position: fixed; */
+    /* width: 100%; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    /* background: white; */
+    /* padding-left: 80px; */
+    text-align: center;
+}
+.org{
+    border: 2px solid transparent;
+    margin-bottom: 10px;
+
+}
+.aboutOrg{
+    border-top: 1px solid grey;
+}
+
+.uploaded{
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+    border: .5px solid rgb(185, 185, 185);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.img1{
+    width: 200px;
+}
+.uploads{
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-left: 10%;
+    /* padding-right: 10%; */
+}
+.img1 p{
+    font-weight: bolder;
+    color: rgb(80, 80, 80);
+    text-transform: capitalize;
+    margin: 0 auto
+}
+
+@media screen and (max-width: 1000px){
+    .uploads{
+        display: -webkit-flex; /* Safari */
+        -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .storyStart{
+        display: -webkit-flex; /* Safari */
+        -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+        display: flex;
+        flex-wrap: wrap; 
+    }
+
+}

@@ -8,6 +8,7 @@ import { AddingDataComponent } from './adding-data/adding-data.component';
 import { SignUpComponent } from './sign-up/sign-up.component'
 import { SignInComponent } from './sign-in/sign-in.component'
 import { ProfileComponent } from './profile/profile.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 
@@ -18,8 +19,8 @@ export const router: Routes = [
     { path: 'adding-data', component: AddingDataComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent },
-
-    {path: 'profile', component: ProfileComponent}
+    { path: 'landing-page', component: LandingPageComponent },
+    {path: 'profile', component: ProfileComponent},
 
 ];
 
