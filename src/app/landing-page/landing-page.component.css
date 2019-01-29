@@ -9,24 +9,32 @@
 }
 .top{
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     background: orange;
     padding-left: 30px;
     padding-top: 20px;
     text-align: center;
-    border: 2px solid green
+    /* border: 2px solid green */
 }
 
 .images{
     height: 100%;
     max-height: 200px;
 }
+#welcomeMessage{
+    color: white;
+}
 
 .storyStart{
-    display:block;
-    height: 60vh;
-    background: whitesmoke;
+    /* display:block; */
+    position: relative;
+    /* height: 60vh; */
+    background-image: url("../../assets/imgs/theHand.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 0px;
+    overflow-x: hidden;
 }
 
 .desc{
@@ -38,12 +46,65 @@
     margin: 0 auto;
     color: black;
     border: 1px solid grey;
-    height: 60vh
+    /* height: 60vh */
 }
 
 #instruction{
     font-size: 14px;
-    font-weight: 550
+    font-weight: 400;
+    padding: 10px;
+    color: white;
+}
+
+.buton{
+    height: 40px;
+    width: 100%;
+    max-width: 250px;
+    border: 1px solid rgb(0, 110, 124);
+    line-height: 40px;
+    margin: 0 auto;
+    border-radius: 500px;
+    background: rgb(21, 160, 179);
+    color: white;
+    font-weight: bold;
+    font-size-adjust: inherit;
+    transition: 300ms;
+}
+.buton:hover{
+    cursor: pointer;
+    height: 40px;
+    width: 100%;
+    max-width: 250px;
+    border: 1px solid rgb(0, 110, 124);
+    line-height: 40px;
+    margin: 0 auto;
+    border-radius: 500px;
+    background: rgb(83, 160, 170);
+    color: white;
+    font-weight: bold;
+    font-size-adjust: inherit;
+
+}
+.buton:active{
+    /* transition: 100ms;   */
+    transform: rotateY(30DEG);
+    height: 40px;
+    width: 100%;
+    max-width: 250px;
+    border: 1px solid rgb(0, 110, 124);
+    line-height: 40px;
+    margin: 0 auto;
+    border-radius: 500px;
+    background: rgb(24, 188, 209);
+    color: white;
+    font-weight: bold;
+    font-size-adjust: inherit; 
+    box-shadow: 0 0 15px inset rgba(0, 0, 0, 0.5);
+}
+
+.buttonSpace{
+    margin-top: 20px;
+    /* border: 2px solid red; */
 }
 
 .contact{
@@ -51,14 +112,31 @@
     width: 19%;
     /* border: 2px solid white; */
     border: 1px solid grey;
-    height: 60vh
+    background: transparent;
+    height: 40vh
+}
+
+.aboutOrg .ordinary{
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 0 0 7px black;
+    /* border: 2px solid red;   */
+    padding-left: 10px;
+    font-weight: 800;
+    margin-left: 50px;
+    text-transform: capitalize;
+}
+.card{
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .linkBtn{
-    padding: 5px;
+    padding: 10px;
     width: 70%;
-    background: white;
-    color: black;
+    background: rgb(5, 104, 117);
+    color: white;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     margin-top: 5px;
     border-radius: 5px;
@@ -72,15 +150,21 @@
     /* margin-top: -25px; */
     margin-right: -10px;
     border-left: 1px solid grey;
-    color: white;
     color: #222;
     width: 20%;
     overflow-y: scroll;
     overflow-x: hidden;
     border: 1px solid grey;
-    height: 60vh;
+    height: 47vh;
+    background: transparent;
 }
 
+.imgContainer{
+    width: 80%;
+    /* border: 2px solid green; */
+    margin: 0 auto;
+    text-align: center;
+}
 .recents{
     height: 50px;
     width: 50px;
@@ -97,11 +181,12 @@
     /* border: 2px solid red; */
     position: absolute;
     left: 0;
-    background: white;
+    background: linear-gradient(rgba(0, 174, 197, 0.747), rgba(26, 106, 116, 0));
 }
 #theID{
     /* position: fixed; */
     /* width: 100%; */
+    color: white;
     padding-top: 0px;
     padding-bottom: 0px;
     /* background: white; */
@@ -120,29 +205,55 @@
 .uploaded{
     width: 200px;
     height: 150px;
-    object-fit: contain;
+    object-fit: cover;
     border: .5px solid rgb(185, 185, 185);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 }
 .img1{
-    width: 200px;
+    width: 100%;
+    text-align: center
 }
 .uploads{
-    /* border: 2px solid red; */
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding-left: 10%;
-    /* padding-right: 10%; */
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: nowrap;
+    transition: 300ms;
 }
 .img1 p{
     font-weight: bolder;
-    color: rgb(80, 80, 80);
+    color: #fff;
     text-transform: capitalize;
     margin: 0 auto
 }
 
-@media screen and (max-width: 1000px){
+
+@media screen and (max-width: 1300px){
+
+    .buton{
+        height: 40px;
+        width: 100%;
+        max-width: 250px;
+        border: 2px solid green;
+        line-height: 40px;
+        margin: 0 auto;
+        border-radius: 500px;
+        background: grey;
+        color: white;
+        font-weight: bold;
+        font-size-adjust: inherit;
+    }
+    
+    .top{
+        width: 100%;
+        height: 30vh;
+        background: orange;
+        padding-left: 30px;
+        padding-top: 20px;
+        text-align: center;
+        /* border: 2px solid green; */
+    }
     .uploads{
         display: -webkit-flex; /* Safari */
         -webkit-flex-wrap: wrap; /* Safari 6.1+ */
@@ -151,10 +262,47 @@
     }
 
     .storyStart{
+        background: red;
         display: -webkit-flex; /* Safari */
         -webkit-flex-wrap: wrap; /* Safari 6.1+ */
         display: flex;
         flex-wrap: wrap; 
     }
 
+    .desc{
+        text-align: center;
+        float: left;
+        font-size: 14px;
+        /* font-weight: bold; */
+        width: 60%;
+        margin: 0 auto;
+        color: black;
+        border: 1px solid red;
+        height: 50vh
+    }
+
+    .orgNews{
+        position: relative;
+        float: left;
+        padding-left: 10px;
+        /* margin-top: -25px; */
+        margin-right: -10px;
+        border-left: 1px solid grey;
+        color: white;
+        color: #222;
+        width: 20%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border: 1px solid red;
+        height: 50vh;
+    }
+
+    .contact{
+        float: left;
+        width: 19%;
+        /* border: 2px solid white; */
+        border: 1px solid red;
+        /* height: 60vh */
+    }
 }
+
