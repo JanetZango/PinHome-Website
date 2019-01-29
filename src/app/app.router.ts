@@ -15,7 +15,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 export const router: Routes = [
-    { path: '', redirectTo: '', pathMatch: 'full' },
+    { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
     { path: 'adding-data', component: AddingDataComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent },

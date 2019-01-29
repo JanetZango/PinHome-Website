@@ -24,7 +24,7 @@ export class LandingPageComponent implements OnInit {
   oldOrgs = [];
 
   myImages = ["../../assets/imgs/dummy data/1.JPG", "../../assets/imgs/dummy data/2.JPG", "../../assets/imgs/dummy data/3.JPG",
-    "../../assets/imgs/dummy data/4.JPG", "../../assets/imgs/dummy data/5.JPG","assets/imgs/change.png"
+    "../../assets/imgs/dummy data/4.JPG", "../../assets/imgs/dummy data/5.JPG", "assets/imgs/change.png"
   ];
 
   constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, private _ngZone: NgZone) { }
@@ -315,21 +315,48 @@ export class LandingPageComponent implements OnInit {
 
 
 
-        // mapTypeId: 'terrain'
       });
       for (var x = 0; x < this.organizationArr.length; x++) {
         console.log("inside");
         let myLatLng = { lat: this.organizationArr[x].latitude, lng: this.organizationArr[x].longitude };
         let marker = new google.maps.Marker({
           position: myLatLng,
-          // icon:'assets/imgs/change.png',
+          // icon:"../assets/imgs/pink.png",
+          size: { width: 5, height: 5 },
           map: map,
           title: this.organizationArr[x].OrganizationName,
 
-
-        
         });
-        // })
+
+        var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+        '<div id="bodyContent" *ngFor="let a of organizationArr">'+
+        '<img src="assets/imgs/download.jpg">'+
+        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+        'sandstone rock formation in the southern part of the '+
+        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+        'south west of the nearest large town, Alice Springs; 450&#160;km '+
+        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+        'Aboriginal people of the area. It has many springs, waterholes, '+
+        'rock caves and ancient paintings. Uluru is listed as a World '+
+        'Heritage Site.</p>'+
+        '</div>'+
+        '</div>';
+
+        let infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        marker.addListener('click', function () {
+          infowindow.open(map, marker);
+         
+        });
+    
+
       }
     }, 3000);
 
