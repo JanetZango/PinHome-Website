@@ -1,35 +1,145 @@
 .theBody{
-    box-shadow: 0 5px 10px grey;
-    padding-left: 10px;
+    position: fixed;
+    box-shadow: 0 1px 1px black;
+    /* padding-left: 10px; */
     padding-top: 1px;
-    padding-right: 10px;
-    height: 100%;
-    position: relative;
+    /* padding-right: 10px; */
+    /* height: 100%; */
+    /* position: relative; */
     background: #136a74;
+    transform: translateX(-1%);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    width: 100vw;
-    margin-left: -10px;
-    margin-top: -10px;
+    width: 100.5vw;
+    /* height: 100vh; */
+    margin: 0 auto;
+    height: 120px;
+    /* margin-left: -10px;
+    margin-top: -10px; */
+}
+h1{
+    font-size: 30px;
+    margin-top: 25px;
+    margin-left: 80px;
+    position: absolute;
+    
+}
+.topContainer{
+    /* border: 2px solid red; */
+    height: 90px;
+    width: 90%;
+    /* border: 2px solid red */
+}
+.signInUp{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .header{
     display: flex;
+    margin: 0 auto;
+    /* border: 2px solid blue; */
+    width: 80%;
 }
 .icon{
     margin-top: 5px;
-    height: 70px;
-    background: #13b8ca7a;
-    border-radius: 50px;
+    margin-left: 20px;
+    height: 60px;
+    /* background: #13b8ca7a; */
+    /* border-radius: 50px; */
+}
+a{
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: 14px;
 }
 .DP{
     width: 50px;
     height: 50px;
     border-radius: 50px;
     position: absolute;
-    top: 15%;
-    right: 5%;
+
+    top: 10px;
+    right: 12%;
 }
+.links{
+    /* border: 2px solid red; */
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    padding-bottom: 5px;
+}
+
+.greeting{
+    height: 100vh;
+    width: 90vw;
+    margin-left: -20px;
+    /* border: 2px solid white; */
+    background-image: url("../assets/imgs/12.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+.welcMessage{
+    /* border: 2px solid; */
+    text-align: center;
+    padding-top: -50vh;
+    color: white;
+    font-size: 25px
+}
+.theButton{
+    width: 150px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+    transition: 500ms;
+}
+.theButton:hover{
+    width: 150px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.24);
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+.theButton:active{
+    width: 150px;
+    height: 30px;
+    background: white;
+    color: black;
+    /* border: 3px solid white; */
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0 auto;
+
+}
+
+.Reg{
+    position: absolute;
+    left: 2%;
+    bottom: -18px;
+    z-index: 100000;
+}
+
+.signInUp{
+    position: absolute;
+    right: -165px;
+    top:5px;
+    z-index: 1000000;
+}
+
 @media screen and (max-width: 420px){
+
     .theBody{
         box-shadow: 0 5px 10px grey;
         padding-left: 10px;
@@ -41,23 +151,139 @@
         color: white;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 12px;
+        /* border: red solid 5px; */
+        margin-left: -8px;
+        margin-top: -13px;
     }
-    .header{
+        .header{
         display: flex;
         height: 50px;
         position: relative;
     }
     .icon{
-        margin-top: 5px;
+        margin-top: 10px;
         height: 55px;
         background: #13b8ca7a;
         border-radius: 50px;
+        margin-left: -35px;
+        height: 45px;
+        width: 45px;
     }
+
+    .profile{
+        height: 10px;
+        width: 10px;
+        margin-left: -10px;
+    }
+
     h1{
         position: absolute;
-        left: 15%;
-        top: 50%;
+        left: -21%;
+        bottom: -75%;
         transform: translateY(-75%);
-        font-size: 20px;
+        font-size: 23px;
     }
+
+    .Reg{
+        position: absolute;
+        left: -15%;
+        bottom: -12px;
+        z-index: 100000;
+    }
+
+    .signInUp{
+        position: absolute;
+        right: -25px;
+        bottom: -20px;
+        z-index: 1000000;
+    }
+
+}
+/* .divver{
+        height: 0px;
+        border: 2px solid red;
+} */
+
+.customAlert1{
+    z-index: 100000;
+    position: absolute;
+    background: whitesmoke;
+    width: 55%;
+    height: 15vh;
+    color: #222;
+    position: relative;
+    top: 50%;
+    left: -100%;
+    box-shadow: 0 5px 15px grey;
+    transition: 300ms;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.651);
+}
+.text{
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bold;
+}
+.confirmer{
+    width: 50px;
+    height: 50px;
+    background: #136a74;
+    border-radius: 5px;
+    transition: 300ms;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 15px grey;
+}
+.confirmer:active{
+    width: 50px;
+    height: 50px;
+    background: #0f808d;
+    border-radius: 5px;position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+    box-shadow: 0 5px 10px black;
+}
+.OK{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}
+
+.buttonClick{
+    position: absolute;
+    right: 5%;
+    bottom: 25%;
+    height: 20px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 150px;
+    /* background: #4e0000; */
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: 200ms;
+}
+.buttonClick:active{
+    position: absolute;
+    right: 5%;
+    bottom: 25%;
+    height: 20px;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 150px;
+    background: #940000;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
+    text-align: center;
+    transition: 200ms;
 }

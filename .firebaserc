@@ -1,5 +1,9 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "test-d0824"
+=======
+    "default": "pinhomedatabase"
+>>>>>>> 2676d5145b1ebf015eb16d1c24a49b00d70897dc
   }
 }

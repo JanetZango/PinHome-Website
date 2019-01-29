@@ -1,33 +1,53 @@
-<head>
-
-</head>
-
 <body>
+  <div class="divver">
+        <div class="customAlert0">
+        <div class="text">
+          <img src="../../assets/imgs/custom alert/loader.gif" alt="" class="loading"><br>
+          {{message}}
+        </div>
+        <div class="confirmer" id="theOkay" (click)="dismissAlert()">
+          <div class="OK">
+            OK
+          </div>
+        </div>
+      </div>
+  </div>
+
   <div class="content">
-  <div class="container">
-    <div class="statement">
-      Welcome back! Please fill in the details to sign in
-    </div>
-    <div class="form">
-        <a routerLink="/sign-up">Sign Up</a>
-      <div class="intro">
-        <h3>Login as an incorporator</h3>
+    <div class="container">
+      <div class="statement">
+        <h1>Welcome</h1>
+        <h2> We're super excited to have you on board!</h2>
       </div>
-      <input class="text-field" type="text" #email placeholder="Email"><br>
-      <input class="text-field" type="password" #password placeholder="Password">
-      <div class="forgot">
-        <button (click)="forgotpassword()">Forgot Password</button>
+      <div class="form">
+        
+        <div class="intro">
+          <h3 class="theH3">Login as an incorporator</h3>
+        </div>
+        <input class="text-field" type="text" #email placeholder="Email">
+        <br>
+        <input class="text-field" type="password" #password placeholder="Password">
+        <div class="space"></div>
+        <div class="button" (click)="login(email.value,password.value, $event)">
+          <p class="P">
+            Sign In
+          </p>
+        </div>
+        <!-- <br> -->
+        <div class="forgot" (click)="forgotpassword(email.value)">
+          <p class="iForgot">Forgot your password? Click here</p>
+        </div>
+        
       </div>
-      <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
-      <div class="button" routerLink="/adding-data">
-        <p>
-          SIGN IN
-        </p>
-      </div>
-      <br>
-     
+
     </div>
   </div>
-</div>
-
+  <div class="holder">
+    <!-- <div class="or">
+      or
+    </div> -->
+    <div class="buttonClick" (click)="goToSignUp()">
+      Sign Up
+    </div>
+  </div>
 </body>

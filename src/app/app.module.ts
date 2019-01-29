@@ -4,6 +4,7 @@ import { AngularFireModule } from 'angularfire2';
 import { routes } from './app.router';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import {FormsModule} from '@angular/forms' 
 
 
 
@@ -14,6 +15,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +29,8 @@ import { ProfileComponent } from './profile/profile.component';
     SignInComponent,
     GreetingComponent,
     ProfileComponent,
+    LandingPageComponent,
+    
 
 
   ],
@@ -30,8 +39,9 @@ import { ProfileComponent } from './profile/profile.component';
     routes,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
- 
+    AngularFireAuthModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

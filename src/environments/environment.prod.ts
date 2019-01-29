@@ -1,12 +1,12 @@
 export const environment = {
-  production: true,
+  production: false,
   firebase: {
-    apiKey: "AIzaSyCbq2cRI0kgYRsLvx7VvBKYrz-FobKtBME",
-    authDomain: "pinhome-823ec.firebaseapp.com",
-    databaseURL: "https://pinhome-823ec.firebaseio.com",
-    projectId: "pinhome-823ec",
-    storageBucket: "pinhome-823ec.appspot.com",
-    messagingSenderId: "523364615140"
+    apiKey: "AIzaSyAqOYQVilf8j49rk0uf6kj_UtgbG9uLfAA",
+    authDomain: "pinhomedatabase.firebaseapp.com",
+    databaseURL: "https://pinhomedatabase.firebaseio.com",
+    projectId: "pinhomedatabase",
+    storageBucket: "",
+    messagingSenderId: "1004548425362"
   }
 
 };

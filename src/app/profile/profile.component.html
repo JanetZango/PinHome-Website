@@ -1,50 +1,50 @@
-
+<div class="content">
 <div class="container" *ngFor="let i of Orgs | async">
   <h1>
     Your Acccount
   </h1>
 
   <div align="center">
-    <img class="ProPic" src="../../assets/imgs/11_faces.jpg">
+    <img class="ProPic" src="{{i.downloadurl}}">
   </div>
 
   <div class="bar">
     <h1 class="h1">Account Details</h1>
   </div>
 
-  <table class="whole" align="center">
+  <table align="center">
     <tr>
-      <td class="title">
+      <td valign="top" class="leftTD">
         Name :
       </td>
-      <td class="name">
+      <td valign="top" class="rightTD">
         {{i.Firstname}}
       </td>
     </tr>
 
     <tr>
-      <td class="title">
+      <td valign="top" class="leftTD">
         Surname :
       </td>
-      <td class="name">
+      <td valign="top" class="rightTD">
         {{i.Lastname}}
       </td>
     </tr>
 
     <tr>
-      <td class="title">
+      <td valign="top" class="leftTD">
         Email Adress :
       </td>
-      <td class="name">
+      <td class="rightTD">
         {{email}}
       </td>
     </tr>
 
     <tr>
-      <td class="title">
+      <td valign="top" class="leftTD">
         Mobile No. :
       </td>
-      <td class="name">
+      <td valign="top" class="rightTD">
         {{i.Mobile}}
       </td>
     </tr>
@@ -62,36 +62,48 @@
     <img  class="round2" src="../../assets/imgs/icon.png">
   </div>
   
-  <table class="whole2" align="center">
+  <table align="center">
     <tr>
-      <td class="title">
+      <td valign="top" class="leftTD">
         Organisation Name:
       </td>
-      <td class="name">
-          {{i.OrganisationName}}
+
+      <td valign="top" class="rightTD">
+        Little Rose
+
       </td>
      </tr>
       <tr>
-        <td class="title">
+        <td valign="top" class="leftTD">
           Organisation Cat :
         </td>
-        <td class="name">
+
+        <td valign="top" class="rightTD">
+
           Old aged home
         </td>
       </tr>
 
       <tr>
-        <td class="title">
+        <td valign="top" class="leftTD">
           Organisation Tel. :
         </td>
-        <td class="name">
+
+        <td valign="top" class="rightTD">
+
           {{i.Telephone}}
+        </td>
+      </tr> 
+      <tr>
+        <td valign="top" class="leftTD">
+          Description :
+        </td>
+        <td valign="top" class="rightTD">
+          {{i.AboutOrg}}
         </td>
       </tr>  
   </table>
-
-  
 </div>
 
-
+</div>
 
