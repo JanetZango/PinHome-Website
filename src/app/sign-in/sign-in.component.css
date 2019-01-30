@@ -22,7 +22,6 @@
     position: absolute;
     left: 5px;
     top: 3px;
-
     /* margin-top: 15px; */
   
     -webkit-font-smoothing: antialiased;
@@ -38,7 +37,6 @@
     margin-bottom: -2000px;
     background-image: url('../../assets/imgs/thebackground.jpg')
 } */
-
 .container{
     /* border: solid 2px grey; */
     box-shadow: 0 5px 20px grey;
@@ -47,8 +45,8 @@
     margin: 0 auto;
     margin-top: 200px;
     display: flex;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 .seperator{
     /* border: solid 1px grey; */
     height: 50vh;
@@ -58,7 +56,6 @@
     /* background-size: cover; */
     /* background-repeat: no-repeat; */
     
-
     /* background-attachment: fixed;
     background-color: rgba(94, 10, 10, 0.74);
     background-size: cover;
@@ -70,19 +67,19 @@
     font-size: 1.8em;
     position: relative;
     bottom: 20px;
+    color: white;
 }
 .seperator2{
     height: 50vh;
     width: 25vw; 
     /* border: solid red 2px; */
 }
-
 h1{
     text-align: center;
     font-weight: 100;
     padding-top: 100px;
     font-size: 2.3em; 
-
+    color: white
 }
 h2{
     color: rgb(134, 126, 126);
@@ -91,15 +88,14 @@ h2{
     font-size: 2em;
     padding-top: 30px;
 }
-
 h3{
     font-weight: 100;
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: -30px;
+    color: white;
 }
-
 .message{
     color: black;
     padding-right: 17%;
@@ -107,12 +103,10 @@ h3{
     padding-bottom: -50px;
     padding-left: 16px;
     /* border: solid 2px red; */
-
 }
 .textfield{
     width: 100%;
     height: 50px;
-
 }
 .textfield input{
     /* border: none; */
@@ -130,7 +124,6 @@ h3{
     /* position: absolute; */
     color: green
 }
-
 .person{
     height: 25px;
     margin-right: -50px;
@@ -138,7 +131,6 @@ h3{
     right: 25px;
     top: 5px;
 }
-
 .theTable{
     margin-right: 100px;
     z-index: 100000;
@@ -152,8 +144,8 @@ border: #20676e/ solid 2px;
 .password{
     /* border: #20676e solid 2px; */
     color: black;
+    padding-left: 10px;
 }
-
 .divButton{
    /* border: #1e2a78 solid 2px; */
    text-align: center;
@@ -170,38 +162,13 @@ border: #20676e/ solid 2px;
     box-shadow: #20676e 0 0 20px;
     font-size: 1em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* p{
     position: relative;
-
     margin-top:10px;
 }
 .theTable{
     position: relative;
     left:45px
-
 }
 h3{
     color: #136a74;
@@ -226,7 +193,6 @@ h3{
         text-shadow: 0px 0px 10px black;
         
     }
-
 .container{
     height: 50px;
     position: absolute;
@@ -244,7 +210,6 @@ h3{
 /* .iForgot{
     padding-top: 10px;
 }
-
 .form{
     background: rgba(245, 245, 245, 0.63);
     width: 90%;
@@ -283,7 +248,6 @@ h3{
 }
 .theH3{
     font-weight: bold;
-
 }
 .space{
     height: 10px;
@@ -323,9 +287,7 @@ a{
     transition: 400ms;
     padding-top: 15px;
 }
-
 @media screen and (max-width: 420px){
-
     .content{
         height: 100vh;
         width: 109vw;
@@ -337,7 +299,6 @@ a{
        background-repeat: no-repeat;
        background-position: center;  
     }
-
     .form{
         background: rgba(245, 245, 245, 0.63);
         width: 90%;
@@ -354,9 +315,7 @@ a{
         transition: 400ms;
         margin-top: 70px;
     }
-
 }
-
 .holder{
     z-index: 1;
     height: 0;
@@ -395,7 +354,6 @@ a{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
     text-align: center;
 }
-
 .or{
     width: 20px;
     text-align: center;
@@ -409,7 +367,6 @@ a{
 .divver{
     height: 0px;
 }
-
 .customAlert0{
     z-index: 100000;
     position: absolute;
@@ -461,9 +418,7 @@ a{
     text-align: center;
     font-weight: bolder;
     color: white;
-
 }
-
 .holder{
     z-index: 1;
     height: 0;
