@@ -1,73 +1,43 @@
 <body>
 
-  <div class="container">
-    <div class="top" id="map">
-
-
-    
-    </div>
-    <div class="storyStart">
-      <div class="contact">
-        <div class="linkBtn">
-          Contact Us
-        </div>
-        <div class="linkBtn">
-          Follow Us
-        </div>
-        <div class="linkBtn">
-          Chase us
-        </div>
-        <div class="linkBtn">
-          Do Whatever
-        </div>
-        <div class="linkBtn">
-          Address
-        </div>
-
+  <div class="start">
+    <div class="tab">
+      <div class="DP">
+        <img src="../../assets/imgs/picccc.jpg" alt="">
       </div>
-      <div class="desc">
-        <h3 id="welcomeMessage">welcome to the PinHome Database</h3>
+      <div class="action">
+        <div (click)="gotToAdding()">Add Organization |</div>
 
-        <div *ngFor="let a of latestOrgs">
-        <div class="uploads">
-          <div class="img1">
-            <img class="uploaded" src="{{a.Url}}" alt="">
-            <br>
-            <br>
-            <p>
-              {{a.OrganizationName}}
-            </p>
-          </div>
+        <div  (click)="gotToProfile()">
+          <p class="space">Profile</p>
         </div>
-      </div>
-
-        <p align="center" id="instruction"> Add your organisation Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Ut iusto
-          vitae laborum veritatis aliquam! Aut
-          sapiente inventore id animi saepe veniam, eligendi, quia nulla placeat similique quidem eaque corporis dicta
-          iure. Nam, corrupti iste quasi corporis soluta saepe cum repellendus consequuntur dolorem ipsam officiis
-          eveniet non dolorum aliquam quidem quae.
-        </p>
-      </div>
-      <div class="orgNews" >
-        <div class="labeler">
-          <p id="theID">New organisations</p>
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <div class="org" *ngFor="let a of oldOrgs ">
-          <div class="aboutOrg">
-            <p>
-              <img class="recents" src="{{a.Url}}" alt="">
-             {{a.OrganizationName}}
-            </p>
-
-          </div>
-        </div>
-      
       </div>
     </div>
+    <div class="content" id="map">
+      <div class="loader">
+        Loading Map...
+      </div>
+    </div>
+
+    <div class="absolutely">
+        <div class="arrow">
+          <div class="clicker" (click)="decideState()">
+             &Lambda;
+          </div>
+           
+        </div>
+        <div class="list" >
+          <div class="moveLeft" (click)="toLeft()">
+            <!-- &lt; -->
+          </div>
+          <div class="moveRight" (click)="toRight()">
+            <!-- &gt; -->
+          </div>
+          <div class="gal" id="push" *ngFor="let a of organizationArr">
+            <img src="{{a.Url}}" alt="">
+          </div>      
+        </div>
+      </div>
   </div>
+
 </body>

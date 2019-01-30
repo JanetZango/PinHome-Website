@@ -3,6 +3,8 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 declare var google;
 // import {SlideshowModule} from 'ng-simple-slideshow';
 
@@ -23,11 +25,15 @@ export class LandingPageComponent implements OnInit {
   latestOrgs = [];
   oldOrgs = [];
 
+  state = 0;
+  i = 180;
+  initially;
+
   myImages = ["../../assets/imgs/dummy data/1.JPG", "../../assets/imgs/dummy data/2.JPG", "../../assets/imgs/dummy data/3.JPG",
-    "../../assets/imgs/dummy data/4.JPG", "../../assets/imgs/dummy data/5.JPG", "assets/imgs/change.png"
+    "../../assets/imgs/dummy data/4.JPG", "../../assets/imgs/dummy data/5.JPG"
   ];
 
-  constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, private _ngZone: NgZone) { }
+  constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, private _ngZone: NgZone, private router: Router) { }
 
   ngOnInit() {
 
@@ -79,6 +85,7 @@ export class LandingPageComponent implements OnInit {
       let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
         center: myLatLng,
+        disableDefaultUI: true,
         styles: [
           {
             "elementType": "geometry",
@@ -349,8 +356,9 @@ export class LandingPageComponent implements OnInit {
 
         let infowindow = new google.maps.InfoWindow({
           content: this.organizationArr[x].OrganizationName + '<br>' + '<br>' +
-            this.organizationArr[x].AboutOrg + '<br>'
-          // this.organizationArr[x].Url 
+          '<img src="assets/imgs/download.jpg">' + '<br>' +
+            this.organizationArr[x].AboutOrg + '<br>' + '<br>' 
+         
         });
         marker.addListener('click', function () {
           infowindow.open(map, marker);
@@ -362,7 +370,73 @@ export class LandingPageComponent implements OnInit {
     console.log("at the end");
   }
 
+  getStarted() {
+    // this decides if you are online or not
 
 
+    this.authen.auth.onAuthStateChanged(user => {
+      console.log(user)
+      if (user) {
+
+        this.router.navigate(['/adding-data']);
+      }
+      else {
+        console.log('no user')
+
+        this.router.navigate(['/sign-in']);
+
+      }
+    });
+
+  }
+
+  decideState() {
+    if (this.state == 0) {
+      this.showSlide()
+    }
+    else {
+      this.hideSlide()
+    }
+
+    console.log(this.state);
+
+  }
+
+  showSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+    arrow[0].style.left = "48%";
+    arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(180DEG)";
+    slider[0].style.bottom = "0";
+
+    this.state = 1;
+
+  }
+  hideSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+    arrow[0].style.left = "48%";
+    arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(0DEG)";
+    slider[0].style.bottom = "-200px";
+
+    this.state = 0
+  }
+
+  toLeft() {
+    var pusher = document.getElementById("push");
+    let i = 160
+    pusher.style.marginLeft = (this.initially) + i + "px"
+  }
+
+  gotToAdding() {
+    this.router.navigate(['/adding-data']);
+  }
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
 
 }

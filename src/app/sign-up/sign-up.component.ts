@@ -110,21 +110,21 @@ export class SignUpComponent implements OnInit {
       // yourAlert[0].style.left = "50%";
       // yourAlert[0].style.transform = "translateX(-54%)"
     }
-    else if(this.mobile.length  < 10|| this.mobile.length > 10){
+    else if(this.mobile.length  < 9|| this.mobile.length > 9){
       leader1[0].style.display = "none"
       myOk.style.display = "block";
-      this.message = "Oops! It looks like your number has either exceed or is below 10 characters."
+      this.message = "Oops! It looks like your mobile number has either exceed or is below 9 characters."
       console.log(this.tel.length)
     }
-    else if(this.tel.length < 10 || this.tel.length > 10){
+    else if(this.tel.length < 9 || this.tel.length > 9){
       leader1[0].style.display = "none"
       myOk.style.display = "block";
-      this.message = "Error"
+      this.message = "Oops! It looks like your telephone number has either exceed or is below 9 characters."
     }
 
     else {
       if (this.password == this.Confirm) {
-        this.message = "Loading..." 
+        this.message = "Signing in..." 
         
         this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
 
