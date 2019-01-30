@@ -144,6 +144,7 @@ border: #20676e/ solid 2px;
 .password{
     /* border: #20676e solid 2px; */
     color: black;
+    padding-left: 10px;
 }
 .divButton{
    /* border: #1e2a78 solid 2px; */
