@@ -1,7 +1,7 @@
 .start{
     height: 100.5vh;
     width: 100.5%;
-    background: red;
+    background: whitesmoke;
     position: fixed;
     
     -webkit-background-size: cover;
@@ -17,7 +17,7 @@
     width: 99.7%;
     height:99.7%;
     border: 2px solid green;
-    box-shadow: 0 0 20px inset blue;
+    box-shadow: 0 0 200px inset rgb(26,106,116);
 }
 .tab{
     width: 100%;
@@ -68,7 +68,8 @@
     margin: 0 auto;
     width: 50%;
     min-width: 400px;
-    border: 2px solid red;
+    padding-top: 10px;
+    /* border: 2px solid red; */
     display: flex;
     overflow-x: scroll;
     position: relative;
@@ -86,7 +87,7 @@
     cursor: pointer;
     width: 180px;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    background: linear-gradient(45DEG, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
     position: fixed;
     z-index: 100000000000000000;
     left: 0;
@@ -102,7 +103,7 @@
     cursor: pointer;
     width: 180px;
     height: 100%;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    background: linear-gradient(-45DEG, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
     position: fixed;
     z-index: 100000000000000000;
     right: 0;
@@ -146,6 +147,18 @@
     z-index: 100000000000000000000000000000000000000000;
     transform: translateX(-50%);
     top: -60px;
+
+}
+
+.loader{
+    width: 250px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    /* border: 2px solid red; */
+    margin-left: 50%;
+    margin-top: 25%;
+    transform: translate(-50%,-50%)
 
 }
 
