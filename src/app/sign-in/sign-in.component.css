@@ -1,13 +1,173 @@
-p{
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: wrap;
+    direction: ltr;
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    /* margin-top: 15px; */
+  
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  
+    -moz-osx-font-smoothing: grayscale;
+  
+    font-feature-settings: 'liga';
+  }
+/* .body{
+    height: 100vh;
+    width: 100vw;
+    margin-bottom: -2000px;
+    background-image: url('../../assets/imgs/thebackground.jpg')
+} */
+.container{
+    /* border: solid 2px grey; */
+    box-shadow: 0 5px 20px grey;
+    height: 50vh;
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 200px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.seperator{
+    /* border: solid 1px grey; */
+    height: 50vh;
+    width: 25vw; 
+    background-image:linear-gradient(rgba(0, 0, 0, 0.445),#1e2a78),url('../../assets/imgs/bacckkkkk.jpg');
+    background-attachment: fixed;
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    
+    /* background-attachment: fixed;
+    background-color: rgba(94, 10, 10, 0.74);
+    background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center; */
+}
+.seperator p{
+    text-align: center;
+    font-size: 1.8em;
     position: relative;
-
+    bottom: 20px;
+    color: white;
+}
+.seperator2{
+    height: 50vh;
+    width: 25vw; 
+    /* border: solid red 2px; */
+}
+h1{
+    text-align: center;
+    font-weight: 100;
+    padding-top: 100px;
+    font-size: 2.3em; 
+    color: white
+}
+h2{
+    color: rgb(134, 126, 126);
+    text-align: left;
+    padding-left: 20px;
+    font-size: 2em;
+    padding-top: 30px;
+}
+h3{
+    font-weight: 100;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: -30px;
+    color: white;
+}
+.message{
+    color: black;
+    padding-right: 17%;
+    font-size: 1.2em;
+    padding-bottom: -50px;
+    padding-left: 16px;
+    /* border: solid 2px red; */
+}
+.textfield{
+    width: 100%;
+    height: 50px;
+}
+.textfield input{
+    /* border: none; */
+    border-top: 2px;  
+    border-right: 0px;
+    border-left: 0px; 
+    border-color: #20676e;      
+    width: 70%;
+    height: 30px;
+    font-size: 1.2em;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.textfield i{
+    /* position: absolute; */
+    color: green
+}
+.person{
+    height: 25px;
+    margin-right: -50px;
+    position: relative;
+    right: 25px;
+    top: 5px;
+}
+.theTable{
+    margin-right: 100px;
+    z-index: 100000;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.check{
+border: #20676e/ solid 2px;
+}
+.password{
+    /* border: #20676e solid 2px; */
+    color: black;
+}
+.divButton{
+   /* border: #1e2a78 solid 2px; */
+   text-align: center;
+   margin-top: 50px;
+   height: 10px;
+}
+.theBUTTON{
+    height: 500%;
+    width: 200px;
+    border-radius: 50px;
+    background-color: #20676e;
+    color: white;
+    border: 2px solid #20676e;
+    box-shadow: #20676e 0 0 20px;
+    font-size: 1em;
+}
+/* p{
+    position: relative;
     margin-top:10px;
 }
 .theTable{
-    /* border: red solid 2px; */
     position: relative;
     left:45px
-
 }
 h3{
     color: #136a74;
@@ -19,7 +179,6 @@ h3{
     position: relative;
     right: 20px;
     background-image: url('../../assets/imgs/theHand.jpg');
-    /* background-attachment: fixed; */
     background-size: cover;
    background-repeat: no-repeat;
    background-position: center;  
@@ -29,19 +188,16 @@ h3{
     padding: 15px;
     position: relative;
     top: 40px;
-        /* border: 2px solid red; */
         color: whitesmoke;
         text-shadow: 0px 0px 10px black;
-      /* font-size: 2em; */
         
     }
-
 .container{
     height: 50px;
     position: absolute;
     color:black;
     /* border: 2px solid black; */
-    left: 50%;
+    /* left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 720px; 
@@ -49,25 +205,17 @@ h3{
     margin-top: 20px;
     transition: 400ms;
     
-}
-.iForgot{
-    padding-top: 10px;
-    /* padding-bottom: 20px; */
-}
-/* .iForgot{
-    position: relative;
-    padding-top: 0px;
 } */
+/* .iForgot{
+    padding-top: 10px;
+}
 .form{
     background: rgba(245, 245, 245, 0.63);
     width: 90%;
     max-width:650px;
-    /* height: 100%; */
     color: black;
     position: relative;
-    /* border: 2px solid red; */
     margin: 0 auto;
-    /* display: flex; */
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px;
@@ -82,7 +230,6 @@ h3{
     width: 100%;
     max-width: 310px;
     margin-top: 10px;
-    /* height: 40px; */
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -100,7 +247,6 @@ h3{
 }
 .theH3{
     font-weight: bold;
-
 }
 .space{
     height: 10px;
@@ -140,9 +286,7 @@ a{
     transition: 400ms;
     padding-top: 15px;
 }
-
 @media screen and (max-width: 420px){
-
     .content{
         height: 100vh;
         width: 109vw;
@@ -154,17 +298,14 @@ a{
        background-repeat: no-repeat;
        background-position: center;  
     }
-
     .form{
         background: rgba(245, 245, 245, 0.63);
         width: 90%;
         max-width:650px;
-        /* height: 100%; */
+       
         color: black;
         position: relative;
-        /* border: 2px solid red; */
         margin: 0 auto;
-        /* display: flex; */
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 10px;
@@ -172,16 +313,13 @@ a{
         box-shadow: 0 10px 10px #136a749d;
         transition: 400ms;
         margin-top: 70px;
-        /* box-shadow: 10px 10px 0 #136a749d */
     }
-
 }
-
 .holder{
     z-index: 1;
     height: 0;
     /* border: 2px solid red; */
-    width: 99vw;
+    /* width: 99vw;
     transform: translateX(1.01vw);
     position: absolute;
     bottom: -60vh;
@@ -215,10 +353,8 @@ a{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
     text-align: center;
 }
-
 .or{
     width: 20px;
-    /* border: 2px solid green; */
     text-align: center;
     position: absolute;
     top: -30px;
@@ -230,7 +366,6 @@ a{
 .divver{
     height: 0px;
 }
-
 .customAlert0{
     z-index: 100000;
     position: absolute;
@@ -282,13 +417,11 @@ a{
     text-align: center;
     font-weight: bolder;
     color: white;
-
 }
-
 .holder{
     z-index: 1;
     height: 0;
-    /* border: 2px solid red; */
+  
     width: 99vw;
     transform: translateX(1.01vw);
     position: absolute;
@@ -309,4 +442,4 @@ a{
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 0.1px;
-}
+}  */ 

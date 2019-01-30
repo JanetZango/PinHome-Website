@@ -85,6 +85,7 @@ initially;
       let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
         center: myLatLng,
+        disableDefaultUI: true,
         styles: [
           {
             "elementType": "geometry",
