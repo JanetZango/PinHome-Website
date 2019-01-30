@@ -15,6 +15,11 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+
+
+
 
 
 @NgModule({
@@ -25,6 +30,9 @@ import { ProfileComponent } from './profile/profile.component';
     SignInComponent,
     GreetingComponent,
     ProfileComponent,
+    LandingPageComponent,
+    WelcomePageComponent,
+    
 
 
   ],
@@ -34,8 +42,8 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
- 
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
