@@ -3,9 +3,111 @@
 </head>
 
 <body>
-  <!-- <div class="holder">
-      </div> -->
-  <div class="container">
+
+  <div class="main">
+    <h3>Organization Details</h3>
+    <div class="subission">
+      <div class="submit">
+        Submit
+      </div>
+    </div>
+    <div class="form">
+      <!-- ================================================================================================================================================================= -->
+
+      <div class="section1">
+        <div class="left">
+          <input class="textField" type="text" placeholder="Name of organisation" [(ngModel)]="name">
+          <br>
+
+          <select class="textField" [(ngModel)]="select" class="org-wide-select" id="selector" style="margin-top: 10px">
+            <option value="Orphanage">Orphanage</option>
+            <option value="Disability">Disability</option>
+            <option value="old age">Old Age Homes</option>
+            <option value="theraphy">Theraphy</option>
+            <option value="Psychiatric">Psychiatric centres/Hospital</option>
+            <option value="social centre">Social Centre</option>
+            <option value="Rehab">Rehab</option>
+          </select><br>
+          <textarea class="txtBig" [(ngModel)]="AboutOrg" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
+          <textarea class="txtBig" #address [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)"
+            placeholder="Address" maxlength="230" id="about" type="text"></textarea>
+        </div>
+
+        <!-- ============================================================================================================================================================== -->
+
+        <div class="right">
+          <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (ngModelChange)="change($event)" class="textField"
+            placeholder="e.g(721234567)" id="orgContacts" type="number" min="0" max="10">
+          <br>
+          <input #email [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
+          <div class="sep"></div>
+          <div class="overlay">
+
+          </div>
+          <div class="mapper" id="map">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================================================================================================================ -->
+      <div class="section2">
+        <div class="left">
+
+          <div class="introToUploads">
+            Uploads
+          </div>
+          <div class="photos">
+            <div class="theDP">
+              <div class="DP">
+                <div class="logoUpload">
+                  <label class="CoverShadow1" id="lblForLogo" for="logo">
+                    <i class="material-icons">camera</i></label>
+                  <input type="file" accept="image/*" (change)="InsertLogo($event)" id="logo">
+                </div>
+                <div class="theImage" id="myLogo">
+                  <img class="dp" src="{{urlLogo}}" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- ================================================================================================================================================================ -->
+
+            <div class="coverImage">
+              <div class="uploader">
+                <label class="CoverShadow" for="theCover">
+                  <i class="material-icons">camera</i> {{coverPhoto}}</label>
+                <input type="file" accept="image/*" (change)="InsertPicture($event)" id="theCover">
+              </div>
+              <img class="coverPhoto" src={{urlCover}} alt="">
+            </div>
+            <!-- ================================================================================================================================================================ -->
+
+
+          </div>
+
+        </div>
+        <div class="left">
+          <div class="thePictures">
+            <div class="pic1">
+              <label for="theGal" id="galInput">
+                <i class="material-icons">camera</i> Upload Photo
+              </label>
+              <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)"><br>
+              <img class="galImg" src="{{urlGallery}}" alt="">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- <div class="container">
     <div class="customAlert">
       <div class="text">
         {{message}}
@@ -20,8 +122,6 @@
     </div>
     <div class="theBody">
       <h3>Organization Details</h3>
-      <!-- <marquee><p>The details entered will be stored to PinHome's database and will be accessible through the PinHome App. 
-      </p></marquee> -->
       <div class="inputs">
         <div class="cover">
           <div class="uploader">
@@ -61,7 +161,7 @@
           </tr>
           <tr>
             <td>
-          <textarea id="theAddress" [(ngModel)]="OrganizationAdress" placeholder="Physical Address" class="orgHeight1"
+          <textarea id="theAddress" [(ngModel)]="address" placeholder="Physical Address" class="orgHeight1"
             #address (change)="initMap(address.value)" type="text"></textarea>
            <br>
           <textarea class="orgHeight" [(ngModel)]="AboutOrg" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
@@ -87,7 +187,7 @@
           <div class="myCover">
             <div class="overlay">
             </div>
-            <div id="map">
+            <div class="mapper" id="map">
             </div>
             <div class="tempMap">
               <img class="theMapTemp" src="../../assets/imgs/Map Template/map.gif" alt="">
@@ -96,7 +196,6 @@
           <br>
           <div class="uploads">
             <div class="statement">
-              <!-- <p class="wordUploads" align="center">Gallery</p> -->
               <p id="instruction" style="color: white; text-shadow: 0 0 20px black">Upload a few photos for your viewers and clients to get more familiar with your organisation.</p>
               <div class="gal">
                 
@@ -135,5 +234,5 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
 </body>

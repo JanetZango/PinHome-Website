@@ -16,14 +16,19 @@ declare var google;
 export class LandingPageComponent implements OnInit {
 
   orgDetails: AngularFireList<any>;
+  prodDetails: AngularFireList<any>;
   Orgs: Observable<any[]>
+  profile : Observable<any[]>
   key;
+  proArr = [];
   dbPath
   email;
   OrganizationKey;
   organizationArr = [];
   latestOrgs = [];
   oldOrgs = [];
+  profilePicture = "../../assets/imgs/loading.gif";
+  username = "Please wait...";
 
 state = 0;
 i = 180;
@@ -36,7 +41,20 @@ initially;
   constructor(private authen : AngularFireAuth, private db: AngularFireDatabase,private _ngZone: NgZone, private router: Router) { }
 
   ngOnInit() {
-
+    this.authen.auth.onAuthStateChanged(user =>{
+    this.dbPath = 'Websiteprofiles/' + user.uid + '/';
+    this. prodDetails = this.db.list(this.dbPath);
+    console.log(this. prodDetails)
+    this.profile = this. prodDetails.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
+    this.profile.subscribe(x =>{
+      this.username = x[0].Firstname + " " + x[0].Lastname;
+      this.profilePicture = x[0].downloadurl
+    })
+  })
     this.dbPath = 'OrganizationList';
     this.orgDetails = this.db.list(this.dbPath);
     console.log(this.orgDetails)
@@ -45,6 +63,8 @@ initially;
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     );
+
+
     this.Orgs.subscribe(x => {
       this.organizationArr = x;
       var totLength = x.length - 3;
@@ -58,14 +78,10 @@ initially;
       }
       console.log(this.organizationArr)
     })
-
-
     this.initMap();
   }
 
   initMap() {
-
-
     this.dbPath = 'OrganizationList';
     this.orgDetails = this.db.list(this.dbPath);
     console.log(this.orgDetails)

@@ -64,7 +64,7 @@
     /* border: 2px solid green */
 }
 .action > div{
-    cursor: pointer;
+    
     /* background:  orange; */
    line-height: 100px;
     font-weight: bolder;
@@ -73,7 +73,10 @@
 }
 .action p{
     /* background:  orange; */
+    cursor: pointer;
+    /* border: 2px solid white; */
     margin: 0;
+    height: 14px;
     padding-left: 3px;
     font-weight: bolder;
     font-family: arial, sans-serif, impact;

@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 
 import {Router} from'@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { log } from 'util';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class SignInComponent implements OnInit {
   results;  
   userId;
   message;
+  email;
+  password;
 
   constructor(private authen : AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
@@ -31,8 +34,9 @@ export class SignInComponent implements OnInit {
   }
 
 
-login(email,password,  doneCallback: () => void){
-  this._ngZone.run(() =>{
+login(email, password){
+  alert('clicked')
+  console.log(email)
     let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
     let theOK = document.getElementById("theOkay" );
     let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
@@ -41,15 +45,17 @@ login(email,password,  doneCallback: () => void){
     myAlert[0].style.top = (b / 3.5) + "px";
     myAlert[0].style.left = "50%";
     myAlert[0].style.transform = "translateX(-54%)"
-    if(email == "" || email == null){
+    if(email == "" || email == undefined){
       this.message = "Please insert your email";
       theOK.style.display = "block";
       leader[0].style.display = "none";
+      alert('no email')
     }
-    else if(password == "" || password == null){
+    else if(password == "" || password == undefined){
       this.message = "Please insert your password";
       theOK.style.display = "block";
       leader[0].style.display = "none";
+      alert('no pass')
     }
     else{
  
@@ -63,16 +69,17 @@ login(email,password,  doneCallback: () => void){
           myAlert[0].style.top = (b/3.5) + "px";
           myAlert[0].style.left = "2.3%"; 
           
-           this.router.navigate(['/adding-data'])
+           this.router.navigate(['/landing-page'])
            })
           }, Error =>{
 
             this.message = Error.message
+            console.log(Error.message)
             theOK.style.display = "block";
             leader[0].style.display = "none";
           })
     }
-  });
+
   }
   
   dismissAlert() {
@@ -80,6 +87,7 @@ login(email,password,  doneCallback: () => void){
     alerter[0].style.left = "-100%";
     this.message = "" 
   }
+
 
 
 

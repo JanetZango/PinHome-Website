@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
@@ -23,7 +23,6 @@
     left: 5px;
     top: 3px;
 
-    /* margin-top: 15px; */
   
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -37,7 +36,6 @@
   }
 
   body{
-      /* background: rgba(255, 0, 0, 0.438); */
       background-size: cover;
   }
   
@@ -48,8 +46,6 @@
     background-position: center;
     width: 100vw;
     height: 90vh;
-    /* margin-top: -6px; */
-    /* margin: 0 auto; */
     margin-left: 49%;
     transform: translateX(-49%)
 }
@@ -71,7 +67,6 @@ h1,h3{
     text-align: center;   
 }
 h3{
-    /* text-decoration: underline; */
     color: white;
     padding-bottom: 60px;
     font-size: 1.8em;
@@ -83,7 +78,6 @@ h3{
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    /* border: 2px solid red; */
     
     
 
@@ -94,11 +88,9 @@ p{
 }
 .inputs{
     width: 100%;
-    /* background: rgb(245, 245, 245); */
     padding: 10px;
     margin-left: -10px;
     box-shadow: 0px 30px 30px #ffffff;
-    /* margin-right: 10px; */
     padding-top: 20px 
 }
 .org-wide{
@@ -134,10 +126,8 @@ table{
     padding-top: 10px;
     padding-bottom: -5px;
     width: 102%;
-    /* border: 2px solid red; */
 }
 td{
-    /* border: 2px solid green; */
 }
 .org{
     height: 25px;
@@ -208,13 +198,6 @@ select{
     width: 100%;
     justify-content: space-between;
     
-    /* border: 2px solid green */
-}
-#map{
-    height:250px;
-    border: 1px solid black;
-    width: 100%;
-    /* position: relative; */
 }
 
 .logoUpload{
@@ -228,8 +211,6 @@ select{
 }
 .statement{
     width: 100%;
-    /* background: #13b8ca; */
-    /* height: 50px; */
     padding-bottom: 10px;
     padding-top: 15px;
 }
@@ -277,7 +258,6 @@ select{
     height: 150px;
     width: 150px;
     object-fit: cover;
-    /* border: 1px solid black; */
     border-radius: 150px;
     
 
@@ -288,7 +268,6 @@ select{
     border-radius: 150px;
     text-align: center;
     margin: 0 auto;
-    /* box-shadow: 0px 0px 10px #136a74; */
 
 }
 .myCover{
@@ -637,17 +616,7 @@ body{
 }
 
 @media screen and (max-width: 420px){
-    /* .container{
-        background: url("../../assets/imgs/theHand.jpg");
-        background-size: cover;
-        background-position: center;
-        width: 100vw;
-        height: 200vh; */
-        /* margin: 0 auto; */
-        /* margin-left: 46%;
-        margin-top: -1.6%;
-        transform: translateX(-51%)
-    } */
+
 
     .inputs{
         width: 110%;
@@ -655,7 +624,6 @@ body{
         padding: 10px;
         margin-left: -60px;
         box-shadow: 0 5px 10px grey;
-        /* margin-right: 10px; */
     }
 
     h3{
@@ -740,52 +708,379 @@ body{
 .holder{
     z-index: 1;
     height: 0;
-    /* border: 2px solid red; */
     width: 99vw;
     transform: translateX(1.01vw);
     position: absolute;
     top: 0vh;
 }
-/* .buttonClick{
-    position: absolute;
-    right: 5%;
-    top: 100vh;
-    transform: translateX(-50%);
-    top: 5px;
-    width: 100%;
-    max-width: 150px;
-    background: #4e0000;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
-    text-align: center;
-    transition: 200ms;
-}
-.buttonClick:active{
-    position: absolute;
-    right: 5%;
-    top: 100vh;
-    transform: translateX(-50%);
-    top: 5px;
-    width: 100%;
-    max-width: 150px;
-    background: #940000;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.486);
-    text-align: center;
-    transition: 200ms;
-} */
+
 
 .theFlex{
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
     width: 100%;
-    /* border: 2px solid red; */
 }
 #instruction{
     color: black;
    
     text-align: center;
+} */
+
+
+
+body{
+    margin: -20px;
+    position: fixed;
+    background: red;
+    width: 100%;
+}
+.main{
+    width: 100.2vw;
+    height: 101.5vh;
+    background: radial-gradient(rgb(255, 255, 255),rgb(28, 99, 133));
+
+}
+
+.main h3{
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 2%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.form{
+    transition: 500ms;
+    width: 70%;
+    height: 80%;
+    /* background: red; */
+    position: absolute;
+    overflow-y: scroll;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.section1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.section1 .left{
+    text-align: center;
+    width: 50%;
+    min-width: 400px;
+    background: whitesmoke;
+    padding-bottom: 5px;
+}
+.section1 .right{
+    text-align: center;
+    width: 50%;
+    min-width: 400px;
+    height: 380px;
+    background: whitesmoke;
+    padding-bottom:20px;
+    position: relative;
+}
+
+
+.section2{
+    width: 100%;
+    background: orange;
+    display: flex;
+    flex-wrap: wrap;
+}
+.section2 .left{
+    text-align: center;
+    width: 100%;
+    min-width: 400px;
+    height: 400px;
+    background: blue;
+    
+}
+
+.section2 .photos{
+    /* display: flex; */
+    position: relative
+}
+.dp{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+
+.uploads{
+    width:95%;
+    height:200px;
+    object-fit: cover;
+    
+}
+/* .section2 .right{
+    text-align: center;
+    width: 50%;
+    min-width: 400px;
+    height: 400px;
+    background: rgb(118, 118, 219);
+} */
+.section2 .left .dp{
+    width: 100px;
+    height: 100px;
+    margin: 5px
+}
+
+
+select{
+    margin-top: 25px;
+    min-width: 310px;
+    width: 93.1%;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* background: white; */
+
+}
+.textField{
+    margin-top: 15px;
+    min-width: 310px;
+    width: 90%;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* background: white; */
+}
+
+.textField, select, textarea{
+    border:1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background: white;
+}
+.txtBig{
+    margin-top: 15px;
+    min-width: 310px;
+    width: 90%;
+    height: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+}
+
+.subission{
+    position: absolute;
+    width: 100%;
+    height: 0;
+    /* border: 20px solid orange; */
+    bottom: 55px;
+    z-index: 100000000000000000000000000000000000000000000000000000000
+}
+
+.submit{
+    width: 100px;
+    height: 50px;
+    background: blue;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 auto;
+
+}
+.sep{
+    height: 15px
+}
+
+
+ .overlay, .mapper{
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+    width: 90%;
+    /* max-width: 400px; */
+    height: 31%;
+    min-height: 245px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+    margin: 0 auto;
+    border:1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+.overlay{
+    z-index: 10000000000000000000000000000000000000000000000000000000000000;
+    opacity: 0.1
+}
+/* ============================================================================================================================= */
+
+.coverImage{
+    position: relative;
+}
+#theCover{
+    display: none
+}
+.uploader{
+    /* background:  green; */
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.CoverShadow{
+    background: rgb(12, 104, 121);
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    position: relative;
+}
+.CoverShadow .material-icons{
+    position: absolute;
+    
+    margin-top:-5px;
+    left: 3px;
+    top: 5px;
+}
+
+.coverPhoto{
+    width: 90%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;                 
+}
+/* =========================================================================================================================== */
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"]{
+    -moz-appearance: textfield
+}
+.theDP{
+    width:250px;
+    /* background: green; */
+    position: absolute;
+    z-index: 10000000000000000000000000000000000000;
+    top: 50%;
+}
+#logo{
+    display: none
+}
+.CoverShadow1 .material-icons{
+    background: rgb(12, 104, 121);
+    color: white;
+    border-radius: 50px;
+    position: absolute;
+    margin-top:-5px;
+    left: 45%;
+    top: 15px;
+}
+.logoUpload{
+    width: 100%;
+}
+.logoUpload{
+    /* background: green; */
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: -10%;
+    /* line-height: 40px; */
+}
+.lblForLogo .material-icons{
+    /* line-height: 40px; */
+
+}
+label i{
+    width: 40px;
+    line-height: 40px;
+}
+.dp{
+    background: white;
+    border-radius: 70px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+/* ======================================================================================================================= */
+
+/* .material-icons{
+    position: absolute;
+    
+    margin-top:-5px;
+    left: 3px;
+    top: 5px;
+} */
+
+.thePictures{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* border: 2px solid red; */
+    background: red;
+    text-align: center;
+}
+/* .pic1{
+    height: 60px;
+    width: 100%;
+    min-width: 300px;
+    background: red;
+} */
+
+.galImg{
+    width: 100%;
+    max-width: 290px;
+    object-fit: cover
+}
+#theGal{
+    display: none;
+}
+
+.pic1{
+    background: white;
+    border-radius: 20px;
+    height: 400px;
+    /* width: 266.67px */
+}
+.pic2{
+    background: whitesmoke;
+}
+.pic3{
+    background: white;
+}
+
+@media screen and (max-width: 800px){
+    .form{
+        position: absolute;
+        min-width: 320px;
+        height: 90%;
+        position: absolute;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -45%);
+    }
+    .form{
+        transition: 500ms;
+        width: 100%;
+        height: 80%;
+        /* background: red; */
+        position: absolute;
+        overflow-y: scroll;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .left{
+        width: 100vw;
+        max-width: 1000px
+    }
 }

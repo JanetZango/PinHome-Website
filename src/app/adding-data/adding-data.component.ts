@@ -14,7 +14,7 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './adding-data.component.html',
   styleUrls: ['./adding-data.component.css']
 })
-export class AddingDataComponent {
+export class AddingDataComponent{
   coverPhoto = "Upload Cover Photo";
   logoPhoto = "Upload Logo";
   galleryupload = "Upload Images";
@@ -29,7 +29,7 @@ export class AddingDataComponent {
   address: any
   lat: any;
   lng;
-  urlLogo: any;
+  urlLogo: any= "../../assets/imgs/PinHome icon.png";
   urlGallery = undefined;
   emailAdd;
   AboutOrg;
@@ -65,10 +65,14 @@ export class AddingDataComponent {
       }
      });
     })
+
   }
+  ngOnInit() {
+   
+}
 
   initMap(address) {
-    this._ngZone.run(() =>{
+
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
       
@@ -79,8 +83,9 @@ export class AddingDataComponent {
       let myLatLng = { lat: this.latitude, lng: this.longitude };
       this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 17,
+        zoom: 12,
         center: myLatLng,
+        disableDefaultUI: true,
         // mapTypeId: 'terrain'
       });
       let marker = new google.maps.Marker({
@@ -89,7 +94,7 @@ export class AddingDataComponent {
         title: 'Hello World!'
       });
     })
-  })
+  
   }
 
   change(value){

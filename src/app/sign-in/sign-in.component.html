@@ -1,5 +1,4 @@
-
-  <!-- <div class="divver">
+<div class="divver">
       <div class="customAlert0">
       <div class="text">
         <img src="../../assets/imgs/custom alert/loader.gif" alt="" class="loading"><br>
@@ -13,7 +12,7 @@
     </div>
 </div>
 
-<div class="content">
+<!-- <div class="content">
   <div class="container">
     <div class="statement">
       <h1>Welcome</h1>
@@ -34,7 +33,7 @@
         </p>
       </div>
       <br> -->
-      <!-- <div class="forgot" (click)="forgotpassword(email.value)">
+<!-- <div class="forgot" (click)="forgotpassword(email.value)">
         <p class="iForgot">Forgot your password? Click here</p>
       </div>
       
@@ -48,6 +47,7 @@
     Sign Up
   </div>
 </div> -->
+
 <body class="body">
   <div class="container">
     <div class="seperator">
@@ -57,28 +57,29 @@
     </div>
 
     <div class="seperator2">
-     <h2>Sign In</h2>
-     <p class="message">
-       Don't have an account ? <b style="color: blue; font-weight: 100; text-decoration: underline">Create your account</b>, it takes less than a minute.
-     </p>
+      <h2>Sign In</h2>
+      <p class="message">
+        Don't have an account ? <b style="color: blue; font-weight: 100; text-decoration: underline">Create your
+          account</b>, it takes less than a minute.
+      </p>
 
-     <div class="textfield">
-     <input type="text" placeholder="Username"><img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
-    </div>
+      <div class="textfield">
+        <input #email type="text" placeholder="Username"><img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
+      </div>
 
-    <div class="textfield">
-        <input type="text" placeholder="Password"><img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
-       </div>
+      <div class="textfield">
+        <input #password type="text" placeholder="Password"><img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
+      </div>
 
-       <table class="theTable">
-          <tr>
-            <td class="password"> Forgot Password?</td>
-          </tr>
-        </table>
+      <table class="theTable">
+        <tr>
+          <td class="password"> Forgot Password?</td>
+        </tr>
+      </table>
 
-        <div class="divButton" >
-            <button class="theBUTTON" (click)="goToSignUp()">Login</button>
-        </div>
+      <div class="divButton">
+        <button class="theBUTTON" (click)="login(email.value, password.value)">Login</button>
+      </div>
     </div>
 
   </div>
