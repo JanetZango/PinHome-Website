@@ -14,17 +14,22 @@
     position: absolute;
     color: black;
     width: 60vw;
-    height: 135vh;
+    height: 108vh;
     /* border: 8px solid #20676e; */
     /* margin-left: 20vw; */
     left: 50%;
     transform: translateX(-53%);
-    background-color: rgba(225, 226, 224, 0.527);
+    background-color: rgba(225, 226, 224, 0);
+    box-shadow: 0px 30px 30px #ffff; 
+    margin-top: 50px;
+    border: solid 2px rgba(255, 255, 255, 0.493);
 }
 h1{
-    color: #20676e;
+    color: #ffff;
     font-weight: 100;
     text-align: center;
+    text-shadow: 0 10 10px black;
+    padding-top: 50px
 }
 .h1{
     color: white;
@@ -40,6 +45,7 @@ h1{
     width: 150px;
     height: 150px;
     border-radius: 250px;
+    border: #0f808d96 5px solid;
 }
 .bar{
     /* height: vh; */
@@ -66,9 +72,12 @@ p{
     position: relative;
     bottom: 50px;
 }
-/* td{
-    border: 2px solid red
-} */
+td{
+    color: white; 
+    text-shadow: 0 0 10px black;
+  
+}
+
 .title{
     font-size: 1.5em;
 }
@@ -91,9 +100,12 @@ table{
 .leftTD{
     width: 40%;
     padding-left: 200px;
+    /* border: solid 2px red; */
+    /* font-size: 1.2em; */
 }
 .rightTD{
     padding-left: 200px;
+    /* font-size: 1.2em; */
 }
 td{
     padding-left: 10px;
