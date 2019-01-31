@@ -161,7 +161,16 @@
     z-index: 100000000000000000000000000000000000000000;
     transform: translateX(-50%);
     top: -30px;
+
+    animation: mymove 2s;
+    animation-iteration-count: infinite;
 }
+
+@keyframes mymove {
+    0% {top: -30px;}
+    50%{top:-40px;}
+    100%{top:-30px;}
+    }
 
 .loader{
     width: 250px;
