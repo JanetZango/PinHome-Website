@@ -24,24 +24,31 @@ export class AppComponent {
  email;
 
   constructor(private authen : AngularFireAuth, public router: Router, private db: AngularFireDatabase){
-    console.log('ok')
-    let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
-    let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
+    // console.log('ok')
+    // let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
+    // let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
 
     this.authen.auth.onAuthStateChanged(user =>{
       console.log(user)
       if (user){
         this.state = 1;
-        prof[0].style.display = "block";
-        signOutBtn[0].style.display = "block";
-        this.router.navigate(['/adding-data']);
+        // prof[0].style.display = "block";
+        // signOutBtn[0].style.display = "block";
+        if (user.emailVerified == false){
+          user.sendEmailVerification()
+          alert('Please go to your email and click the verification link')
+        }
+        else{
+          this.router.navigate(['/sign-in']);
+        }
+
       }
       else{
         console.log('no user')
         this.state = 0;
-        this.router.navigate(['/landing-page']);
-        prof[0].style.display = "none";
-        signOutBtn[0].style.display = "none";
+        this.router.navigate(['/sign-in']);
+        // prof[0].style.display = "none";
+        // signOutBtn[0].style.display = "none";
       }
      });
   }

@@ -4,11 +4,16 @@
     <div class="tab">
       <div class="DP">
         <img src="../../assets/imgs/picccc.jpg" alt="">
+        <div class="name">
+          Sithembiso Leonard luvuno
+        </div>
       </div>
       <div class="action">
-        <div (click)="gotToAdding()">Add Organization |</div>
+        <div (click)="gotToAdding()">Add Organization |
 
-        <div  (click)="gotToProfile()">
+        </div>
+
+        <div  (click)="goToProfile()">
           <p class="space">Profile</p>
         </div>
       </div>
@@ -27,12 +32,12 @@
            
         </div>
         <div class="list" >
-          <div class="moveLeft" (click)="toLeft()">
-            <!-- &lt; -->
+          <!-- <div class="moveLeft" (click)="toLeft()">
+            &lt;
           </div>
           <div class="moveRight" (click)="toRight()">
-            <!-- &gt; -->
-          </div>
+            &gt;
+          </div> -->
           <div class="gal" id="push" *ngFor="let a of organizationArr">
             <img src="{{a.Url}}" alt="">
           </div>      

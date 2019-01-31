@@ -9,8 +9,6 @@ import { SignUpComponent } from './sign-up/sign-up.component'
 import { SignInComponent } from './sign-in/sign-in.component'
 import { ProfileComponent } from './profile/profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-
 
 
 

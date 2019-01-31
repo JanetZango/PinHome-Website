@@ -1,75 +1,55 @@
 <head>
-
 </head>
 
-<body>
-  <div class="divver">
-
-    <div class="customAlert4">
-      
-      <div class="text">
-          <img src="../../assets/imgs/custom alert/loader.gif" class="loading" alt=""><br>
-        {{message}}
+<body class="thebody">
+  <div class="container">
+    <div class="seperator">
+      <h1>Welcome</h1>
+      <p>____</p>
+      <h3>Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit organisation to
+        the database.</h3>
+      <div class="theButton">
+        <button class="loginBtn" (click)="goToSignIn()">Sign In</button>
       </div>
-      <div class="confirmer" id="theOkay" (click)="dismissAlert()">
-        <div class="OK">
-          OK
-        </div>
+    </div>
+    <div class="seperator2">
+      <h2>Register as an incorporator</h2>
+      <div class="textfield">
+        <input type="text" placeholder="First Name" [(ngModel)]="fName">
+        <img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="text" placeholder="Second Name" [(ngModel)]="sName">
+        <img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="text" placeholder="Organisation Name" [(ngModel)]="orgName">
+        <img class="person" src="../../assets/imgs/baseline_business_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="email" placeholder="Email" [(ngModel)]="email">
+        <img class="person" src="../../assets/imgs/baseline_email_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="number" placeholder="Mobile Number (+27)" min="1" max="10" [(ngModel)]="mobile">
+        <img class="person" src="../../assets/imgs/baseline_phone_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="number" placeholder="Tell. (+27)" [(ngModel)]="tel" min="1" max="10">
+        <img class="person" src="../../assets/imgs/baseline_phone_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="password" placeholder="Password" [(ngModel)]="password">
+        <img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="password" placeholder="Confirm Pass." [(ngModel)]="Confirm">
+        <img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
+      </div>
+      <div class="registerButton">
+        <button class="registerBtn" (click)="register($event)">Register</button>
       </div>
     </div>
 
-  </div>
-  <div class="content">
-    <div class="spreader">
-
-    </div>
-    <div class="container">
-      <div class="statement">
-        Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit organisation
-        to the database.
-      </div>
-      <div class="form">
-
-        <div class="intro">
-          <h3 class="theH3">Register as an incorporator</h3>
-        </div>
-
-        <input class="text-field" type="text" [(ngModel)]="fName" placeholder="First Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="sName" placeholder="Last Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="orgName" placeholder="Organisation Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="email" placeholder="Email"><br>
-        <div class="thePlaceholder">
-          Mobile +27
-        </div>
-        <input class="text-field" type="text" min="1" [(ngModel)]="mobile" placeholder="e.g(81 123 4567)" max="10" id="theText"><br>
-        <div class="thePlaceholder">
-          Tel. +27
-        </div>
-        <input class="text-field" type="text" min="1" [(ngModel)]="tel" placeholder="e.g(11 980 1234)"  max="10" id="theText"><br>
-        <input class="text-field" type="password" [(ngModel)]="password" placeholder="Password"><br>
-        <input class="text-field" type="password" [(ngModel)]="Confirm" placeholder="Confirm Password">
-        <div class="space"></div>
-        <!-- ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
-        <div class="theBtn">
-
-        </div>
-        <div class="button" (click)="register($event)">
-          <p>
-            Sign Up
-          </p>
-        </div>
-        <br>
-        <!-- <a routerLink="/sign-in">Already have an account?</> -->
-
-      </div>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
-  <div class="holder">
-
-    <div class="buttonClick" (click)="goToSignIn()">
-      Sign In
-    </div>
   </div>
 </body>

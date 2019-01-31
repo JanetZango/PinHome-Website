@@ -10,7 +10,6 @@
     background-size: cover;
     margin-left: -30px;
     margin-top: -10px;
-
 }
 html, body {
     height: 100%;
@@ -24,7 +23,8 @@ html, body {
     width: 99.7%;
     height:99.7%;
     border: 2px solid green;
-    box-shadow: 0 0 200px inset rgb(26,106,116);
+    box-shadow: 0 0 200px inset rgb(13, 98, 138);
+    background: radial-gradient(rgb(9,64,89),rgb(29, 120, 161));
 }
 .tab{
     width: 100%;
@@ -33,20 +33,36 @@ html, body {
     /* border: 2px solid black; */
     z-index: 1000000000000000000000000;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    /* box-shadow: 0 15px 25px rgba(13, 98, 138, 0.5); */
 }
 
-.DP img{
-    width: 60px;
-    height: 60px;
+.DP{
+    /* width: 10%; */
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    height: 70px;
     margin-left: 20px;
     margin-top: 20px;
+    border-radius: 50px;
+    display: flex;
+    position: absolute;
+    padding-right: 10px;
+}
+.name{
+    padding-left: 10px;
+    line-height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.DP img{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
     border-radius: 500px;
     float: left;
     object-fit: cover;
 }
-.space{
-    /* padding-right: 100px; */
-}
+
 .action{
     /* margin-top: 50px; */
     float: right;
@@ -79,13 +95,16 @@ html, body {
     /* border: 2px solid red; */
     display: flex;
     overflow-x: scroll;
+    overflow-y: hidden;
     position: relative;
     z-index: 100000;
+    /* background: linear-gradient(#fff,rgba(255, 255, 255, 0)) */
     
 }
+
 .list img{
     height: 150px;
-    width: 200px;
+    width: 220px;
     padding: 5px;
     object-fit: cover;
     position: relative;
@@ -94,15 +113,10 @@ html, body {
     cursor: pointer;
     width: 180px;
     height: 100%;
-    background: linear-gradient(45DEG, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-    position: fixed;
+    background: linear-gradient(to left, rgba(13, 98, 138, 0), rgb(13, 98, 138));
+    position: absolute;
     z-index: 100000000000000000;
     left: 0;
-    line-height: 150px;
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    font-family: impact, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* font-weight: bolder; */
 
 }
@@ -110,15 +124,10 @@ html, body {
     cursor: pointer;
     width: 180px;
     height: 100%;
-    background: linear-gradient(-45DEG, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-    position: fixed;
+    background: linear-gradient(to right, rgba(13, 98, 138, 0), rgb(13, 98, 138));
+    position: absolute;
     z-index: 100000000000000000;
     right: 0;
-    line-height: 150px;
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    font-family: impact, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* font-weight: bolder; */
 }
 
@@ -131,7 +140,8 @@ html, body {
     height: 200px;
     /* border: 2px solid green; */
     overflow-x: visible;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.623))
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.623));
+    /* box-shadow: 0 -15px 25px rgba(13, 98, 138, 0.5) */
 }
 
 .arrow .clicker{
@@ -142,6 +152,7 @@ html, body {
     font-weight: bolder;
     line-height: 25px;
 }
+
 .clicker{
     cursor: pointer;
     width: 50px;
@@ -153,8 +164,7 @@ html, body {
     left: 50%;
     z-index: 100000000000000000000000000000000000000000;
     transform: translateX(-50%);
-    top: -60px;
-
+    top: -30px;
 }
 
 .loader{
@@ -165,10 +175,15 @@ html, body {
     /* border: 2px solid red; */
     margin-left: 50%;
     margin-top: 25%;
-    transform: translate(-50%,-50%)
+    transform: translate(-50%,-50%);
+    color: white;
 
 }
-
-#push{
+.gal img{
+    /* padding: 1px; */
+    /* background: white; */
+    margin: 4px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 
 }

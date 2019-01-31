@@ -51,19 +51,6 @@ export class AddingDataComponent {
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     );
-    this.authen.auth.onAuthStateChanged(user =>{
-      console.log(user)
-      if (user){
-        this.state = 1;
-
-        this.router.navigate(['/adding-data'])
-      }
-      else{
-        console.log('no user')
-        this.state = 0;
-        this.router.navigate(['/sign-in'])
-      }
-     });
     })
   }
 
