@@ -14,7 +14,7 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './adding-data.component.html',
   styleUrls: ['./adding-data.component.css']
 })
-export class AddingDataComponent {
+export class AddingDataComponent{
   coverPhoto = "Upload Cover Photo";
   logoPhoto = "Upload Logo";
   galleryupload = "Upload Images";
@@ -29,8 +29,8 @@ export class AddingDataComponent {
   address: any
   lat: any;
   lng;
-  urlLogo: any;
-  urlGallery = undefined;
+  urlLogo: any= "../../assets/imgs/PinHome icon.png";
+  urlGallery = "../../assets/imgs/default image/default image for uploads.jpg";
   emailAdd;
   AboutOrg;
   select;
@@ -39,8 +39,8 @@ export class AddingDataComponent {
   homelist: AngularFireList<any>;
   items: Observable<any[]>;
   state;
-  urlGallery1 =  undefined;
-  urlGallery2 = undefined;
+  urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
+  urlGallery2 = "../../assets/imgs/default image/default image for uploads.jpg";
   city:any;
 
   constructor(public db: AngularFireDatabase, private authen : AngularFireAuth, private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
@@ -52,10 +52,14 @@ export class AddingDataComponent {
       )
     );
     })
+
   }
+  ngOnInit() {
+   
+}
 
   initMap(address) {
-    this._ngZone.run(() =>{
+
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
       
@@ -66,8 +70,243 @@ export class AddingDataComponent {
       let myLatLng = { lat: this.latitude, lng: this.longitude };
       this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 17,
+        zoom: 16,
         center: myLatLng,
+        disableDefaultUI: true,
+        styles: [
+          {
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#8ec3b9"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1a3646"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.country",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#4b6878"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#64779e"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.province",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#4b6878"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape.man_made",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#334e87"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape.natural",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#023e58"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#283d6a"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#6f9ba5"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#023e58"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#3C7680"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#304a7d"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#98a5be"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#2c6675"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#255763"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#b0d5ce"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#023e58"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#98a5be"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#283d6a"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.station",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#3a4762"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#0e1626"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#4e6d70"
+              }
+            ]
+          }
+        ],
+
         // mapTypeId: 'terrain'
       });
       let marker = new google.maps.Marker({
@@ -76,7 +315,7 @@ export class AddingDataComponent {
         title: 'Hello World!'
       });
     })
-  })
+  
   }
 
   change(value){
@@ -148,6 +387,8 @@ export class AddingDataComponent {
       let reader = new FileReader();
       reader.onload = (event: any) => {
         this.urlGallery = event.target.result;
+        console.log(this.urlGallery);
+        
       }
       reader.readAsDataURL(event.target.files[0]);
       this.galleryupload = "Upload More"
@@ -317,5 +558,12 @@ export class AddingDataComponent {
     let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
     alerter[0].style.left = "-100%";
     this.message = "";
+  }
+
+  goToMap(){
+    this.router.navigate(['/landing-page'])
+  }
+  goToProfile(){
+    this.router.navigate(['/profile'])
   }
 }

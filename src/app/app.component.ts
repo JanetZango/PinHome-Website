@@ -4,8 +4,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Router} from'@angular/router';
-// import { AngularFireDatabase } from 'angularfire2/database';
-// import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +23,7 @@ export class AppComponent {
  email;
 
   constructor(private authen : AngularFireAuth, public router: Router, private db: AngularFireDatabase){
-    // console.log('ok')
+    console.log('ok')
     // let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
     // let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
 
@@ -34,19 +33,12 @@ export class AppComponent {
         this.state = 1;
         // prof[0].style.display = "block";
         // signOutBtn[0].style.display = "block";
-        if (user.emailVerified == false){
-          user.sendEmailVerification()
-          alert('Please go to your email and click the verification link')
-        }
-        else{
-          this.router.navigate(['/sign-in']);
-        }
-
+        this.router.navigate(['/sign-in']);
       }
       else{
         console.log('no user')
         this.state = 0;
-        this.router.navigate(['/sign-in']);
+        this.router.navigate(['/landing-page']);
         // prof[0].style.display = "none";
         // signOutBtn[0].style.display = "none";
       }

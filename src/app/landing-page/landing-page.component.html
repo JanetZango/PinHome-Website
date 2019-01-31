@@ -3,16 +3,18 @@
   <div class="start">
     <div class="tab">
       <div class="DP">
-        <img src="../../assets/imgs/picccc.jpg" alt="">
+        <img src="{{profilePicture}}" alt="">
         <div class="name">
-          Sithembiso Leonard luvuno
+          {{username}}
         </div>
       </div>
       <div class="action">
-        <div (click)="gotToAdding()">Add Organization |
-
+        <div (click)="gotToAdding()">
+          <p>
+            Add Organization |
+          </p>
         </div>
-
+        
         <div  (click)="goToProfile()">
           <p class="space">Profile</p>
         </div>

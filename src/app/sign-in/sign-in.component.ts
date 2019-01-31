@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 declare var google;
 import {Router} from'@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { log } from 'util';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class SignInComponent implements OnInit {
   results;  
   userId;
   message;
+  email;
+  password;
 
   constructor(private authen : AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
@@ -55,67 +58,60 @@ export class SignInComponent implements OnInit {
   })
   }
 
-login(email,password){
-  this._ngZone.run(() =>{
-    let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
-    let theOK = document.getElementById("theOkay" );
-    let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
-    let b = window.innerHeight;
-
-    myAlert[0].style.top = (b / 3.5) + "px";
-    myAlert[0].style.left = "50%";
-    myAlert[0].style.transform = "translateX(-54%)"
-    if(email == "" || email == null || email == undefined){
-      this.message = "Please insert your email";
-      theOK.style.display = "block";
-      leader[0].style.display = "none";
-      console.log('no email');
-      
+  login(email, password){
+    alert('clicked')
+    console.log(email)
+      // let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
+      // let theOK = document.getElementById("theOkay" );
+      // let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
+      let b = window.innerHeight;
+  
+      // myAlert[0].style.top = (b / 3.5) + "px";
+      // myAlert[0].style.left = "50%";
+      // myAlert[0].style.transform = "translateX(-54%)"
+      if(email == "" || email == undefined){
+        this.message = "Please insert your email";
+        // theOK.style.display = "block";
+        // leader[0].style.display = "none";
+        alert('no email')
+      }
+      else if(password == "" || password == undefined){
+        this.message = "Please insert your password";
+        // theOK.style.display = "block";
+        // leader[0].style.display = "none";
+        alert('no pass')
+      }
+      else{
+   
+          this.message = "Loading...";
+          // theOK.style.display = "none";
+          // leader[0].style.display = "block"
+  
+          this.results = this.authen.auth.signInWithEmailAndPassword(email,password).then(()=>{
+           this.results = this.authen.authState.subscribe(data =>{
+            this.userId =  data.uid;
+            // myAlert[0].style.top = (b/3.5) + "px";
+            // myAlert[0].style.left = "2.3%"; 
+            alert("logged in")
+             this.router.navigate(['/landing-page'])
+             })
+            }, Error =>{
+              alert("something's wrong")
+              this.message = Error.message
+              console.log(Error.message)
+              // theOK.style.display = "block";
+              // leader[0].style.display = "none";
+            })
+      }
+  
     }
-    else if(password == "" || password == null || password == undefined){
-      this.message = "Please insert your password";
-      theOK.style.display = "block";
-      leader[0].style.display = "none";
-      console.log('no pass');
-    }
-    else{
- 
-        this.message = "Loading...";
-        theOK.style.display = "none";
-        leader[0].style.display = "block"
-
-        this.results = this.authen.auth.signInWithEmailAndPassword(email,password).then(()=>{
-          this.results = this.authen.authState.subscribe(user =>{
-          this.userId =  user.uid;
-          myAlert[0].style.top = (b/3.5) + "px";
-          myAlert[0].style.left = "2.3%"; 
-          
-          if (user.emailVerified == false){
-            user.sendEmailVerification();
-            alert('Please go to your email and click the verification link')
-            this.authen.auth.signOut();
-          }
-          else{
-            this.router.navigate(['/adding-data'])
-          }
-           })
-          }, Error =>{
-
-            this.message = Error.message
-            console.log(Error.message);
-            
-            theOK.style.display = "block";
-            leader[0].style.display = "none";
-          })
-    }
-  });
-  }
   
   dismissAlert() {
     let alerter = document.getElementsByClassName('customAlert0') as HTMLCollectionOf<HTMLElement>;
     alerter[0].style.left = "-100%";
     this.message = "" 
   }
+
 
 
 
