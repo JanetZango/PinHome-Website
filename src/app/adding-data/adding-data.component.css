@@ -737,7 +737,9 @@ body{
 }
 .instruction{
     padding-left: 20px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: whitesmoke;
 }
 .tabTop{
     /* position: absolute; */
@@ -772,7 +774,7 @@ body{
     width: 120px;
     /* border:2px solid red; */
     left: 25%;
-    top: 65px;
+    top: 122px;
     transform: translateX(-50%)
 }
 #catLabel:active{
@@ -809,6 +811,7 @@ body{
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
+    background: whitesmoke;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5)
 }
 .form::-webkit-scrollbar { 
@@ -819,6 +822,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     background: whitesmoke;
+    border-top: 5px solid rgba(128, 128, 128, 0.5);
 }
 .section1 .left{
     text-align: center;
@@ -947,15 +951,17 @@ select{
 
 .submit{
     width: 100px;
-    height: 50px;
-    background: blue;
+    height: 40px;
+    background: rgb(12, 104, 121);
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 16px;
     margin: 0 auto;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
 
 }
 .sep{
@@ -1105,9 +1111,10 @@ label i{
 .galImg{
     width: 100%;
     max-width: 290px;
-    height: 330px;
+    height: 290px;
     object-fit: cover;
     margin-top: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.267);
 }
 #theGal{
     display: none;

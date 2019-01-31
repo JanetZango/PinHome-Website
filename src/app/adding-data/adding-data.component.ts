@@ -30,7 +30,7 @@ export class AddingDataComponent{
   lat: any;
   lng;
   urlLogo: any= "../../assets/imgs/PinHome icon.png";
-  urlGallery = undefined;
+  urlGallery = "../../assets/imgs/default image/default image for uploads.jpg";
   emailAdd;
   AboutOrg;
   select;
@@ -39,8 +39,8 @@ export class AddingDataComponent{
   homelist: AngularFireList<any>;
   items: Observable<any[]>;
   state;
-  urlGallery1 =  undefined;
-  urlGallery2 = undefined;
+  urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
+  urlGallery2 = "../../assets/imgs/default image/default image for uploads.jpg";
   city:any;
 
   constructor(public db: AngularFireDatabase, private authen : AngularFireAuth, private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
@@ -400,6 +400,8 @@ export class AddingDataComponent{
       let reader = new FileReader();
       reader.onload = (event: any) => {
         this.urlGallery = event.target.result;
+        console.log(this.urlGallery);
+        
       }
       reader.readAsDataURL(event.target.files[0]);
       this.galleryupload = "Upload More"
@@ -569,5 +571,12 @@ export class AddingDataComponent{
     let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
     alerter[0].style.left = "-100%";
     this.message = "";
+  }
+
+  goToMap(){
+    this.router.navigate(['/landing-page'])
+  }
+  goToProfile(){
+    this.router.navigate(['/profile'])
   }
 }
