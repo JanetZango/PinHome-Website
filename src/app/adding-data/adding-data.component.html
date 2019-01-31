@@ -4,8 +4,14 @@
 
 <body>
 
+
   <div class="main">
-    <h3>Organization Details</h3>
+    <div class="tabTop">
+      
+      <p>Map</p>
+      <p id="Prof">Profile</p>
+    </div>
+    <h4>Organization Details</h4>
     <div class="subission">
       <div class="submit">
         Submit
@@ -14,12 +20,16 @@
     <div class="form">
       <!-- ================================================================================================================================================================= -->
 
+      <div class="instruction">
+        <p>Enter Organisation Details</p>
+      </div>
       <div class="section1">
         <div class="left">
           <input class="textField" type="text" placeholder="Name of organisation" [(ngModel)]="name">
           <br>
-
+          <p id="catLabel">Select Category</p>
           <select class="textField" [(ngModel)]="select" class="org-wide-select" id="selector" style="margin-top: 10px">
+            <option value="Select Category" selected disabled>Select Category</option>
             <option value="Orphanage">Orphanage</option>
             <option value="Disability">Disability</option>
             <option value="old age">Old Age Homes</option>
@@ -49,6 +59,8 @@
           </div>
         </div>
       </div>
+
+      
 
       <!-- ================================================================================================================================================================ -->
       <div class="section2">
@@ -86,14 +98,28 @@
           </div>
 
         </div>
-        <div class="left">
+        <div class="left1">
           <div class="thePictures">
             <div class="pic1">
-              <label for="theGal" id="galInput">
+              <label for="theGal" id="galInput1">
                 <i class="material-icons">camera</i> Upload Photo
               </label>
               <input type="file" accept="image/*" id="theGal" (change)="InsertGallery($event)"><br>
               <img class="galImg" src="{{urlGallery}}" alt="">
+            </div>
+            <div class="pic2">
+              <label for="theGal" id="galInput1">
+                <i class="material-icons">camera</i> Upload Photo
+              </label>
+              <input type="file" accept="image/*" id="theGal" (change)="InsertGallery1($event)"><br>
+              <img class="galImg" src="{{urlGallery1}}" alt="">
+            </div>
+            <div class="pic1">
+              <label for="theGal" id="galInput1">
+                <i class="material-icons">camera</i> Upload Photo
+              </label>
+              <input type="file" accept="image/*" id="theGal" (change)="InsertGallery2($event)"><br>
+              <img class="galImg" src="{{urlGallery2}}" alt="">
             </div>
           </div>
         </div>

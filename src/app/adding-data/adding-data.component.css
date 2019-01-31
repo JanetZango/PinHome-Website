@@ -732,9 +732,55 @@ body{
 body{
     margin: -20px;
     position: fixed;
-    background: red;
+    /* background: white; */
     width: 100%;
 }
+.instruction{
+    padding-left: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.tabTop{
+    /* position: absolute; */
+    display: flex;
+    /* border: 2px solid red; */
+    /* left: 20px; */
+    padding: 10px;
+    margin-left: 5px;
+    /* top: 20px; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: white;
+}
+.tabTop p{
+    cursor: pointer;
+    padding: 10px;
+}
+.tabTop p:active{
+    background: rgba(128, 128, 128, 0.452);
+}
+.tabTop #Prof{
+    float: right;
+    /* background: red;
+    border: 2px solid blue; */
+    position: absolute;
+    right: 10px;
+}
+#catLabel{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    width: 120px;
+    /* border:2px solid red; */
+    left: 25%;
+    top: 65px;
+    transform: translateX(-50%)
+}
+#catLabel:active{
+    display: none;
+
+}
+
+
 .main{
     width: 100.2vw;
     height: 101.5vh;
@@ -742,7 +788,8 @@ body{
 
 }
 
-.main h3{
+.main h4{
+    color: white;
     position: absolute;
     z-index: 0;
     left: 50%;
@@ -761,11 +808,17 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5)
+}
+.form::-webkit-scrollbar { 
+    display: none;
 }
 .section1{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    background: whitesmoke;
 }
 .section1 .left{
     text-align: center;
@@ -773,8 +826,10 @@ body{
     min-width: 400px;
     background: whitesmoke;
     padding-bottom: 5px;
+    margin: 0 auto;
 }
 .section1 .right{
+    transition: 300ms;
     text-align: center;
     width: 50%;
     min-width: 400px;
@@ -782,12 +837,13 @@ body{
     background: whitesmoke;
     padding-bottom:20px;
     position: relative;
+    margin: 0 auto;
 }
 
 
 .section2{
     width: 100%;
-    background: orange;
+    background: white;
     display: flex;
     flex-wrap: wrap;
 }
@@ -795,9 +851,18 @@ body{
     text-align: center;
     width: 100%;
     min-width: 400px;
-    height: 400px;
-    background: blue;
+    height: 300px;
+    background: whitesmoke;
+    border-bottom: 1px rgba(128, 128, 128, 0.288) solid;
     
+}
+.left1{
+    text-align: center;
+    width: 100%;
+    min-width: 400px;
+    /* height: 400px; */
+    background: whitesmoke;
+    padding-bottom: 10px;
 }
 
 .section2 .photos{
@@ -805,8 +870,8 @@ body{
     position: relative
 }
 .dp{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
 }
 
@@ -838,16 +903,18 @@ select{
     height: 50px;
     padding-left: 10px;
     padding-right: 10px;
+    font-weight: bolder;
     /* background: white; */
 
 }
 .textField{
     margin-top: 15px;
-    min-width: 310px;
+    min-width: 300px;
     width: 90%;
     height: 40px;
     padding-left: 10px;
     padding-right: 10px;
+    font-weight: bolder;
     /* background: white; */
 }
 
@@ -858,6 +925,7 @@ select{
     background: white;
 }
 .txtBig{
+    font-weight: bolder;
     margin-top: 15px;
     min-width: 310px;
     width: 90%;
@@ -1024,7 +1092,7 @@ label i{
     margin: 0 auto;
     flex-wrap: wrap;
     /* border: 2px solid red; */
-    background: red;
+    background: whitesmoke;
     text-align: center;
 }
 /* .pic1{
@@ -1037,29 +1105,69 @@ label i{
 .galImg{
     width: 100%;
     max-width: 290px;
-    object-fit: cover
+    height: 330px;
+    object-fit: cover;
+    margin-top: 10px;
 }
 #theGal{
     display: none;
 }
+#theGal label{
+    width: 40px;
+    line-height: 40px;
+    color: white;
+}
 
 .pic1{
     background: white;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 400px;
+    margin: 0 auto;
+    width: 390px;
     /* width: 266.67px */
+    margin-top:10px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.301);
 }
 .pic2{
     background: whitesmoke;
+    border-radius: 10px;
+    height: 400px;
+    margin: 0 auto;
+    width: 390px;
+    /* width: 266.67px */
+    margin-top:10px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.301);
 }
-.pic3{
-    background: white;
+#galInput1{
+    background: rgb(12, 104, 121);
+    padding: 10px;
+    color: white;
+    line-height: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.26);
+    margin-bottom: 10px;
 }
-
+label:active{
+    background:rgb(12, 148, 172);
+}
 @media screen and (max-width: 800px){
+    .theImage{
+        /* background: red; */
+        width: 50%;
+        position: relative;
+    }
+    .logoUpload{
+        z-index: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    }
+    .DP{
+       /* height: 40px; */
+       width: 50%;
+       /* background: green; */
+       position: relative;
+       z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    }
     .form{
         position: absolute;
-        min-width: 320px;
+        min-width: 310px;
         height: 90%;
         position: absolute;
         overflow-y: scroll;
@@ -1079,8 +1187,14 @@ label i{
         top: 50%;
         transform: translate(-50%, -50%);
     }
-    .left{
+    .left, .left1{
         width: 100vw;
-        max-width: 1000px
+        max-width: 1000px;
+    }
+    .coverPhoto{
+        width: 95%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;                 
     }
 }
