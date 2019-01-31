@@ -4,6 +4,21 @@
 
 <body>
 
+    <!-- <div class="customAlert">
+        <div class="text">
+          {{message}}
+        </div>
+        <div class="confirmer" (click)="dismissAlert()">
+          <div class="OK">
+            OK
+          </div>
+  
+        </div> -->
+
+        <div class="customAlert">
+          
+        </div>
+
 
   <div class="main">
     <div class="tabTop">
@@ -13,7 +28,7 @@
     </div>
     <h4>Organization Details</h4>
     <div class="subission">
-      <div class="submit">
+      <div class="submit" (click)="AddingData($event)">
         Submit
       </div>
     </div>
@@ -67,7 +82,7 @@
         <div class="left">
 
           <div class="introToUploads">
-            Uploads
+            This is where your organisation stands out! Upload a few photos that will make yours stand out.
           </div>
           <div class="photos">
             <div class="theDP">
@@ -99,6 +114,9 @@
 
         </div>
         <div class="left1">
+          <div class="galInstructions">
+            Upload a few photos to your gallery below.
+          </div>
           <div class="thePictures">
             <div class="pic1">
               <label for="theGal" id="galInput1">
@@ -239,14 +257,13 @@
                 <br>
                 <label for="theGal2" id="galInput2">
 
-                  <i class="material-icons">camera</i> Upload Photo
+                  <i class="material-icons" id="theIcons">camera</i> Upload Photo
                 </label>
                 <input type="file" accept="image/*" id="theGal2" (change)="InsertGallery2($event)">
 
 </div>
                 <div class="theFlex">
                   <img class="galImg" src="{{urlGallery}}" alt="">
-
                   <img class="galImg1" src="{{urlGallery1}}" alt="">
                   <img class="galImg2" src="{{urlGallery2}}" alt="">
                 </div>

@@ -267,8 +267,8 @@ a{
 .holder{
     z-index: 1;
     height: 0; */
-    /* border: 2px solid red; */
-    /* width: 99vw;
+    /* border: 2px solid red;
+    width: 99vw;
     transform: translateX(1.01vw);
     position: absolute;
     bottom: -70.5vh;
@@ -309,9 +309,9 @@ a{
 }
 
 .or{
-    width: 20px; */
-    /* border: 2px solid green; */
-    /* text-align: center;
+    width: 20px;
+    border: 2px solid green;
+    text-align: center;
     position: absolute;
     top: -30px;
     left: 50%;
@@ -322,9 +322,9 @@ a{
 
 .loading{
     height: 120px;
-    margin: 0 auto; */
-    /* display: none; */
-/* }
+    margin: 0 auto;
+    display: none;
+}
 #theText{
     padding-left: 120px;
     width: 195px
