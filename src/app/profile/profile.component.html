@@ -1,114 +1,3 @@
-<!-- <div class="content">
-    <h1>
-        Your Business Details
-      </h1>
-<div class="container" *ngFor="let i of Orgs | async">
-
-  <div align="center">
-    <img class="ProPic" src="{{i.downloadurl}}">
-  </div>
-
-  <div class="bar">
-    <h1 class="h1">Your Details</h1>
-  </div>
-
-  <table align="center">
-    <tr>
-      <td valign="top" class="leftTD">
-        Name :
-      </td>
-      <td valign="top" class="rightTD">
-        {{i.Firstname}}
-      </td>
-    </tr>
-
-    <tr>
-      <td valign="top" class="leftTD">
-        Surname :
-      </td>
-      <td valign="top" class="rightTD">
-        {{i.Lastname}}
-      </td>
-    </tr>
-
-    <tr>
-      <td valign="top" class="leftTD">
-        Email Adress :
-      </td>
-      <td class="rightTD">
-        {{email}}
-      </td>
-    </tr>
-
-    <tr>
-      <td valign="top" class="leftTD">
-        Mobile No. :
-      </td>
-      <td valign="top" class="rightTD">
-        {{i.Mobile}}
-      </td>
-    </tr>
-  </table>
-
-  <div class="bar">
-    <h1 class="h1">Organisation Details</h1>
-  </div>
-
-  <div >
-    <img class="coverPic" src="../../assets/imgs/default-cover.jpg">
-  </div>
-
-  <div align="center" class="logo">
-    <img  class="round2" src="../../assets/imgs/icon.png">
-  </div>
-  
-  <table align="center">
-    <tr>
-      <td valign="top" class="leftTD">
-        Organisation Name:
-      </td>
-
-      <td valign="top" class="rightTD">
-        Little Rose
-
-      </td>
-     </tr>
-      <tr>
-        <td valign="top" class="leftTD">
-          Organisation Cat :
-        </td>
-
-        <td valign="top" class="rightTD">
-
-          Old aged home
-        </td>
-      </tr>
-
-      <tr>
-        <td valign="top" class="leftTD">
-          Organisation Tel. :
-        </td>
-
-        <td valign="top" class="rightTD">
-
-          {{i.Telephone}}
-        </td>
-      </tr> 
-      <tr>
-        <td valign="top" class="leftTD">
-          Description :
-        </td>
-        <td valign="top" class="rightTD">
-          {{i.AboutOrg}}
-        </td>
-      </tr>  
-  </table>
-</div>
-
-</div> -->
-
-
-
 <head>
   <link rel="stylesheet" href="/path/to/material-icons/iconfont/material-icons.css">
 </head>
@@ -120,35 +9,36 @@
         </div> -->
     <h2>Your cover picture</h2>
     <div class="round">
-      <img class="theImage" src="../../assets/imgs/thebrownlogo.jpg">
+      <img class="theImage" src="{{url}}">
     </div>
  </div>
  <div class="seperator">
   <h1>Edit your Business Profile</h1>
   <div class="textfield">
-      <input #email type="text" placeholder="Organisation Name"><img class="person" src="../../assets/imgs/baseline_business_white_18dp.png">
+      <input value={{name}} [(ngModel)]="name" type="text" placeholder="Organisation Name"><img class="person" src="../../assets/imgs/baseline_business_white_18dp.png">
      </div>
      <div class="textfield">
-        <input #email type="text" placeholder="Organisation Type"><img class="person" src="../../assets/imgs/baseline_business_white_18dp.png">
+        <input value={{cat}} [(ngModel)]="cat" type="text" placeholder="Organisation Type"><img class="person" src="../../assets/imgs/baseline_business_white_18dp.png">
        </div>
        <div class="textfield">
-          <input #email type="email" placeholder="Email"><img class="person" src="../../assets/imgs/baseline_email_white_18dp.png">
+          <input value={{email}} [(ngModel)]="email" type="email" placeholder="Email"><img class="person" src="../../assets/imgs/baseline_email_white_18dp.png">
          </div>
          <div class="textfield">
-            <input #email type="number" placeholder="Phone No."><img class="person" src="../../assets/imgs/baseline_call_white_18dp.png">
+            <input value={{tel}} [(ngModel)]="tel"  type="number" placeholder="Phone No."><img class="person" src="../../assets/imgs/baseline_call_white_18dp.png">
            </div>
            <div class="textfield">
-              <input #email type="email" placeholder="Physical Address"><img class="person" src="../../assets/imgs/baseline_location_on_white_18dp.png">
+              <input value={{city}} [(ngModel)]="city" type="text" placeholder="City"><img class="person" src="../../assets/imgs/baseline_location_on_white_18dp.png">
              </div>
-             <textarea class="theDescription" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
-
+             <textarea value={{desc}} [(ngModel)]="desc"  class="theDescription" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
              <div class="SaveButton">
           <button class="saveBtn">Save</button>
         </div>
  </div>
  <div class="seperator2">
-   <h1 class="theH1">Organisation braches</h1>
+   <h1 class="theH1">Organisation braches  <button class="BranchButton" (click)="addBrunch()">Add Brunch</button></h1>
+ 
   <table class="theTabels">
+     
     <tr>
       <td>
         <p>Soweto</p>
@@ -176,8 +66,6 @@
     </tr>
     
   </table>
-
  </div>
 </div>
-
 </body>
