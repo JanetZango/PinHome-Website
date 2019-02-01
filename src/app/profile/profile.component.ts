@@ -60,6 +60,9 @@ export class ProfileComponent implements OnInit {
     });
   
   }
+  Update(){
+    
+  }
   addBrunch(){
     
     this.router.navigate(['/adding-data']);

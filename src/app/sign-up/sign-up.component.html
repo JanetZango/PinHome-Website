@@ -3,6 +3,17 @@
 </head>
 
 <body class="thebody">
+
+  <div class="overlayer">
+    <div class="alerter">
+      <div class="dismissBtn">
+        <i class="material-icons">close</i>
+      </div>
+      <p>{{alertMessage}}</p>
+      <img class="loader" src="../../assets/imgs/custom alert/loading.gif" alt="">
+    </div>
+
+  </div>
   <div class="container">
     <div class="seperator">
       <h1>Welcome</h1>
@@ -14,12 +25,9 @@
         <button class="loginBtn" (click)="goToSignIn()">Sign In</button>
       </div>
     </div>
-
     <div class="seperator2">
 
-      <div class="instruction">
-        Sign Up
-      </div>
+
       <div class="decider">
         <div class="signIn" (click)="showPage1($event)">
           &bull;
@@ -30,6 +38,10 @@
       </div>
       <!-- ======================================================================================================================================================================================================================================= -->
       <div id="first">
+        <div class="instruction">
+          Sign Up
+          <p>Please make sure that the information you provide is true and accurate.</p>
+        </div>
         <div class="firstCont">
           <div class="textfield">
             <input [(ngModel)]="orgName" type="text" placeholder="Organisation Name">
@@ -65,13 +77,17 @@
       </div>
       <!-- ======================================================================================================================================================================================================================================= -->
       <div id="second">
+
+        <div class="instructions">
+          Please fill in a few more spaces to finish signing up and we're good to go.
+        </div>
         <div class="secondCont">
           <div class="photos">
             <div class="cover">
               <div class="theuploader">
                 <label for="myCover" id="label1">
                   <i class="material-icons">
-                    camera
+                    edit
                   </i>
                 </label>
                 <input type="file" id="myCover" accept="/*images" (change)="InsertPicture($event)">
@@ -82,9 +98,9 @@
             <div class="dp">
               <div class="theuploader1">
                 <label for="myLogo" id="label2">
-                  <i class="material-icons">
-                    camera
-                  </i>
+                  <!-- <i class="material-icons">
+                    edit
+                  </i> -->
                 </label>
                 <input type="file" id="myLogo" accept="/*images" (change)="InsertLogo($event)">
               </div>
