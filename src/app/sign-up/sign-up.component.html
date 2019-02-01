@@ -1,6 +1,6 @@
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
 <body class="thebody">
   <div class="container">
@@ -53,6 +53,10 @@
       </div>
     </div> -->
     <div class="seperator2">
+
+      <div class="instruction">
+        Sign Up
+      </div>
       <div class="decider">
         <div class="signIn" (click)="showPage1($event)">
           &bull;
@@ -63,9 +67,6 @@
       </div>
       <!-- ======================================================================================================================================================================================================================================= -->
       <div id="first">
-        <div class="instruction">
-          Sign In
-        </div>
         <div class="firstCont">
           <div class="textfield">
             <input type="text" placeholder="Organisation Name">
@@ -92,7 +93,10 @@
           </div>
 
           <div class="arrow" (click)="showPage2($event)">
-            Next...
+            Next &gt;
+          </div>
+          <div class="back">
+            &lt; Sign In
           </div>
         </div>
       </div>
@@ -107,21 +111,21 @@
                     camera
                   </i>
                 </label>
-              <input type="file" id="myCover" accept="/*images" (change)="InsertPicture($event)">
+                <input type="file" id="myCover" accept="/*images" (change)="InsertPicture($event)">
 
               </div>
               <img src="{{urlCover}}" alt="">
             </div>
             <div class="dp">
-                <div class="theuploader1">
-                    <label for="myLogo" id="label2">
-                        <i class="material-icons">
-                          camera
-                        </i>
-                      </label>
-                    <input type="file" id="myLogo" accept="/*images" (change)="InsertLogo($event)">
-                </div>
-                <img src="{{urlLogo}}" alt="">
+              <div class="theuploader1">
+                <label for="myLogo" id="label2">
+                  <i class="material-icons">
+                    camera
+                  </i>
+                </label>
+                <input type="file" id="myLogo" accept="/*images" (change)="InsertLogo($event)">
+              </div>
+              <img src="{{urlLogo}}" alt="">
             </div>
           </div>
           <br>
@@ -150,6 +154,9 @@
 
             </div>
           </div>
+        </div>
+        <div class="submitter">
+          Submit
         </div>
       </div>
     </div>

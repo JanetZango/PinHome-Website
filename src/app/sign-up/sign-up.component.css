@@ -4,7 +4,7 @@
     /* background: red; */
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
+    position: relative;
     top: 40%;
     left: 50%;
     transform: translateX(-50%)
@@ -134,7 +134,7 @@ h3{
 .decider{
     display: flex;
     width: 20%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     cursor: pointer;
     background: white;
     /* text-align: center; */
@@ -142,6 +142,12 @@ h3{
     line-height: 40px;
     font-weight: bolder;
     font-size: 14px;
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100000000000000000000000000000000000000000000000000000000000;
     
 }
 
@@ -151,7 +157,7 @@ h3{
     color: #00eaff;
     border-bottom: 5px solid #00eaff;
     font-size: 30px;
-    text-align: right;
+    text-align: center;
     padding-right: 20px;  
 }
 
@@ -165,13 +171,23 @@ h3{
     right: 10%;
 
 }
+.back{
+    cursor: pointer;
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    font-weight: bold;
+    color: #20676e;
+    left: 20%;
+    display: none
+}
 .signIn:active{
     background: rgba(128, 128, 128, 0.404)
 }
 .signUp{
     width: 49.9%; 
     transition: 300ms;
-    text-align: left;
+    text-align: center;
     padding-left: 20px; 
     font-size: 30px; 
 }
@@ -183,7 +199,7 @@ h3{
     transition: 300ms;
     background: white;
     width: 100%;
-    height: 90%;
+    height: 99%;
     position: absolute;
     z-index: 1000;
     display: block;
@@ -192,9 +208,10 @@ h3{
 #second{
     /* background: blue; */
     width: 100%;
-    height: 90%;
+    height: 85%;
     position: absolute;
     z-index: 100;
+    top: 3em;
     display: block;
     overflow-y: scroll;
 }
@@ -294,9 +311,10 @@ label{
 
 .photos{
     /* height: 120px; */
+    padding-top: 3em;
     width: 100%;
     height: 220px;
-    background: rgba(0, 0, 0, 0.185);
+    background: rgba(0, 0, 0, 0);
     margin: 0 auto;
 }
 
@@ -306,7 +324,7 @@ label{
     object-fit: cover;
 }
 .dp{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     position: relative;
     text-align: right;
     width:80px;
@@ -316,9 +334,12 @@ label{
     top: 120px; */
 }
 .dp img{
+    margin-left: 10px;
+    margin-top: 10px;
     height: 80px;
     width: 80px;
     border-radius: 120px;
+    border: 1px solid rgba(128, 128, 128, 0.486);
 }
 
 .cover{
@@ -331,8 +352,21 @@ label{
     display: none;
 }
 
+.submitter{
+    height: 40px;
+    line-height: 40px;
+    width: 100px;
+    background: #20676e;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    border-radius: 5px;
+    position: relative;
+    bottom: 10px;
+    
+}
 #label1{
-    transition: 1300ms;
+    transition: 300ms;
     height: 40px;
     width: 40px;
     background: #20676e;
@@ -359,7 +393,22 @@ label{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
 }
 #label2{
-    transition: 1300ms;
+    transition: 100ms;
+    height: 40px;
+    width: 40px;
+    background: #20676e5e;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 40px;
+    position: absolute;
+    margin-top: 10px;
+    left: 50px;
+    border: 1px solid white;
+    /* top: 100px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
+}
+#label2:active{
     height: 40px;
     width: 40px;
     background: #20676e;
@@ -368,7 +417,7 @@ label{
     text-align: center;
     border-radius: 40px;
     position: absolute;
-    left: 10px;
+    left: 50px;
     border: 1px solid white;
     /* top: 100px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
@@ -383,9 +432,11 @@ label{
     color: grey;
     font-weight: bold;
     font-size: 2em;
+    padding-left: 10px;
+    z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
     position: absolute;
-    top: 15%;
-    left:50%;
+    top: 1%;
+    left:15%;
     transform: translateX(-50%)
     
 }
@@ -404,12 +455,35 @@ label{
         font-size: 1em;
         left: 10%;
         top: 5%;
-
+    }
+    .instruction{
+        transition: 300ms;
+        color: grey;
+        font-weight: bold;
+        font-size: 1em;
+        padding-left: 10px;
+        z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+        position: absolute;
+        top: 1%;
+        left:15%;
+        transform: translateX(-50%)
+        
     }
     .seperator{
         display: none;
     }
     .seperator2{
+        width: 100%;
         margin: 0 auto;
+    }
+    .back{
+        cursor: pointer;
+        position: absolute;
+        width: 100px;
+        height: 60px;
+        font-weight: bold;
+        color: #20676e;
+        left: 20%;
+        display: block;
     }
 }
