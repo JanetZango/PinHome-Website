@@ -19,6 +19,9 @@ export class SignUpComponent implements OnInit {
 
   fName; sName; orgName; email; mobile; tel; password; Confirm;
 
+  urlCover = "../../assets/imgs/facade.jpg";
+  urlLogo = "../../assets/imgs/clip art.png" 
+
   constructor(private authen: AngularFireAuth, public db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
@@ -163,6 +166,31 @@ export class SignUpComponent implements OnInit {
   
   }
 
+  InsertPicture(event: any) {
+    this._ngZone.run(() =>{
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.urlCover = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+      // this.coverPhoto = "Choose another cover photo"
+    }
+  })
+  }
+  InsertLogo(event: any) {
+    this._ngZone.run(() =>{
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.urlLogo = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+      // this.logoPhoto = "Choose a different logo";
+    }
+  })
+  }
+
   dismissAlert() {
     let alerter = document.getElementsByClassName('customAlert4') as HTMLCollectionOf<HTMLElement>;
     alerter[0].style.left = "-100%";
@@ -174,4 +202,38 @@ export class SignUpComponent implements OnInit {
     this.router.navigate(['/sign-in'])
     })
   }
+
+
+  showPage2(event){
+    
+    var firstPage = document.getElementById("first");
+    var secondPage = document.getElementById("second");
+    var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf <HTMLElement>;
+    var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf <HTMLElement>;
+
+    firstPage.style.display = "none";
+    signIn[0].style.color= "black"
+    signUp[0].style.color= "#00eaff";
+    signUp[0].style.borderBottom= "5px solid #00eaff";
+    signIn[0].style.borderBottom= "5px solid transparent";
+  }
+  showPage1($event){
+    var firstPage = document.getElementById("first");
+    var secondPage = document.getElementById("second");
+    var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf <HTMLElement>;
+    var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf <HTMLElement>;
+
+    firstPage.style.display = "block";
+    signIn[0].style.color= "#00eaff"
+    signUp[0].style.color= "black"
+    signIn[0].style.borderBottom= "5px solid #00eaff";
+    signUp[0].style.borderBottom= "5px solid transparent";
+  }
+
+  comboBox(){
+      let theLabel = document.getElementById("mySelect");
+      theLabel.style.display = "none"
+  }
+
+
 }

@@ -174,9 +174,13 @@ html, body {
 }
 
 @keyframes mymove {
-    0% {top: -30px;}
-    50%{top:-40px;}
-    100%{top:-30px;}
+    0% {top: -30px;
+        }
+    50%{
+        top:-40px;
+    }
+    100%{top:-30px;
+        }
     }
 
 .loader{

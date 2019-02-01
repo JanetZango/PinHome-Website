@@ -431,6 +431,8 @@ export class AddingDataComponent{
 
     let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
     let mes = window.innerHeight;
+
+    
     console.log(this.select);
     if (this.name == undefined) {
       emptySpace.style.boxShadow = "0 0 5px red"
@@ -525,6 +527,7 @@ export class AddingDataComponent{
         this.contacts = "";
       })
     }
+    alert("")
 
     if (this.name != undefined) {
       emptySpace.style.boxShadow = "0 0 5px transparent";
