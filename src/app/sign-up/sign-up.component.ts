@@ -163,7 +163,6 @@ export class SignUpComponent implements OnInit {
         this.message = "Please make sure that your passwords match"
       }
     }
-  
   }
 
   InsertPicture(event: any) {
