@@ -205,7 +205,7 @@ export class SignUpComponent implements OnInit {
 
 
   showPage2(event) {
-    // this.callAlert()
+    this.callAlert()
 
     var firstPage = document.getElementById("first");
     var secondPage = document.getElementById("second");
@@ -235,7 +235,10 @@ export class SignUpComponent implements OnInit {
     let theLabel = document.getElementById("mySelect");
     theLabel.style.display = "none"
   }
-  callAlert1() {
+  callAlert() {
+    if(){
+      
+    }
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf <HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf <HTMLElement>;
     myAlert[0].style.display= "block";
