@@ -30,148 +30,6 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
   }
-
-<<<<<<< HEAD
-=======
-  register(event) {
-
-    // let yourAlert = document.getElementsByClassName("customAlert4") as HTMLCollectionOf<HTMLElement>;
-    // let myOk = document.getElementById("theOkay");
-    // let leader1 = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
-    let b = window.innerHeight
-
-    // yourAlert[0].style.top = (b / 3.5) + "px";
-    // yourAlert[0].style.left = "50%";
-    // yourAlert[0].style.transform = "translateX(-54%)"
-
-    // myOk.style.display = "none";
-    // leader1[0].style.display = "block"
-    console.log(this.tel.length);
-
-
-    if (this.fName == undefined || this.fName == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your first name(s)";
-
-
-    }
-    else if (this.sName == undefined || this.sName == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your last name";
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.orgName == undefined || this.orgName == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your organisation's name"
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.email == undefined || this.email == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your email address"
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.mobile == undefined || this.mobile == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your phone number"
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.tel == undefined || this.tel == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your telephone"
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.password == undefined || this.password == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please enter your password"
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.Confirm == null || this.Confirm == "") {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Please confirm your password"
-
-      // yourAlert[0].style.top = (b / 3.5) + "px";
-      // yourAlert[0].style.left = "50%";
-      // yourAlert[0].style.transform = "translateX(-54%)"
-    }
-    else if (this.mobile.length < 9 || this.mobile.length > 9) {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Oops! It looks like your mobile number has either exceed or is below 9 characters."
-      console.log(this.tel.length)
-    }
-    else if (this.tel.length < 9 || this.tel.length > 9) {
-      // leader1[0].style.display = "none"
-      // myOk.style.display = "block";
-      this.message = "Oops! It looks like your telephone number has either exceed or is below 9 characters."
-    }
-
-    else {
-      if (this.password == this.Confirm) {
-        this.message = "Signing in..."
-
-        this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
-
-          this.authen.authState.subscribe(data => {
-            this.userId = data.uid;
-            this.dbPath = 'Websiteprofiles/' + data.uid;
-            this.userRef = this.db.list(this.dbPath);
-            this.userRef.push({
-              Firstname: this.fName,
-              Lastname: this.sName,
-              OrganisationName: this.orgName,
-              Mobile: "0" + this.mobile,
-              downloadurl: '../assets/imgs/Dp.jpg',
-              Telephone: "0" + this.tel
-            });
-            this.router.navigate(['/landing-page'])
-            alert('data added')
-          })
-        }, Error => {
-          // leader1[0].style.display = "none"
-          // myOk.style.display = "block";
-          this.message = Error.message
-          // alert(Error.message);
-
-          // yourAlert[0].style.top = (b / 3.5) + "px";
-          // yourAlert[0].style.left = "50%";
-          // yourAlert[0].style.transform = "translateX(-54%)"
-        })
-      }
-      else {
-        // leader1[0].style.display = "none";
-        // myOk.style.display = "block";
-        this.message = "Please make sure that your passwords match"
-      }
-    }
-  }
-
->>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
   InsertPicture(event: any) {
     this._ngZone.run(() => {
       if (event.target.files && event.target.files[0]) {
@@ -198,9 +56,10 @@ export class SignUpComponent implements OnInit {
   }
 
   dismissAlert() {
-    let alerter = document.getElementsByClassName('customAlert4') as HTMLCollectionOf<HTMLElement>;
-    alerter[0].style.left = "-100%";
-    this.message = ""
+    this.alertMessage = ""
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    myAlert[0].style.display = "none";
   }
 
   goToSignIn() {
@@ -209,69 +68,92 @@ export class SignUpComponent implements OnInit {
     })
   }
 
-<<<<<<< HEAD
   getcoo(address) {
 
     return new Promise((accpt, rej) => {
-      this._ngZone.run(() =>{
-      let geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function (results, status) {
-        var arr = results[0].address_components;
-        var arr2 = arr[3]
-        if (status == google.maps.GeocoderStatus.OK) {
-          this.latitude = results[0].geometry.location.lat();
-          this.longitude = results[0].geometry.location.lng();
-          let position = {
-            lat: results[0].geometry.location.lat(),
-            lng: results[0].geometry.location.lng(),
-            city : arr2.long_name
+      this._ngZone.run(() => {
+        let geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+          var arr = results[0].address_components;
+          var arr2 = arr[3]
+          if (status == google.maps.GeocoderStatus.OK) {
+            this.latitude = results[0].geometry.location.lat();
+            this.longitude = results[0].geometry.location.lng();
+            let position = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+              city: arr2.long_name
+            }
+            console.log(position)
+            accpt(position)
           }
-          console.log(position)
-          accpt(position)
-        }
-      });
+        });
+      })
     })
-  })
   }
-  
-  showPage2(){
-    if (this.orgName == undefined || this.orgName == ""){
-      alert('orgname is missing')
-    }
-    else if (this.email == undefined ||  this.email == ""){
-      alert('email is missing')
-    }
-    else if (this.select == undefined ||  this.select == ""){
-      alert('category is missing')
-    }
-    else if (this.password == undefined || this.password == ""){
-      alert('password is missing')
-    }
-    else{
-=======
 
-  showPage2(event) {
-    this.callAlert()
+  showPage2() {
+    
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
 
->>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
-    var firstPage = document.getElementById("first");
-    var secondPage = document.getElementById("second");
-    var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
-    var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<HTMLElement>;
+    
+    myAlert[0].style.display = "block";
+    theLoader[0].style.display = "block"
+    this.alertMessage = "loading"
+    if (this.orgName == undefined || this.orgName == "") {
+      // alert('orgname is missing');
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = 'Please insert the name of your organisation'
+    }
+    else if (this.email == undefined || this.email == "") {
+      // alert('email is missing');
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = 'Please insert your organisation email'
+    }
+    else if (this.select == undefined || this.select == "") {
+      // alert('category is missing');
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = 'Please choose the category for your organisation.'
+    }
+    
+    else if (this.password == undefined || this.password == "") {
+      // alert('password is missing');
+      
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = 'Please enter your password (8 characters or above)'
+    }
+    
+    else {
 
-    firstPage.style.display = "none";
-    signIn[0].style.color = "black"
-    signUp[0].style.color = "#00eaff";
-    signUp[0].style.borderBottom = "5px solid #00eaff";
-    signIn[0].style.borderBottom = "5px solid transparent";
+      if(this.password.length < 8){
+        this.alertMessage = "Please make sure your password has more than 8 characters"
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none"
+      }else{
+        var firstPage = document.getElementById("first");
+      var secondPage = document.getElementById("second");
+      var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
+      var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<HTMLElement>;
+
+      firstPage.style.display = "none";
+      signIn[0].style.color = "black"
+      signUp[0].style.color = "#00eaff";
+      signUp[0].style.borderBottom = "5px solid #00eaff";
+      signIn[0].style.borderBottom = "5px solid transparent";
+
+      myAlert[0].style.display = "none";
+      this.message = ""
+      }
+      
+    }
+
   }
-<<<<<<< HEAD
-
-  }
-  showPage1($event){
-=======
   showPage1($event) {
->>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
     var firstPage = document.getElementById("first");
     var secondPage = document.getElementById("second");
     var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
@@ -284,73 +166,99 @@ export class SignUpComponent implements OnInit {
     signUp[0].style.borderBottom = "5px solid transparent";
   }
 
-<<<<<<< HEAD
-Reg(){
-if (this.fName == undefined || this.fName == ""){
-  alert('Representative name is missing')
-}
-else if (this.tel == undefined || this.tel == ""){
-  alert('phone numbers missing')
-}
-else if (this.address == undefined ||  this.address == ""){
-  alert("address is missing")
-}
-else if (this.desc == undefined || this.desc == ""){
-  alert('desc is missing')
-}
-else if (this.urlCover ==  "../../assets/imgs/facade.jpg" ){
-  alert('cover img not selected')
-}
-else if (this.urlLogo == "../../assets/imgs/clip art.png" ){
-  alert('logo not selected')
-}
-else{
-  this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
-    this.authen.auth.onAuthStateChanged(user => {
-      this.getcoo(this.address).then((data: any) => {
-      this.userId = user.uid;
-      this.dbPath = 'Websiteprofiles/' + this.userId;
-      this.userRef = this.db.list(this.dbPath);
-      this.userRef.push({
-        respName: this.fName,
-        OrganisationName: this.orgName,
-        Url: this.urlCover,
-        Logo:this.urlLogo,
-        Telephone: "0" + this.tel,
-        longitude: data.lng,
-        desc : this.desc,
-        city : data.city,
-        category :  this.select,
-        latitude: data.lat
-      });
-      this.router.navigate(['/landing-page'])
-      alert('check email verification link, go to your email address and click it')
-    })
-    })
-  }, Error => {
-    this.message = Error.message
-    alert(Error.message);
-  })
-}
+  Reg() {
+    this.alertMessage = "Please wait..."
+      let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+      let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
+    if (this.fName == undefined || this.fName == "") {
+      // alert('Representative name is missing');
+      this.alertMessage = "Please enter your name";
 
-}
-  comboBox(){
-      let theLabel = document.getElementById("mySelect");
-      theLabel.style.display = "none"
-=======
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
+    }
+    else if (this.tel == undefined || this.tel == "") {
+      // alert('phone numbers missing')
+      this.alertMessage = "Please insert your organisation's contact numbers"
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
+    }
+    else if (this.address == undefined || this.address == "") {
+      // alert("address is missing")
+      this.alertMessage = "Please fill in your address"
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
+    }
+    else if (this.desc == undefined || this.desc == "") {
+      // alert('desc is missing')
+      this.alertMessage = "Please fill in the organisation's description"
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
+    }
+    else if (this.urlCover == "../../assets/imgs/facade.jpg") {
+      // alert('cover img not selected');
+      this.alertMessage = "Please choose a cover photo"
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+    }
+    else if (this.urlLogo == "../../assets/imgs/clip art.png") {
+      // alert('logo not selected')
+      this.alertMessage = "Please choose your logo"
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+    }
+    else {
+      
+      this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
+        this.authen.auth.onAuthStateChanged(user => {
+          this.getcoo(this.address).then((data: any) => {
+            this.userId = user.uid;
+            this.dbPath = 'Websiteprofiles/' + this.userId;
+            this.userRef = this.db.list(this.dbPath);
+            this.userRef.push({
+              respName: this.fName,
+              OrganisationName: this.orgName,
+              Url: this.urlCover,
+              Logo: this.urlLogo,
+              Telephone: "0" + this.tel,
+              longitude: data.lng,
+              desc: this.desc,
+              city: data.city,
+              category: this.select,
+              latitude: data.lat
+            });
+            this.router.navigate(['/landing-page'])
+            alert('check email verification link, go to your email address and click it')
+          })
+        })
+      }, Error => {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none"
+        // alert(Error.message);
+
+        if(Error.message == "Password should be at least 6 characters"){
+          this.alertMessage = "Please make sure that your password has 6 characters or above"
+        }
+        else if(Error.message == "The email address is badly formatted."){
+          this.alertMessage = "Please check your email address, we think something's not right";
+        }
+        else{
+          this.alertMessage = "Something went wrong, please check if your information is correct, try logging in or try again later."
+        }
+
+      })
+    }
+
+  }
   comboBox() {
     let theLabel = document.getElementById("mySelect");
     theLabel.style.display = "none"
   }
   callAlert() {
-
-    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf <HTMLElement>;
-    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf <HTMLElement>;
-    myAlert[0].style.display= "block";
-    theLoader[0].style.border =""
-    this.alertMessage = "Alert called";
->>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
   }
+
 
 
 }

@@ -494,10 +494,13 @@ label{
     background: rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
-    display: block
+    display: none;
 }
 .dismissBtn i{
     line-height: 30px;
+}
+.loader{
+    margin: 0 auto;
 }
 .dismissBtn{
     cursor: pointer;
