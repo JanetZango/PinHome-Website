@@ -33,23 +33,16 @@
           </div>
            
         </div>
-        <div class="list">
-
-          <div class="gal" id="push">
-            <img src="../../assets/imgs/theHand.jpg" alt="">
+        <div class="list" >
+          <!-- <div class="moveLeft" (click)="toLeft()">
+            &lt;
           </div>
-          <div class="gal">
-            <img src="../../assets/imgs/theHand.jpg" alt="">
-          </div>
-          <div class="gal">
-            <img src="../../assets/imgs/theHand.jpg" alt="">
-          </div>
-          <div class="gal">
-            <img src="../../assets/imgs/theHand.jpg" alt="">
-          </div>
-          <div class="gal">
-            <img src="../../assets/imgs/theHand.jpg" alt="">
-          </div>
+          <div class="moveRight" (click)="toRight()">
+            &gt;
+          </div> -->
+          <div class="gal" id="push" *ngFor="let a of organizationArr">
+            <img src="{{a.Url}}" alt="">
+          </div>      
         </div>
       </div>
   </div>

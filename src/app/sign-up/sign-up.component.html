@@ -1,89 +1,158 @@
 <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
 
-</head>
-
-
-  <!-- <div class="divver">
-
-    <div class="customAlert4">
-      
-      <div class="text">
-          <img src="../../assets/imgs/custom alert/loader.gif" class="loading" alt=""><br>
-        {{message}}
+<body class="thebody">
+  <div class="container">
+    <div class="seperator">
+      <h1>Welcome</h1>
+      <p>____</p>
+      <h3>Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit
+        organisation to
+        the database.</h3>
+      <div class="theButton">
+        <button class="loginBtn" (click)="goToSignIn()"></button>
       </div>
-      <div class="confirmer" id="theOkay" (click)="dismissAlert()">
-        <div class="OK">
-          OK
+    </div>
+    <!-- <div class="seperator2">
+      <h2>Register as an incorporator</h2>
+      <div class="textfield">
+        <input type="text" placeholder="First Name" [(ngModel)]="fName">
+        <img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="text" placeholder="Second Name" [(ngModel)]="sName">
+        <img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="text" placeholder="Organisation Name" [(ngModel)]="orgName">
+        <img class="person" src="../../assets/imgs/baseline_business_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="email" placeholder="Email" [(ngModel)]="email">
+        <img class="person" src="../../assets/imgs/baseline_email_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="number" placeholder="Mobile Number (+27)" min="1" max="10" [(ngModel)]="mobile">
+        <img class="person" src="../../assets/imgs/baseline_phone_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="number" placeholder="Tell. (+27)" [(ngModel)]="tel" min="1" max="10">
+        <img class="person" src="../../assets/imgs/baseline_phone_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="password" placeholder="Password" [(ngModel)]="password">
+        <img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
+      </div>
+      <div class="textfield">
+        <input type="password" placeholder="Confirm Pass." [(ngModel)]="Confirm">
+        <img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
+      </div>
+      <div class="registerButton">
+        <button class="registerBtn" (click)="register($event)">Register</button>
+      </div>
+    </div> -->
+    <div class="seperator2">
+      <div class="decider">
+        <div class="signIn" (click)="showPage1($event)">
+          &bull;
+        </div>
+        <div class="signUp" (click)="showPage2($event)">
+          &bull;
+        </div>
+      </div>
+      <!-- ======================================================================================================================================================================================================================================= -->
+      <div id="first">
+        <div class="instruction">
+          Sign In
+        </div>
+        <div class="firstCont">
+          <div class="textfield">
+            <input type="text" placeholder="Organisation Name">
+          </div>
+          <div class="textfield">
+            <input type="email" placeholder="Organisation Email">
+          </div>
+          <div class="textfield">
+            <!-- <p>Select Category</p> -->
+            <label for="selectBox" id="mySelect">Select Category</label>
+            <select [(ngModel)]="select" id="selectBox" (change)="comboBox()">
+              <option value="Select Category" selected disabled>Select Category</option>
+              <option value="Orphanage">Orphanage</option>
+              <option value="Disability">Disability</option>
+              <option value="old age">Old Age Homes</option>
+              <option value="theraphy">Theraphy</option>
+              <option value="Psychiatric">Psychiatric centres/Hospital</option>
+              <option value="social centre">Social Centre</option>
+              <option value="Rehab">Rehab</option>
+            </select>
+          </div>
+          <div class="textfield">
+            <input type="password" placeholder="Password">
+          </div>
+
+          <div class="arrow" (click)="showPage2($event)">
+            Next...
+          </div>
+        </div>
+      </div>
+      <!-- ======================================================================================================================================================================================================================================= -->
+      <div id="second">
+        <div class="secondCont">
+          <div class="photos">
+            <div class="cover">
+              <div class="theuploader">
+                <label for="myCover" id="label1">
+                  <i class="material-icons">
+                    camera
+                  </i>
+                </label>
+              <input type="file" id="myCover" accept="/*images" (change)="InsertPicture($event)">
+
+              </div>
+              <img src="{{urlCover}}" alt="">
+            </div>
+            <div class="dp">
+                <div class="theuploader1">
+                    <label for="myLogo" id="label2">
+                        <i class="material-icons">
+                          camera
+                        </i>
+                      </label>
+                    <input type="file" id="myLogo" accept="/*images" (change)="InsertLogo($event)">
+                </div>
+                <img src="{{urlLogo}}" alt="">
+            </div>
+          </div>
+          <br>
+          <div class="textfield">
+            <input type="text" placeholder="Full Name (Representative)">
+          </div>
+          <div class="textfield">
+            <input type="text" placeholder="Organisation surname">
+          </div>
+          <div class="textfield">
+            <input type="tel" placeholder="Phone">
+          </div>
+
+          <div class="textfield">
+            <textarea type="text" placeholder="Add a description for your organisation (max 180 characters)"></textarea>
+          </div>
+
+          <div class="textfield">
+            <textarea type="text" placeholder="Organisation Address"></textarea>
+          </div>
+          <div class="mapShow">
+            <div class="theMap" id="overlay">
+
+            </div>
+            <div id="map" class="theMap">
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
-  <div class="content">
-    <div class="spreader">
-
-    </div>
-    <div class="container">
-      <div class="statement">
-        Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit organisation
-        to the database.
-      </div>
-      <div class="form">
-
-        <div class="intro">
-          <h3 class="theH3">Register as an incorporator</h3>
-        </div>
-
-        <input class="text-field" type="text" [(ngModel)]="fName" placeholder="First Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="sName" placeholder="Last Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="orgName" placeholder="Organisation Name"><br>
-        <input class="text-field" type="text" [(ngModel)]="email" placeholder="Email"><br>
-        <div class="thePlaceholder">
-          Mobile +27
-        </div>
-        <input class="text-field" type="text" min="1" [(ngModel)]="mobile" placeholder="e.g(81 123 4567)" max="10" id="theText"><br>
-        <div class="thePlaceholder">
-          Tel. +27
-        </div>
-        <input class="text-field" type="text" min="1" [(ngModel)]="tel" placeholder="e.g(11 980 1234)"  max="10" id="theText"><br>
-        <input class="text-field" type="password" [(ngModel)]="password" placeholder="Password"><br>
-        <input class="text-field" type="password" [(ngModel)]="Confirm" placeholder="Confirm Password">
-        <div class="space"></div>
-        <! ADD THE CLICK FUNCTION ON THE DIV, BOT THE p -->
-        <!-- <div class="theBtn">
-
-        </div>
-        <div class="button" (click)="register($event)">
-          <p>
-            Sign Up
-          </p>
-        </div>
-        <br> -->
-        <!-- <a routerLink="/sign-in">Already have an account?</> -->
-
-      <!-- </div>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
-  <div class="holder">
-
-    <div class="buttonClick" (click)="goToSignIn()">
-      Sign In
-    </div>
-  </div> -->
-  <body>
-    <div class="container">
-      <div class="seperator">
-        <h1>Hello Friend!</h1>
-        <p>____</p>
-        <h3>Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit organisation
-            to the database.</h3>
-
-      </div>
-      <div class="seperator2">
-        <h2>Register as an incorporator</h2>
-      </div>
-    </div>
-
-  </body>
+</body>

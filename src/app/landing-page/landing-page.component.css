@@ -11,6 +11,13 @@
     margin-left: -30px;
     margin-top: -10px;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color:black;
+  }
+  
 
 .content{
     width: 99.7%;

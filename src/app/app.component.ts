@@ -4,8 +4,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Router} from'@angular/router';
-// import { AngularFireDatabase } from 'angularfire2/database';
-// import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -34,12 +33,12 @@ export class AppComponent {
         this.state = 1;
         // prof[0].style.display = "block";
         // signOutBtn[0].style.display = "block";
-        this.router.navigate(['/landing-page']);
+        this.router.navigate(['/sign-up']);
       }
       else{
         console.log('no user')
         this.state = 0;
-        this.router.navigate(['/sign-in']);
+        this.router.navigate(['/sign-up']);
         // prof[0].style.display = "none";
         // signOutBtn[0].style.display = "none";
       }

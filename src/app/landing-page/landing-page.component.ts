@@ -30,15 +30,13 @@ export class LandingPageComponent implements OnInit {
   profilePicture = "../../assets/imgs/loading.gif";
   username = "Please wait...";
 
-state = 0;
-i = 180;
-initially;
+  state = 0;
+  i = 180;
+  initially;
 
-  myImages=["../../assets/imgs/dummy data/1.JPG", "../../assets/imgs/dummy data/2.JPG", "../../assets/imgs/dummy data/3.JPG",
-  "../../assets/imgs/dummy data/4.JPG", "../../assets/imgs/dummy data/5.JPG"
-];
+  images = ["assets/imgs/1.png","assets/imgs/2.png","assets/imgs/3.png","assets/imgs/4.png","assets/imgs/7.png","assets/imgs/4.png","assets/imgs/5.png","assets/imgs/6.png" ]
 
-  constructor(private authen : AngularFireAuth, private db: AngularFireDatabase,private _ngZone: NgZone, private router: Router) { }
+  constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, private _ngZone: NgZone, private router: Router) { }
 
   ngOnInit() {
     this.authen.auth.onAuthStateChanged(user =>{
@@ -95,11 +93,12 @@ initially;
       console.log(this.organizationArr)
     })
     setTimeout(() => {
+      
 
       let myLatLng = { lat: this.organizationArr[0].latitude, lng: this.organizationArr[0].longitude };
       // this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 9,
+        zoom: 13,
         center: myLatLng,
         disableDefaultUI: true,
         styles: [
@@ -338,67 +337,94 @@ initially;
 
 
 
-        // mapTypeId: 'terrain'
       });
+      var indx = 0;
+
       for (var x = 0; x < this.organizationArr.length; x++) {
+        if (this.organizationArr[x].Category == "Orphanage")
+        indx =  1;
+        else if (this.organizationArr[x].Category == "Disability")
+        indx =  2;
+        else if (this.organizationArr[x].Category == "old age")
+        indx =  3;
+        else if (this.organizationArr[x].Category == "theraphy")
+        indx =  4;
+        else if (this.organizationArr[x].Category == "Psychiatric")
+        indx =  5;
+        else if (this.organizationArr[x].Category == "social centre")
+        indx =  6;
+        else if (this.organizationArr[x].Category == "Rehab")
+        indx =  7;
+
         console.log("inside");
         let myLatLng = { lat: this.organizationArr[x].latitude, lng: this.organizationArr[x].longitude };
         let marker = new google.maps.Marker({
           position: myLatLng,
-          // icon:'assets/imgs/change.png',
+          icon:this.images[indx],
+          size: { width: 5, height: 5 },
           map: map,
           title: this.organizationArr[x].OrganizationName,
 
-
-        
         });
-        // })
+
+     
+
+        let infowindow = new google.maps.InfoWindow({
+          
+          content:  '<div style="width: 400px; transition: 300ms;"><b>' + this.organizationArr[x].OrganizationName + '</b><div style="display: flex; padding-top: 10px;">' +
+          '<img style="height: 100px; width: 100px; object-fit: cober; border-radius: 50px;" src=' +  this.organizationArr[x].Url + '>' + '<p style="padding-left: 10px;padding-right: 10px">' +
+            this.organizationArr[x].AboutOrg+'</p><br>'+'<br></div>' 
+            
+          
+        });
+
+
+        marker.addListener('click', function () {
+          infowindow.open(map, marker);
+          map.setZoom(13);
+          map.setCenter(marker.getPosition());
+        });
       }
     }, 3000);
 
-
     console.log("at the end");
-    // })
-
-
-
   }
 
-  getStarted(){
+  getStarted() {
     // this decides if you are online or not
 
 
-    this.authen.auth.onAuthStateChanged(user =>{
+    this.authen.auth.onAuthStateChanged(user => {
       console.log(user)
-      if (user){
+      if (user) {
 
         this.router.navigate(['/adding-data']);
       }
-      else{
+      else {
         console.log('no user')
 
         this.router.navigate(['/sign-in']);
 
       }
-     });
+    });
 
   }
 
-  decideState(){
-    if(this.state == 0){
+  decideState() {
+    if (this.state == 0) {
       this.showSlide()
     }
-    else{
+    else {
       this.hideSlide()
     }
 
     console.log(this.state);
-    
+
   }
 
-  showSlide(){
-    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf <HTMLElement>;
-    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf <HTMLElement>;
+  showSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
 
     arrow[0].style.left = "48%";
     arrow[0].style.transform = "translateX(-60%)";
@@ -408,9 +434,9 @@ initially;
     this.state = 1;
 
   }
-  hideSlide(){
-    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf <HTMLElement>;
-    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf <HTMLElement>;
+  hideSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
 
     arrow[0].style.left = "48%";
     arrow[0].style.transform = "translateX(-60%)";
@@ -420,16 +446,16 @@ initially;
     this.state = 0
   }
 
-  toLeft(){
+  toLeft() {
     var pusher = document.getElementById("push");
     let i = 160
     pusher.style.marginLeft = (this.initially) + i + "px"
   }
 
-  gotToAdding(){
+  gotToAdding() {
     this.router.navigate(['/adding-data']);
   }
-  goToProfile(){
+  goToProfile() {
     this.router.navigate(['/profile']);
   }
 
