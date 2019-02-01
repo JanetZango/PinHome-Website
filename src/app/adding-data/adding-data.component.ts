@@ -381,7 +381,8 @@ export class AddingDataComponent{
     }
   })
   }
-  InsertGallery(event: any) {
+  pic1(event: any) {
+    alert('me')
     this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
@@ -395,7 +396,8 @@ export class AddingDataComponent{
     }
   })
   }
-  InsertGallery1(event: any) {
+  
+  pic2(event: any) {
     this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
@@ -407,7 +409,8 @@ export class AddingDataComponent{
     }
   })
   }
-  InsertGallery2(event: any) {
+
+  pic3(event: any) {
     this._ngZone.run(() =>{
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
@@ -419,6 +422,7 @@ export class AddingDataComponent{
     }
   })
   }
+
   AddingData(event) {
     this._ngZone.run(() =>{
     let emptySpace = document.getElementById("orgName");
@@ -435,53 +439,53 @@ export class AddingDataComponent{
     
     console.log(this.select);
     if (this.name == undefined) {
-      emptySpace.style.boxShadow = "0 0 5px red"
-      this.message = "Please enter the name of your organization";
+      // emptySpace.style.boxShadow = "0 0 5px red"
+      // this.message = "Please enter the name of your organization";
     }
     else if (this.contacts == undefined) {
 
-      emptySpace1.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter your organisation's phone";
+      // emptySpace1.style.boxShadow = "0 0 5px red";
+      // this.message = "Please enter your organisation's phone";
     }
     else if (this.emailAdd == undefined) {
       // alerter[0].style.top = (mes/1.5) + "px";
       // alerter[0].style.left = "50%"; 
 
 
-      emptySpace2.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter the email Address of your organization";
+      // emptySpace2.style.boxShadow = "0 0 5px red";
+      // this.message = "Please enter the email Address of your organization";
     }
     else if (this.OrganizationAdress == undefined) {
       // alerter[0].style.top = (mes/1.5) + "px";
       // alerter[0].style.left = "2.3%"; 
 
 
-      emptySpace3.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter the Physical Address of your organization";
+      // emptySpace3.style.boxShadow = "0 0 5px red";
+      // this.message = "Please enter the Physical Address of your organization";
     }
     else if (this.AboutOrg == undefined) {
       // alerter[0].style.top = (mes/1.5) + "px";
       // alerter[0].style.left = "2.3%"; 
 
 
-      emptySpace4.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter the description of your organization";
+      // emptySpace4.style.boxShadow = "0 0 5px red";
+      // this.message = "Please enter the description of your organization";
     }
     else if (this.select == undefined) {
       // alerter[0].style.top = (mes/1.5) + "px";
       // alerter[0].style.left = "2.3%"; 
 
 
-      emptySpace5.style.boxShadow = "0 0 5px red";
-      this.message = "Please select the category for your organization";
+      // emptySpace5.style.boxShadow = "0 0 5px red";
+      // this.message = "Please select the category for your organization";
     }
     else if (this.logoPhoto != "Choose a different logo") {
       // alerter[0].style.top = (mes/1.5) + "px";
       // alerter[0].style.left = "2.3%"; 
 
 
-      emptySpace6.style.boxShadow = "0 0 5px red";
-      this.message = "Please upload the logo of your organization";
+      // emptySpace6.style.boxShadow = "0 0 5px red";
+      // this.message = "Please upload the logo of your organization";
     }
   else if (this.urlGallery == undefined || this.urlGallery1 == undefined || this.urlGallery2 == undefined){
     this.message = "Please upload at least 3 Gallery pictures";
@@ -490,10 +494,10 @@ export class AddingDataComponent{
     this.message = "Phone number not complete";
   }
   
-    else {
+    else {this.authen.auth.onAuthStateChanged(user =>{
       this.getcoo(this.OrganizationAdress).then((data: any) => {
         this.long = data.lat;
-        this.homelist = this.db.list('OrganizationList');
+        this.homelist = this.db.list('Brunches/' + user.uid + '/');
         this.homelist.push({
           OrganizationName: this.name,
           OrganizationAdress: this.OrganizationAdress,
@@ -510,8 +514,8 @@ export class AddingDataComponent{
           city : data.city,
           latitude: data.lat
         });
-        alerter[0].style.top = (mes/1.5) + "px";
-        alerter[0].style.left = "50%"; 
+        // alerter[0].style.top = (mes/1.5) + "px";
+        // alerter[0].style.left = "50%"; 
 
         this.message = "Your information has been added."
         this.emailAdd = "";
@@ -526,34 +530,35 @@ export class AddingDataComponent{
         this.urlLogo = "";
         this.contacts = "";
       })
+    })
     }
     alert("")
 
     if (this.name != undefined) {
-      emptySpace.style.boxShadow = "0 0 5px transparent";
+      // emptySpace.style.boxShadow = "0 0 5px transparent";
     }
     if (this.contacts != undefined || this.contacts != null) {
-      emptySpace1.style.boxShadow = "0 0 5px transparent";
+      // emptySpace1.style.boxShadow = "0 0 5px transparent";
     }
     if (this.emailAdd != undefined) {
-      emptySpace2.style.boxShadow = "0 0 5px transparent";
+      // emptySpace2.style.boxShadow = "0 0 5px transparent";
     }
     if (this.OrganizationAdress == undefined ||this.OrganizationAdress == " " || this.OrganizationAdress == null) {
-      emptySpace3.style.boxShadow = "0 0 5px transparent";
+      // emptySpace3.style.boxShadow = "0 0 5px transparent";
     }
     if (this.AboutOrg != undefined) {
-      emptySpace4.style.boxShadow = "0 0 5px transparent";
+      // emptySpace4.style.boxShadow = "0 0 5px transparent";
     }
     if (this.select == undefined) {
-      emptySpace5.style.boxShadow = "0 0 5px transparent";
+      // emptySpace5.style.boxShadow = "0 0 5px transparent";
     }
     if (this.logoPhoto == "Choose a different logo") {
-      emptySpace6.style.boxShadow = "0 0 5px transparent";
+      // emptySpace6.style.boxShadow = "0 0 5px transparent";
     }
 
-    alerter[0].style.top = (mes / 1.5) + "px";
-    alerter[0].style.left = "50%";
-    alerter[0].style.transform = "translateX(-54%)"
+    // alerter[0].style.top = (mes / 1.5) + "px";
+    // alerter[0].style.left = "50%";
+    // alerter[0].style.transform = "translateX(-54%)"
   })
   }
 

@@ -33,7 +33,7 @@ export class AppComponent {
         this.state = 1;
         // prof[0].style.display = "block";
         // signOutBtn[0].style.display = "block";
-        this.router.navigate(['/landing-page']);
+        this.router.navigate(['/sign-in']);
       }
       else{
         console.log('no user')

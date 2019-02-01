@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="/path/to/material-icons/iconfont/material-icons.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="thebody">
 <div class="container">
@@ -7,10 +7,12 @@
       <!-- <div class="SaveButton">
           <button class="saveBtn">Save</button>
         </div> -->
-    <h2>Your cover picture</h2>
-    <div class="round">
+        <div class="round">
       <img class="theImage" src="{{url}}">
     </div>
+      <img class="cover2" src="{{logo}}">
+    <!-- <h2>Your cover picture</h2> -->
+    
  </div>
  <div class="seperator">
   <h1>Edit your Business Profile</h1>
@@ -35,37 +37,28 @@
         </div>
  </div>
  <div class="seperator2">
-   <h1 class="theH1">Organisation braches  <button class="BranchButton" (click)="addBrunch()">Add Brunch</button></h1>
+  <h1 class="theH1">Organisation Branches  <button class="BranchButton" (click)="addBrunch()"> <i style="color: #2c747a; position: relative;right: 0px;" class="material-icons">add</i>Add Branch</button></h1>
+
  
-  <table class="theTabels">
-     
+  <!-- <table class="theTabels" *ngFor= "let i of brunchesArr" (click)="showinfo(i)">
     <tr>
       <td>
-        <p>Soweto</p>
-        <img class="thePicture" src="../../assets/imgs/kid.jpg"> 
+        <p>{{i.city}}</p>
+        <img class="thePicture" src="{{i.Url}}"> 
       </td>
-      <td>
-        <p>Pretoria</p>
-          <img class="thePicture" src="../../assets/imgs/kid.jpg"> 
-      </td>
-      <td>
-        <p>Cape Town</p>
-          <img class="thePicture" src="../../assets/imgs/kid.jpg"> 
-      </td>
-    </tr>
-    <tr>
-      <td>
-          <img class="thePicture2" src="../../assets/imgs/kid.jpg"> 
-      </td>
-      <td>
-          <img class="thePicture2" src="../../assets/imgs/kid.jpg"> 
-      </td>
-      <td>
-          <img class="thePicture2" src="../../assets/imgs/kid.jpg"> 
-      </td>
-    </tr>
+    </tr>   
+  </table> -->
+  <div class="branches" >
+    <div class="orgBranch" *ngFor= "let i of brunchesArr" (click)="showinfo(i)">
+      <div class="branchName">
+        {{i.city}}
+      </div>
+      <br>
+      <img src="{{i.Url}}" alt="">
+    </div>
+
     
-  </table>
+  </div>
  </div>
 </div>
 </body>
