@@ -98,7 +98,7 @@ export class LandingPageComponent implements OnInit {
       let myLatLng = { lat: this.organizationArr[0].latitude, lng: this.organizationArr[0].longitude };
       // this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 12,
         center: myLatLng,
         disableDefaultUI: true,
         styles: [

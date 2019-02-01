@@ -11,7 +11,7 @@
 .seperator{
     height: 60vh;
     width: 25vw; 
-    background-image:linear-gradient(rgba(12, 33, 43, 0.5),rgb(8, 64, 88)),url('../../assets/imgs/brother.jpg');
+    background-image:url('../../assets/imgs/tree.jpg');
     background-position: bottom ;
     background-repeat: no-repeat;
     box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.466);
@@ -21,7 +21,8 @@
     height: 130vh;
     width: 100vw;
     margin-top: -300px; 
-    /* background: linear-gradient(rgba(13, 32, 41, 0.281),rgb(5, 59, 77)),url('../../assets/imgs/flower4.png'); */
+    background-image: linear-gradient(rgba(12, 33, 43, 0.5),rgba(16, 60, 78, 0)),url('../../assets/imgs/tree.jpg');
+    /* background: linear-gradient(rgba(13, 32, 41, 0.281),rgb(5, 59, 77)),url('../../assets/imgs/grandpa14.jpg'); */
     background-size: cover;
     background-repeat: no-repeat; 
      background-position: top; 
