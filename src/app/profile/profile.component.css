@@ -1,241 +1,304 @@
-.content{
-    height: 90vh;
-    overflow-y: scroll;
-    width: 101.5vw;
-    position: relative;
-    right: 20px;
-    background-image: url('../../assets/imgs/theHand.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; 
-}
-.container{
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+  @import 'material-icons/iconfont/material-icons.scss';
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: wrap;
+    direction: ltr;
     position: absolute;
-    color: black;
-    width: 60vw;
-    height: 108vh;
-    /* border: 8px solid #20676e; */
-    /* margin-left: 20vw; */
-    left: 50%;
-    transform: translateX(-53%);
-    background-color: rgba(225, 226, 224, 0);
-    box-shadow: 0px 30px 30px #ffff; 
-    margin-top: 50px;
-    border: solid 2px rgba(255, 255, 255, 0.493);
-}
-h1{
-    color: #ffff;
-    font-weight: 100;
-    text-align: center;
-    text-shadow: 0 10 10px black;
-    padding-top: 50px
-}
-.h1{
-    color: white;
-    font-weight: 100;
-}
-.round{
-    border: solid 8px #20676e6e;
-    width: 150px;
-    height: 150px;
-    border-radius: 250px;
-}
-.ProPic{
-    width: 150px;
-    height: 150px;
-    border-radius: 250px;
-    border: #0f808d96 5px solid;
-}
-.bar{
-    /* height: vh; */
-    background-color: #20676e;
-    position: relative;
-    top: 20px;
-}
-p{
-    text-align: left;
-    font-size: 2em;
-    font-weight: 100;
-    color: rgb(0, 0, 0);
-    padding: 10px
-}
-.whole{
-    /* border: solid 2px #20676e; */
-    width: 40vw;
-    position: relative;
-    top: 10px;
-}
-.whole2{
-    /* border: solid 2px #20676e; */
-    width: 40vw;
-    position: relative;
-    bottom: 50px;
-}
-td{
-    color: white; 
-    text-shadow: 0 0 10px black;
+    left: 5px;
+    top: 3px;
+
+    /* margin-top: 15px; */
   
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  
+    -moz-osx-font-smoothing: grayscale;
+  
+    font-feature-settings: 'liga';
+  }
+
+  .thebody{
+    height: 130vh;
+    width: 100vw;
+    /* margin-top: -300px;  */
+    /* background: linear-gradient(rgba(13, 32, 41, 0.281),rgb(5, 59, 77)),url('../../assets/imgs/grandpa13.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat; 
+     background-position: top; 
+     overflow-y:hidden;
+     overflow-x:hidden;
+     position: fixed;
+     margin-left: -15px;
+   
 }
 
-.title{
-    font-size: 1.5em;
+.container{
+    /* border: grey solid 2px; */
+    margin: 0 auto;
+    height: 60vh;
+    width: 50vw;
+    margin-top: 100px;
+    box-shadow: 0 0 20px grey;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+   
 }
-.name{
-    font-size: 1.5em;
-    text-align: left;
+
+
+
+/* .theCol{ */
+    /* border: solid 2px blue; */
+    /* height: 25vh;
+    width: 30vw; */
+/* } */
+
+.theImage{
+    height: 110px;
+    width: 110px;
+    border-radius: 100px;
+    border: solid rgb(212, 212, 212) 3px;
+    margin-top: 20px;
+    margin-left: 30px;
+    
+}
+
+.cover{
+    width: 50vw;
+    /* border: solid #20676e 2px; */
+    background-image: url('../../assets/imgs/default-cover.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 25vh;
+    
+}
+
+h2{
+    color: rgba(255, 255, 255, 0.555);
+    text-align: center;
+    font-weight: 100;
+    text-shadow: 0 0 10px black;
+    font-size: 4em;
+
+}
+
+.seperator{
+    /* border: #20676e solid 2px; */
+    box-shadow: 0 0 10px grey;
+    width: 600px;
+    height: 35vh;
+    float: left;
+    overflow-y: scroll;
+    background-color: #2c747a;
+    /* background-image: url('../../assets/imgs/brother.jpg'); */
+}
+
+.seperator::-webkit-scrollbar{
+    display: none;
+}
+.seperator2{
+    /* border: #20676e solid 2px; */
+    width: 600px;
+    height: 54.3vh;
+    float: right;
+    /* background-image: url('../../assets/imgs/brother.jpg'); */
+    
+}
+
+h1{
+    text-align: center;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+    bottom: 60px;
+    
+}
+
+::-webkit-input-placeholder { /* Microsoft Edge */
+    color: rgb(226, 223, 223);
+   }
+
+.textfield{
+    width: 100%;
+    height: 50px;
+}
+.textfield input{
+    /* border: none; */
+    border-top: 2px;  
+    border-right: 0px;
+    border-left: 0px; 
+    border-color: #ffffff;  
+    background-color: rgba(255, 255, 255, 0);    
+    width: 70%;
+    height: 30px;
+    font-size: 1.2em;
+    margin-left: 90px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+.person{
+    height: 25px;
+    margin-right: -50px;
     position: relative;
-    left: 20%;
+    right: 25px;
+    top: 5px;
 }
-.name2{
-    font-size: 1.5em;
-    text-align: left;
-    position: relative;
-    left: 12px;
+
+.theDescription{
+    border: #20676e solid 2px;
+    width: 69%;
+    margin-left: 90px;
+    margin-top: 10px;
+    height: 140px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
 }
+
+.theTabels{
+    padding-left: 5px;
+}
+
+.firstRow{
+    background: #20676e;
+    height: 20%;
+    width: 20px;
+} */
+
 table{
     /* border: 2px solid red; */
     width: 100%;
+    height: 54.3vh;
 }
-.leftTD{
-    width: 40%;
-    padding-left: 200px;
-    /* border: solid 2px red; */
-    /* font-size: 1.2em; */
-}
-.rightTD{
-    padding-left: 200px;
-    /* font-size: 1.2em; */
+tr{
+    /* border: 2px solid green; */
+    width: 75%;
+    height: 20px;
 }
 td{
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1.2em
-    /* border: 2px solid green; */
+    /* border: 2px solid orange; */
+    width: 20px;
+    
+    
 }
-.coverPic{
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    /* border: #20676e solid 2px; */
-}
-.round2{
-    width: 150px;
-    height: 150px;
-    border-radius: 250px;
-    position: relative;
-    bottom: 50px;
-}
-.logo{
-    /* border: #20676e solid */
-}
-@media screen and (max-width : 500px){
-    .content{
-        height: 140vh;
-        width: 110vw;
-        position: relative;
-        right: 20px;
-        background-image: url('../../assets/imgs/theHand.jpg');
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center; 
-    }
 
-    .container{
-        position: absolute;
-        color: black;
-        width: 109%;
-        height: 125vh;
-        /* border: 8px solid #20676e; */
-        /* margin-left: 20vw; */
-        left: 53%;
-        transform: translateX(-53%);
-        background-color: rgba(225, 226, 224, 0.527);
-        position: relative;
-        top: 20px;
-    }
+.thePicture{
+    height: 150px;
+    width: 192px;
+    z-index: 1000000;
+    /* padding-left:17px; */
+    padding-bottom: 20px;
+    object-fit: cover;
+    position: relative;
+    bottom: 120px;
     
-    h1{
-        color: #20676e;
-        font-weight: 100;
-        text-align: center;
-    }
+}
+
+.thePicture2{
+    height: 150px;
+    width: 192px;
+    z-index: 1000000;
+    /* padding-left:17px; */
+    padding-bottom: 300px;
+    object-fit: cover;
+    position: relative;
+    bottom: 137px;
+    display: grid;
     
-    .h1{
-        color: white;
-        font-weight: 100;
-    }
+}
+
+.firstRow{
+    width: 10px;
+}
+
+.uploader{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 150px;
+    height: 30px;
+    padding-left: 20px;
+    border: #20676e solid;
+    padding-top: 10px;
+    background-color: #20676e;
+    color: white;
+    position: relative;
+    bottom: 250px;
+    left: 10px
     
-    .round{
-        /* border: solid 8px #20676e6e; */
-        width: 100px;
-        height: 100px;
-        border-radius: 250px;
-    }
-    
-    .ProPic{
-        width: 150px;
-        height: 150px;
-        border-radius: 250px;
-    }
-    
-    .bar{
-        /* height: vh; */
-        background-color: #20676e;
-        position: relative;
-        top: 20px;
-    }
-    
-    p{
-        text-align: left;
-        font-size: 2em;
-        font-weight: 100;
-        color: rgb(0, 0, 0);
-        padding: 10px
-    }
-    
-    .whole{
-        /* border: solid 2px #20676e; */
-        width: 100vw;
-        position: relative;
-        top: 10px;
-    }
-    .whole2{
-      /* border: solid 2px #20676e; */
-      width: 100vw;
-      position: relative;
-      /* border: 2px solid red; */
-      top: -40px;
-    }
-    .title{
-        font-size: 1em;
-    }
-    
-    .name{
-        font-size: 1em;
-        text-align: left;
-        position: relative;
-        left: 10%;
-    }
-    
-    .coverPic{
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-        /* border: #20676e solid 2px; */
-    }
-    
-    .round2{
-        width: 120px;
-        height: 120px;
-        border-radius: 250px;
-        position: relative;
-        bottom: 50px;
-    }
-    
-    .logo{
-        /* border: #20676e solid */
-    }
-    
+}
+.uploader #theInput{
+    display: none;
+}
+.uploader .myLabel{
+    background: red;
+}
+
+.camera{
+   padding-left: 15px;
+  position: relative;
+  top: 3px;
+   height: 20px;
+}
+
+.saveButton{
+    /* border: #20676e solid 2px */
+    text-align: center
+}
+
+.saveBtn{
+    border: #ffffff solid 2px;
+    height: 50px;
+    width:100px;
+    margin-top: 60px;
+    background-color: #ffffff00;
+    color: #ffffff;
+    border-radius: 100px;
+    margin-left: 245px;
+    position: relative;
+    bottom: 25px;
+  
+}
+
+.theH1{
+    color: rgb(141, 137, 137);
+    position: relative; 
+    bottom: 60px; 
+    padding-top: 60px;
+
+}
+
+p{
+    text-align: center;
+    font-size: 1.5em;
+    z-index: 10000000;
+    position: relative;
+    top:0px;
+    color: white;
+    text-shadow: 0 0 20px red;
+}
+
+.BranchButton{
+    border: white 2px solid;
+    position: relative;
+    left: 60px;
+    height: 50px;
+    font-size: 1.8;
+    color: white;
+    background-color: #20676e;
+    box-shadow: 0 0 10px #20676e ;
+
 }

@@ -32,7 +32,7 @@
         <div class="signIn" (click)="showPage1($event)">
           &bull;
         </div>
-        <div class="signUp" (click)="showPage2($event)">
+        <div class="signUp" (click)="showPage2()">
           &bull;
         </div>
       </div>
@@ -43,6 +43,12 @@
           <p>Please make sure that the information you provide is true and accurate.</p>
         </div>
         <div class="firstCont">
+          <div class="textfield">
+            <input [(ngModel)]="orgName" type="text" placeholder="Organisation Name">
+          </div>
+          <div class="textfield">
+            <input [(ngModel)]="email"  type="email" placeholder="Organisation Email">
+          </div>
           <div class="textfield">
             <!-- <p>Select Category</p> -->
             <label for="selectBox" id="mySelect">Select Category</label>
@@ -58,17 +64,10 @@
             </select>
           </div>
           <div class="textfield">
-            <input type="text" placeholder="Organisation Name">
-          </div>
-          <div class="textfield">
-            <input type="email" placeholder="Organisation Email">
+            <input [(ngModel)]="password"  type="password" placeholder="Password">
           </div>
 
-          <div class="textfield">
-            <input type="password" placeholder="Password">
-          </div>
-
-          <div class="arrow" (click)="showPage2($event)">
+          <div class="arrow" (click)="showPage2()">
             Next &gt;
           </div>
           <div class="back">
@@ -110,22 +109,22 @@
           </div>
           <br>
           <div class="textfield">
-            <input type="text" placeholder="Full Name (Representative)">
+            <input [(ngModel)]="fName"  type="text" placeholder="Full Name (Representative)">
           </div>
           <div class="textfield">
-            <input type="tel" placeholder="Phone">
+            <input [(ngModel)]="tel"  type="tel" placeholder="Phone">
           </div>
 
           <div class="textfield">
-            <textarea type="text" placeholder="Add a description for your organisation (max 180 characters)"></textarea>
+            <textarea [(ngModel)]="desc"  type="text" placeholder="Add a description for your organisation (max 180 characters)"></textarea>
           </div>
 
-          <div class="textfield">
-            <textarea type="text" placeholder="Organisation Address"></textarea>
+          <div class="textfield" >
+            <textarea  [(ngModel)]="address" type="text" placeholder="Organisation Address"></textarea>
           </div>
+      
         </div>
-        <br>
-        <div class="submitter">
+        <div (click)="Reg()" class="submitter">
           Submit
         </div>
       </div>

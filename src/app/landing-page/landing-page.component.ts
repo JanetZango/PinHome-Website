@@ -41,6 +41,7 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
     this.authen.auth.onAuthStateChanged(user =>{
     this.dbPath = 'Websiteprofiles/' + user.uid + '/';
+    this.assignUserID(this.dbPath)
     this. prodDetails = this.db.list(this.dbPath);
     console.log(this. prodDetails)
     this.profile = this. prodDetails.snapshotChanges().pipe(
@@ -49,38 +50,42 @@ export class LandingPageComponent implements OnInit {
       )
     );
     this.profile.subscribe(x =>{
-      this.username = x[0].Firstname + " " + x[0].Lastname;
-      this.profilePicture = x[0].downloadurl
+      this.username = x[0].OrganisationName
+      this.profilePicture = x[0].Logo
+      this.initMap();
     })
   })
-    this.dbPath = 'OrganizationList';
-    this.orgDetails = this.db.list(this.dbPath);
-    console.log(this.orgDetails)
-    this.Orgs = this.orgDetails.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
+    // this.dbPath = 'OrganizationList';
+    // this.orgDetails = this.db.list(this.dbPath);
+    // console.log(this.orgDetails)
+    // this.Orgs = this.orgDetails.snapshotChanges().pipe(
+    //   map(changes =>
+    //     changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+    //   )
+    // );
 
 
-    this.Orgs.subscribe(x => {
-      this.organizationArr = x;
-      var totLength = x.length - 3;
-      for (var i = 0; i < x.length; i++) {
-        if (i >= totLength) {
-          this.latestOrgs.push(this.organizationArr[i]);
-        }
-        else {
-          this.oldOrgs.push(this.organizationArr[i])
-        }
-      }
-      console.log(this.organizationArr)
-    })
-    this.initMap();
+    // this.Orgs.subscribe(x => {
+    //   this.organizationArr = x;
+    //   var totLength = x.length - 3;
+    //   for (var i = 0; i < x.length; i++) {
+    //     if (i >= totLength) {
+    //       this.latestOrgs.push(this.organizationArr[i]);
+    //     }
+    //     else {
+    //       this.oldOrgs.push(this.organizationArr[i])
+    //     }
+    //   }
+    //   console.log(this.organizationArr)
+    // })
+ 
   }
-
+userID;
+assignUserID(id){
+  this.userID = id;
+}
   initMap() {
-    this.dbPath = 'OrganizationList';
+    this.dbPath =  this.userID
     this.orgDetails = this.db.list(this.dbPath);
     console.log(this.orgDetails)
     this.Orgs = this.orgDetails.snapshotChanges().pipe(
@@ -98,7 +103,7 @@ export class LandingPageComponent implements OnInit {
       let myLatLng = { lat: this.organizationArr[0].latitude, lng: this.organizationArr[0].longitude };
       // this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 12,
         center: myLatLng,
         disableDefaultUI: true,
         styles: [
@@ -452,8 +457,8 @@ export class LandingPageComponent implements OnInit {
     pusher.style.marginLeft = (this.initially) + i + "px"
   }
 
-  gotToAdding() {
-    this.router.navigate(['/adding-data']);
+  gotToProfile() {
+    this.router.navigate(['/profile']);
   }
   goToProfile() {
     this.router.navigate(['/profile']);

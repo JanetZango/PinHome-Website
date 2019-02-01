@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-
+declare var google;
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -16,6 +16,9 @@ export class SignUpComponent implements OnInit {
   userId;
   dbPath;
   message;
+  select;
+  desc;
+  address;
 
   fName; sName; orgName; email; mobile; tel; password; Confirm;
 
@@ -28,6 +31,8 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
+<<<<<<< HEAD
+=======
   register(event) {
 
     // let yourAlert = document.getElementsByClassName("customAlert4") as HTMLCollectionOf<HTMLElement>;
@@ -166,6 +171,7 @@ export class SignUpComponent implements OnInit {
     }
   }
 
+>>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
   InsertPicture(event: any) {
     this._ngZone.run(() => {
       if (event.target.files && event.target.files[0]) {
@@ -203,10 +209,51 @@ export class SignUpComponent implements OnInit {
     })
   }
 
+<<<<<<< HEAD
+  getcoo(address) {
+
+    return new Promise((accpt, rej) => {
+      this._ngZone.run(() =>{
+      let geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address }, function (results, status) {
+        var arr = results[0].address_components;
+        var arr2 = arr[3]
+        if (status == google.maps.GeocoderStatus.OK) {
+          this.latitude = results[0].geometry.location.lat();
+          this.longitude = results[0].geometry.location.lng();
+          let position = {
+            lat: results[0].geometry.location.lat(),
+            lng: results[0].geometry.location.lng(),
+            city : arr2.long_name
+          }
+          console.log(position)
+          accpt(position)
+        }
+      });
+    })
+  })
+  }
+  
+  showPage2(){
+    if (this.orgName == undefined || this.orgName == ""){
+      alert('orgname is missing')
+    }
+    else if (this.email == undefined ||  this.email == ""){
+      alert('email is missing')
+    }
+    else if (this.select == undefined ||  this.select == ""){
+      alert('category is missing')
+    }
+    else if (this.password == undefined || this.password == ""){
+      alert('password is missing')
+    }
+    else{
+=======
 
   showPage2(event) {
     this.callAlert()
 
+>>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
     var firstPage = document.getElementById("first");
     var secondPage = document.getElementById("second");
     var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
@@ -218,7 +265,13 @@ export class SignUpComponent implements OnInit {
     signUp[0].style.borderBottom = "5px solid #00eaff";
     signIn[0].style.borderBottom = "5px solid transparent";
   }
+<<<<<<< HEAD
+
+  }
+  showPage1($event){
+=======
   showPage1($event) {
+>>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
     var firstPage = document.getElementById("first");
     var secondPage = document.getElementById("second");
     var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
@@ -231,6 +284,60 @@ export class SignUpComponent implements OnInit {
     signUp[0].style.borderBottom = "5px solid transparent";
   }
 
+<<<<<<< HEAD
+Reg(){
+if (this.fName == undefined || this.fName == ""){
+  alert('Representative name is missing')
+}
+else if (this.tel == undefined || this.tel == ""){
+  alert('phone numbers missing')
+}
+else if (this.address == undefined ||  this.address == ""){
+  alert("address is missing")
+}
+else if (this.desc == undefined || this.desc == ""){
+  alert('desc is missing')
+}
+else if (this.urlCover ==  "../../assets/imgs/facade.jpg" ){
+  alert('cover img not selected')
+}
+else if (this.urlLogo == "../../assets/imgs/clip art.png" ){
+  alert('logo not selected')
+}
+else{
+  this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
+    this.authen.auth.onAuthStateChanged(user => {
+      this.getcoo(this.address).then((data: any) => {
+      this.userId = user.uid;
+      this.dbPath = 'Websiteprofiles/' + this.userId;
+      this.userRef = this.db.list(this.dbPath);
+      this.userRef.push({
+        respName: this.fName,
+        OrganisationName: this.orgName,
+        Url: this.urlCover,
+        Logo:this.urlLogo,
+        Telephone: "0" + this.tel,
+        longitude: data.lng,
+        desc : this.desc,
+        city : data.city,
+        category :  this.select,
+        latitude: data.lat
+      });
+      this.router.navigate(['/landing-page'])
+      alert('check email verification link, go to your email address and click it')
+    })
+    })
+  }, Error => {
+    this.message = Error.message
+    alert(Error.message);
+  })
+}
+
+}
+  comboBox(){
+      let theLabel = document.getElementById("mySelect");
+      theLabel.style.display = "none"
+=======
   comboBox() {
     let theLabel = document.getElementById("mySelect");
     theLabel.style.display = "none"
@@ -242,6 +349,7 @@ export class SignUpComponent implements OnInit {
     myAlert[0].style.display= "block";
     theLoader[0].style.border =""
     this.alertMessage = "Alert called";
+>>>>>>> 8fc202927f7739119f74bfbc6c9fa70c16960cce
   }
 
 
