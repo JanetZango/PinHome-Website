@@ -15,7 +15,8 @@
     background-image:linear-gradient(rgba(12, 33, 43, 0.5),rgb(8, 64, 88)),url('../../assets/imgs/brother.jpg');
     background-position: bottom ;
     background-repeat: no-repeat;
-    box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.466);
+    border: 1px solid grey;
+    box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.2);
     
 }
 .thebody{
@@ -39,7 +40,8 @@
     width: 50%;
     min-width: 320px;
     background-color: white;
-    box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.466);
+    border: 1px solid grey;
+    box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.2);
 }
 .seperator p{
     text-align: center;
@@ -106,11 +108,23 @@ h3{
     margin-top: 30px;
 }
 .loginBtn{
+    transition: 300ms;
+    cursor: pointer;
     height: 50px;
     width: 140px;
     border-radius: 40px;
     color: white;
     background-color: #20676e00;
+    border: white solid 3px;
+    margin-top: 20px;
+    font-size: 1em;
+}
+.loginBtn:active{
+    height: 50px;
+    width: 140px;
+    border-radius: 40px;
+    color: white;
+    background-color: #20676e;
     border: white solid 3px;
     margin-top: 20px;
     font-size: 1em;
@@ -134,21 +148,16 @@ h3{
 .decider{
     display: flex;
     width: 20%;
-    /* margin: 0 auto; */
     cursor: pointer;
     background: white;
-    /* text-align: center; */
     height: 40px;
     line-height: 40px;
     font-weight: bolder;
     font-size: 14px;
-    /* border: 2px solid red; */
     position: absolute;
-    top: 3em;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100000000000000000000000000000000000000000000000000000000000;
-    
 }
 
 .signIn{
@@ -169,8 +178,9 @@ h3{
     font-weight: bold;
     color: #20676e;
     right: 10%;
-
+    bottom: -50%
 }
+
 .back{
     cursor: pointer;
     position: absolute;
@@ -181,9 +191,11 @@ h3{
     left: 20%;
     display: none
 }
+
 .signIn:active{
     background: rgba(128, 128, 128, 0.404)
 }
+
 .signUp{
     width: 49.9%; 
     transition: 300ms;
@@ -191,32 +203,37 @@ h3{
     padding-left: 20px; 
     font-size: 30px; 
 }
+
 .signUp:active{
     background: rgba(128, 128, 128, 0.404)
+}
+
+label{
+    cursor: pointer;
 }
 
 #first{
     transition: 300ms;
     background: white;
     width: 100%;
-    height: 99%;
+    height: 91.2%;
     position: absolute;
     z-index: 1000;
+    padding-top: 50px;
     display: block;
 }
 
 #second{
-    /* background: blue; */
     width: 100%;
     height: 85%;
     position: absolute;
     z-index: 100;
-    top: 3em;
+    bottom: 0;
     display: block;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
-#second::-webkit-scrollbar {
+/* #second::-webkit-scrollbar {
     position: absolute;
     right: -10px;
     width: 5px;
@@ -232,7 +249,7 @@ h3{
     background-color: #20676e;
     outline: 1px solid red;
     border-radius: 5px;
-}
+} */
 
 select{
     width: 70%;
@@ -241,10 +258,12 @@ select{
     position: relative  ;
     left: 50%;
     transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0);
     border-bottom: 2px solid #20676e;
     border-top: 0;
     border-right: 0; 
-    border-left: 0;   
+    border-left: 0;
+    z-index: 100000000000000000000000000000000000000000000000000000 ; 
 }
 
 label{
@@ -252,7 +271,7 @@ label{
     left: 73px;
     color: grey;
     font-weight: 500;
-    top: 55%;
+    top: 5%;
     font-weight: 530;
     z-index: 10000000000000000000000000000000000000000000000000;
 }
@@ -311,15 +330,16 @@ label{
 
 .photos{
     /* height: 120px; */
-    padding-top: 3em;
+    padding-top: 10px;
     width: 100%;
-    height: 220px;
+    height: 150px;
     background: rgba(0, 0, 0, 0);
     margin: 0 auto;
+    position: relative;
 }
 
 .cover img{
-    height: 120px;
+    height: 150px;
     width: 100%;
     object-fit: cover;
 }
@@ -329,7 +349,9 @@ label{
     text-align: right;
     width:80px;
     height:80px;
-    float: left
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%)
     /* right: 10px;
     top: 120px; */
 }
@@ -340,6 +362,7 @@ label{
     width: 80px;
     border-radius: 120px;
     border: 1px solid rgba(128, 128, 128, 0.486);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.651);
 }
 
 .cover{
@@ -353,6 +376,7 @@ label{
 }
 
 .submitter{
+    cursor: pointer;
     height: 40px;
     line-height: 40px;
     width: 100px;
@@ -375,7 +399,7 @@ label{
     text-align: center;
     border-radius: 40px;
     position: absolute;
-    left: 10px;
+    left: 89%;
     border: 1px solid white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
 }
@@ -388,40 +412,44 @@ label{
     text-align: center;
     border-radius: 40px;
     position: absolute;
-    left: 10px;
+    left: 89%;
     border: 1px solid white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
 }
 #label2{
-    transition: 100ms;
-    height: 40px;
-    width: 40px;
+    /* transition: 100ms;
+    height: 80px;
+    width: 80px;
     background: #20676e5e;
     color: white;
-    line-height: 40px;
-    text-align: center;
+    line-height: 50px;
+    text-align: center; */
+    
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 120px;
     border-radius: 40px;
     position: absolute;
-    margin-top: 10px;
-    left: 50px;
+    left: 0px;
     border: 1px solid white;
-    /* top: 100px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
+    opacity: 0;
 }
-#label2:active{
-    height: 40px;
-    width: 40px;
+/* #label2:active{
+    height: 80px;
+    width: 80px;
     background: #20676e;
     color: white;
-    line-height: 40px;
+    line-height: 80px;
     text-align: center;
     border-radius: 40px;
     position: absolute;
-    left: 50px;
+    left: 60px;
     border: 1px solid white;
-    /* top: 100px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.664);
-}
+} */
 
 .material-icons{
     line-height: 40px;
@@ -435,12 +463,59 @@ label{
     padding-left: 10px;
     z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
     position: absolute;
-    top: 1%;
-    left:15%;
-    transform: translateX(-50%)
+    top:15%;
+    left:52%;
+    transform: translateX(-50%);
+    /* border: 2px solid red; */
+    width: 90%;
     
 }
+.instruction p{
+    font-size: 12px;
+}
+.instructions{
+    transition: 300ms;
+    color: grey;
+    font-weight: bold;
+    font-size: 1em;
+    padding-left: 10px;
+    z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    /* position: absolute;
+    top:20%;
+    left:15%;
+    transform: translateX(-50%) */
+    
+}
+.overlayer{
+    width: 100vw;
+    height: 150vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    display: none;
+}
+.alerter{
+    position: absolute;
+    left: 50vw;
+    top: 80vh;
+    transform: translateX(-50%);
+    z-index: 1000000000;
+    height: 150px;
+    width: 40vw;
+    background: white;
+    text-align: center;
+    padding-top: 10px;
+    color: grey;
+    border: 1px solid grey;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 
+    font-family: Arial, Helvetica, sans-serif;
+}
+.alerter img{
+    height: 40px;
+
+}
 @media screen and (max-width: 1714px){
     .container{
         height: 100vh;
