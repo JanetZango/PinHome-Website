@@ -11,10 +11,10 @@
       <div class="action">
         <div (click)="gotToProfile()">
           <p>
-          Organization Profile 
+            Organization Profile
           </p>
         </div>
-        
+
         <!-- <div  (click)="goToProfile()">
           <p class="space">Profile</p>
         </div> -->
@@ -27,24 +27,18 @@
     </div>
 
     <div class="absolutely">
-        <div class="arrow">
-          <div class="clicker" (click)="decideState()">
-             &Lambda;
-          </div>
-           
+      <div class="arrow">
+        <div class="clicker" (click)="decideState()">
+          &Lambda;
         </div>
-        <div class="list" >
-          <!-- <div class="moveLeft" (click)="toLeft()">
-            &lt;
-          </div>
-          <div class="moveRight" (click)="toRight()">
-            &gt;
-          </div> -->
-          <div class="gal" id="push" *ngFor="let a of organizationArr">
-            <img src="{{a.Url}}" alt="">
-          </div>      
+
+      </div>
+      <div class="list">
+        <div class="gal" id="push" *ngFor="let a of organizationArr">
+          <img src="{{a.Url}}" alt="">
         </div>
       </div>
+    </div>
   </div>
 
 </body>

@@ -3,35 +3,14 @@
 </head>
 
 <body>
-
-    <!-- <div class="customAlert">
-        <div class="text">
-          {{message}}
-        </div>
-        <div class="confirmer" (click)="dismissAlert()">
-          <div class="OK">
-            OK
-          </div>
-  
-        </div> -->
-
-        <div class="customAlert">
-
-        </div>
-
-
   <div class="main">
     <div class="tabTop">
-      
+
       <p (click)="goToMap()">Map</p>
       <p id="Prof" (click)="goToProfile()">Profile</p>
     </div>
     <h4>Branch Details</h4>
-    <div class="subission">
-      <div class="submit" (click)="AddingData($event)">
-        Submit
-      </div>
-    </div>
+    
     <div class="form">
       <!-- ================================================================================================================================================================= -->
 
@@ -42,43 +21,15 @@
         <div class="left">
           <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
           <br>
-          <!-- <p id="catLabel">Select Category</p>
-          <select class="textField" [(ngModel)]="select" class="org-wide-select" id="selector" style="margin-top: 10px">
-            <option value="Select Category" selected disabled>Select Category</option>
-            <option value="Orphanage">Orphanage</option>
-            <option value="Disability">Disability</option>
-            <option value="old age">Old Age Homes</option>
-            <option value="theraphy">Theraphy</option>
-            <option value="Psychiatric">Psychiatric centres/Hospital</option>
-            <option value="social centre">Social Centre</option>
-            <option value="Rehab">Rehab</option>
-          </select><br> -->
-          <!-- <textarea class="txtBig" [(ngModel)]="AboutOrg" placeholder="Description" maxlength="230" id="about" type="text"></textarea> -->
           <textarea class="txtBig" #address [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)"
             placeholder="Address" maxlength="230" id="about" type="text"></textarea>
-            
-            <input #email [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
 
-            <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (ngModelChange)="change($event)" class="textField" placeholder="e.g(721234567)" id="orgContacts" type="number" min="0" max="10">
+          <input #email [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
+
+          <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (ngModelChange)="change($event)" class="textField"
+            placeholder="e.g(721234567)" id="orgContacts" type="number" min="0" max="10">
         </div>
-
-        <!-- ============================================================================================================================================================== -->
-
-        <!-- <div class="right">
-
-          <br>
-          <div class="sep"></div>
-          <div class="overlay">
-
-          </div>
-          <div class="mapper" id="map">
-
-          </div>
-        </div> -->
       </div>
-
-      
-
       <!-- ================================================================================================================================================================ -->
       <div class="section2">
         <div class="left">
@@ -88,19 +39,8 @@
           </div>
           <div class="photos">
             <div class="theDP">
-              <!-- <div class="DP">
-                <div class="logoUpload">
-                  <label class="CoverShadow1" id="lblForLogo" for="logo">
-                    <i class="material-icons">camera</i></label>
-                  <input type="file" accept="image/*" (change)="InsertLogo($event)" id="logo">
-                </div>
-                <div class="theImage" id="myLogo">
-                  <img class="dp" src="{{urlLogo}}" alt="">
-                </div>
-              </div> -->
             </div>
             <!-- ================================================================================================================================================================ -->
-
             <div class="coverImage">
               <div class="uploader">
                 <label class="CoverShadow" for="theCover">
@@ -110,8 +50,6 @@
               <img class="coverPhoto" src={{urlCover}} alt="">
             </div>
             <!-- ================================================================================================================================================================ -->
-
-
           </div>
 
         </div>
@@ -119,31 +57,14 @@
           <div class="galInstructions">
             Upload a few photos to your gallery below.
           </div>
-          <div class="thePictures">
-            <div class="pic1">
-              <label for="theGal" id="galInput1">
-                <i class="material-icons">camera</i> Upload Photo
-              </label>
-              <input type="file" accept="image/*" id="theGal" (change)="pic1($event)"><br>
-              <img class="galImg" src="{{urlGallery}}" alt="">
-            </div>
-            <div class="pic2">
-              <label for="theGal" id="galInput1">
-                <i class="material-icons">camera</i> Upload Photo
-              </label>
-              <input type="file" accept="image/*" id="theGal" (change)="pic2($event)"><br>
-              <img class="galImg" src="{{urlGallery1}}" alt="">
-            </div>
-            <div class="pic1">
-              <label for="theGal" id="galInput1">
-                <i class="material-icons">camera</i> Upload Photo
-              </label>
-              <input type="file" accept="image/*" id="theGal" (change)="pic3($event)"><br>
-              <img class="galImg" src="{{urlGallery2}}" alt="">
-            </div>
-          </div>
+         
         </div>
 
+        <div class="subission">
+            <div class="submit" (click)="AddingData($event)">
+              Submit
+            </div>
+          </div>
 
       </div>
 
@@ -153,5 +74,6 @@
   </div>
 
 
- 
+
+
 </body>
