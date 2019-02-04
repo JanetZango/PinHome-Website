@@ -145,33 +145,25 @@ export class SignInComponent implements OnInit {
       theLoader[0].style.display = "block"
 
 
-      this.alertMessage = "Loading..."
-      if (this.email == undefined || this.email == "") {
+      // this.alertMessage = "Loading..."
+      if (email == undefined || email == "") {
         this.alertMessage = "Please enter your email address to reset your password"
         myAlert[0].style.display = "block";
-        theLoader[0].style.display = "block"
+        theLoader[0].style.display = "none"
       }
       else {
         return new Promise<void>((resolve, reject) => {
-          this.authen.auth.sendPasswordResetEmail(email).then(() => {
+          this.authen.auth.sendPasswordResetEmail(this.email).then(() => {
             this.alertMessage = "We have sent you a link to reset your password, check your email."
             myAlert[0].style.display = "block";
-            theLoader[0].style.display = "block"
+            theLoader[0].style.display = "none"
           }, Error => {
-            myAlert[0].style.left = "25%"
             this.alertMessage = Error.message
             myAlert[0].style.display = "block";
-            theLoader[0].style.display = "block"
+            theLoader[0].style.display = "none"
           });
         })
       }
-
-      // forgotpassword(email: string) {
-      //   return this.afAuth.auth.sendPasswordResetEmail(email)
-      //     .then(() => console.log('sent Password Reset Email!'))
-      //     .catch((error) => console.log(error))
-      // }
-
     })
   }
   goToSignIn() {

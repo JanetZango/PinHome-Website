@@ -38,11 +38,15 @@
         <img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
       </div>
 
-      <table class="theTable">
+      <!-- <table class="theTable">
         <tr>
           <td class="password" (click)="forgotpassword(email)"> Forgot Password?</td>
         </tr>
-      </table>
+      </table> -->
+
+      <div class="password" (click)="forgotpassword(email.value)">
+        Forgot Password?
+      </div>
 
       <div class="divButton">
         <button class="theBUTTON" (click)="login(email.value, password.value)">Login</button>

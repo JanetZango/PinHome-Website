@@ -105,7 +105,7 @@
                 </label>
                 <input type="file" id="myLogo" accept="/*images" (change)="InsertLogo($event)">
               </div>
-              <img src="{{urlLogo}}" alt="">
+              <img src="../../assets/imgs/clip art.png" alt="">
             </div>
           </div>
           <br>
@@ -113,7 +113,7 @@
             <input [(ngModel)]="fName"  type="text" placeholder="Full Name (Representative)">
           </div>
           <div class="textfield">
-            <input [(ngModel)]="tel" (change)="getPhone($event)"  type="tel" placeholder="Phone">
+            <input [(ngModel)]="tel" (change)="getPhone($event)"  type="number" id="numberBox" placeholder="Phone">
           </div>
 
           <div class="textfield">
