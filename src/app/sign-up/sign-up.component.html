@@ -6,7 +6,7 @@
 
   <div class="overlayer">
     <div class="alerter">
-      <div class="dismissBtn">
+      <div class="dismissBtn" (click)="dismissAlert()">
         <i class="material-icons">close</i>
       </div>
       <p>{{alertMessage}}</p>
@@ -43,25 +43,26 @@
           <p>Please make sure that the information you provide is true and accurate.</p>
         </div>
         <div class="firstCont">
+          
+            <div class="textfield">
+                <!-- <p>Select Category</p> -->
+                <label for="selectBox" id="mySelect">Select Category</label>
+                <select [(ngModel)]="select" id="selectBox" (change)="comboBox()">
+                  <option value="Select Category" selected disabled>Select Category</option>
+                  <option value="Orphanage">Orphanage</option>
+                  <option value="Disability">Disability</option>
+                  <option value="old age">Old Age Homes</option>
+                  <option value="theraphy">Theraphy</option>
+                  <option value="Psychiatric">Psychiatric centres/Hospital</option>
+                  <option value="social centre">Social Centre</option>
+                  <option value="Rehab">Rehab</option>
+                </select>
+              </div>
           <div class="textfield">
             <input [(ngModel)]="orgName" type="text" placeholder="Organisation Name">
           </div>
           <div class="textfield">
             <input [(ngModel)]="email"  type="email" placeholder="Organisation Email">
-          </div>
-          <div class="textfield">
-            <!-- <p>Select Category</p> -->
-            <label for="selectBox" id="mySelect">Select Category</label>
-            <select [(ngModel)]="select" id="selectBox" (change)="comboBox()">
-              <option value="Select Category" selected disabled>Select Category</option>
-              <option value="Orphanage">Orphanage</option>
-              <option value="Disability">Disability</option>
-              <option value="old age">Old Age Homes</option>
-              <option value="theraphy">Theraphy</option>
-              <option value="Psychiatric">Psychiatric centres/Hospital</option>
-              <option value="social centre">Social Centre</option>
-              <option value="Rehab">Rehab</option>
-            </select>
           </div>
           <div class="textfield">
             <input [(ngModel)]="password"  type="password" placeholder="Password">
