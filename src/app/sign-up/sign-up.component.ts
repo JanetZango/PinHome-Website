@@ -165,6 +165,25 @@ export class SignUpComponent implements OnInit {
     signIn[0].style.borderBottom = "5px solid #00eaff";
     signUp[0].style.borderBottom = "5px solid transparent";
   }
+  getPhone(){
+    // alert(this.tel);
+    
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    if(this.tel > 999999999){
+  
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      // alert(this.tel);
+    }
+    else if(this.tel < 1000000000){
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
+    }
+    console.log(event);
+  }
 
   Reg() {
     this.alertMessage = "Please wait..."
@@ -230,7 +249,11 @@ export class SignUpComponent implements OnInit {
               latitude: data.lat
             });
             this.router.navigate(['/landing-page'])
-            alert('check email verification link, go to your email address and click it')
+            // alert('check email verification link, go to your email address and click it')
+
+            this.alertMessage = "We've sent you an email with a verification link, please check your email and click the link to verify your account"
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
           })
         })
       }, Error => {
@@ -245,7 +268,8 @@ export class SignUpComponent implements OnInit {
           this.alertMessage = "Please check your email address, we think something's not right";
         }
         else{
-          this.alertMessage = "Something went wrong, please check if your information is correct, try logging in or try again later."
+          this.alertMessage = Error.message
+          // this.alertMessage = "Something went wrong, please check if your information is correct, try logging in or try again later."
         }
 
       })
@@ -256,9 +280,6 @@ export class SignUpComponent implements OnInit {
     let theLabel = document.getElementById("mySelect");
     theLabel.style.display = "none"
   }
-  callAlert() {
-  }
-
 
 
 }

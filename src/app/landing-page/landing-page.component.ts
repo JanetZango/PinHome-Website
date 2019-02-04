@@ -53,6 +53,7 @@ export class LandingPageComponent implements OnInit {
       this.username = x[0].OrganisationName
       this.profilePicture = x[0].Logo
       this.initMap();
+      console.log(x);
     })
   })
     // this.dbPath = 'OrganizationList';
@@ -376,9 +377,9 @@ assignUserID(id){
 
         let infowindow = new google.maps.InfoWindow({
           
-          content:  '<div style="width: 400px; transition: 300ms;"><b>' + this.organizationArr[x].OrganizationName + '</b><div style="display: flex; padding-top: 10px;">' +
+          content:  '<div style="width: 400px; transition: 300ms;"><b>' + this.organizationArr[x].OrganisationName + '</b><div style="display: flex; padding-top: 10px;">' +
           '<img style="height: 100px; width: 100px; object-fit: cober; border-radius: 50px;" src=' +  this.organizationArr[x].Url + '>' + '<p style="padding-left: 10px;padding-right: 10px">' +
-            this.organizationArr[x].AboutOrg+'</p><br>'+'<br></div>' 
+            this.organizationArr[x].desc+'</p><br>'+'<br></div>' 
             
           
         });

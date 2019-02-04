@@ -1,18 +1,18 @@
 .container{
     height: 60vh;
-    width: 50%;
-    /* background: red; */
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 200px;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%)
+    top: 250px;
 }
 .seperator{
     height: 100%;
     width: 25vw; 
     background-image:url('../../assets/imgs/tree.jpg');
+    background-size: cover;
     background-position: bottom ;
     background-repeat: no-repeat;
     border: 1px solid grey;
