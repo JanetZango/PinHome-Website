@@ -177,7 +177,7 @@ export class SignUpComponent implements OnInit {
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
       // alert(this.tel);
     }
-    else if(this.tel < 1000000000){
+    else if(this.tel < 100000000){
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none";
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";

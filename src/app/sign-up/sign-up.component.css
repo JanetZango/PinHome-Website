@@ -19,6 +19,10 @@
     box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.2);
     
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 .thebody{
     height: 130vh;
     width: 100vw;
@@ -162,7 +166,7 @@ h3{
     color: #00eaff;
     border-bottom: 5px solid #00eaff;
     font-size: 30px;
-    text-align: center;
+    text-align: right;
     padding-right: 20px;  
 }
 .arrow{
@@ -191,7 +195,7 @@ h3{
 .signUp{
     width: 49.9%; 
     transition: 300ms;
-    text-align: center;
+    text-align: left;
     padding-left: 20px; 
     font-size: 30px; 
 }
