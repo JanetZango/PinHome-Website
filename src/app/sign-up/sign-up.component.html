@@ -113,7 +113,7 @@
             <input [(ngModel)]="fName"  type="text" placeholder="Full Name (Representative)">
           </div>
           <div class="textfield">
-            <input [(ngModel)]="tel"  type="tel" placeholder="Phone">
+            <input [(ngModel)]="tel" (change)="getPhone($event)"  type="tel" placeholder="Phone">
           </div>
 
           <div class="textfield">

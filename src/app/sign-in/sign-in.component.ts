@@ -1,11 +1,11 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import {AngularFireAuth} from 'angularfire2/auth';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
 
 declare var google;
-import {Router} from'@angular/router';
+import { Router } from '@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { log } from 'util';
 
@@ -16,28 +16,28 @@ import { log } from 'util';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  results;  
+  results;
   userId;
-  message;
+  alertMessage;
   email;
   password;
 
-  constructor(private authen : AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
+  constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
-       this.initMap();
+    this.initMap();
   }
 
-  goToSignUp(){
+  goToSignUp() {
     this.router.navigate(['/sign-up'])
   }
 
 
   initMap() {
-    this._ngZone.run(() =>{
-    let geocoder = new google.maps.Geocoder();
-    // geocoder.geocode({ 'address': address }, function (results, status) {
-      
+    this._ngZone.run(() => {
+      let geocoder = new google.maps.Geocoder();
+      // geocoder.geocode({ 'address': address }, function (results, status) {
+
       // if (status == google.maps.GeocoderStatus.OK) {
       //   this.latitude = results[0].geometry.location.lat();
       //   this.longitude = results[0].geometry.location.lng();
@@ -54,111 +54,129 @@ export class SignInComponent implements OnInit {
         map: map,
         title: 'Hello World!'
       });
-    // })
-  })
-  }
-
-  login(email, password){
-    alert('clicked')
-    console.log(email)
-      // let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
-      // let theOK = document.getElementById("theOkay" );
-      // let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
-      let b = window.innerHeight;
-  
-      // myAlert[0].style.top = (b / 3.5) + "px";
-      // myAlert[0].style.left = "50%";
-      // myAlert[0].style.transform = "translateX(-54%)"
-      if(email == "" || email == undefined){
-        this.message = "Please insert your email";
-        // theOK.style.display = "block";
-        // leader[0].style.display = "none";
-        alert('no email')
-      }
-      else if(password == "" || password == undefined){
-        this.message = "Please insert your password";
-        // theOK.style.display = "block";
-        // leader[0].style.display = "none";
-        alert('no pass')
-      }
-      else{
-   
-          this.message = "Loading...";
-          // theOK.style.display = "none";
-          // leader[0].style.display = "block"
-  
-          this.results = this.authen.auth.signInWithEmailAndPassword(email,password).then(()=>{
-           this.results = this.authen.authState.subscribe(data =>{
-            this.userId =  data.uid;
-            // myAlert[0].style.top = (b/3.5) + "px";
-            // myAlert[0].style.left = "2.3%"; 
-            alert("logged in")
-             this.router.navigate(['/landing-page'])
-             })
-            }, Error =>{
-              alert("something's wrong")
-              this.message = Error.message
-              console.log(Error.message)
-              // theOK.style.display = "block";
-              // leader[0].style.display = "none";
-            })
-      }
-  
-    }
-  
-  dismissAlert() {
-    let alerter = document.getElementsByClassName('customAlert0') as HTMLCollectionOf<HTMLElement>;
-    alerter[0].style.left = "-100%";
-    this.message = "" 
-  }
-
-
-
-
-forgotpassword(email){
-  this._ngZone.run(() =>{
-    let myAlert = document.getElementsByClassName("customAlert0") as HTMLCollectionOf <HTMLElement>;
-    let leader = document.getElementsByClassName("loading") as HTMLCollectionOf <HTMLElement>
-    let theOK = document.getElementById("theOkay" );
-
-    myAlert[0].style.left = "25%";
-    theOK.style.display = "none";
-    leader[0].style.display = "block";
-    this.message = "Loading"
-    if (email ==  undefined || email == ""){
-      this.message = "Please enter your email address to reset your password"
-    myAlert[0].style.left = "25%";
-    theOK.style.display = "block";
-    leader[0].style.display = "none";
-    }
-    else {
-    return new  Promise<void>((resolve, reject)=>{
-      this.authen.auth.sendPasswordResetEmail(email).then(()=>{
-        myAlert[0].style.left = "25%"
-        this.message = "We have sent you a link to reset your password, check your email."
-        theOK.style.display = "block";
-        leader[0].style.display = "none";
-      }, Error =>{
-        myAlert[0].style.left = "25%"
-        this.message = Error.message
-        theOK.style.display = "block";
-        leader[0].style.display = "none";
-        this.message = Error.message;
-      });
+      // })
     })
   }
 
-  // forgotpassword(email: string) {
-  //   return this.afAuth.auth.sendPasswordResetEmail(email)
-  //     .then(() => console.log('sent Password Reset Email!'))
-  //     .catch((error) => console.log(error))
-  // }
-  
-})
+  login(email, password) {
+    // alert('clicked')
+    console.log(email)
+    this.alertMessage = "Verifying details..."
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    myAlert[0].style.display = "block";
+    theLoader[0].style.display = "block"
+    let b = window.innerHeight;
+
+    // myAlert[0].style.top = (b / 3.5) + "px";
+    // myAlert[0].style.left = "50%";
+    // myAlert[0].style.transform = "translateX(-54%)"
+    if (email == "" || email == undefined && password == "" || password == undefined) {
+      this.alertMessage = "Please insert your email address and password to sign in.";
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+
+    } else
+      if (email == "" || email == undefined) {
+        this.alertMessage = "Please insert your email address";
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none"
+        // alert('no email')
+      }
+      else if (password == "" || password == undefined) {
+        this.alertMessage = "Please insert your password";
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none"
+        // alert('no pass')
+      }
+      else {
+
+        this.alertMessage = "Signing in...";
+        // theOK.style.display = "none";
+        // leader[0].style.display = "block"
+
+        this.results = this.authen.auth.signInWithEmailAndPassword(email, password).then(() => {
+          this.results = this.authen.authState.subscribe(data => {
+            this.userId = data.uid;
+            // myAlert[0].style.top = (b/3.5) + "px";
+            // myAlert[0].style.left = "2.3%"; 
+            // alert("logged in")
+            this.router.navigate(['/landing-page'])
+          })
+        }, Error => {
+          // alert("something's wrong")
+          // alert(Error.message);
+          // console.log(Error.message);
+          myAlert[0].style.display = "block";
+          theLoader[0].style.display = "none"
+          if (Error.message == "There is no user record corresponding to this identifier. The user may have been deleted.") {
+            this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started..."
+          }
+          else if (Error.message == "The password is invalid or the user does not have a password.") {
+            this.alertMessage = "Please ensure that your password is correct."
+          }
+          else if (Error.message == "The email address is badly formatted.") {
+            this.alertMessage = "Please check if your email address is correct, something's not right."
+          }
+          else {
+            this.alertMessage = Error.message;
+          }
+          // theOK.style.display = "block";
+          // leader[0].style.display = "none";
+        })
+      }
+
+  }
+
+  dismissAlert() {
+    this.alertMessage = ""
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    myAlert[0].style.display = "none";
+    theLoader[0].style.display = "block"
+  }
+
+
+  forgotpassword(email) {
+    this._ngZone.run(() => {
+      let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+      let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
+
+
+      this.alertMessage = "Loading..."
+      if (this.email == undefined || this.email == "") {
+        this.alertMessage = "Please enter your email address to reset your password"
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "block"
+      }
+      else {
+        return new Promise<void>((resolve, reject) => {
+          this.authen.auth.sendPasswordResetEmail(email).then(() => {
+            this.alertMessage = "We have sent you a link to reset your password, check your email."
+            myAlert[0].style.display = "block";
+            theLoader[0].style.display = "block"
+          }, Error => {
+            myAlert[0].style.left = "25%"
+            this.alertMessage = Error.message
+            myAlert[0].style.display = "block";
+            theLoader[0].style.display = "block"
+          });
+        })
+      }
+
+      // forgotpassword(email: string) {
+      //   return this.afAuth.auth.sendPasswordResetEmail(email)
+      //     .then(() => console.log('sent Password Reset Email!'))
+      //     .catch((error) => console.log(error))
+      // }
+
+    })
   }
   goToSignIn() {
-    this._ngZone.run(() =>{
-    this.router.navigate(['/sign-up'])
+    this._ngZone.run(() => {
+      this.router.navigate(['/sign-up'])
     })
   }
 
