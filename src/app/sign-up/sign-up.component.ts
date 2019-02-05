@@ -1,10 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+declare var firebase;
 declare var google;
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +8,6 @@ declare var google;
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  userRef: AngularFireList<any>;
   userId;
   dbPath;
   message;
@@ -26,7 +21,7 @@ export class SignUpComponent implements OnInit {
   urlLogo = "../../assets/imgs/clip art.png";
   alertMessage = "Please wait..."
 
-  constructor(private authen: AngularFireAuth, public db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
+  constructor( public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
   }
@@ -177,7 +172,7 @@ export class SignUpComponent implements OnInit {
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
       // alert(this.tel);
     }
-    else if(this.tel < 100000000){
+    else if(this.tel < 1000000000){
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none";
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
@@ -230,13 +225,11 @@ export class SignUpComponent implements OnInit {
     }
     else {
       
-      this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
-        this.authen.auth.onAuthStateChanged(user => {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
+        firebase.auth().onAuthStateChanged(user => {
           this.getcoo(this.address).then((data: any) => {
             this.userId = user.uid;
-            this.dbPath = 'Websiteprofiles/' + this.userId;
-            this.userRef = this.db.list(this.dbPath);
-            this.userRef.push({
+            firebase.database().ref('Websiteprofiles/' + user.uid).push({
               respName: this.fName,
               OrganisationName: this.orgName,
               Url: this.urlCover,
@@ -249,11 +242,9 @@ export class SignUpComponent implements OnInit {
               latitude: data.lat
             });
             this.router.navigate(['/landing-page'])
-            // alert('check email verification link, go to your email address and click it')
-
             this.alertMessage = "We've sent you an email with a verification link, please check your email and click the link to verify your account"
-      myAlert[0].style.display = "block";
-      theLoader[0].style.display = "none"
+            myAlert[0].style.display = "block";
+           theLoader[0].style.display = "none"
           })
         })
       }, Error => {
@@ -282,4 +273,5 @@ export class SignUpComponent implements OnInit {
   }
 
 
+  
 }

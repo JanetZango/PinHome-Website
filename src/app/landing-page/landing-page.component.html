@@ -1,11 +1,10 @@
 <body>
-
   <div class="start">
     <div class="tab">
       <div class="DP">
-        <img src="{{profilePicture}}" alt="">
+        <img [src]="profilePicture2" alt="">
         <div class="name">
-          {{username}}
+          {{username2}}
         </div>
       </div>
       <div class="action">
@@ -14,10 +13,6 @@
           Organization Profile 
           </p>
         </div>
-        
-        <!-- <div  (click)="goToProfile()">
-          <p class="space">Profile</p>
-        </div> -->
       </div>
     </div>
     <div class="content" id="map">
@@ -34,12 +29,7 @@
            
         </div>
         <div class="list" >
-          <!-- <div class="moveLeft" (click)="toLeft()">
-            &lt;
-          </div>
-          <div class="moveRight" (click)="toRight()">
-            &gt;
-          </div> -->
+
           <div class="gal" id="push" *ngFor="let a of organizationArr">
             <img src="{{a.Url}}" alt="">
           </div>      

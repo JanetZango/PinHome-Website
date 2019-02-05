@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import {AngularFireAuth} from 'angularfire2/auth';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import {Router} from'@angular/router';
 
+declare var firebase
 
 @Component({
   selector: 'app-root',
@@ -15,34 +12,32 @@ export class AppComponent {
   url: any;
   state;
   img = "../assets/imgs/Dp.jpg"
-  orgDetails: AngularFireList<any>;
- Orgs: Observable<any[]>
  userId;
  dbPath;
  message;
  email;
 
-  constructor(private authen : AngularFireAuth, public router: Router, private db: AngularFireDatabase){
-    console.log('ok')
+  constructor( public router: Router){
+    // console.log('ok')
     // let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
     // let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
 
-    this.authen.auth.onAuthStateChanged(user =>{
-      console.log(user)
-      if (user){
-        this.state = 1;
-        // prof[0].style.display = "block";
-        // signOutBtn[0].style.display = "block";
-        this.router.navigate(['/sign-in']);
-      }
-      else{
-        console.log('no user')
-        this.state = 0;
-        this.router.navigate(['/sign-in']);
-        // prof[0].style.display = "none";
-        // signOutBtn[0].style.display = "none";
-      }
-     });
+    firebase.auth().onAuthStateChanged(function(user) {
+      console.log(user);
+      
+      // if (user) {
+      //   this.router.navigate(['/sign-in'])
+      //   // prof[0].style.display = "block";
+      //   // signOutBtn[0].style.display = "block";
+      //   // this.router.navigate(['/sign-in']);
+      // } else {
+      //   console.log('no user')
+      //   this.state = 0;
+      //   this.router.navigate(['/sign-in']);
+      //   // prof[0].style.display = "none";
+      //   // signOutBtn[0].style.display = "none"
+      // }
+    });
   }
 
 

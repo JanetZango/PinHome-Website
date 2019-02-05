@@ -1,8 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import * as firebase from 'firebase';
 
 declare var google;
 import { Router } from '@angular/router';
@@ -10,6 +7,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { log } from 'util';
 
 
+declare var firebase;
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -22,7 +20,7 @@ export class SignInComponent implements OnInit {
   email;
   password;
 
-  constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
+  constructor(public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
     this.initMap();
@@ -95,14 +93,13 @@ export class SignInComponent implements OnInit {
         // theOK.style.display = "none";
         // leader[0].style.display = "block"
 
-        this.results = this.authen.auth.signInWithEmailAndPassword(email, password).then(() => {
-          this.results = this.authen.authState.subscribe(data => {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+          firebase.auth().onAuthStateChanged(data => {
             this.userId = data.uid;
             // myAlert[0].style.top = (b/3.5) + "px";
             // myAlert[0].style.left = "2.3%"; 
             // alert("logged in")
             this.router.navigate(['/landing-page'])
-          })
         }, Error => {
           // alert("something's wrong")
           // alert(Error.message);
@@ -124,8 +121,9 @@ export class SignInComponent implements OnInit {
           // theOK.style.display = "block";
           // leader[0].style.display = "none";
         })
-      }
+      })
 
+    }
   }
 
   dismissAlert() {
@@ -153,7 +151,7 @@ export class SignInComponent implements OnInit {
       }
       else {
         return new Promise<void>((resolve, reject) => {
-          this.authen.auth.sendPasswordResetEmail(this.email).then(() => {
+        firebase.auth().sendPasswordResetEmail(this.email).then(() => {
             this.alertMessage = "We have sent you a link to reset your password, check your email."
             myAlert[0].style.display = "block";
             theLoader[0].style.display = "none"

@@ -3,14 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: true,
-  firebase: {
-    apiKey: "AIzaSyAnA4VKmhzvKoT9fkYNjr_XnElRpOAyfL0",
-    authDomain: "finalpinhomedatabase.firebaseapp.com",
-    databaseURL: "https://finalpinhomedatabase.firebaseio.com",
-    projectId: "finalpinhomedatabase",
-    storageBucket: "",
-    messagingSenderId: "976373818419"
-  }
+  // firebase: {
+  //   apiKey: "AIzaSyAnA4VKmhzvKoT9fkYNjr_XnElRpOAyfL0",
+  //   authDomain: "finalpinhomedatabase.firebaseapp.com",
+  //   databaseURL: "https://finalpinhomedatabase.firebaseio.com",
+  //   projectId: "finalpinhomedatabase",
+  //   storageBucket: "",
+  //   messagingSenderId: "976373818419"
+  // }
 
 };
 /*
