@@ -1,13 +1,11 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { promise, Capability } from 'protractor';
-import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from'@angular/router';
 declare var google;
+declare var firebase;
+
 import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-adding-data',
@@ -35,23 +33,12 @@ export class AddingDataComponent{
   AboutOrg;
   select;
   price;
-  objectArray = new Array();;
-  homelist: AngularFireList<any>;
-  items: Observable<any[]>;
-  state = 0;
+  state;
   urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
   urlGallery2 = "../../assets/imgs/default image/default image for uploads.jpg";
   city:any;
 
-  constructor(public db: AngularFireDatabase, private authen : AngularFireAuth, private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
-    // this._ngZone.run(() =>{
-    this.homelist = db.list('messages');
-    this.items = this.homelist.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
-    // })
+  constructor( private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
 
   }
   ngOnInit() {
@@ -421,14 +408,12 @@ export class AddingDataComponent{
   })
   }
 
-  AddingData(event) {
 
-  
-    this.authen.auth.onAuthStateChanged(user =>{
+  AddingData(event) {
+    firebase.auth().onAuthStateChanged(user =>{
       this.getcoo(this.OrganizationAdress).then((data: any) => {
         this.long = data.lat;
-        this.homelist = this.db.list('Brunches/' + user.uid +'/' );
-        this.homelist.push({
+        firebase.database().ref('Brunches/' + user.uid + '/').push({
           OrganizationName: this.name,
           OrganizationAdress: this.OrganizationAdress,
           ContactDetails:this.contacts,

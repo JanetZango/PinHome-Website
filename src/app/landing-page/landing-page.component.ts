@@ -1,11 +1,10 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { FLAGS } from '@angular/core/src/render3/interfaces/view';
+import { reject } from 'q';
 
 declare var google;
+declare var firebase;
 // import {SlideshowModule} from 'ng-simple-slideshow';
 
 @Component({
@@ -15,10 +14,6 @@ declare var google;
 })
 export class LandingPageComponent implements OnInit {
 
-  orgDetails: AngularFireList<any>;
-  prodDetails: AngularFireList<any>;
-  Orgs: Observable<any[]>
-  profile : Observable<any[]>
   key;
   proArr = [];
   dbPath
@@ -27,82 +22,88 @@ export class LandingPageComponent implements OnInit {
   organizationArr = [];
   latestOrgs = [];
   oldOrgs = [];
-  profilePicture = "../../assets/imgs/custom alert/loading.gif";
-  username = "Please wait...";
+  profilePicture2 = "../../assets/imgs/custom alert/loading.gif";
+  username2 = "Please wait...";
+  temp
 
   state = 0;
   i = 180;
   initially;
+  tempArr = []
 
   images = ["assets/imgs/1.png","assets/imgs/2.png","assets/imgs/3.png","assets/imgs/4.png","assets/imgs/7.png","assets/imgs/4.png","assets/imgs/5.png","assets/imgs/6.png" ]
 
-  constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, private _ngZone: NgZone, private router: Router) { }
-
-  ngOnInit() {
-    this.authen.auth.onAuthStateChanged(user =>{
-    this.dbPath = 'Websiteprofiles/' + user.uid + '/';
-    this.assignUserID(this.dbPath)
-    this. prodDetails = this.db.list(this.dbPath);
-    console.log(this. prodDetails)
-    this.profile = this. prodDetails.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
-    this.profile.subscribe(x =>{
-      this.username = x[0].OrganisationName
-      this.profilePicture = x[0].Logo
-      this.initMap();
-      console.log(x);
+  constructor(private _ngZone: NgZone, private router: Router) {
+  
+    this.getDetails().then((data:any) =>{
+      console.log(data);
+      this.username2 =  data.name
+      this.profilePicture2 =  data.img
     })
-  })
-    // this.dbPath = 'OrganizationList';
-    // this.orgDetails = this.db.list(this.dbPath);
-    // console.log(this.orgDetails)
-    // this.Orgs = this.orgDetails.snapshotChanges().pipe(
-    //   map(changes =>
-    //     changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-    //   )
-    // );
+    
+   }
 
+   public setName(name){
+     this.username2 =  name
+   }
 
-    // this.Orgs.subscribe(x => {
-    //   this.organizationArr = x;
-    //   var totLength = x.length - 3;
-    //   for (var i = 0; i < x.length; i++) {
-    //     if (i >= totLength) {
-    //       this.latestOrgs.push(this.organizationArr[i]);
-    //     }
-    //     else {
-    //       this.oldOrgs.push(this.organizationArr[i])
-    //     }
-    //   }
-    //   console.log(this.organizationArr)
-    // })
- 
+   getDetails(){
+    return new Promise ((accpt, reject) =>{
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          firebase.database().ref("Websiteprofiles/" + user.uid).on("value", (data: any) => {
+           if(data.val() != null || data.val() !=undefined){
+            let details = data.val()
+            console.log(details)
+            let keys =  Object.keys(details)
+            console.log(keys)
+            this.username2  = details[keys[0]].OrganisationName
+            this.profilePicture2 = details[keys[0]].Url
+            let obj = {
+              name :   this.username2,
+              img :  this.profilePicture2 
+            }
+            accpt(obj)
+           }
+          })
+        // } else {
+          // No user is signed in.
+        }
+      });
+    })
+   }
+   
+  ngOnInit() {
+    firebase.database().ref("Websiteprofiles/").on("value", (data: any) => {
+      if(data.val() != null || data.val() !=undefined){
+        var DisplayData = data.val();
+        var keys =  Object.keys(DisplayData)
+        for (var x = 0; x < keys.length; x++){
+          firebase.database().ref("Websiteprofiles/" + keys[x]).on("value", (data2: any) => {
+           var orgs = data2.val();
+           var keys2 =  Object.keys(orgs)
+            for (var i = 0; i < keys2.length; i++){
+              this.assignData(orgs[keys2[i]])
+            }
+          })
+        }
+      }
+      this.initMap()
+    })
   }
+
+assignData(x){
+  this.organizationArr.push(x)
+}
+
 userID;
 assignUserID(id){
   this.userID = id;
 }
   initMap() {
-    this.dbPath =  this.userID
-    this.orgDetails = this.db.list(this.dbPath);
-    console.log(this.orgDetails)
-    this.Orgs = this.orgDetails.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
-    this.Orgs.subscribe(x => {
-      this.organizationArr = x
-      console.log(this.organizationArr)
-    })
+   console.log(this.organizationArr)
     setTimeout(() => {
-      
-
       let myLatLng = { lat: this.organizationArr[0].latitude, lng: this.organizationArr[0].longitude };
-      // this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         center: myLatLng,
@@ -364,6 +365,8 @@ assignUserID(id){
 
         console.log("inside");
         let myLatLng = { lat: this.organizationArr[x].latitude, lng: this.organizationArr[x].longitude };
+        console.log(myLatLng);
+        
         let marker = new google.maps.Marker({
           position: myLatLng,
           icon:this.images[indx],
@@ -398,22 +401,6 @@ assignUserID(id){
 
   getStarted() {
     // this decides if you are online or not
-
-
-    this.authen.auth.onAuthStateChanged(user => {
-      console.log(user)
-      if (user) {
-
-        this.router.navigate(['/adding-data']);
-      }
-      else {
-        console.log('no user')
-
-        this.router.navigate(['/sign-in']);
-
-      }
-    });
-
   }
 
   decideState() {

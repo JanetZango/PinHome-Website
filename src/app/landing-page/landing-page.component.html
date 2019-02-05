@@ -1,11 +1,10 @@
 <body>
-
   <div class="start">
     <div class="tab">
       <div class="DP">
-        <img src="{{profilePicture}}" alt="">
+        <img [src]="profilePicture2" alt="">
         <div class="name">
-          {{username}}
+          {{username2}}
         </div>
       </div>
       <div class="action">
@@ -14,10 +13,13 @@
             Organization Profile
           </p>
         </div>
+<<<<<<< HEAD
+=======
 
         <!-- <div  (click)="goToProfile()">
           <p class="space">Profile</p>
         </div> -->
+>>>>>>> d9a5918da060d46ba6855edd18e1413c43097c6d
       </div>
     </div>
     <div class="content" id="map">
@@ -31,11 +33,19 @@
         <div class="clicker" (click)="decideState()">
           &Lambda;
         </div>
+<<<<<<< HEAD
+        <div class="list" >
+
+          <div class="gal" id="push" *ngFor="let a of organizationArr">
+            <img src="{{a.Url}}" alt="">
+          </div>      
+=======
 
       </div>
       <div class="list">
         <div class="gal" id="push" *ngFor="let a of organizationArr">
           <img src="{{a.Url}}" alt="">
+>>>>>>> d9a5918da060d46ba6855edd18e1413c43097c6d
         </div>
       </div>
     </div>

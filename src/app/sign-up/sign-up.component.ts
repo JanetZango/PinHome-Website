@@ -1,10 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+declare var firebase;
 declare var google;
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +8,6 @@ declare var google;
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  userRef: AngularFireList<any>;
   userId;
   dbPath;
   message;
@@ -26,7 +21,7 @@ export class SignUpComponent implements OnInit {
   urlLogo = "../../assets/imgs/clip art.png";
   alertMessage = "Please wait..."
 
-  constructor(private authen: AngularFireAuth, public db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
+  constructor( public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
   }
@@ -93,11 +88,11 @@ export class SignUpComponent implements OnInit {
   }
 
   showPage2() {
-
+    
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
 
-
+    
     myAlert[0].style.display = "block";
     theLoader[0].style.display = "block"
     this.alertMessage = "loading"
@@ -119,37 +114,37 @@ export class SignUpComponent implements OnInit {
       theLoader[0].style.display = "none"
       this.alertMessage = 'Please choose the category for your organisation.'
     }
-
+    
     else if (this.password == undefined || this.password == "") {
       // alert('password is missing');
-
+      
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none"
       this.alertMessage = 'Please enter your password (8 characters or above)'
     }
-
+    
     else {
 
-      if (this.password.length < 8) {
+      if(this.password.length < 8){
         this.alertMessage = "Please make sure your password has more than 8 characters"
         myAlert[0].style.display = "block";
         theLoader[0].style.display = "none"
-      } else {
+      }else{
         var firstPage = document.getElementById("first");
-        var secondPage = document.getElementById("second");
-        var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
-        var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<HTMLElement>;
+      var secondPage = document.getElementById("second");
+      var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
+      var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<HTMLElement>;
 
-        firstPage.style.display = "none";
-        signIn[0].style.color = "black"
-        signUp[0].style.color = "#00eaff";
-        signUp[0].style.borderBottom = "5px solid #00eaff";
-        signIn[0].style.borderBottom = "5px solid transparent";
+      firstPage.style.display = "none";
+      signIn[0].style.color = "black"
+      signUp[0].style.color = "#00eaff";
+      signUp[0].style.borderBottom = "5px solid #00eaff";
+      signIn[0].style.borderBottom = "5px solid transparent";
 
-        myAlert[0].style.display = "none";
-        this.message = ""
+      myAlert[0].style.display = "none";
+      this.message = ""
       }
-
+      
     }
 
   }
@@ -165,30 +160,32 @@ export class SignUpComponent implements OnInit {
     signIn[0].style.borderBottom = "5px solid #00eaff";
     signUp[0].style.borderBottom = "5px solid transparent";
   }
-  getPhone() {
+  getPhone(){
     // alert(this.tel);
-
+    
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-    if (this.tel > 999999999) {
-
+    if(this.tel > 999999999){
+  
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none"
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      // alert(this.tel);
     }
-    else if (this.tel < 100000000) {
+    else if(this.tel < 1000000000){
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none";
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
     }
+    console.log(event);
   }
 
   Reg() {
     this.alertMessage = "Please wait..."
-    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
-    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-    myAlert[0].style.display = "block";
-    theLoader[0].style.display = "block"
+      let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+      let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "block"
     if (this.fName == undefined || this.fName == "") {
       // alert('Representative name is missing');
       this.alertMessage = "Please enter your name";
@@ -227,68 +224,46 @@ export class SignUpComponent implements OnInit {
       theLoader[0].style.display = "none"
     }
     else {
-      if (this.tel > 999999999) {
-
+      
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
+        firebase.auth().onAuthStateChanged(user => {
+          this.getcoo(this.address).then((data: any) => {
+            this.userId = user.uid;
+            firebase.database().ref('Websiteprofiles/' + user.uid).push({
+              respName: this.fName,
+              OrganisationName: this.orgName,
+              Url: this.urlCover,
+              Logo: this.urlLogo,
+              Telephone: "0" + this.tel,
+              longitude: data.lng,
+              desc: this.desc,
+              city: data.city,
+              category: this.select,
+              latitude: data.lat
+            });
+            this.router.navigate(['/landing-page'])
+            this.alertMessage = "We've sent you an email with a verification link, please check your email and click the link to verify your account"
+            myAlert[0].style.display = "block";
+           theLoader[0].style.display = "none"
+          })
+        })
+      }, Error => {
         myAlert[0].style.display = "block";
         theLoader[0].style.display = "none"
-        this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
-        // alert(this.tel);
-      }
-      else if (this.tel < 100000000) {
-        myAlert[0].style.display = "block";
-        theLoader[0].style.display = "none";
-        this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
-      }
-      else {
-        this.authen.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
-          this.authen.auth.onAuthStateChanged(user => {
-            this.getcoo(this.address).then((data: any) => {
-              this.userId = user.uid;
-              this.dbPath = 'Websiteprofiles/' + this.userId;
-              this.userRef = this.db.list(this.dbPath);
-              this.userRef.push({
-                respName: this.fName,
-                OrganisationName: this.orgName,
-                Url: this.urlCover,
-                Logo: this.urlLogo,
-                Telephone: "0" + this.tel,
-                longitude: data.lng,
-                desc: this.desc,
-                city: data.city,
-                category: this.select,
-                latitude: data.lat
-              });
-              this.router.navigate(['/landing-page'])
-              // alert('check email verification link, go to your email address and click it')
+        // alert(Error.message);
 
-              this.alertMessage = "We've sent you an email with a verification link, please check your email and click the link to verify your account"
-              myAlert[0].style.display = "block";
-              theLoader[0].style.display = "none"
-            })
-          })
-        }, Error => {
-          myAlert[0].style.display = "block";
-          theLoader[0].style.display = "none"
-          // alert(Error.message);
+        if(Error.message == "Password should be at least 6 characters"){
+          this.alertMessage = "Please make sure that your password has 6 characters or above"
+        }
+        else if(Error.message == "The email address is badly formatted."){
+          this.alertMessage = "Please check your email address, we think something's not right";
+        }
+        else{
+          this.alertMessage = Error.message
+          // this.alertMessage = "Something went wrong, please check if your information is correct, try logging in or try again later."
+        }
 
-          if (Error.message == "Password should be at least 6 characters") {
-            this.alertMessage = "Please make sure that your password has 6 characters or above"
-          }
-          else if (Error.message == "The email address is badly formatted.") {
-            this.alertMessage = "Please check your email address, we think something's not right";
-          }
-          else {
-            this.alertMessage = Error.message
-            // this.alertMessage = "Something went wrong, please check if your information is correct, try logging in or try again later."
-          }
-
-        })
-      }
-
-
-
-
-
+      })
     }
 
   }
@@ -298,4 +273,5 @@ export class SignUpComponent implements OnInit {
   }
 
 
+  
 }

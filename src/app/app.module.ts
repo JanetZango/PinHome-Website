@@ -39,7 +39,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   imports: [
     BrowserModule,
     routes,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
