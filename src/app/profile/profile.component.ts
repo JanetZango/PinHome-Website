@@ -103,9 +103,13 @@ this.profileArr = x;
     // if ()
     // this.brunchDetails.update()
   }
-  addBrunch() {
+  addBranch() {
     this.router.navigate(['/adding-data']);
   }
+  goToSignIn() {
+      this.router.navigate(['/sign-in'])
+  }
+  
 
   getBrunches() {
     return new Promise((accpt, rej) => {

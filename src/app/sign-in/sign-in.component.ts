@@ -25,37 +25,11 @@ export class SignInComponent implements OnInit {
   constructor(private authen: AngularFireAuth, private db: AngularFireDatabase, public router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
-    this.initMap();
+
   }
 
   goToSignUp() {
     this.router.navigate(['/sign-up'])
-  }
-
-
-  initMap() {
-    this._ngZone.run(() => {
-      let geocoder = new google.maps.Geocoder();
-      // geocoder.geocode({ 'address': address }, function (results, status) {
-
-      // if (status == google.maps.GeocoderStatus.OK) {
-      //   this.latitude = results[0].geometry.location.lat();
-      //   this.longitude = results[0].geometry.location.lng();
-      // }
-      // let myLatLng = { lat: this.latitude, lng: this.longitude };
-      // this.objectArray = "test"
-      let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 17,
-        // center: myLatLng,
-        // mapTypeId: 'terrain'
-      });
-      let marker = new google.maps.Marker({
-        // position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-      // })
-    })
   }
 
   login(email, password) {

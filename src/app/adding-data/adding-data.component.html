@@ -21,19 +21,18 @@
         <div class="left">
           <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
           <br>
-          <textarea class="txtBig" #address [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)"
+          <textarea  class="txtBig" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)"
             placeholder="Address" maxlength="230" id="about" type="text"></textarea>
 
-          <input #email [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
+          <input  [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
 
-          <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (ngModelChange)="change($event)" class="textField"
+          <input  [(ngModel)]="contacts"  (ngModelChange)="change($event)" class="textField"
             placeholder="e.g(721234567)" id="orgContacts" type="number" min="0" max="10">
         </div>
       </div>
       <!-- ================================================================================================================================================================ -->
       <div class="section2">
         <div class="left">
-
           <div class="introToUploads">
             This is where your organisation stands out! Upload a few photos that will make yours stand out.
           </div>
@@ -75,5 +74,17 @@
 
 
 
+  <div class="absolutely">
+      <div class="arrow">
+        <div class="clicker" (click)="decideState()">
+          &Lambda;
+        </div>
 
+      </div>
+      <div class="list">
+        <div class="gal" id="push" *ngFor="let a of organizationArr">
+          <img src="{{a.Url}}" alt="">
+        </div>
+      </div>
+    </div>
 </body>

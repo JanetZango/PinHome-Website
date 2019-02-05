@@ -27,7 +27,7 @@ export class LandingPageComponent implements OnInit {
   organizationArr = [];
   latestOrgs = [];
   oldOrgs = [];
-  profilePicture = "../../assets/imgs/loading.gif";
+  profilePicture = "../../assets/imgs/custom alert/loading.gif";
   username = "Please wait...";
 
   state = 0;
