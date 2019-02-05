@@ -456,4 +456,39 @@ export class AddingDataComponent{
   goToProfile(){
     this.router.navigate(['/profile'])
   }
+  decideState() {
+    if (this.state == 0) {
+      this.showSlide()
+    }
+    else {
+      this.hideSlide()
+    }
+
+    console.log(this.state);
+
+  }
+
+  showSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+    arrow[0].style.left = "48%";
+    arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(180DEG)";
+    slider[0].style.bottom = "0";
+
+    this.state = 1;
+
+  }
+  hideSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+    arrow[0].style.left = "48%";
+    arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(0DEG)";
+    slider[0].style.bottom = "-200px";
+
+    this.state = 0
+  }
 }

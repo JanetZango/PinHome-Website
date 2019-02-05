@@ -112,27 +112,6 @@ html, body {
     object-fit: cover;
     position: relative;
 }
-.moveLeft{
-    cursor: pointer;
-    width: 180px;
-    height: 100%;
-    background: linear-gradient(to left, rgba(13, 98, 138, 0), rgb(13, 98, 138));
-    position: absolute;
-    z-index: 100000000000000000;
-    left: 0;
-    /* font-weight: bolder; */
-
-}
-.moveRight{
-    cursor: pointer;
-    width: 180px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(13, 98, 138, 0), rgb(13, 98, 138));
-    position: absolute;
-    z-index: 100000000000000000;
-    right: 0;
-    /* font-weight: bolder; */
-}
 
 .absolutely{
     padding-top: 40px;
@@ -183,6 +162,16 @@ html, body {
         }
     }
 
+
+.gal img{
+    /* padding: 1px; */
+    /* background: white; */
+    margin: 4px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+
+}
+
 .loader{
     width: 250px;
     text-align: center;
@@ -193,13 +182,5 @@ html, body {
     margin-top: 25%;
     transform: translate(-50%,-50%);
     color: white;
-
-}
-.gal img{
-    /* padding: 1px; */
-    /* background: white; */
-    margin: 4px;
-    border-radius: 5px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 
 }

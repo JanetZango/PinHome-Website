@@ -2,6 +2,22 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="thebody">
+    <div class="absolutely">
+        <div class="arrow">
+          <div class="clicker" (click)="decideState()">
+            &Lambda;
+          </div>
+    
+        </div>
+        <div class="list">
+          <div class="gal" id="push">
+            <img src="../../assets/imgs/facade.jpg" alt="">
+          </div>
+        </div>
+      </div>
+  <div class="signOut" (click)="signOut()">
+    Sign Out
+  </div>
 <div class="container">
   <div class="cover">
       <!-- <div class="SaveButton">
@@ -15,7 +31,7 @@
     
  </div>
  <div class="seperator">
-  <h1>Edit your Business Profile</h1>
+  <h1>Edit your organisation profile</h1>
   <div class="textfield">
       <input value={{name}} [(ngModel)]="name" type="text" placeholder="Organisation Name"><i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">business</i>
      </div>
@@ -61,4 +77,6 @@
   </div>
  </div>
 </div>
+
+
 </body>
