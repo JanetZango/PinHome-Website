@@ -104,6 +104,22 @@ html, body {
     /* background: linear-gradient(#fff,rgba(255, 255, 255, 0)) */
     
 }
+.list::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    background-color: transparent;
+    width: 2px;
+}
+
+.list::-webkit-scrollbar {
+	width: 2px;
+	background-color: transparent;
+ 
+}
+
+.list::-webkit-scrollbar-thumb {
+	background-color: rgb(12,104,121);
+   border-radius: 50px;
+}
 
 .list img{
     height: 150px;
