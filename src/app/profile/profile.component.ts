@@ -189,6 +189,7 @@ export class ProfileComponent implements OnInit {
     this.city = x.city;
     this.email = x.Email;
     this.url = x.Url;
+    this.showEdit();
   }
 
   signOut(){
@@ -200,5 +201,14 @@ export class ProfileComponent implements OnInit {
  goToMap(){
   this.router.navigate(['/landing-page']);
  }
- 
+ dismissEdit(){
+   var editor = document.getElementsByClassName("overrall") as HTMLCollectionOf <HTMLElement>;
+
+   editor[0].style.display = "none";
+ }
+ showEdit(){
+  var editor = document.getElementsByClassName("overrall") as HTMLCollectionOf <HTMLElement>;
+
+  editor[0].style.display = "block";
+}
 }

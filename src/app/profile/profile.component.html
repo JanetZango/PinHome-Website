@@ -19,6 +19,52 @@
     <p (click)="goToMap()">Map</p>
     <p id="prof" (click)="signOut()">Sign out</p>
   </div>
+  <div class="overrall">
+
+    <div class="container2">
+      <div class="closer">
+        <div class="closeBtn" (click)="dismissEdit()">
+          <i class="material-icons">
+            close
+          </i>
+        </div>
+      </div>
+      <div class="heading">
+        <img class="logoOnEdit" src="{{logo}}" alt="">
+        <div class="orgNameEdit">
+            {{name}}
+        </div>
+      </div>
+      <div class="restOfBody">
+        <div class="num2">
+          <div class="sgubhu">
+              <h3>Edit branch details</h3>
+            <div class="texts">
+              <input type="text" value={{name}} placeholder="Branch Name">
+              <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">business</i>
+            </div>
+            <div class="texts">
+              <input type="email" value={{email}} placeholder="Branch Email">
+              <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">mail</i>
+            </div>
+            <div class="texts">
+              <input type="tel" value={{tel}} placeholder="Phone (eg: 829876543)">
+              <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">phone</i>
+            </div>
+            <div class="texts">
+              <textarea type="text" value={{city}} placeholder="Address" maxlength="250" style="resize: none"></textarea>
+              <i style="color: white;height: 30px; position: absolute; right: 20px;top: 40px; " class="person" class="material-icons">pin_drop</i>
+            </div>
+            <div class="submitterDiv">
+              <div class="submitter" (click)="edit()">
+                Update
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
     <div class="cover">
@@ -55,11 +101,8 @@
         <input value={{city}} class="upper" [(ngModel)]="city" type="text" placeholder="City" disabled>
         <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">pin_drop</i>
       </div>
-      <textarea value={{desc}} [(ngModel)]="desc" class="theDescription" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
-      <div class="SaveButton">
-        <button class="saveBtn" (click)="edit()">Save</button>
-        <!-- <button class="saveBtn">Delete</button> -->
-      </div>
+      <textarea value={{desc}} [(ngModel)]="desc" class="theDescription" placeholder="Description" maxlength="230" id="about"
+        type="text"></textarea>
     </div>
     <div class="seperator2">
       <h1 class="theH1">Organisation Branches <br>
@@ -78,11 +121,6 @@
 
 
       </div>
-    </div>
-  </div>
-  <div class="container2">
-    <div class="heading">
-      
     </div>
   </div>
 

@@ -1,37 +1,5 @@
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://example.com/MaterialIcons-Regular.eot);
-    src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
-  }
-  @import 'material-icons/iconfont/material-icons.scss';
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;  
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: wrap;
-    direction: ltr;
-    position: absolute;
-    left: 5px;
-    top: 3px;  
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  
-    -moz-osx-font-smoothing: grayscale;
-  
-    font-feature-settings: 'liga';
-  }
-  .thebody{
-    height: 130vh;
+ .thebody{
+    height: 101vh;
     width: 100vw;
     background-size: cover;
     background-repeat: no-repeat; 
@@ -52,10 +20,8 @@
     background: whitesmoke;
     box-shadow: 0 0 20px grey;
     font-family: Arial, Helvetica, sans-serif;
-    
-    
-   
 }
+
 .theImage{
     height: 110px;
     width: 110px;
@@ -494,4 +460,172 @@ input[type="number"]::-webkit-inner-spin-button{
     position: absolute;
     right: 15px;
     /* float: right */
+}
+
+.overrall{
+    width: 101vw;
+    height: 101vh;
+    position: absolute;
+    top:-1px;
+    left: -1px;
+    /* border: 2px solid black; */
+    z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    background: rgba(0, 0, 0, 0.459);
+    display: none;
+}
+
+.container2{
+    margin: 0 auto;
+    height: 58%;
+    width: 38%;
+    margin-top: 100px;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.445);
+    font-family: Arial, Helvetica, sans-serif;
+    /* position: relative; */
+    /* top: 40%;
+    left: 50%; */
+    margin-top: 10%;
+
+}
+.closeBtn{
+    cursor: pointer;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    /* padding: 10px; */
+    background: rgba(0, 0, 0, 0.658);
+    color: white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid white;
+}
+.closeBtn i {
+    line-height: 40px;
+}
+.closer{
+    position: relative;
+    /* border: 2px solid red; */
+    width: 100%;
+}
+.heading{
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 2px solid red; */
+}
+
+.logoOnEdit{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    object-fit: cover;
+    padding: 20px;
+}
+.orgNameEdit{
+    line-height: 140px;
+    border: 2px solid white;
+    color: rgb(82, 82, 82);
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.restOfBody{
+    display: flex;
+    flex-wrap: nowrap;
+    /* border: 2px solid red; */
+    /* width: 99.7%; */
+}
+.num1{
+    height: 100%;
+    min-height: 400px;
+    width: 49%;
+    margin: 0 auto;
+    /* border: 2px solid green */
+}
+.num2{
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+    width: 100%;
+    margin: 0 auto;
+    /* border: 2px solid green; */
+    background: rgb(48,115,121);
+    /* border-radius: 5px; */
+}
+.num2 input, textarea{
+    width: 100%;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.texts ::-webkit-input-placeholder{
+    color: rgb(211, 209, 209);
+    font-weight: 500;
+
+    font-size: 16px
+}
+.texts{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    position: relative;
+}
+.texts input{
+    height: 30px;
+}
+.texts textarea{
+    height: 60px;
+}
+.num2 h3 {
+    text-align: center;
+    color: white;
+    /* line-height: 370px; */
+}
+.submitterDiv{
+    position: relative;
+    height: 0px;
+    width: 100%;
+    /* background:  red */
+}
+.submitter{
+    transition: 300ms;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid white;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+.submitter:active{
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    background: rgb(12,104,121);
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid white;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+}
+.sgubhu{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%)
 }

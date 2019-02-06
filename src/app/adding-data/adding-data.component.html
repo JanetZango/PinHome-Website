@@ -26,7 +26,7 @@
       <!-- ================================================================================================================================================================= -->
 
       <div class="instruction">
-        <p>Enter Organisation Details</p>
+        <p>Enter new branch details</p>
       </div>
       <div class="section1">
         <div class="left">
@@ -41,43 +41,12 @@
             placeholder="e.g(821234567)" id="orgContacts" type="number" min="0" max="10">
         </div>
       </div>
-      <!-- ================================================================================================================================================================ -->
-      <div class="section2">
-        <div class="left">
-          <div class="introToUploads">
-            This is where your organisation stands out! Upload a few photos that will make yours stand out.
-          </div>
-          <div class="photos">
-            <div class="theDP">
-            </div>
-            <!-- ================================================================================================================================================================ -->
-            <div class="coverImage">
-              <div class="uploader">
-                <label class="CoverShadow" for="theCover">
-                  <i class="material-icons">camera</i> {{coverPhoto}}</label>
-                <input type="file" accept="image/*" (change)="InsertPicture($event)" id="theCover">
-              </div>
-              <img class="coverPhoto" src={{urlCover}} alt="">
-            </div>
-            <!-- ================================================================================================================================================================ -->
-          </div>
 
+      <div class="subission">
+          <div class="submit" (click)="AddingData($event)">
+            Submit
+          </div>
         </div>
-        <div class="left1">
-          <div class="galInstructions">
-            Upload a few photos to your gallery below.
-          </div>
-         
-        </div>
-
-        <div class="subission">
-            <div class="submit" (click)="AddingData($event)">
-              Submit
-            </div>
-          </div>
-
-      </div>
-
     </div>
 
 
