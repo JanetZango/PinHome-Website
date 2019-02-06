@@ -432,11 +432,12 @@ export class AddingDataComponent{
         this.select = "";
         this.OrganizationAdress = "";
         this.name = "";
-        this.urlCover = "";
+        this.urlCover = "../../assets/imgs/default-cover.jpg";
         this.contacts = "";
 
         alert('data added')
-        console.log(this.OrganizationAdress)
+        console.log(this.OrganizationAdress);
+        this.goToProfile()
       })
     })
     }

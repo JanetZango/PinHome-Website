@@ -1,83 +1,76 @@
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
-  
-  <body class="thebody">
-    
-  <div class="signout" (click)="goToSignIn()">
-      SIGN OUT
-    </div>
-    <div class="container">
-      <div class="cover">
-        <h2>Your cover picture</h2>
-        <div class="round">
-          <img class="theImage" src="{{logo}}">
-        </div>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="thebody">
+  <div class="absolutely">
+    <div class="arrow">
+      <div class="clicker" (click)="decideState()">
+        &Lambda;
       </div>
-      <div class="seperator">
-        <h1>Edit your Business Profile</h1>
-        <div class="textfield">
-          <input #email type="text" placeholder="Organisation Name">
-          <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">business</i>
-        </div>
-        <div class="textfield">
-          <input #email type="text" placeholder="Organisation Type">
-          <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">business</i>
-        </div>
-        <div class="textfield">
-          <input #email type="email" placeholder="Email">
-          <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">mail</i>
-        </div>
-        <div class="textfield">
-          <input #email type="number" placeholder="Phone No.">
-          <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">phone</i>
-        </div>
-        <div class="textfield">
-          <input #email type="email" placeholder="Physical Address">
-          <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">
-            location_on</i>
-        </div>
-        <textarea class="theDescription" placeholder="Description" maxlength="230" id="about" type="text"></textarea>
-  
-        <div class="SaveButton">
+
+    </div>
+    <div class="list">
+      <div class="gal" id="push">
+        <img src="../../assets/imgs/facade.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="signout" (click)="signOut()">
+    Sign Out
+  </div>
+  <div class="container">
+    <div class="cover">
+      <!-- <div class="SaveButton">
           <button class="saveBtn">Save</button>
-        </div>
+        </div> -->
+      <div class="round">
+        <img class="theImage" src="{{url}}">
       </div>
-      <div class="seperator2">
-        <div class="theADDBtn">
-          <button class="BranchButton" (click)="addBranch()">
-            <i style="color: #2c747a; position: relative;right: 0px;" class="material-icons">add</i>Add Branch</button>
-        </div>
-        <h1 class="theH1">Organisation Braches</h1>
-        <div class="rightPortion">
-          <div class="imgContainer">
-            <h4>Image</h4>
-            <img src="../../assets/imgs/facade.jpg" alt="" class="thePicture2">
-  
-          </div>
-          <div class="imgContainer">
-            <h4>Image</h4>
-            <img src="../../assets/imgs/facade.jpg" alt="" class="thePicture2">
-  
-          </div>
-          <div class="imgContainer">
-            <h4>Image</h4>
-            <img src="../../assets/imgs/facade.jpg" alt="" class="thePicture2">
-  
-          </div>
-          <div class="imgContainer">
-            <h4>Image jjhksdfgh sdfjghk sdfigh sdiofgh</h4>
-            <img src="../../assets/imgs/facade.jpg" alt="" class="thePicture2">
-  
-          </div>
-          <div class="imgContainer">
-            <h4>Image</h4>
-            <img src="../../assets/imgs/facade.jpg" alt="" class="thePicture2">
-  
-          </div>
-        </div>
-  
+      <img class="cover2" src="{{logo}}">
+      <!-- <h2>Your cover picture</h2> -->
+
+    </div>
+    <div class="seperator">
+      <h1>Edit your organisation profile</h1>
+      <div class="textfield">
+        <input value={{name}} [(ngModel)]="name" type="text" placeholder="Organisation Name" disabled><i style=" color: white;height: 30px; position: relative; left: -25px;"
+          class="person" class="material-icons">business</i>
+      </div>
+      <div class="textfield">
+        <input value={{cat}} [(ngModel)]="cat" type="text" placeholder="Organisation Type" disabled><i style=" color: white;height: 30px; position: relative; left: -25px;"
+          class="person" class="material-icons">business</i>
+      </div>
+      <div class="textfield">
+        <input value={{email}} [(ngModel)]="email" type="email" placeholder="Email"><i style=" color: white;height: 30px; position: relative; left: -25px;"
+          class="person" class="material-icons">mail</i>
+      </div>
+      <div class="textfield">
+        <input value={{tel}} [(ngModel)]="tel" type="number" placeholder="Phone No."><i style=" color: white;height: 30px; position: relative; left: -25px;"
+          class="person" class="material-icons">phone</i>
+      </div>
+      <div class="textfield">
+        <input value={{city}} [(ngModel)]="city" type="text" placeholder="City"><i style=" color: white;height: 30px; position: relative; left: -25px;"
+          class="person" class="material-icons">pin_drop</i>
+      </div>
+      <textarea value={{desc}} [(ngModel)]="desc" class="theDescription" placeholder="Description" maxlength="230" id="about"
+        type="text"></textarea>
+      <div class="SaveButton">
+        <button class="saveBtn" (click)="edit()">Save</button>
       </div>
     </div>
-  
-  </body>
+    <div class="seperator2">
+      <h1 class="theH1">Organisation Branches <button class="BranchButton" (click)="addBrunch()"> <i style="color: #2c747a; position: relative;right: 0px;"
+            class="material-icons">add</i>Add Branch</button></h1>
+      <div class="branches">
+        <div class="orgBranch" *ngFor="let i of brunchesArr" (click)="showinfo(i)">
+          <div class="branchName">
+            {{i.city}}
+          </div>
+          <br>
+          <img src="{{i.Url}}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

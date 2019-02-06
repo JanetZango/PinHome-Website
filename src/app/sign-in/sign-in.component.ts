@@ -76,7 +76,7 @@ export class SignInComponent implements OnInit {
             this.router.navigate(['/landing-page'])
         }, Error => {
           // alert("something's wrong")
-          // alert(Error.message);
+          alert(Error.message);
           // console.log(Error.message);
           myAlert[0].style.display = "block";
           theLoader[0].style.display = "none"
@@ -95,6 +95,10 @@ export class SignInComponent implements OnInit {
           // theOK.style.display = "block";
           // leader[0].style.display = "none";
         })
+      }, Error =>{
+        this.alertMessage = Error.message;
+        myAlert[0].style.display = "block";
+          theLoader[0].style.display = "none"
       })
 
     }

@@ -42,7 +42,9 @@ export class ProfileComponent implements OnInit {
       var temp = data.data;
       for (var x = 0; x < keys.length; x++) {
         console.log(keys[x])
-        this.brunchesArr.push(temp[keys[x]])
+        this.brunchesArr.push(temp[keys[x]]);
+        console.log(this.brunchesArr);
+        
       }
 
     })
@@ -146,10 +148,6 @@ export class ProfileComponent implements OnInit {
   addBrunch() {
     this.router.navigate(['/adding-data']);
   }
-  goToSignIn() {
-      this.router.navigate(['/sign-in'])
-  }
-  
 
 
 
@@ -165,5 +163,9 @@ export class ProfileComponent implements OnInit {
     this.email = x.Email;
     this.logo = x.Url;
   }
+
+  signOut(){
+    this.router.navigate(['/sign-in'])
+}
 
 }

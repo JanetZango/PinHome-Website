@@ -147,6 +147,7 @@ border: #20676e/ solid 2px;
    height: 10px;
 }
 .theBUTTON{
+    cursor: pointer;
     height: 500%;
     width: 150px;
     border-radius: 50px;
