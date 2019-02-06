@@ -68,6 +68,9 @@ h2{
 .seperator::-webkit-scrollbar{
     display: none;
 }
+.seperator textarea{
+    border: 0;
+}
 .seperator2{
     width: 44%;
     height: 35vh;
@@ -282,6 +285,22 @@ margin-left:300px;
     z-index: 100000;
     
 }
+.list::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    background-color: transparent;
+    width: 2px;
+}
+
+.list::-webkit-scrollbar {
+	width: 2px;
+	background-color: transparent;
+ 
+}
+
+.list::-webkit-scrollbar-thumb {
+	background-color: rgb(12,104,121);
+   border-radius: 50px;
+}
 .list img{
     height: 150px;
     width: 220px;
@@ -329,6 +348,7 @@ margin-left:300px;
         top:-40px;
     }
     100%{top:-30px;
+
         }
     }
 .gal img{
@@ -367,6 +387,7 @@ margin-left:300px;
     height: 50%;
     position: relative;
     padding: 3px;
+    /* border: 2px solid red; */
 }
 .orgBranch img{
     cursor: pointer;
@@ -377,6 +398,7 @@ margin-left:300px;
     
     
 }
+
 #orgNameMain{
     position: absolute;
     left: 50%;
@@ -628,4 +650,60 @@ input[type="number"]::-webkit-inner-spin-button{
     position: absolute;
     top: 40%;
     transform: translateY(-50%)
+}
+
+.forUploading{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.459);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    /* display: none; */
+}
+
+.adder{
+    border: 2px solid red;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: whitesmoke;
+    
+}
+input[type=file]::-webkit-file-upload-button{
+    display: none
+}
+textarea{
+    resize: none;
+}
+
+#toUpload{
+    cursor: pointer;
+    height: 150px;
+    width: 220px;
+    margin-top: 7px;
+    border: 2px solid white;
+    z-index: 1000000000000000000000000000;
+    padding: 0;
+    text-align: center;
+}
+#toUpload h1 i{
+    line-height:110px;
+    font-size: 80px
+}
+#uploaderLbl i{
+    text-align: center;
+    line-height: 80px;
+    cursor: pointer;
+    width: 50%;
+    height: 50%;
+    margin-left: 50%;
+    margin-top: 25%;
+    transform: translate(-50%,-85%);
+    background: #20676e;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.466);
 }

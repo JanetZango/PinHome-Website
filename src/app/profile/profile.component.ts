@@ -25,7 +25,8 @@ export class ProfileComponent implements OnInit {
   mail;
   profileArr = [];
   clickState = 0;
-  name1;;
+  name1;
+  state = 0;
   key;
   alertMessage;
   constructor(private router: Router, private _ngZone: NgZone) {
@@ -183,12 +184,12 @@ export class ProfileComponent implements OnInit {
   }
 
   showinfo(x) {
-    this.clickState = 1;
-    this.name = x.OrganizationName
-    this.tel = x.ContactDetails;
-    this.city = x.city;
-    this.email = x.Email;
-    this.url = x.Url;
+    // this.clickState = 1;
+    // this.name = x.OrganizationName
+    // this.tel = x.ContactDetails;
+    // this.city = x.city;
+    // this.email = x.Email;
+    // this.url = x.Url;
     this.showEdit();
   }
 
@@ -210,5 +211,60 @@ export class ProfileComponent implements OnInit {
   var editor = document.getElementsByClassName("overrall") as HTMLCollectionOf <HTMLElement>;
 
   editor[0].style.display = "block";
+}
+decideState() {
+  if (this.state == 0) {
+    this.showSlide()
+  }
+  else {
+    this.hideSlide()
+  }
+
+  console.log(this.state);
+
+}
+
+showSlide() {
+  let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+  let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+  arrow[0].style.left = "48%";
+  arrow[0].style.transform = "translateX(-60%)";
+  arrow[0].style.transform = "rotateZ(180DEG)";
+  slider[0].style.bottom = "0";
+
+  this.state = 1;
+
+}
+hideSlide() {
+  let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+  let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+  arrow[0].style.left = "48%";
+  arrow[0].style.transform = "translateX(-60%)";
+  arrow[0].style.transform = "rotateZ(0DEG)";
+  slider[0].style.bottom = "-200px";
+
+  this.state = 0
+}
+
+openUploader(){
+  var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+
+  uploader[0].style.display = "block"
+}
+dismissUploader(){
+  var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+
+  uploader[0].style.display = "none"
+
+}
+getImages(){
+  var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+
+  // add this line to the success state of uploading
+  uploader[0].style.display = "none";
+
+
 }
 }

@@ -13,6 +13,18 @@
       <div class="gal" id="push">
         <img src="../../assets/imgs/facade.jpg" alt="">
       </div>
+      <div class="gal" id="push">
+        <img src="../../assets/imgs/facade.jpg" alt="">
+      </div>
+      <div class="gal" id="push">
+        <img src="../../assets/imgs/facade.jpg" alt="">
+      </div>
+      <div class="gal" id="toUpload" (click)="openUploader()">
+        <h1>
+          <i class="material-icons">add</i>
+        </h1>
+      </div>
+
     </div>
   </div>
   <div class="tabTop">
@@ -32,13 +44,13 @@
       <div class="heading">
         <img class="logoOnEdit" src="{{logo}}" alt="">
         <div class="orgNameEdit">
-            {{name}}
+          {{name}}
         </div>
       </div>
       <div class="restOfBody">
         <div class="num2">
           <div class="sgubhu">
-              <h3>Edit branch details</h3>
+            <h3>Edit branch details</h3>
             <div class="texts">
               <input type="text" value={{name}} placeholder="Branch Name">
               <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">business</i>
@@ -66,18 +78,31 @@
     </div>
   </div>
 
+  <div class="forUploading">
+    <div class="adder">
+        <div class="closeBtn" (click)="dismissUploader()">
+            <i class="material-icons">
+              close
+            </i>
+          </div>
+      <div class="upload">
+          <label for="imgUpload" id="uploaderLbl">
+              <i class="material-icons">
+                add
+              </i>
+            </label>
+      </div>
+      
+      <input type="file" [(ngModel)]="images" id="imgUpload" (change)="getImages()" multiple>
+    </div>
+  </div>
   <div class="container">
     <div class="cover">
-      <!-- <div class="SaveButton">
-          <button class="saveBtn">Save</button>
-        </div> -->
       <div class="round">
         <img class="theImage" src="{{logo}}">
       </div>
       <h3 id="orgNameMain">{{name}}</h3>
       <img class="cover2" src="{{url}}">
-      <!-- <h2>Your cover picture</h2> -->
-
     </div>
     <div class="seperator">
       <h1>Edit your organisation profile</h1>
@@ -90,11 +115,11 @@
         <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">business</i>
       </div>
       <div class="textfield">
-        <input value={{email}} [(ngModel)]="email" type="email" placeholder="Email">
+        <input value={{email}} [(ngModel)]="email" type="email" placeholder="Email" disabled>
         <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">mail</i>
       </div>
       <div class="textfield">
-        <input value={{tel}} class="upper" [(ngModel)]="tel" type="number" placeholder="Phone No.">
+        <input value={{tel}} class="upper" [(ngModel)]="tel" type="number" placeholder="Phone No." disabled>
         <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">phone</i>
       </div>
       <div class="textfield">
@@ -102,7 +127,7 @@
         <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">pin_drop</i>
       </div>
       <textarea value={{desc}} [(ngModel)]="desc" class="theDescription" placeholder="Description" maxlength="230" id="about"
-        type="text"></textarea>
+        type="text" disabled></textarea>
     </div>
     <div class="seperator2">
       <h1 class="theH1">Organisation Branches <br>
@@ -118,6 +143,7 @@
           <br>
           <img src="{{i.Url}}" alt="">
         </div>
+
 
 
       </div>

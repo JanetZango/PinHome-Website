@@ -515,12 +515,6 @@ export class AddingDataComponent {
         dismissBtn[0].style.display = "block"
         this.alertMessage = "Please enter the branch contact numbers."
       }
-      else if (this.urlCover == "../../assets/imgs/default-cover.jpg" || this.urlCover == "" || this.urlCover == undefined) {
-        myAlert[0].style.display = "block";
-        theLoader[0].style.display = "none";
-        dismissBtn[0].style.display = "block"
-        this.alertMessage = "Please choose an image for your branch's cover photo."
-      }
       else {
         firebase.auth().onAuthStateChanged(user => {
           this.getcoo(this.OrganizationAdress).then((data: any) => {
