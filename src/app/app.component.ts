@@ -26,7 +26,7 @@ export class AppComponent {
       console.log(user);
       
       if (user) {
-        this.router.navigate(['/sign-in'])
+        this.router.navigate(['/landing-page'])
         // prof[0].style.display = "block";
         // signOutBtn[0].style.display = "block";
         // this.router.navigate(['/sign-in']);
