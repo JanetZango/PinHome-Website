@@ -1,6 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { EINPROGRESS } from 'constants';
+import { userInfo } from 'os';
+import { log } from 'util';
 declare var firebase;
 @Component({
   selector: 'app-profile',
@@ -29,6 +31,12 @@ export class ProfileComponent implements OnInit {
   state = 0;
   key;
   alertMessage;
+  urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
+  galleryupload: string;
+  imagesArr = [];
+  gallery;
+
+   
   constructor(private router: Router, private _ngZone: NgZone) {
     this.getDetails().then((data: any) => {
       this.name = data.name;
@@ -54,7 +62,10 @@ export class ProfileComponent implements OnInit {
       }
 
     })
-
+    this.retrieveGal().then((data)=>{
+     
+      console.log(data);
+    })
   }
   getDetails() {
     return new Promise((accpt, reject) => {
@@ -89,6 +100,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+   
   }
 
   getBrunches() {
@@ -259,12 +271,54 @@ dismissUploader(){
   uploader[0].style.display = "none"
 
 }
-getImages(){
-  var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+getImages(event:any) {
 
-  // add this line to the success state of uploading
-  uploader[0].style.display = "none";
-
-
+  
+  if (event.target.files && event.target.files[0]) {
+    let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.urlGallery1 = event.target.result;
+      console.log(this.urlGallery1);
+      var user = firebase.auth().currentUser.uid
+      console.log(user);
+     firebase.database().ref('Gallery/' + user + '/').push({
+       GalUrl: this.urlGallery1})
+    this.retrieveGal();
+    this.dismissUploader();
+      }, Error=>{
+       alert(Error)
+     }
+    reader.readAsDataURL(event.target.files[0]);
+    this.galleryupload = "Upload More"
+  }
 }
+
+retrieveGal(){
+  return new Promise((accpt, rej) => {
+    firebase.auth().onAuthStateChanged(function (user) {
+      let dbPath = 'Gallery/' + user.uid;
+       var imagesArr = [];
+      firebase.database().ref(dbPath).on("value", (data: any) => {
+        let details = data.val();
+        console.log(details)
+        
+        let key = Object.keys(details)
+        console.log(key)
+        for(var i=0; i < key.length;++i){
+          let k = key[i]
+          console.log(k)
+          
+          let obj={
+            Gallery: details[k].GalUrl
+          }
+          imagesArr.push(obj);
+          console.log(imagesArr);
+        }
+      })
+    })
+    accpt(this.imagesArr)
+  })
+}
+
+
 }

@@ -9,15 +9,9 @@
         &Lambda;
       </div>
     </div>
-    <div class="list">
-      <div class="gal" id="push">
-        <img src="../../assets/imgs/facade.jpg" alt="">
-      </div>
-      <div class="gal" id="push">
-        <img src="../../assets/imgs/facade.jpg" alt="">
-      </div>
-      <div class="gal" id="push">
-        <img src="../../assets/imgs/facade.jpg" alt="">
+    <div class="list" >
+      <div class="gal" id="push" *ngFor="let i imagesArr">
+        <img [src]="i.Gallery" alt="">
       </div>
       <div class="gal" id="toUpload" (click)="openUploader()">
         <h1>
@@ -93,7 +87,7 @@
             </label>
       </div>
       
-      <input type="file" [(ngModel)]="images" id="imgUpload" (change)="getImages()" multiple>
+      <input type="file" [(ngModel)]="images" id="imgUpload" (change)="getImages($event)" multiple>
     </div>
   </div>
   <div class="container">
