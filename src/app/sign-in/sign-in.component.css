@@ -226,3 +226,6 @@ border: #20676e/ solid 2px;
 
 }
 /* end of styling */
+button{
+    cursor: pointer;
+}

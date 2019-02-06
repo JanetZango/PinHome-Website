@@ -160,7 +160,7 @@ export class SignUpComponent implements OnInit {
     signIn[0].style.borderBottom = "5px solid #00eaff";
     signUp[0].style.borderBottom = "5px solid transparent";
   }
-  getPhone(){
+  getPhone(tel){
     // alert(this.tel);
     
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
@@ -169,13 +169,13 @@ export class SignUpComponent implements OnInit {
   
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none"
-      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted1"
       // alert(this.tel);
     }
-    else if(this.tel < 1000000000){
+    else if(this.tel < 100000000){
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none";
-      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted2";
     }
     console.log(event);
   }
@@ -184,47 +184,68 @@ export class SignUpComponent implements OnInit {
     this.alertMessage = "Please wait..."
       let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
       let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+      let dismissBtn = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf <HTMLElement>;
+
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "block"
+      dismissBtn[0].style.display = "none"
     if (this.fName == undefined || this.fName == "") {
       // alert('Representative name is missing');
       this.alertMessage = "Please enter your name";
 
       myAlert[0].style.display = "block";
-      theLoader[0].style.display = "block"
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
     }
     else if (this.tel == undefined || this.tel == "") {
       // alert('phone numbers missing')
       this.alertMessage = "Please insert your organisation's contact numbers"
       myAlert[0].style.display = "block";
-      theLoader[0].style.display = "block"
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
     }
     else if (this.address == undefined || this.address == "") {
       // alert("address is missing")
       this.alertMessage = "Please fill in your address"
       myAlert[0].style.display = "block";
-      theLoader[0].style.display = "block"
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
     }
     else if (this.desc == undefined || this.desc == "") {
       // alert('desc is missing')
       this.alertMessage = "Please fill in the organisation's description"
       myAlert[0].style.display = "block";
-      theLoader[0].style.display = "block"
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
     }
     else if (this.urlCover == "../../assets/imgs/facade.jpg") {
       // alert('cover img not selected');
       this.alertMessage = "Please choose a cover photo"
       myAlert[0].style.display = "block";
-      theLoader[0].style.display = "none"
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
     }
     else if (this.urlLogo == "../../assets/imgs/clip art.png") {
       // alert('logo not selected')
       this.alertMessage = "Please choose your logo"
       myAlert[0].style.display = "block";
-      theLoader[0].style.display = "none"
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
     }
     else {
-      
+      if(this.tel > 999999999){
+  
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none"
+        this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly1"
+        // alert(this.tel);
+      }
+      else if(this.tel < 100000000){
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly2";
+      }
+      else{
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
         firebase.auth().onAuthStateChanged(user => {
           this.getcoo(this.address).then((data: any) => {
@@ -245,11 +266,13 @@ export class SignUpComponent implements OnInit {
             this.alertMessage = "We've sent you an email with a verification link, please check your email and click the link to verify your account"
             myAlert[0].style.display = "block";
            theLoader[0].style.display = "none"
+           dismissBtn[0].style.display = "block"
           })
         })
       }, Error => {
         myAlert[0].style.display = "block";
         theLoader[0].style.display = "none"
+        dismissBtn[0].style.display = "block"
         // alert(Error.message);
 
         if(Error.message == "Password should be at least 6 characters"){
@@ -265,6 +288,7 @@ export class SignUpComponent implements OnInit {
 
       })
     }
+  }
 
   }
   comboBox() {

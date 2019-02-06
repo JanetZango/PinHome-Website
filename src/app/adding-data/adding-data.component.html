@@ -3,6 +3,17 @@
 </head>
 
 <body>
+
+    <div class="overlayer">
+        <div class="alerter">
+          <div class="dismissBtn" (click)="dismissAlert()">
+            <i class="material-icons">close</i>
+          </div>
+          <p>{{alertMessage}}</p>
+          <img class="loader" src="../../assets/imgs/custom alert/loading.gif" alt="">
+        </div>
+    
+      </div>
   <div class="main">
     <div class="tabTop">
 
@@ -26,8 +37,8 @@
 
           <input  [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
 
-          <input  [(ngModel)]="contacts"  (ngModelChange)="change($event)" class="textField"
-            placeholder="e.g(721234567)" id="orgContacts" type="number" min="0" max="10">
+          <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (change)="getPhone($event)" class="textField"
+            placeholder="e.g(821234567)" id="orgContacts" type="number" min="0" max="10">
         </div>
       </div>
       <!-- ================================================================================================================================================================ -->

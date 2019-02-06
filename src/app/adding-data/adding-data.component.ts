@@ -2,7 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Injectable } from '@angular/core';
 import { promise, Capability } from 'protractor';
-import {Router} from'@angular/router';
+import { Router } from '@angular/router';
 declare var google;
 declare var firebase;
 
@@ -12,7 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './adding-data.component.html',
   styleUrls: ['./adding-data.component.css']
 })
-export class AddingDataComponent{
+export class AddingDataComponent {
   coverPhoto = "Upload Cover Photo";
   logoPhoto = "Upload Logo";
   galleryupload = "Upload Images";
@@ -27,28 +27,30 @@ export class AddingDataComponent{
   address: any
   lat: any;
   lng;
-  urlLogo: any= "../../assets/imgs/PinHome icon.png";
+  urlLogo: any = "../../assets/imgs/PinHome icon.png";
   urlGallery = "../../assets/imgs/default image/default image for uploads.jpg";
   emailAdd;
   AboutOrg;
   select;
   price;
   state;
-  urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
+  urlGallery1 = "../../assets/imgs/default image/default image for uploads.jpg";
   urlGallery2 = "../../assets/imgs/default image/default image for uploads.jpg";
-  city:any;
+  city: any;
 
-  constructor( private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
+  alertMessage = "Please wait...";
+
+  constructor(private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
 
   }
   ngOnInit() {
-   
-}
+
+  }
 
   initMap(address) {
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
-      
+
       if (status == google.maps.GeocoderStatus.OK) {
         this.latitude = results[0].geometry.location.lat();
         this.longitude = results[0].geometry.location.lng();
@@ -301,157 +303,275 @@ export class AddingDataComponent{
         title: 'Hello World!'
       });
     })
-  
+
   }
 
-  change(value){
-    // this.cdRef.detectChanges();
-    console.log("changing");
-    this.contacts= value.length > 10 ? value.substring(0,1) : value;
+  // change() {
+  //   // this.cdRef.detectChanges();
+  //   // console.log(value);
+  //   // this.contacts= value.length > 10 ? value.substring(0,1) : value;
 
-    if(value == 0){
-      console.log("the val");
-      
+  //   // if(value == 0){
+  //   //   console.log("the val");
+
+  //   // }
+
+  //   let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+  //   let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+  //   var dismissBtn = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
+
+  //   this.alertMessage = "Please wait..."
+  //   myAlert[0].style.display = "block";
+  //   theLoader[0].style.display = "block";
+  //   dismissBtn[0].style.display = "none";
+  //   if (this.contacts < 100000000) {
+  //     console.log("less than 10");
+
+
+
+  //     this.alertMessage = "please check your phone numbers, your phone numbers are badly formatted."
+  //     myAlert[0].style.display = "block";
+  //     theLoader[0].style.display = "none";
+  //     dismissBtn[0].style.display = "block";
+  //   }
+  //   else if (this.contacts > 999999999){
+  //     console.log("greater than 10");
+
+  //     this.alertMessage = "please check your phone numbers, your phone numbers are badly formatted."
+  //     myAlert[0].style.display = "block";
+  //     theLoader[0].style.display = "none";
+  //     dismissBtn[0].style.display = "block";
+  //   }else{
+  //     myAlert[0].style.display = "none"
+  //   }
+
+  // }
+
+  getPhone() {
+    // alert(this.tel);
+
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    if (this.contacts > 999999999) {
+
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      // alert(this.tel);
     }
-    
+    else if (this.contacts < 100000000) {
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
+    }
+    console.log(event);
+  }
+  dismissAlert() {
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+
+    myAlert[0].style.display = "none"
   }
 
-  scroll(event){
+  scroll(event) {
     console.log("scrolling");
-    
+
   }
   getcoo(address) {
     return new Promise((accpt, rej) => {
-      this._ngZone.run(() =>{
-      let geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function (results, status) {
-        var arr = results[0].address_components;
-        var arr2 = arr[3]
-        if (status == google.maps.GeocoderStatus.OK) {
-          this.latitude = results[0].geometry.location.lat();
-          this.longitude = results[0].geometry.location.lng();
-          let position = {
-            lat: results[0].geometry.location.lat(),
-            lng: results[0].geometry.location.lng(),
-            city : arr2.long_name
+      this._ngZone.run(() => {
+        let geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+          var arr = results[0].address_components;
+          var arr2 = arr[3]
+          if (status == google.maps.GeocoderStatus.OK) {
+            this.latitude = results[0].geometry.location.lat();
+            this.longitude = results[0].geometry.location.lng();
+            let position = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+              city: arr2.long_name
+            }
+            console.log(position)
+            accpt(position)
           }
-          console.log(position)
-          accpt(position)
-        }
-      });
+        });
+      })
     })
-  })
   }
   InsertPicture(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlCover = event.target.result;
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlCover = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.coverPhoto = "Choose another cover photo"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.coverPhoto = "Choose another cover photo"
-    }
-  })
+    })
   }
   InsertLogo(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlLogo = event.target.result;
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlLogo = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.logoPhoto = "Choose a different logo";
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.logoPhoto = "Choose a different logo";
-    }
-  })
+    })
   }
   pic1(event: any) {
     alert('me')
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlGallery = event.target.result;
-        console.log(this.urlGallery);
-        
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlGallery = event.target.result;
+          console.log(this.urlGallery);
+
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.galleryupload = "Upload More"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.galleryupload = "Upload More"
-    }
-  })
+    })
   }
-  
+
   pic2(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlGallery1 = event.target.result;
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlGallery1 = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.galleryupload = "Upload More"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.galleryupload = "Upload More"
-    }
-  })
+    })
   }
 
   pic3(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlGallery2 = event.target.result;
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlGallery2 = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.galleryupload = "Upload More"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.galleryupload = "Upload More"
-    }
-  })
+    })
   }
 
 
   AddingData(event) {
-    firebase.auth().onAuthStateChanged(user =>{
-      this.getcoo(this.OrganizationAdress).then((data: any) => {
-        this.long = data.lat;
-        firebase.database().ref('Brunches/' + user.uid + '/').push({
-          OrganizationName: this.name,
-          OrganizationAdress: this.OrganizationAdress,
-          ContactDetails:this.contacts,
-          Email: this.emailAdd,
-          Url: this.urlCover,
-          Logo:this.urlLogo,
-          longitude: data.lng,
-          city : data.city,
-          latitude: data.lat
-        });
-        // alerter[0].style.top = (mes/1.5) + "px";
-        // alerter[0].style.left = "50%"; 
 
-        // this.message = "Your information has been added."
-        this.emailAdd = "";
-        this.select = "";
-        this.OrganizationAdress = "";
-        this.name = "";
-        this.urlCover = "../../assets/imgs/default-cover.jpg";
-        this.contacts = "";
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    var dismissBtn = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
 
-        alert('data added')
-        console.log(this.OrganizationAdress);
-        this.goToProfile()
-      })
-    })
+    myAlert[0].style.display = "block";
+    theLoader[0].style.display = "block";
+    dismissBtn[0].style.display = "none";
+    this.alertMessage = "Loading..."
+    if (this.contacts > 999999999) {
+
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block";
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      // alert(this.tel);
+    }
+    else if (this.contacts < 100000000) {
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
+    }
+    else {
+      if (this.name == "" || this.name == null) {
+
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter your branch name."
+      }
+      else if (this.OrganizationAdress == "" || this.OrganizationAdress == null) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter your branch address."
+      }
+      else if (this.emailAdd == "" || this.emailAdd == null) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter your branch email address."
+      }
+      else if (this.contacts = "" || this.contacts == undefined || this.contacts == null) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter the branch contact numbers."
+      }
+      else if (this.urlCover == "../../assets/imgs/default-cover.jpg" || this.urlCover == "" || this.urlCover == undefined) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please choose an image for your branch's cover photo."
+      }
+      else {
+        firebase.auth().onAuthStateChanged(user => {
+          this.getcoo(this.OrganizationAdress).then((data: any) => {
+            this.long = data.lat;
+            firebase.database().ref('Brunches/' + user.uid + '/').push({
+              OrganizationName: this.name,
+              OrganizationAdress: this.OrganizationAdress,
+              ContactDetails: this.contacts,
+              Email: this.emailAdd,
+              Url: this.urlCover,
+              Logo: this.urlLogo,
+              longitude: data.lng,
+              city: data.city,
+              latitude: data.lat
+            }, Error => {
+              this.alertMessage = Error.message;
+
+              myAlert[0].style.display = "block";
+              theLoader[0].style.display = "none";
+              dismissBtn[0].style.display = "block"
+            });
+            // alerter[0].style.top = (mes/1.5) + "px";
+            // alerter[0].style.left = "50%"; 
+
+            // this.message = "Your information has been added."
+            this.emailAdd = "";
+            this.select = "";
+            this.OrganizationAdress = "";
+            this.name = "";
+            this.urlCover = "../../assets/imgs/default-cover.jpg";
+            this.contacts = "";
+
+            this.router.navigate(['/profile'])
+
+            // alert('data added')
+            console.log(this.OrganizationAdress)
+          })
+        })
+      }
     }
 
-  dismissAlert() {
-    let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
-    alerter[0].style.left = "-100%";
-    this.message = "";
   }
 
-  goToMap(){
+  CheckNumber() {
+
+  }
+
+  goToMap() {
     this.router.navigate(['/landing-page'])
   }
-  goToProfile(){
+  goToProfile() {
     this.router.navigate(['/profile'])
   }
   goToSignIn(){

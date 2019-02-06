@@ -91,7 +91,7 @@
                     edit
                   </i>
                 </label>
-                <input type="file" id="myCover" accept="/*images" (change)="InsertPicture($event)">
+                <input type="file" id="myCover" accept="image/*" (change)="InsertPicture($event)">
 
               </div>
               <img src="{{urlCover}}" alt="">
@@ -103,7 +103,7 @@
                     edit
                   </i> -->
                 </label>
-                <input type="file" id="myLogo" accept="/*images" (change)="InsertLogo($event)">
+                <input type="file" id="myLogo" accept="image/*" (change)="InsertLogo($event)">
               </div>
               <img src="{{urlLogo}}" alt="">
             </div>
@@ -113,7 +113,7 @@
             <input [(ngModel)]="fName"  type="text" placeholder="Full Name (Representative)">
           </div>
           <div class="textfield">
-            <input [(ngModel)]="tel" (change)="getPhone($event)"  type="number" id="numberBox" placeholder="Phone">
+            <input [(ngModel)]="tel" (change)="getPhone()"  type="number" id="numberBox" placeholder="Phone">
           </div>
 
           <div class="textfield">

@@ -1,5 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
+import { EINPROGRESS } from 'constants';
 declare var firebase;
 @Component({
   selector: 'app-profile',
@@ -25,6 +26,8 @@ export class ProfileComponent implements OnInit {
   profileArr = [];
   clickState = 0;
   name1;;
+  key;
+  alertMessage;
   constructor(private router: Router, private _ngZone: NgZone) {
     this.getDetails().then((data: any) => {
       this.name = data.name;
@@ -34,7 +37,9 @@ export class ProfileComponent implements OnInit {
       this.tel = data.tel;
       this.city = data.city;
       this.cat = data.cat,
-        this.email = data.email
+      this.email = data.email,
+      this.key =  data.key
+
     })
     this.getBrunches().then((data: any) => {
       console.log(data);
@@ -52,6 +57,7 @@ export class ProfileComponent implements OnInit {
   }
   getDetails() {
     return new Promise((accpt, reject) => {
+    
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           firebase.database().ref("Websiteprofiles/" + user.uid).on("value", (data: any) => {
@@ -67,8 +73,10 @@ export class ProfileComponent implements OnInit {
                 tel: details[keys[0]].Telephone,
                 city: details[keys[0]].city,
                 cat: details[keys[0]].category,
-                email: user.email
+                email: user.email,
+                key:keys[0]
               }
+              console.log(keys[0])
               accpt(obj)
             }
           })
@@ -118,22 +126,41 @@ export class ProfileComponent implements OnInit {
   }
 
   edit() {
+    if(this.email == ""){
+      this.alertMessage = "Please enter the brnch's email"
+
+    }
+    else if(this.tel > 999999999 || this.tel < 100000000){
+      this.alertMessage = "Please enter the branch's Phone number"
+
+    }
+    if(this.desc == ""){
+      this.alertMessage = "Please make sure that the description field is not empty."
+    }
+    else{
     if (this.clickState == 0) {
-      console.log(this.profileArr[0].key);
-      firebase.database().ref('Websiteprofiles/' + this.userId + '/').update(this.profileArr[0].key, {
+      firebase.database().ref('Websiteprofiles/' + this.userId + '/' + this.key + '/').update({
         email: this.email,
         desc: this.desc,
         Telphone: this.tel
+      },Error=>{
+        this.alertMessage = Error.message
       });
     }
     else {
-      console.log(this.profileArr[0].key);
-      firebase.database().ref('Brunches/' + this.userId + '/').update(this.brunchesArr[0].key, {
+      firebase.database().ref('Brunches/' + this.userId + '/' + this.profileArr[0].key + '/').update({
         email: this.email,
         desc: this.desc,
         Telphone: this.tel
+      },Error=>{
+        this.alertMessage = Error.message
       });
     }
+
+
+    }
+    
+    alert(this.alertMessage)
 
   }
 
@@ -161,11 +188,17 @@ export class ProfileComponent implements OnInit {
     this.tel = x.ContactDetails;
     this.city = x.city;
     this.email = x.Email;
-    this.logo = x.Url;
+    this.url = x.Url;
   }
 
   signOut(){
     this.router.navigate(['/sign-in'])
-}
-
+ }
+ profile(){
+  this.router.navigate(['/profile'])
+ }
+ goToMap(){
+  this.router.navigate(['/landing-page']);
+ }
+ 
 }
