@@ -126,19 +126,18 @@ export class ProfileComponent implements OnInit {
   }
 
   edit() {
-    console.log(this.key)
-    // if(this.email == ""){
-    //   this.alertMessage = "Please enter the brnch's email"
+    if(this.email == ""){
+      this.alertMessage = "Please enter the brnch's email"
 
-    // }
-    // else if(this.tel > 999999999 || this.tel < 100000000){
-    //   this.alertMessage = "Please enter the branch's Phone number"
+    }
+    else if(this.tel > 999999999 || this.tel < 100000000){
+      this.alertMessage = "Please enter the branch's Phone number"
 
-    // }
-    // if(this.desc == ""){
-    //   this.alertMessage = "Please make sure that the description field is not empty."
-    // }
-    // else{
+    }
+    if(this.desc == ""){
+      this.alertMessage = "Please make sure that the description field is not empty."
+    }
+    else{
     // if (this.clickState == 0) {
     //   firebase.database().ref('Brunches/' + this.userId + '/' + this.key + '/').update({
     //     email: this.email,
@@ -153,16 +152,16 @@ export class ProfileComponent implements OnInit {
         email: this.email,
         desc: this.desc,
         Telphone: this.tel
-        
       },Error=>{
         this.alertMessage = Error.message
       });
     // }
-    alert('updated')
+       
+    alert("updated")
 
-    // }
+    }
     
-    // alert(this.alertMessage)
+    alert(this.alertMessage)
 
   }
 

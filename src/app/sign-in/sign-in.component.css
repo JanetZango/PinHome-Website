@@ -28,7 +28,7 @@
 .seperator{
     height: 60vh;
     width: 25vw; 
-    /* background-image: url('../../assets/imgs/tree.jpg'); */
+    background-image: url('../../assets/imgs/tree.jpg');
     /* border-top-left-radius:20px;
     border-bottom-left-radius:20px; */
     background-size: cover;
