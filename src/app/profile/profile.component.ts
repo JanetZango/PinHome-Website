@@ -20,8 +20,12 @@ export class ProfileComponent implements OnInit {
   city
   url;
   tel;
+  city1
+  url1;
+  tel1;
   logo;
   address;
+  email1;
   cat;
   brunchesArr = [];
   mail;
@@ -50,6 +54,8 @@ export class ProfileComponent implements OnInit {
       this.key =  data.key
 
     })
+
+      this.getGallery()
     this.getBrunches().then((data: any) => {
       console.log(data);
       var keys = data.keys;
@@ -58,16 +64,11 @@ export class ProfileComponent implements OnInit {
         console.log(keys[x])
         this.brunchesArr.push(temp[keys[x]]);
         console.log(this.brunchesArr);
-        
       }
-
-    })
-    this.retrieveGal().then((data)=>{
-     
-      console.log(data);
     })
   }
-  getDetails() {
+
+  getDetails(){
     return new Promise((accpt, reject) => {
     
       firebase.auth().onAuthStateChanged(function (user) {
@@ -101,6 +102,40 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
    
+  }
+  getGallery(){
+    console.log('getting gallery')
+    this.retrieveGal().then((data:any) =>{
+      this.imagesArr.length = 0;
+      var keys = data.keys;
+      var temp = data. detals;
+      console.log(keys);
+      console.log(temp);
+      for (var x=0; x < keys.length; x++){
+        this.imagesArr.push(temp[keys[x]])
+      }
+      console.log(this.imagesArr);
+    })
+  }
+
+
+  retrieveGal(){
+    return new Promise((accpt, rej) => {
+      firebase.auth().onAuthStateChanged(function (user) {
+        let dbPath = 'Gallery/' + user.uid;
+        firebase.database().ref(dbPath).on("value", (data: any) => {
+          let details = data.val();  
+          let key = Object.keys(details)
+            
+             let obj={
+              detals:details,
+              keys : key
+            }
+            console.log(obj)
+          accpt(obj)
+        })
+      })
+    })
   }
 
   getBrunches() {
@@ -196,12 +231,14 @@ export class ProfileComponent implements OnInit {
   }
 
   showinfo(x) {
-    // this.clickState = 1;
-    // this.name = x.OrganizationName
-    // this.tel = x.ContactDetails;
-    // this.city = x.city;
-    // this.email = x.Email;
-    // this.url = x.Url;
+    this.clickState = 1;
+    console.log(x);
+    
+    this.name1 = x.OrganizationName
+    this.tel1 = x.ContactDetails;
+    this.city1 = x.city;
+    this.email1 = x.Email;
+    this.url1 = x.Url;
     this.showEdit();
   }
 
@@ -283,7 +320,7 @@ getImages(event:any) {
       console.log(user);
      firebase.database().ref('Gallery/' + user + '/').push({
        GalUrl: this.urlGallery1})
-    this.retrieveGal();
+       this.getGallery()
     this.dismissUploader();
       }, Error=>{
        alert(Error)
@@ -291,33 +328,6 @@ getImages(event:any) {
     reader.readAsDataURL(event.target.files[0]);
     this.galleryupload = "Upload More"
   }
-}
-
-retrieveGal(){
-  return new Promise((accpt, rej) => {
-    firebase.auth().onAuthStateChanged(function (user) {
-      let dbPath = 'Gallery/' + user.uid;
-       var imagesArr = [];
-      firebase.database().ref(dbPath).on("value", (data: any) => {
-        let details = data.val();
-        console.log(details)
-        
-        let key = Object.keys(details)
-        console.log(key)
-        for(var i=0; i < key.length;++i){
-          let k = key[i]
-          console.log(k)
-          
-          let obj={
-            Gallery: details[k].GalUrl
-          }
-          imagesArr.push(obj);
-          console.log(imagesArr);
-        }
-      })
-    })
-    accpt(this.imagesArr)
-  })
 }
 
 

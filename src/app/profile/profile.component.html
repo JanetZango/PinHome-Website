@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="list" >
-      <div class="gal" id="push" *ngFor="let i imagesArr">
-        <img [src]="i.Gallery" alt="">
+      <div class="gal" id="push" *ngFor="let i of imagesArr">
+        <img [src]="i.GalUrl" alt="">
       </div>
       <div class="gal" id="toUpload" (click)="openUploader()">
         <h1>
@@ -38,7 +38,7 @@
       <div class="heading">
         <img class="logoOnEdit" src="{{logo}}" alt="">
         <div class="orgNameEdit">
-          {{name}}
+          {{name1}}
         </div>
       </div>
       <div class="restOfBody">
@@ -46,19 +46,19 @@
           <div class="sgubhu">
             <h3>Edit branch details</h3>
             <div class="texts">
-              <input type="text" value={{name}} placeholder="Branch Name">
+              <input type="text" value={{name1}} placeholder="Branch Name">
               <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">business</i>
             </div>
             <div class="texts">
-              <input type="email" value={{email}} placeholder="Branch Email">
+              <input type="email" value={{email1}} placeholder="Branch Email">
               <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">mail</i>
             </div>
             <div class="texts">
-              <input type="tel" value={{tel}} placeholder="Phone (eg: 829876543)">
+              <input type="tel" value={{tel1}} placeholder="Phone (eg: 829876543)">
               <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">phone</i>
             </div>
             <div class="texts">
-              <textarea type="text" value={{city}} placeholder="Address" maxlength="250" style="resize: none"></textarea>
+              <textarea type="text" value={{city1}} placeholder="Address" maxlength="250" style="resize: none"></textarea>
               <i style="color: white;height: 30px; position: absolute; right: 20px;top: 40px; " class="person" class="material-icons">pin_drop</i>
             </div>
             <div class="submitterDiv">
@@ -87,7 +87,7 @@
             </label>
       </div>
       
-      <input type="file" [(ngModel)]="images" id="imgUpload" (change)="getImages($event)" multiple>
+      <input type="file"  id="imgUpload" (change)="getImages($event)" multiple>
     </div>
   </div>
   <div class="container">

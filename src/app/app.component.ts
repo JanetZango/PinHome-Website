@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from'@angular/router';
+import { Router } from '@angular/router';
+import { log } from 'util';
 
 declare var firebase
 
@@ -17,29 +18,41 @@ export class AppComponent {
  message;
  email;
 
-  constructor( public router: Router){
+  constructor( private router: Router){
     // console.log('ok')
     // let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
     // let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
 
-    firebase.auth().onAuthStateChanged(function(user) {
-      console.log(user);
-      
-      if (user) {
-        this.router.navigate(['/sign-in'])
-        // prof[0].style.display = "block";
-        // signOutBtn[0].style.display = "block";
-        // this.router.navigate(['/sign-in']);
-      } else {
-        console.log('no user')
-        this.state = 0;
-        this.router.navigate(['/sign-in']);
-        // prof[0].style.display = "none";
-        // signOutBtn[0].style.display = "none"
-      }
-    });
+  this.redirect()
   }
 
+
+  nav(){
+    return new Promise ((pass,fail) =>{
+      firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user);
+        if (user) {
+          pass(1)
+        } else {
+          console.log('no user')
+        pass(0)
+        }
+      });
+    })
+ 
+  }
+
+  redirect(){
+ 
+    this.nav().then((x:any) =>{
+      if (x == 1){
+        this.router.navigate(['/landing-page'])
+      }
+      else{
+          this.router.navigate(['/sign-in']);
+      }
+    })   
+  }
 
 
   show(){

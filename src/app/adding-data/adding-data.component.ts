@@ -347,7 +347,7 @@ export class AddingDataComponent {
 
   // }
 
-  getPhone() {
+  getPhone(event) {
     // alert(this.tel);
 
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
