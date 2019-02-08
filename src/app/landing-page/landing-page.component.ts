@@ -16,7 +16,7 @@ export class LandingPageComponent implements OnInit {
 
   key;
   proArr = [];
-  dbPath
+  dbPathdecideS
   email;
   OrganizationKey;
   organizationArr = [];

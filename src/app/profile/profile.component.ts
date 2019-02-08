@@ -1,6 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { EINPROGRESS } from 'constants';
+import { userInfo } from 'os';
+import { log } from 'util';
 declare var firebase;
 @Component({
   selector: 'app-profile',
@@ -18,16 +20,27 @@ export class ProfileComponent implements OnInit {
   city
   url;
   tel;
+  city1
+  url1;
+  tel1;
   logo;
   address;
+  email1;
   cat;
   brunchesArr = [];
   mail;
   profileArr = [];
   clickState = 0;
-  name1;;
+  name1;
+  state = 0;
   key;
   alertMessage;
+  urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
+  galleryupload: string;
+  imagesArr = [];
+  gallery;
+
+   
   constructor(private router: Router, private _ngZone: NgZone) {
     this.getDetails().then((data: any) => {
       this.name = data.name;
@@ -41,6 +54,8 @@ export class ProfileComponent implements OnInit {
       this.key =  data.key
 
     })
+
+      this.getGallery()
     this.getBrunches().then((data: any) => {
       console.log(data);
       var keys = data.keys;
@@ -49,13 +64,11 @@ export class ProfileComponent implements OnInit {
         console.log(keys[x])
         this.brunchesArr.push(temp[keys[x]]);
         console.log(this.brunchesArr);
-        
       }
-
     })
-
   }
-  getDetails() {
+
+  getDetails(){
     return new Promise((accpt, reject) => {
     
       firebase.auth().onAuthStateChanged(function (user) {
@@ -88,6 +101,41 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+   
+  }
+  getGallery(){
+    console.log('getting gallery')
+    this.retrieveGal().then((data:any) =>{
+      this.imagesArr.length = 0;
+      var keys = data.keys;
+      var temp = data. detals;
+      console.log(keys);
+      console.log(temp);
+      for (var x=0; x < keys.length; x++){
+        this.imagesArr.push(temp[keys[x]])
+      }
+      console.log(this.imagesArr);
+    })
+  }
+
+
+  retrieveGal(){
+    return new Promise((accpt, rej) => {
+      firebase.auth().onAuthStateChanged(function (user) {
+        let dbPath = 'Gallery/' + user.uid;
+        firebase.database().ref(dbPath).on("value", (data: any) => {
+          let details = data.val();  
+          let key = Object.keys(details)
+            
+             let obj={
+              detals:details,
+              keys : key
+            }
+            console.log(obj)
+          accpt(obj)
+        })
+      })
+    })
   }
 
   getBrunches() {
@@ -185,11 +233,13 @@ export class ProfileComponent implements OnInit {
 
   showinfo(x) {
     this.clickState = 1;
-    this.name = x.OrganizationName
-    this.tel = x.ContactDetails;
-    this.city = x.city;
-    this.email = x.Email;
-    this.url = x.Url;
+    console.log(x);
+    
+    this.name1 = x.OrganizationName
+    this.tel1 = x.ContactDetails;
+    this.city1 = x.city;
+    this.email1 = x.Email;
+    this.url1 = x.Url;
     this.showEdit();
   }
 
@@ -212,4 +262,74 @@ export class ProfileComponent implements OnInit {
 
   editor[0].style.display = "block";
 }
+decideState() {
+  if (this.state == 0) {
+    this.showSlide()
+  }
+  else {
+    this.hideSlide()
+  }
+
+  console.log(this.state);
+
+}
+
+showSlide() {
+  let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+  let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+  arrow[0].style.left = "48%";
+  arrow[0].style.transform = "translateX(-60%)";
+  arrow[0].style.transform = "rotateZ(180DEG)";
+  slider[0].style.bottom = "0";
+
+  this.state = 1;
+
+}
+hideSlide() {
+  let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+  let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+  arrow[0].style.left = "48%";
+  arrow[0].style.transform = "translateX(-60%)";
+  arrow[0].style.transform = "rotateZ(0DEG)";
+  slider[0].style.bottom = "-200px";
+
+  this.state = 0
+}
+
+openUploader(){
+  var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+
+  uploader[0].style.display = "block"
+}
+dismissUploader(){
+  var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+
+  uploader[0].style.display = "none"
+
+}
+getImages(event:any) {
+
+  
+  if (event.target.files && event.target.files[0]) {
+    let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.urlGallery1 = event.target.result;
+      console.log(this.urlGallery1);
+      var user = firebase.auth().currentUser.uid
+      console.log(user);
+     firebase.database().ref('Gallery/' + user + '/').push({
+       GalUrl: this.urlGallery1})
+       this.getGallery()
+    this.dismissUploader();
+      }, Error=>{
+       alert(Error)
+     }
+    reader.readAsDataURL(event.target.files[0]);
+    this.galleryupload = "Upload More"
+  }
+}
+
+
 }
