@@ -14,6 +14,7 @@
    font-family: Arial;
 }
 .cont{
+    transition: 700ms;
     width: 50%;
     height: 80%;
     /* border: 2px solid red; */
@@ -22,6 +23,7 @@
     top: 48%;
     transform: translate(-50%,-50%);
     background: #10243D;
+    filter:blur();
 }
 #orgName{
     position: absolute;
@@ -95,6 +97,7 @@
     overflow-y: scroll; 
 }
 .org{
+    cursor: pointer;
     padding: 10px;
     width: 90%;
     background: white;
@@ -166,11 +169,15 @@
 i{
     line-height: 50px;
 }
+#coverUploader{
+    display: none;
+}
 
 .keepFixed{
     color: white;
 }
 .overlay{
+    transition: 300ms;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.158);
@@ -179,17 +186,121 @@ i{
     top: 0;
     left: 0;
     padding: 15px;
+    display: none;
+    opacity: 1;
+    /* opacity: 0; */
+    
 }
 .addBranch{
-    width: 50%;
-    height: 80%;
-    background: white;
+    width: 30%;
+    /* height: 80%; */
+    background: #10243D;
     position: relative;
     left: 50%;
     top: 48%;
+    text-align: center;
+    padding-bottom: 15px;
     transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px black;
+    border-radius: 5px;
+    color: white;
+    animation: fadeIn 700ms;
+    animation-iteration-count: 1;
 }
 .addBranch h3{
     text-align: center;
     padding: 10px;
+}
+form{
+    width: 90%;
+    /* height: 90%; */
+    margin: 0 auto;
+    background:  #10243D;
+    border-radius: 5px;
+    border: .5px solid rgba(128, 128, 128, 0.151);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px; 
+}
+form input, textarea{
+    width: 420px;
+    padding: 10px;
+    resize: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: arial;
+    border: 2px solid white;
+    background: #10243D;
+    animation: flash 1s;
+    animation-iteration-count: infinite;
+    color: white;
+}
+input{
+    border-radius: 50px;
+}
+textarea{
+    border-radius: 25px; 
+}
+::-webkit-input-placeholder{
+    color: grey;
+}
+#submitter{
+    width: 430px;
+    padding: 10px;
+    margin: 10px;
+    background: #018790;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid white;
+}
+.dismisser{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: red;
+    border-radius: 40px;
+    position: absolute;
+    animation: flash 1s;
+    animation-iteration-count: infinite;
+    right: -20px;
+    top: -20px;
+}
+.dismisser i{
+    line-height: 40px;
+}
+.coverToUpload{
+    width: 99.5%;
+    height: 250px;
+    animation: imageFlash 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes flash{
+    0%{
+        border: 2px solid white;
+    }
+    50%{
+        border: 2px solid rgb(255, 243, 176);
+    }
+    100%{
+        border: 2px solid white;
+    }
+}
+@keyframes imageFlash{
+    0%{
+        border: 2px solid rgba(255, 243, 176, 0);
+    }
+    50%{
+        border: 2px solid rgb(255, 243, 176);
+    }
+    100%{
+        border: 2px solid rgba(255, 243, 176, 0);
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }

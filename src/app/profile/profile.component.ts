@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EINPROGRESS } from 'constants';
 import { userInfo } from 'os';
 import { log } from 'util';
+import { timeout } from 'q';
 declare var firebase;
 @Component({
   selector: 'app-profile',
@@ -330,5 +331,27 @@ getImages(event:any) {
   }
 }
 
+closeDIV(){
+  var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+  var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+
+  
+  bg[0].style.filter = "blur(0)"
+  x[0].style.opacity="0"
+  setTimeout(() => {
+    x[0].style.display ="none"
+  }, 300);
+}
+showDIV(){
+  
+  var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+  var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+
+  x[0].style.opacity="1"
+  x[0].style.display ="block"
+  bg[0].style.filter = "blur(6px)";
+
+
+}
 
 }

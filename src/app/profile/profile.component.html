@@ -151,11 +151,25 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <!-- <div class="overlay">
+    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader">
+  <div class="overlay">
     <div class="addBranch">
+      <div class="dismisser" (click)="closeDIV()">
+        <i class="material-icons">close</i>
+      </div>
+      <label for="coverUploader">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="coverToUpload">
+      </label>
       <h3>Edit branch details</h3>
+      <form action="">
+        <input type="text" placeholder="Branch Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="text" placeholder="Tel"><br>
+        <textarea name="" id="" cols="30" rows="4" placeholder="Address"></textarea><br>
+      </form>
+      <button id="submitter">submit</button>
     </div>
-  </div> -->
+  </div>
   <div class="cont">
     <div class="coverPhoto">
       <div class="about">
@@ -176,7 +190,7 @@
       <div class="list">
         <div class="FAB"><i class="material-icons">add</i></div>
         <h2 class="keepFixed" color="">Branches</h2>
-        <div class="org">
+        <div class="org" (click)="showDIV()">
           <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">
           <div class="listDetails">
             <h3 id="branchHead">Green Village Branch</h3>
