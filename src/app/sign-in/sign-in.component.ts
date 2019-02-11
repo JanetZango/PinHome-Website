@@ -76,9 +76,9 @@ export class SignInComponent implements OnInit {
         firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
           firebase.auth().onAuthStateChanged(data => {
             this.userId = data.uid;
-            // myAlert[0].style.top = (b/3.5) + "px";
-            // myAlert[0].style.left = "2.3%"; 
-            // alert("logged in")
+            myAlert[0].style.top = (b/3.5) + "px";
+            myAlert[0].style.left = "2.3%"; 
+            alert("logged in")
             this.router.navigate(['/landing-page'])
           }, Error => {
             // alert("something's wrong")
@@ -133,6 +133,7 @@ export class SignInComponent implements OnInit {
 
 
   forgotpassword(email) {
+    alert('nice')
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
       myAlert[0].style.display = "block";

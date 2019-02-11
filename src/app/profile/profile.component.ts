@@ -187,25 +187,26 @@ export class ProfileComponent implements OnInit {
       this.alertMessage = "Please make sure that the description field is not empty."
     }
     else{
-    if (this.clickState == 0) {
-      firebase.database().ref('Websiteprofiles/' + this.userId + '/' + this.key + '/').update({
+    // if (this.clickState == 0) {
+    //   firebase.database().ref('Brunches/' + this.userId + '/' + this.key + '/').update({
+    //     email: this.email,
+    //     desc: this.desc,
+    //     Telphone: this.tel
+    //   },Error=>{
+    //     this.alertMessage = Error.message
+    //   });
+    // }
+    // else {
+      firebase.database().ref('Brunches/' + this.userId + '/' + this.key + '/').update({
         email: this.email,
         desc: this.desc,
         Telphone: this.tel
       },Error=>{
         this.alertMessage = Error.message
       });
-    }
-    else {
-      firebase.database().ref('Brunches/' + this.userId + '/' + this.profileArr[0].key + '/').update({
-        email: this.email,
-        desc: this.desc,
-        Telphone: this.tel
-      },Error=>{
-        this.alertMessage = Error.message
-      });
-    }
-
+    // }
+       
+    alert("updated")
 
     }
     

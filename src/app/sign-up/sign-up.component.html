@@ -1,129 +1,51 @@
 <head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-
-<body class="thebody">
-
-  <div class="overlayer">
-    <div class="alerter">
-      <div class="dismissBtn" (click)="dismissAlert()">
-        <i class="material-icons">close</i>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  
+  <div class="maindiv">
+    <div class="box">
+      <div class="row">
+        <div class="column1">
+          <h1>PinHome</h1>
+          <p>______</p>
+          <h3>Welcome to PinHome, please fill in the form to get started with adding your non-profit organisation
+            </h3>
+          <div class="theButton">
+            <button class="loginBtn" (click)="goToSignIn()">Sign In</button>
+          </div>
+        </div>
+        <div class="column">
+          <h2>Sign Up</h2>
+          <p class="Account">
+            Please make sure that the information you provide is true and accurate.
+            <b style=" font-weight: 100; text-decoration: underline" (click)="goToSignIn()"></b>
+          </p>
+          <div class="textfield">
+            <!-- <label for="selectBox" id="mySelect">Select Category</label> -->
+            <select [(ngModel)]="select" id="selectBox" (change)="comboBox()">
+              <option value="Orphanage">Orphanage</option>
+              <option value="Disability">Disability</option>
+              <option value="old age">Old Age Homes</option>
+              <option value="theraphy">Theraphy</option>
+              <option value="Psychiatric">Psychiatric centres/Hospital</option>
+              <option value="social centre">Social Centre</option>
+              <option value="Rehab">Rehab</option>
+            </select>
+          </div>
+          <label for="">
+            <i style="position: relative; top: 40px; left: 190px; color: #ffffff" class="material-icons">business</i>
+          </label>
+          <input [(ngModel)]="email" type="email" placeholder="Organisation Name">
+          <label for="">
+            <i style="position: relative; top: 40px; left: 190px; color: #ffffff" class="material-icons">mail</i>
+          </label>
+          <input [(ngModel)]="email" type="email" placeholder="Organisation Email">
+          <label for="">
+            <i style="position: relative; top: 40px; left: 190px; color: #ffffff" class="material-icons">lock</i>
+          </label>
+          <input [(ngModel)]="password" type="password" placeholder="Password">
+          <button class="submitBtn" (click)="showPage2()">Register</button>
+        </div>
       </div>
-      <p>{{alertMessage}}</p>
-      <img class="loader" src="../../assets/imgs/custom alert/loading.gif" alt="">
     </div>
-
   </div>
-  <div class="container">
-    <div class="seperator">
-      <h1>Welcome</h1>
-      <p>____</p>
-      <h3>Welcome to the PinHome Database, please fill in the form to get started with adding your non-profit
-        organisation to
-        the database.</h3>
-      <div class="theButton">
-        <button class="loginBtn" (click)="goToSignIn()">Sign In</button>
-      </div>
-    </div>
-    <div class="seperator2">
-
-
-      <div class="decider">
-        <div class="signIn" (click)="showPage1($event)">
-          &bull;
-        </div>
-        <div class="signUp" (click)="showPage2()">
-          &bull;
-        </div>
-      </div>
-      <div id="first">
-        <div class="instruction">
-          Sign Up
-          <p>Please make sure that the information you provide is true and accurate.</p>
-        </div>
-        <div class="firstCont">
-          
-            <div class="textfield">
-                <label for="selectBox" id="mySelect">Select Category</label>
-                <select [(ngModel)]="select" id="selectBox" (change)="comboBox()">
-                  <option value="Select Category" selected disabled>Select Category</option>
-                  <option value="Orphanage">Orphanage</option>
-                  <option value="Disability">Disability</option>
-                  <option value="old age">Old Age Homes</option>
-                  <option value="theraphy">Theraphy</option>
-                  <option value="Psychiatric">Psychiatric centres/Hospital</option>
-                  <option value="social centre">Social Centre</option>
-                  <option value="Rehab">Rehab</option>
-                </select>
-              </div>
-          <div class="textfield">
-            <input [(ngModel)]="orgName" type="text" placeholder="Organisation Name">
-          </div>
-          <div class="textfield">
-            <input [(ngModel)]="email"  type="email" placeholder="Organisation Email">
-          </div>
-          <div class="textfield">
-            <input [(ngModel)]="password"  type="password" placeholder="Password">
-          </div>
-
-          <div class="arrow" (click)="showPage2()">
-            Next &gt;
-          </div>
-          <div class="back">
-            &lt; Sign In
-          </div>
-        </div>
-      </div>
-      <div id="second">
-
-        <div class="instructions">
-          Please fill in a few more spaces to finish signing up and we're good to go.
-        </div>
-        <div class="secondCont">
-          <div class="photos">
-            <div class="cover">
-              <div class="theuploader">
-                <label for="myCover" id="label1">
-                  <i class="material-icons">
-                    edit
-                  </i>
-                </label>
-                <input type="file" id="myCover" accept="image/*" (change)="InsertPicture($event)">
-
-              </div>
-              <img src="{{urlCover}}" alt="">
-            </div>
-            <div class="dp">
-              <div class="theuploader1">
-                <label for="myLogo" id="label2">
-                </label>
-                <input type="file" id="myLogo" accept="image/*" (change)="InsertLogo($event)">
-              </div>
-              <img src="{{urlLogo}}" alt="">
-            </div>
-          </div>
-          <br>
-          <div class="textfield">
-            <input [(ngModel)]="fName"  type="text" placeholder="Full Name (Representative)">
-          </div>
-          <div class="textfield">
-            <input [(ngModel)]="tel" (change)="getPhone($event)"  type="number" id="numberBox" placeholder="Phone">
-          </div>
-
-          <div class="textfield">
-            <textarea [(ngModel)]="desc"  type="text" placeholder="Add a description for your organisation (max 180 characters)"></textarea>
-          </div>
-
-          <div class="textfield" >
-            <textarea  [(ngModel)]="address" type="text" placeholder="Organisation Address"></textarea>
-          </div>
-      
-        </div>
-        <div (click)="Reg()" class="submitter">
-          Submit
-        </div>
-      </div>
-    </div>
-
-  </div>
-</body>
