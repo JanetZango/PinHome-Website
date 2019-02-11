@@ -46,10 +46,10 @@ export class AppComponent {
  
     this.nav().then((x:any) =>{
       if (x == 1){
-        this.router.navigate(['/landing-page'])
+        this.router.navigate(['/profile'])
       }
       else{
-          this.router.navigate(['/sign-in']);
+          this.router.navigate(['/sign-up']);
       }
     })   
   }

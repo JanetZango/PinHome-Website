@@ -36,7 +36,6 @@
           &bull;
         </div>
       </div>
-      <!-- ======================================================================================================================================================================================================================================= -->
       <div id="first">
         <div class="instruction">
           Sign Up
@@ -45,7 +44,6 @@
         <div class="firstCont">
           
             <div class="textfield">
-                <!-- <p>Select Category</p> -->
                 <label for="selectBox" id="mySelect">Select Category</label>
                 <select [(ngModel)]="select" id="selectBox" (change)="comboBox()">
                   <option value="Select Category" selected disabled>Select Category</option>
@@ -76,7 +74,6 @@
           </div>
         </div>
       </div>
-      <!-- ======================================================================================================================================================================================================================================= -->
       <div id="second">
 
         <div class="instructions">
@@ -99,9 +96,6 @@
             <div class="dp">
               <div class="theuploader1">
                 <label for="myLogo" id="label2">
-                  <!-- <i class="material-icons">
-                    edit
-                  </i> -->
                 </label>
                 <input type="file" id="myLogo" accept="image/*" (change)="InsertLogo($event)">
               </div>
