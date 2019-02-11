@@ -25,6 +25,13 @@
     background: #10243D;
     filter:blur();
 }
+button{
+    cursor: pointer;
+}
+.signOut{
+    position: absolute;
+    height: 20px;
+}
 #orgName{
     position: absolute;
     left: 50%;
