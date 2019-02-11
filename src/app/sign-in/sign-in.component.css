@@ -1,168 +1,157 @@
-
-  .thebody{
-    height: 130vh;
-    width: 100vw;
-    margin-top: -300px; 
-    background-image: linear-gradient(rgba(12, 33, 43, 0.5),rgba(16, 60, 78, 0.589)),url('../../assets/imgs/tree.jpg');
-    /* background: linear-gradient(rgba(13, 32, 41, 0.281),rgba(5, 59, 77, 0.904)),url('../../assets/imgs/default-cover.jpg'); */
-    background-size: cover;
-    background-repeat: no-repeat; 
-     background-position: top; 
-     overflow-y:hidden;
-     overflow-x:hidden;
-     position: fixed;
-     margin-left: -15px;
-     
-   
-}
-.container{
-    height: 60vh;
-    width: 50vw;
-    margin: 0 auto;
-    margin-top: 200px;
+.maindiv{
+    position: absolute;
+    top: 0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    top: 250px;
-}
-.seperator{
-    height: 60vh;
-    width: 25vw; 
-    background-image: url('../../assets/imgs/tree.jpg');
-    /* border-top-left-radius:20px;
-    border-bottom-left-radius:20px; */
+    background-color: #d6fcfe;
     background-size: cover;
-    /* border: 2px solid black; */
-    background-position: bottom ;
     background-repeat: no-repeat;
-    box-shadow: 10px 12px 20px rgba(17, 17, 17, 0.466);
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23018790' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-.seperator::before{
-    opacity: 0.5
+.box{
+    position: absolute;
+    top: 0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.seperator p{
-    text-align: center;
-    font-size: 1.8em;
-    position: relative;
-    top: 80px;
-    color: white;
-}
-.seperator2{
-    height: 60vh;
-    width: 25vw; 
-    /* border-top-right-radius:20px;
-    border-bottom-right-radius:20px; */
-    background-color: rgb(255, 255, 255);
-    box-shadow: 10px 12px 20px  rgba(14, 13, 13, 0.466);
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 550px;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #10243D;
     
 }
-h1{
-    text-align: center;
-    font-weight: 100;
-    padding-top: 100px;
-    font-size: 2.3em; 
-    color: white;
-    position: relative;
-    top: 80px;
-   
-}
-p{
-    font-size:1em;
-}
-h2{
-    color: rgb(134, 126, 126);
+.Account{
     text-align: left;
-    padding-left: 70px;
-    font-size: 2em;
-    padding-top: 30px;
-    position: relative;
-    top: 20px;
 }
-h3{
-    font-weight: 100;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 150px;
-    color: white;
-    text-shadow: 0 0 10 black;
+.column1{
+    
+    /* background-image: linear-gradient(rgba(12, 33, 43, 0.007),rgba(255, 255, 255, 0.363)); */
+    /* background-image: url('../../assets/imgs/london+flower+market-2.jpg'); */
+    background-color:   #018790;
+    float: left;
+    width: 550px;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    box-shadow: 0 0 10px white;
 }
-.message{
-    color: black;
-    padding-right: 17%;
-    font-size: 1em;
-    padding-bottom: -50px;
-    padding-left: 75px;
-    position: relative;
-    top: 50px;
-}
-.textfield{
-    width: 100%;
-    height: 50px;
-}
-.textfield input{
-    border-top: 2px;  
-    border-right: 0px;
-    border-left: 0px; 
-    border-color: #20676e;      
-    width: 70%;
-    height: 30px;
-    font-size: 1.2em;
-    margin-left: 73px;
-    margin-top: 80px;
-}
-.textfield i{
-    color: green
-}
-.person{
+  
+  /* Clear floats after the columns */
+  .row {
+    content: "";
+    display: table;
+    clear: both;
+    box-shadow: 0 0 10px
+  
+  }
+  h1{
+      font-weight: 100;
+      color: white;
+      font-size: 3.8em;
+      /* text-shadow: 0 0 10px black; */
+      /* position: relative;
+      bottom: 40px; */
+      position: relative;
+      bottom: 10px; 
+  }
+  h2{
+      text-align: left;
+      width: 80%;
+      font-size: 3em;
+      color: white;
+      font-weight: 100;
+  }
+  h3{
+      font-size: 1.5em; 
+      font-weight: 100;
+      color: white;
+      /* text-shadow: 0 0 10px black; */
+  }
+  p{
+      width: 80%;
+      text-align: center;
+      color: white;
+      /* font-size: 1.8em; */
+  } 
+  .column1 p{
+      color: white;
+      font-size: 1.2em;
+      position: relative;
+      bottom: 20px;
+  }
+  input{
+      width: 80%;
+      min-width: 300px;
+      margin: 9px;
+      height: 55px;
+      border-bottom: 2px #ffffff solid;
+      border-top: 2px #ffff solid;
+      border-right: 2px solid white;
+      border-left: 2px solid white;
+      border-radius: 50px;
+      background-color: rgba(255, 255, 255, 0);
+      font-size: 1em;
+      padding-left: 20px;
+      color: white;
+    
+  }
+  ::-webkit-input-placeholder{
+      color: white;
+  }
+  button{
+      height: 45px;
+      width: 300px;
+      border: #018790 2px solid;
+      box-shadow: 0 0 10px #018790;
+      border-radius: 100px;
+      background-color: white;
+      color:white;
+      font-size: 1em;
+      font-weight: 100;
+      background-color: #018790;
+      margin-top: 30px;
+  }
+  .person{
     height: 25px;
     margin-right: -50px;
     position: relative;
     right: 25px;
     top: 5px;
- 
 }
-
-.theTable{
-    margin-right: 100px;
-    z-index: 100000;
-    width: 100%;
-    margin-top: 30px;
-    margin-left: 10px;
+.theRocket{
+    margin-top: 80px;
 }
-.check{
-border: #20676e/ solid 2px;
-}
-.password{
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-    padding-left: 65px;
-    position: relative;
-   top: 90px;
-}
-.divButton{
-   text-align: center;
-   margin-top: 140px;
-   height: 10px;
-}
-.theBUTTON{
-    cursor: pointer;
-    height: 500%;
-    width: 150px;
-    border-radius: 50px;
-    background-color: #20676e;
-    color: white;
-    border: 2px solid #20676e;
-    font-size: 1em;
-}
-
-  
-
-
-/* this is the styling for the alert */
-.material-icons{
-    line-height: 40px;
+.thepassword{
+    text-align: center;
+   padding-top: 20px;
 }
 .overlayer{
     width: 100vw;
@@ -218,12 +207,10 @@ border: #20676e/ solid 2px;
     border: 1px solid grey;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-
     font-family: Arial, Helvetica, sans-serif;
 }
 .alerter img{
     height: 40px;
-
 }
 /* end of styling */
 button{

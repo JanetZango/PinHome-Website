@@ -55,9 +55,9 @@ export class AppComponent {
   }
 
 
-  show(){
-    this.router.navigate(['/adding-data']);
-  }
+  // show(){
+  //   this.router.navigate(['/adding-data']);
+  // }
 
   // dismissAlert(){
   //   let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf <HTMLElement>;
