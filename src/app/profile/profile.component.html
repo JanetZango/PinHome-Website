@@ -151,7 +151,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+  <div class="toMap" (click)=" goToMap()">
+    <i class="material-icons">map</i> <p>
+      
+    Go to map
+    </p>
+  </div>
     <input type="file" accept="image/jpg, image/jpeg" id="coverUploader">
+
+    <input type="file" accept="image/jpg, image/jpeg" id="galInput">
   <div class="overlay">
     <div class="addBranch">
       <div class="dismisser" (click)="closeDIV()">
@@ -170,11 +178,31 @@
       <button id="submitter">submit</button>
     </div>
   </div>
+  <div class="gallery">
+    <h3 (click)="showGal(v)">
+      <i class="material-icons">view_list</i>
+      Gallery</h3>
+    <label for="galInput">
+      <div class="adder">
+          <i class="material-icons">add</i></div>
+    </label><br>
+    <div class="array">
+
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+    </div>
+  </div>
   <div class="cont">
     <div class="coverPhoto">
-      <button id="signOut">
-        <i class="material-icons">directions_walk</i> Sign Out
-      </button>
+      <div id="signOut" (click)="signOut()">
+        <i class="material-icons">directions_walk</i>
+        <p>Sign Out</p>
+      </div>
       <div class="about">
         <img src="../../assets/Sanca.png" alt="" class="logo">
         <h3>About</h3>
@@ -191,7 +219,7 @@
     </div>
     <div class="branches">
       <div class="list">
-        <div class="FAB"><i class="material-icons">add</i></div>
+        <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
         <h2 class="keepFixed" color="">Branches</h2>
         <div class="org" (click)="showDIV()">
           <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">

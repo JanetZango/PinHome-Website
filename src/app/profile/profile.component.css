@@ -13,6 +13,15 @@
    padding: 15px;
    font-family: Arial;
 }
+.toMap{
+    cursor: pointer;
+    /* border: 2px solid white; */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    display: flex;
+}
 .cont{
     transition: 700ms;
     width: 50%;
@@ -28,9 +37,57 @@
 button{
     cursor: pointer;
 }
-.signOut{
+#signOut{
+    transition: 300ms;
+    cursor: pointer;
     position: absolute;
-    height: 20px;
+    height: 30px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.521);
+    line-height: 30px;
+    border:2px solid white;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    right: 10px;
+    top: 10px;
+}
+#signOut:hover{
+    position: absolute;
+    height: 30px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.671);
+    line-height: 30px;
+    border:2px solid white;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    right: 10px;
+    top: 10px;
+}
+#signOut:active{
+    position: absolute;
+    height: 30px;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    line-height: 30px;
+    border:2px solid white;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    right: 10px;
+    top: 10px;
+}
+#signOut i{
+    /* margin-top: 0; */
+    line-height: 30px;
+    /* margin-top: 10px; */
+}
+#signOut p{
+    margin-top: 0;
 }
 #orgName{
     position: absolute;
@@ -42,6 +99,7 @@ button{
     text-shadow: 0 5px 5px black
 }
 .coverPhoto .paragraph{
+    text-transform: capitalize;
     position: absolute;
     color: white;
     text-shadow: 0 5px 5px black;
@@ -157,12 +215,30 @@ button{
     background: rgb(24, 62, 107); 
 }
 .FAB{
+    transition: 300ms;
     cursor: pointer;
     font-weight: 500;
     font-size: 26px;
     width: 50px;
     height: 50px;
     background: #018790;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.281);
+
+}
+.FAB:active{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background: #00bac7;
     border-radius: 50px;
     text-align: center;
     line-height: 50px;
@@ -260,6 +336,9 @@ textarea{
     color: white;
     border: 2px solid white;
 }
+#galInput{
+    display: none;
+}
 .dismisser{
     cursor: pointer;
     width: 40px;
@@ -280,6 +359,75 @@ textarea{
     height: 250px;
     animation: imageFlash 1s;
     animation-iteration-count: infinite;
+}
+.gallery{
+    /*  */
+    transition: 300ms;
+    width: 300px;
+    height:98%;
+    position: fixed;
+    background: whitesmoke;
+    top: 10px;
+    right:-240px;
+    overflow-y: scroll;
+    text-align: center;
+    border-radius: 5px;
+}
+.gallery h3{
+    cursor: pointer;
+    line-height: 20px;
+    margin-top: 0;
+    text-align: left;
+}
+/* .gallery i{
+    line
+} */
+.images{
+    transition: 300ms;
+    /* cursor: pointer; */
+    width: 90%;
+    margin-top: 10px;
+    height: 200px;
+    /* border: 2px solid black; */
+    
+}
+.array{
+    transition: 300ms;
+    width: 100%;
+    opacity: 0;
+}
+.adder{
+    transition: 300ms;
+    cursor: pointer;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center;
+    display: none;
+}
+.adder:hover{
+    cursor: pointer;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.205)
+}
+.adder:active{
+    cursor: pointer;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center;
+    background: rgb(0, 0, 0);
+    color: white
+}
+.adder i{
+    font-size: 80px;
+    line-height: 200px;
 }
 @keyframes flash{
     0%{
