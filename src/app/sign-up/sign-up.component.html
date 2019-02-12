@@ -79,7 +79,7 @@
           <label for="">
             <i class="material-icons">phone</i>
           </label>
-          <input class="input2" style="height: 38px" [(ngModel)]="contact" type="number" placeholder="Phone">
+          <input class="input2" style="height: 38px" (change)="getPhone()" [(ngModel)]="contact" type="number" placeholder="Phone">
           <label for="">
             <i class="material-icons">description</i>
           </label>

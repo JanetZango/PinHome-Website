@@ -198,19 +198,19 @@ export class SignUpComponent implements OnInit {
     signIn[0].style.borderBottom = "5px solid #00eaff";
     signUp[0].style.borderBottom = "5px solid transparent";
   }
-  getPhone(tel) {
+  getPhone() {
     // alert(this.tel);
 
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-    if (this.tel > 999999999) {
+    if (this.contact > 999999999) {
 
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none"
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted1"
       // alert(this.tel);
     }
-    else if (this.tel < 100000000) {
+    else if (this.contact < 100000000) {
       myAlert[0].style.display = "block";
       theLoader[0].style.display = "none";
       this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted2";
