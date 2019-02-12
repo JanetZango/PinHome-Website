@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { FLAGS } from '@angular/core/src/render3/interfaces/view';
 import { reject } from 'q';
 
+
+import swal from 'sweetalert';
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
 declare var google;
 declare var firebase;
 // import {SlideshowModule} from 'ng-simple-slideshow';
@@ -32,6 +37,14 @@ export class LandingPageComponent implements OnInit {
   tempArr = []
 
   images = ["assets/imgs/1.png","assets/imgs/2.png","assets/imgs/3.png","assets/imgs/4.png","assets/imgs/7.png","assets/imgs/4.png","assets/imgs/5.png","assets/imgs/6.png" ]
+  url1;
+  email1;
+  city1;
+  tel1;
+  name1;
+  
+  clickState = 0;
+  v=0;
 
   constructor(private _ngZone: NgZone, private router: Router) {
   
@@ -91,7 +104,9 @@ export class LandingPageComponent implements OnInit {
       this.initMap()
     })
   }
-
+  addBrunch() {
+    this.router.navigate(['/adding-data']);
+  }
 assignData(x){
   this.organizationArr.push(x)
 }
@@ -416,25 +431,30 @@ assignUserID(id){
   }
 
   showSlide() {
+    var blurMap = document.getElementById("map");
     let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
     let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
 
-    arrow[0].style.left = "48%";
-    arrow[0].style.transform = "translateX(-60%)";
-    arrow[0].style.transform = "rotateZ(180DEG)";
+    // arrow[0].style.left = "48%";
+    // arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(180deg)";
+    // arrow[0].style.transform = "translateX(-50%)";
     slider[0].style.bottom = "0";
-
+    blurMap.style.filter = "blur(3px)"
     this.state = 1;
 
   }
   hideSlide() {
+    var blurMap = document.getElementById("map");
     let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
     let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
 
-    arrow[0].style.left = "48%";
-    arrow[0].style.transform = "translateX(-60%)";
-    arrow[0].style.transform = "rotateZ(0DEG)";
+    // arrow[0].style.left = "48%";
+    // arrow[0].style.transform = "translateX(-60%)";
+    // arrow[0].style.transform = "rotateZ(0DEG)";
     slider[0].style.bottom = "-200px";
+    arrow[0].style.transform = "rotateZ(0deg)"
+    blurMap.style.filter = "blur(0px)"
 
     this.state = 0
   }
@@ -446,10 +466,109 @@ assignUserID(id){
   }
 
   gotToProfile() {
-    this.router.navigate(['/profile']);
+    // alert("clicked")
+    var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf <HTMLElement>;
+    var blurMap = document.getElementById("map");
+    blurMap.style.filter = "blur(6px)"
+
+    prof[0].style.display = "block"
   }
   goToProfile() {
-    this.router.navigate(['/profile']);
+    // alert("clicked")
+    var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf <HTMLElement>;
+    
+
+    prof[0].style.display = "block"
   }
 
+  closeDIV(){
+    var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+    var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+    var imgs = document.getElementsByClassName("gallery")  as HTMLCollectionOf <HTMLElement>;
+    imgs[0].style.filter = "blur(0)";
+    
+    bg[0].style.filter = "blur(0)"
+    x[0].style.opacity="0"
+    setTimeout(() => {
+      x[0].style.display ="none"
+    }, 300);
+  }
+  showDIV(){
+    
+    var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+    var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+    var imgs = document.getElementsByClassName("gallery")  as HTMLCollectionOf <HTMLElement>;
+  
+    x[0].style.opacity="1"
+    x[0].style.display ="block"
+    bg[0].style.filter = "blur(6px)";
+    imgs[0].style.filter = "blur(6px)";
+    
+  }
+
+  showinfo(x) {
+    this.clickState = 1;
+    console.log(x);
+    
+    this.name1 = x.OrganizationName
+    this.tel1 = x.ContactDetails;
+    this.city1 = x.city;
+    this.email1 = x.Email;
+    this.url1 = x.Url;
+  }
+
+  signOut(){
+    swal({
+      text: "Click OK to sign out.",
+      icon: "warning",
+      // buttons: true,
+      dangerMode: true,
+    }).then((leave) => {
+      if (leave) {
+        this.router.navigate(['/sign-in'])
+      };
+    });
+
+    
+    
+ }
+
+showGal(){
+  var y = document.getElementsByClassName("gallery") as HTMLCollectionOf <HTMLElement>;
+  var x = document.getElementsByClassName("adder") as HTMLCollectionOf <HTMLElement>;
+  var z = document.getElementsByClassName("array") as HTMLCollectionOf <HTMLElement>;
+  
+  
+
+  if(this.v == 0){
+    
+    y[0].style.right= "10px";
+    z[0].style.opacity = "1"
+    setTimeout(() => {
+      x[0].style.display = "block"
+    }, 300);
+    this.v = 1
+  }
+  else{
+    
+    // x[0].style.display = "none"
+    y[0].style.right= "-240px";
+    z[0].style.opacity = "0"
+    
+    setTimeout(() => {
+      x[0].style.display = "none"
+    }, 300);
+    this.v = 0
+  }
+
+
+}
+closeProfile(){
+  // alert("clicked")
+  var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf <HTMLElement>;
+  var blurMap = document.getElementById("map");
+  blurMap.style.filter = "blur(0px)"
+
+  prof[0].style.display = "none"
+}
 }

@@ -283,7 +283,7 @@ i{
     top: 48%;
     text-align: center;
     padding-bottom: 15px;
-    transform: translate(-50%,-50%);
+    /* transform: translate(-50%,-50%); */
     box-shadow: 0 0 10px black;
     border-radius: 5px;
     color: white;
@@ -379,9 +379,6 @@ textarea{
     margin-top: 0;
     text-align: left;
 }
-/* .gallery i{
-    line
-} */
 .images{
     transition: 300ms;
     /* cursor: pointer; */

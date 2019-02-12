@@ -16,6 +16,7 @@ html, body {
     margin: 0;
     padding: 0;
     color:black;
+    font-family: arial;
   }
   
 
@@ -31,7 +32,7 @@ html, body {
     height: 100px;
     position: absolute;
     /* border: 2px solid black; */
-    z-index: 1000000000000000000000000;
+    z-index: 100000000;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
     /* box-shadow: 0 15px 25px rgba(13, 98, 138, 0.5); */
 }
@@ -123,7 +124,7 @@ html, body {
 
 .list img{
     height: 150px;
-    width: 220px;
+    width: 150px;
     padding: 5px;
     object-fit: cover;
     position: relative;
@@ -141,6 +142,10 @@ html, body {
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.623));
     /* box-shadow: 0 -15px 25px rgba(13, 98, 138, 0.5) */
 }
+#map{
+    transition: 300ms;
+}
+
 
 .arrow .clicker{
     cursor: pointer;
@@ -150,18 +155,42 @@ html, body {
     font-weight: bolder;
     line-height: 25px;
 }
+.arrow{
+    text-align: center;
+}
+.close{
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    height:40px;
+    width: 40px;
+    color: white;
+    border:2px solid white;
+    background: black;
+    text-align: center;
+}
+#my2001{
+    position: relative;   
+}
+#myIcon{
+    margin-top: 10px;
+    position: absolute;
+    left: -25px;
+    top:15px;
+}
 
 .clicker{
     cursor: pointer;
-    width: 50px;
+    width: 150px;
     height: 25px;
     border: 2px solid rgba(0, 0, 0, 0.5);
-    background: white;
-    border-radius: 10px;
+    background: #018790;
+    color: white;
+    border-radius: 100px;
     position: absolute;
-    left: 50%;
-    z-index: 100000000000000000000000000000000000000000;
-    transform: translateX(-50%);
+    left: 46%;
+    /* z-index: 100000000000000000000000000000000000000000; */
+    /* transform: translateX(-50%); */
     top: -30px;
 
     animation: mymove 2s;
@@ -200,3 +229,468 @@ html, body {
     color: white;
 
 }
+
+
+/* ======================================================================================================================================================= */
+
+/* this siections is for the edit branch card */
+.profOverlay{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    background: rgba(0, 0, 0, 0.192);
+    display: none;
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, 0.226);
+    z-index: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    /* opacity: 0.5 */
+}
+.addBranch{
+    width: 30%;
+    /* height: 80%; */
+    background: #10243D;
+    position: relative;
+    left: 50%;
+    top: 48%;
+    text-align: center;
+    padding-bottom: 15px;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px black;
+    border-radius: 5px;
+    color: white;
+    animation: fadeIn 700ms;
+    animation-iteration-count: 1;
+}
+.addBranch h3{
+    text-align: center;
+    padding: 10px;
+}
+form{
+    width: 90%;
+    /* height: 90%; */
+    margin: 0 auto;
+    background:  #10243D;
+    border-radius: 5px;
+    border: .5px solid rgba(128, 128, 128, 0.151);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px; 
+}
+form input, textarea{
+    width: 420px;
+    padding: 10px;
+    resize: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: arial;
+    border: 2px solid white;
+    background: #10243D;
+    animation: flash 1s;
+    animation-iteration-count: infinite;
+    color: white;
+}
+input{
+    border-radius: 50px;
+}
+textarea{
+    border-radius: 25px; 
+}
+::-webkit-input-placeholder{
+    color: grey;
+}
+#submitter{
+    width: 430px;
+    padding: 10px;
+    margin: 10px;
+    background: #018790;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid white;
+}
+#profDismisser{
+    z-index: 100;
+}
+.dismisser{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: red;
+    border-radius: 40px;
+    position: absolute;
+    animation: flash 1s;
+    color: white;
+    animation-iteration-count: infinite;
+    right: -20px;
+    text-align: center;
+    top: -20px;
+}
+.dismisser i{
+    line-height: 40px;
+}
+.coverToUpload{
+    width: 99.5%;
+    height: 250px;
+    animation: imageFlash 1s;
+    animation-iteration-count: infinite;
+}
+
+/* ===================================================================================================================================== */
+/* this part handles the animations within the page */
+
+@keyframes flash{
+    0%{
+        border: 2px solid white;
+    }
+    50%{
+        border: 2px solid rgb(255, 243, 176);
+    }
+    100%{
+        border: 2px solid white;
+    }
+}
+@keyframes imageFlash{
+    0%{
+        border: 2px solid rgba(255, 243, 176, 0);
+    }
+    50%{
+        border: 2px solid rgb(255, 243, 176);
+    }
+    100%{
+        border: 2px solid rgba(255, 243, 176, 0);
+    }
+}
+@keyframes fadeIn{
+    0%{
+        width: 40%;
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    100%{
+        width: 30%;
+        opacity: 1;
+    }
+}
+/* =================================================================================================================================
+this part handles the gallery tab */
+
+.gallery{
+
+    transition: 300ms;
+    width: 300px;
+    height:98%;
+    position: fixed;
+    background: whitesmoke;
+    top: 10px;
+    right:-240px;
+    overflow-y: scroll;
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+}
+.gallery h3{
+    cursor: pointer;
+    line-height: 20px;
+    margin-top: 0;
+    text-align: left;
+}
+.images{
+    transition: 300ms;
+    /* cursor: pointer; */
+    width: 90%;
+    margin-top: 10px;
+    height: 200px;
+    /* border: 2px solid black; */
+    
+}
+.array{
+    transition: 300ms;
+    width: 100%;
+    opacity: 1;
+}
+.adder{
+    transition: 300ms;
+    cursor: pointer;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center;
+    display: none;
+}
+.adder:hover{
+    cursor: pointer;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.205)
+}
+.adder:active{
+    cursor: pointer;
+    width: 90%;
+    margin: 0 auto;
+    height: 200px;
+    border: 2px solid black;
+    text-align: center;
+    background: rgb(0, 0, 0);
+    color: white
+}
+.adder i{
+    font-size: 80px;
+    line-height: 200px;
+}
+
+/* =====================================================================================================================================================
+This handles the profile Pop up */
+
+
+.cont{
+    transition: 700ms;
+    width: 50%;
+    height: 80%;
+    /* border: 2px solid red; */
+    position: relative;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%,-50%);
+    background: #10243D;
+    filter:blur();
+}
+
+
+button{
+    cursor: pointer;
+}
+#signOut{
+    transition: 300ms;
+    cursor: pointer;
+    position: absolute;
+    height: 30px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.521);
+    line-height: 30px;
+    border:2px solid white;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    left : 10px;
+    top: 10px;
+}
+#signOut:hover{
+    position: absolute;
+    height: 30px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.671);
+    line-height: 30px;
+    border:2px solid white;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    left: 10px;
+    top: 10px;
+}
+#signOut:active{
+    position: absolute;
+    height: 30px;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    line-height: 30px;
+    border:2px solid white;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    font-weight: bolder;
+    left: 10px;
+    top: 10px;
+}
+#signOut i{
+    /* margin-top: 0; */
+    line-height: 30px;
+    /* margin-top: 10px; */
+}
+#signOut p{
+    margin-top: 0;
+}
+#orgName{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* top: 125px; */
+    line-height: 250px;
+    color: white;
+    text-shadow: 0 5px 5px black
+}
+.coverPhoto .paragraph{
+    text-transform: capitalize;
+    position: absolute;
+    color: white;
+    text-shadow: 0 5px 5px black;
+    left: 50%;
+    top: 80%;
+    font-weight: bold;
+    transform: translateX(-50%);
+    
+
+
+}
+.coverPhoto{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    /* border: 2px solid; */
+}
+#coverIMG{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.about{
+    width: 250px;
+    background: white;
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.116);
+    border: .5px solid rgba(128, 128, 128, 0.178);
+}
+.about h3, p{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.about p{
+    color: grey;
+    font-size: 12px;
+}
+.logo{
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+.branches{
+    width: 100%;
+    /* border: 2px solid green; */
+    /* background: white; */
+    height: 61%;
+    /* border: 2px solid red; */
+}
+.myList{
+    width: 68%;
+    height: 98%;
+    color: white;
+    font-family: arial;
+    /* background: grey; */
+    float: right;
+    padding-top: 10px;
+    overflow-y: scroll; 
+}
+.org{
+    cursor: pointer;
+    padding: 10px;
+    width: 90%;
+    background: white;
+    /* border: 2px solid; */
+    margin: 0 auto;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.116);
+    border-radius: 5px;
+}
+.orgImg{
+    width: 150px;
+    height: 150px;
+    object-fit: cover
+}
+.listDetails{
+    background: white;
+}
+.listDetails p, h3{
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+.listDetails p{
+    color: grey
+}
+
+#branchHead{
+    margin-top: 0;
+    color: black
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-radius: 10px;
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #10243D; 
+    border-radius: 10px;
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(24, 62, 107); 
+}
+.FAB{
+    transition: 300ms;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background: #018790;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.281);
+
+}
+.FAB:active{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background: #00bac7;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.281);
+
+}
+i{
+    line-height: 50px;
+}
+
+#galInput , #coverUploader{
+    display: none;
+}   

@@ -127,64 +127,7 @@ export class SignUpComponent implements OnInit {
         page2.style.display = "block"
         page1.style.display = "none"
       }
-
     }
-
-
-    // myAlert[0].style.display = "block";
-    // theLoader[0].style.display = "block"
-    // this.alertMessage = "loading"
-    // if (this.orgName == undefined || this.orgName == "") {
-    //   // alert('orgname is missing');
-    //   myAlert[0].style.display = "block";
-    //   theLoader[0].style.display = "none"
-    //   this.alertMessage = 'Please insert the name of your organisation'
-    // }
-    // else if (this.email == undefined || this.email == "") {
-    //   // alert('email is missing');
-    //   myAlert[0].style.display = "block";
-    //   theLoader[0].style.display = "none"
-    //   this.alertMessage = 'Please insert your organisation email'
-    // }
-    // else if (this.select == undefined || this.select == "") {
-    //   // alert('category is missing');
-    //   myAlert[0].style.display = "block";
-    //   theLoader[0].style.display = "none"
-    //   this.alertMessage = 'Please choose the category for your organisation.'
-    // }
-
-    // else if (this.password == undefined || this.password == "") {
-    //   // alert('password is missing');
-
-    //   myAlert[0].style.display = "block";
-    //   theLoader[0].style.display = "none"
-    //   this.alertMessage = 'Please enter your password (8 characters or above)'
-    // }
-
-    // else {
-
-    //   if(this.password.length < 8){
-    //     this.alertMessage = "Please make sure your password has more than 8 characters"
-    //     myAlert[0].style.display = "block";
-    //     theLoader[0].style.display = "none"
-    //   }else{
-    //     var firstPage = document.getElementById("first");
-    //   var secondPage = document.getElementById("second");
-    //   var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<HTMLElement>;
-    //   var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<HTMLElement>;
-
-    //   firstPage.style.display = "none";
-    //   signIn[0].style.color = "black"
-    //   signUp[0].style.color = "#00eaff";
-    //   signUp[0].style.borderBottom = "5px solid #00eaff";
-    //   signIn[0].style.borderBottom = "5px solid transparent";
-
-    //   myAlert[0].style.display = "none";
-    //   this.message = ""
-    //   }
-
-    // }
-
   }
   showPage1($event) {
     var firstPage = document.getElementById("first");
