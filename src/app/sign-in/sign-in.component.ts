@@ -61,6 +61,7 @@ export class SignInComponent implements OnInit {
         // theLoader[0].style.display = "none"
         // dismisser[0].style.display = "block"
         // alert('no email')
+        swal(this.alertMessage)
       }
       else if (password == "" || password == undefined) {
         this.alertMessage = "Please insert your password";
@@ -68,6 +69,7 @@ export class SignInComponent implements OnInit {
         // theLoader[0].style.display = "none"
         // dismisser[0].style.display = "block"
         // alert('no pass')
+        swal(this.alertMessage)
       }
       else {
 
@@ -80,7 +82,8 @@ export class SignInComponent implements OnInit {
             this.userId = data.uid;
             // myAlert[0].style.top = (b/3.5) + "px";
             // myAlert[0].style.left = "2.3%"; 
-            alert("logged in")
+            // alert("logged in")
+
             this.router.navigate(['/landing-page'])
           }, Error => {
             // alert("something's wrong")
@@ -101,6 +104,8 @@ export class SignInComponent implements OnInit {
             else {
               this.alertMessage = Error.message;
             }
+
+            swal(this.alertMessage)
             // theOK.style.display = "block";
             // leader[0].style.display = "none";
           })
@@ -120,6 +125,7 @@ export class SignInComponent implements OnInit {
           else {
             this.alertMessage = Error.message;
           }
+          swal(this.alertMessage)
         })
 
       }
@@ -140,7 +146,6 @@ export class SignInComponent implements OnInit {
     // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
     //   myAlert[0].style.display = "block";
     //   theLoader[0].style.display = "block"
-
 
       // this.alertMessage = "Loading..."
       if (email == undefined || email == "") {
