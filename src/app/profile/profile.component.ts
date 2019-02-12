@@ -403,8 +403,5 @@ showGal(){
 
 
 }
-confirm(){
-  
-}
 
 }
