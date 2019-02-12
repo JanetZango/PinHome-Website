@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 
 import swal from 'sweetalert';
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
 declare var firebase;
 declare var google;
 @Component({
@@ -18,7 +20,7 @@ export class SignUpComponent implements OnInit {
   desc;
   address;
 
-  fName; sName; orgName; email; mobile; tel; password; Confirm;
+  fName; sName; orgName; email; mobile; tel; password; Confirm; contact;
 
   urlCover = "../../assets/imgs/facade.jpg";
   urlLogo = "../../assets/imgs/clip art.png";
@@ -100,21 +102,25 @@ export class SignUpComponent implements OnInit {
     // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
 
     if (this.orgName == " " || this.orgName == null) {
-      swal("Please fill in the Organisation Name to continue.")
+      swal("Please fill in the Organisation Name to continue.");
+      // Swal.hideLoading()
     }
     else if (this.select == " " || this.select == null) {
       swal("Please fill in the organisation's category to continue.")
-
+      // Swal.hideLoading()
     }
     else if (this.email == " " || this.email == null) {
-      swal("Please fill in the Organisation's email address to continue.")
+      swal("Please fill in the Organisation's email address to continue.");
+      // Swal.hideLoading()
     }
     else if (this.password = "" || this.password == null) {
-      swal("Please enter your password (8 characters or more) to continue.")
+      swal("Please enter your password (8 characters or more) to continue.");
+      // Swal.hideLoading()
     }
     else {
       if (this.password.length < 8) {
-        swal("Your password has to be 8 characters or more")
+        swal("Your password has to be 8 characters or more");
+        // Swal.hideLoading()
       }
       else {
 
@@ -212,23 +218,41 @@ export class SignUpComponent implements OnInit {
     console.log(event);
   }
   Reg() {
-    if (this.fName == null || this.fName == " ") {
+    
+    Swal.fire({
+      title: 'Verifying',
+      html: 'Please wait while we sign you in',
+      timer: 200000000000000000000,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+        
+      }
+    })
 
+    if (this.fName == null || this.fName == " ") {
+      swal("Please insert your name.")
+      Swal.hideLoading()
     }
     else if (this.urlLogo == "../../assets/imgs/clip art.png") {
-      swal("Please insert a logo for your organisation.")
+      swal("Please insert a logo for your organisation.");
+      Swal.hideLoading()
     }
-    else if (this.urlCover == "../../assets/imgs/facade.jpg") {
-      swal("Please insert a cover photo for your organisation.")
-    }
-    else if (this.tel == null || this.tel == " ") {
-      swal("Please enter your organisation's contact number.")
+    // else if (this.urlCover == "../../assets/imgs/facade.jpg") {
+    //   swal("Please insert a cover photo for your organisation.");
+    //   Swal.hideLoading()
+    // }
+    else if (this.contact == null || this.contact == undefined) {
+      // alert(this.tel)
+      swal("Please enter your organisation's contact number.");
+      Swal.hideLoading()
     }
     else if (this.desc == null || this.desc == " ") {
-      swal("Please write a description about your organisation.")
+      swal("Please write a description about your organisation.");
+      Swal.hideLoading()
     }
     else if (this.address == null || this.address == " ") {
-      swal("Please enter your organisation's address")
+      swal("Please enter your organisation's address");
+      Swal.hideLoading()
     }
     else {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
@@ -250,10 +274,23 @@ export class SignUpComponent implements OnInit {
 
             this.router.navigate(['/landing-page'])
 
+            Swal.hideLoading()
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            
+            Toast.fire({
+              type: 'success',
+              title: 'Signed in successfully'
+            })
           })
         })
       }, Error => {
-        swal(Error.message)
+        Swal.hideLoading();
+        swal(Error.message);
       })
     }
   }

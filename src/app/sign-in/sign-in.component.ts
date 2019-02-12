@@ -8,6 +8,8 @@ import { log } from 'util';
 
 
 import swal from 'sweetalert';
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
 declare var firebase;
 @Component({
   selector: 'app-sign-in',
@@ -83,7 +85,17 @@ export class SignInComponent implements OnInit {
             // myAlert[0].style.top = (b/3.5) + "px";
             // myAlert[0].style.left = "2.3%"; 
             // alert("logged in")
-
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            
+            Toast.fire({
+              type: 'success',
+              title: 'Signed in successfully'
+            })
             this.router.navigate(['/landing-page'])
           }, Error => {
             // alert("something's wrong")
