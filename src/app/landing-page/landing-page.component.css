@@ -196,6 +196,11 @@ html, body {
     animation: mymove 2s;
     animation-iteration-count: infinite;
 }
+.clicker i{
+    margin-top: -10px;
+    line-height: 40px;
+    /* border: 2px solid red; */
+}
 
 @keyframes mymove {
     0% {top: -30px;
