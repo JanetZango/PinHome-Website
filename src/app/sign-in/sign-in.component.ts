@@ -153,7 +153,7 @@ export class SignInComponent implements OnInit {
 
 
   forgotpassword(email) {
-    alert('nice')
+    swal(this.alertMessage)
     // let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
     //   myAlert[0].style.display = "block";
