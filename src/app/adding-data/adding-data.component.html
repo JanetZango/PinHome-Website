@@ -1,69 +1,60 @@
 <head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-
-<body>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <input type="file" accept="image/jpg, image/jpeg" id="coverUploader" (change)="InsertPicture($event)" >
+  <body>
     <div class="overlayer">
-        <div class="alerter">
-          <div class="dismissBtn" (click)="dismissAlert()">
-            <i class="material-icons">close</i>
-          </div>
-          <p>{{alertMessage}}</p>
-          <img class="loader" src="../../assets/imgs/custom alert/loading.gif" alt="">
+      <div class="alerter">
+        <div class="dismissBtn" (click)="dismissAlert()">
+          <i class="material-icons">close</i>
         </div>
-    
+        <p>{{alertMessage}}</p>
+        <img class="loader" src="../../assets/imgs/custom alert/loading.gif" alt="">
       </div>
-  <div class="main">
-    <div class="tabTop">
-
-      <p (click)="goToMap()">Map</p>
-      <p id="Prof" (click)="goToProfile()">Profile</p>
     </div>
-    <h4>Branch Details</h4>
-    
-    <div class="form">
-      <!-- ================================================================================================================================================================= -->
-
-      <div class="instruction">
-        <p>Enter new branch details</p>
+    <div class="main">
+      <div class="tabTop">
+        <p (click)="goToMap()">Map</p>
+        <p id="Prof" (click)="goToProfile()">Profile</p>
       </div>
-      <div class="section1">
-        <div class="left">
-          <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
-          <br>
-          <textarea  class="txtBig" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)"
-            placeholder="Address" maxlength="230" id="about" type="text"></textarea>
-
-          <input  [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
-
-          <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (change)="getPhone($event)" class="textField"
-            placeholder="e.g(821234567)" id="orgContacts" type="number" min="0" max="10">
+      <h4>Branch Details</h4>
+      <div class="form">
+        <div class="instruction">
+          <p>Enter new branch details</p>
         </div>
-      </div>
-
-      <div class="subission">
+        <div class="CoverDiv">
+          <label for="coverUploader" class="Thecover2">
+            <h2>Add your cover image</h2>
+             <img src="{{urlCover}}" alt="" class="coverToUpload" id="cover2">
+           </label>
+        </div>
+        <div class="section1">
+          <div class="left">
+            <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
+            <br>
+            <textarea class="txtBig" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)" placeholder="Address" maxlength="230"
+              id="about" type="text"></textarea>
+            <input [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
+            <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (change)="getPhone($event)" class="textField" placeholder="e.g(821234567)"
+              id="orgContacts" type="number" min="0" max="10">
+          </div>
+        </div>
+        <div class="subission">
           <div class="submit" (click)="AddingData($event)">
             Submit
           </div>
         </div>
+      </div>
     </div>
-
-
-  </div>
-
-
-
-  <div class="absolutely">
+    <div class="absolutely">
       <div class="arrow">
         <div class="clicker" (click)="decideState()">
           &Lambda;
         </div>
-
       </div>
       <div class="list">
-        <div class="gal" id="push" >
+        <div class="gal" id="push">
         </div>
       </div>
     </div>
-</body>
+  </body>

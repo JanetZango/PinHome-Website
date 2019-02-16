@@ -4,19 +4,16 @@ body{
     /* background: white; */
     width: 100%;
 }
-
 .customAlert{
-
     background: red;
     height: 10px;
     width: 90%;
-
 }
 .instruction{
     padding-left: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    background: whitesmoke;
+    color: white;
 }
 .tabTop{
     /* position: absolute; */
@@ -56,19 +53,15 @@ body{
 }
 #catLabel:active{
     display: none;
-
 }
-
-
 .main{
+    margin: -10px;
     width: 100.2vw;
     height: 101.5vh;
-    background: radial-gradient(rgb(255, 255, 255),rgb(28, 99, 133));
-
+    background: radial-gradient(rgb(255, 255, 255),rgb(28, 99, 133),#10243D);
 }
-
 .main h4{
-    color: white;
+    color: rgba(255, 255, 255, 0);
     position: absolute;
     z-index: 0;
     left: 50%;
@@ -79,8 +72,8 @@ body{
 }
 .form{
     transition: 500ms;
-    width: 50%;
-    height: 45%;
+    width: 40%;
+    height: 70%;
     /* background: red; */
     position: absolute;
     overflow-y: scroll;
@@ -88,7 +81,7 @@ body{
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    background: whitesmoke;
+    background: #10243D;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5)
 }
 .form::-webkit-scrollbar { 
@@ -98,14 +91,14 @@ body{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    background: whitesmoke;
+    background: #10243D;
     border-top: 5px solid rgba(128, 128, 128, 0.5);
 }
 .section1 .left{
     text-align: center;
     width: 85%;
     min-width: 400px;
-    background: whitesmoke;
+    background: #10243D;
     padding-bottom: 5px;
     transform: translateX(-.5%);
     margin: 0 auto;
@@ -121,8 +114,6 @@ body{
     position: relative;
     margin: 0 auto;
 }
-
-
 .section2{
     width: 100%;
     background: whitesmoke;
@@ -143,10 +134,9 @@ body{
     width: 100%;
     min-width: 400px;
     /* height: 400px; */
-    background: whitesmoke;
+    background: #10243D;
     padding-bottom: 10px;
 }
-
 .section2 .photos{
     /* display: flex; */
     position: relative
@@ -156,7 +146,6 @@ body{
     height: 40px;
     object-fit: cover;
 }
-
 .introToUploads{
     padding-top: 10px;
     height: 30px;
@@ -191,8 +180,6 @@ body{
     height: 100px;
     margin: 5px
 }
-
-
 select{
     margin-top: 25px;
     min-width: 310px;
@@ -202,7 +189,6 @@ select{
     padding-right: 10px;
     font-weight: bolder;
     /* background: white; */
-
 }
 .textField{
     margin-top: 15px;
@@ -214,12 +200,13 @@ select{
     font-weight: bolder;
     /* background: white; */
 }
-
 .textField, select, textarea{
-    border:1px solid rgba(0, 0, 0, 0.5);
+    border:2px solid rgb(255, 255, 255);
     box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    background: white;
+    background: rgba(255, 255, 255, 0);
+    resize: none;
+    color: white
 }
 .txtBig{
     font-weight: bolder;
@@ -232,19 +219,17 @@ select{
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 10px;
 }
-
 .subission{
     width: 100%;
     height: 0;
     margin-top: 10px;
     z-index: 100000000000000000000000000000000000000000000000000000000
 }
-
 .submit{
     cursor: pointer;
     width: 100px;
     height: 40px;
-    background: rgb(12, 104, 121);
+    background: #018790;
     text-align: center;
     line-height: 40px;
     color: white;
@@ -252,15 +237,13 @@ select{
     font-weight: bold;
     font-size: 16px;
     margin: 0 auto;
-    border: 2px solid white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
-
+    border: 2px solid #018790;
+    box-shadow: 0 0 10px #018790;
+    border-radius: 50px;
 }
 .sep{
     height: 15px
 }
-
-
  .overlay, .mapper{
      position: absolute;
      left: 50%;
@@ -281,7 +264,6 @@ select{
     opacity: 0.1
 }
 /* ============================================================================================================================= */
-
 .coverImage{
     padding-top: 10px;
     position: relative;
@@ -296,7 +278,6 @@ select{
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-
 }
 .CoverShadow{
     cursor: pointer;
@@ -316,21 +297,23 @@ select{
     left: 3px;
     top: 5px;
 }
-
 .coverPhoto{
     width: 90%;
     height: 250px;
     object-fit: cover;
     border-radius: 10px;                 
 }
-/* =========================================================================================================================== */
-
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button{
     -webkit-appearance: none;
     margin: 0;
 }
 input[type="number"]{
-    -moz-appearance: textfield
+    -moz-appearance: textfield;
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid white;
+}
+::-webkit-input-placeholder{
+    color: white;
 }
 .theDP{
     width:250px;
@@ -365,7 +348,6 @@ input[type="number"]{
 }
 .lblForLogo .material-icons{
     /* line-height: 40px; */
-
 }
 label i{
     width: 40px;
@@ -377,7 +359,6 @@ label i{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 /* ======================================================================================================================= */
-
 /* .material-icons{
     position: absolute;
     
@@ -385,7 +366,6 @@ label i{
     left: 3px;
     top: 5px;
 } */
-
 .thePictures{
     width: 90%;
     display: flex;
@@ -401,7 +381,6 @@ label i{
     min-width: 300px;
     background: red;
 } */
-
 .galImg{
     width: 100%;
     max-width: 290px;
@@ -421,7 +400,6 @@ label i{
 .theIcons{
     /* position: absolute; */
 }
-
 .pic1{
     background: white;
     border-radius: 10px;
@@ -452,6 +430,25 @@ label i{
 }
 label:active{
     background:rgb(12, 148, 172);
+    
+}
+.coverUploader{
+    display: none;
+}
+#cover2{
+    height: 250px;
+    width: 88%;
+    object-fit: cover;
+    padding-left: 7%;
+}
+h2{
+    position: absolute;
+    left: 23%;
+    top: 19%;
+    transform: translate(34%);
+    color: rgba(255, 255, 255, 0.589);
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0 0 10px black;
 }
 @media screen and (max-width: 800px){
     .theImage{
@@ -484,6 +481,7 @@ label:active{
     .left, .left1{
         width: 100vw;
         max-width: 1000px;
+        background: radial-gradient(rgb(255, 255, 255),rgb(28, 99, 133),#10243D);
     }
     .coverPhoto{
         width: 95%;
@@ -492,7 +490,6 @@ label:active{
         border-radius: 10px;                 
     }
 }
-
 /* ==================================================================================================================================================================================================================== */
 /* custom alert */
 .overlayer{
