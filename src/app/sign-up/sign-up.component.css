@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .everything{
     position: absolute;
     display: flex;
@@ -37,6 +38,75 @@
     justify-content: center;
   }
   .SignUp{
+=======
+.maindiv{
+    position: absolute;
+    top: 0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d6fcfe;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23018790' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.box{
+    position: absolute;
+    top: 0%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.column {
+    float: left;
+    width: 550px;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #10243D;
+    
+}
+#selectBox{
+    /* opacity: .9; */
+    z-index: 100000000000000000000000000;
+}
+#mySelect{
+    /* position: absolute; */
+    z-index: 0;
+}
+
+.column1{
+    
+    /* background-image: linear-gradient(rgba(12, 33, 43, 0.007),rgba(255, 255, 255, 0.363)); */
+    /* background-image: url('../../assets/imgs/london+flower+market-2.jpg'); */
+    background-color:   #018790;
+    float: left;
+    width: 550px;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    box-shadow: 0 0 10px white;
+}
+.SignUp{
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
     text-align: left;
     width: 80%;
     font-size: 3em;
@@ -48,7 +118,11 @@
 .appname{
     text-align: center;
     width: 80%;
+<<<<<<< HEAD
     font-size: 3em;
+=======
+    font-size: 3.8em;
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
     color: white;
     font-weight: 100;
     padding-bottom: 10px;
@@ -64,6 +138,7 @@ h3{
     color: white;
     text-align: center;
     padding: 40px;
+<<<<<<< HEAD
 }
 .Account{
     text-align: center;
@@ -90,10 +165,51 @@ h3{
 }
 ::-webkit-input-placeholder{
     color: white;
+=======
+    /* font-family: monospace; */
+    /* text-shadow: 0 0 10px black; */
+}
+/* 
+p{
+    width: 80%;
+    text-align: center;
+    color: white;
+    font-size: 1.8em;
+}  */
+.Account{
+    /* position: relative;
+    bottom: 70px */
+    text-align: center;
+    color: white;
+    font-size: 100%;
+    /* font-family: monospace; */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
+.Input1{
+    width: 75%;
+    min-width: 300px;
+    height: 40px;
+    border-bottom: 2px #ffffff solid;
+    border-top: 2px #ffff solid;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1em;
+    padding-left: 20px;
+    color: white;
+    
+}
+::-webkit-input-placeholder{
+    color: white;
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
 }
 .loginBtn{
         height: 45px;
         width: 300px;
+<<<<<<< HEAD
         color:white;
         font-size: 1em;
         font-weight: 100;
@@ -104,6 +220,17 @@ h3{
         border-left: 0px;
         border-right: 0px;
         box-shadow: 0 0 10px #10243D;
+=======
+        border: #ffffff 2px solid;
+        box-shadow: 0 0 10px #ffffff;
+        border-radius: 100px;
+        background-color: white;
+        color:white;
+        font-size: 1em;
+        font-weight: 100;
+        background-color: #018790;
+        margin-top: 30px;
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
   
     
 }
@@ -113,6 +240,10 @@ h3{
         width: 300px;
         border: #018790 2px solid;
         box-shadow: 0 0 10px #018790;
+<<<<<<< HEAD
+=======
+        border-radius: 100px;
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
         background-color: white;
         color:white;
         font-size: 1em;
@@ -126,6 +257,10 @@ h3{
     min-width: 300px;
     color: white;
     font-size: 1em;
+<<<<<<< HEAD
+=======
+    position: relative
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
 }
 select{
     margin: 0px;
@@ -156,8 +291,11 @@ select{
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23018790' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+<<<<<<< HEAD
     background-size: cover;
     background-repeat: no-repeat;
+=======
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
 }
 .box2{
     position: absolute;
@@ -174,7 +312,12 @@ select{
     float: left;
     width: 550px;
     padding: 10px;
+<<<<<<< HEAD
     height: 700px; 
+=======
+    height: 700px; /* Should be removed. Only for demonstration */
+    /* text-align: center; */
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,6 +329,7 @@ select{
 }
 .column2::-webkit-scrollbar{
     display: none;
+<<<<<<< HEAD
 }
 .column12{
     
@@ -302,6 +446,131 @@ textarea{
     border-radius: 100px;
     z-index: 10000000000000000000;
 }
+=======
+}
+.column12{
+    
+    /* background-image: linear-gradient(rgba(12, 33, 43, 0.007),rgba(255, 255, 255, 0.363)); */
+    /* background-image: url('../../assets/imgs/london+flower+market-2.jpg'); */
+    background-color:   #018790;
+    float: left;
+    width: 550px;
+    padding: 10px;
+    height: 700px; /* Should be removed. Only for demonstration */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    box-shadow: 0 0 10px white;
+}
+h1{
+    font-weight: 100;
+    color: white;
+    font-size: 1.5em; 
+    text-align: center;
+    /* font-family: monospace; */
+    padding: 40px;
+}
+#theinstrution{
+    font-weight: 100;
+    color: white;
+    font-size: 1.8em;
+    text-align: center;
+    position: relative;
+    bottom: 100px;
+    /* font-family: monospace; */
+}
+h3{
+    font-size: 1.5em; 
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    /* text-shadow: 0 0 10px black; */
+}
+p{
+    width: 80%;
+    text-align: center;
+    color: white;
+} 
+.input2{
+    width: 75%;
+    min-width: 300px;
+    height: 50000000%;
+    border-bottom: 2px #ffffff solid;
+    border-top: 2px #ffff solid;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1em;
+    padding-left: 20px;
+    color: white;
+    position: relative;
+    top: 68px;
+}
+textarea{
+    height: 1000%;    
+    width: 75%;
+    color: rgb(255, 255, 255);
+    background-color: #01879000;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 20px;
+    position: relative;
+    top: 68px;
+    z-index: 10000000000000000;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 10px
+ }
+::-webkit-input-placeholder{
+    color: white;
+}
+.submitBtn2{
+        height: 55px;
+        width: 75%;
+        width: 300px;
+        border: #018790 2px solid;
+        box-shadow: 0 0 10px #018790;
+        border-radius: 100px;
+        background-color: white;
+        color:white;
+        font-size: 1em;
+        font-weight: 100;
+        background-color: #018790;
+        position: relative;
+        top: 90px;
+       
+  
+}
+.thetextarea2::-webkit-input-placeholder{
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+ 
+}
+#cover2{
+    height: 150px;
+    object-fit: cover;
+    width: 400px;
+    position: relative;
+    bottom: 110px;
+}
+.Thecover2{
+    position: relative;
+    bottom: 50px;
+}
+#logo2{
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    z-index: 10000000000000000000;
+    /* border: #ffffff solid 2px; */
+}
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
 .round2{
  z-index: 100000000000000;
  position: absolute;
@@ -350,7 +619,11 @@ i{
 #secondpage{
     display: none
 }
+<<<<<<< HEAD
 #coverUploader{
+=======
+.coverUploader{
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
     display: none;
 }
 h4{

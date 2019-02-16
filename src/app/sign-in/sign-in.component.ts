@@ -7,6 +7,9 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { log } from 'util';
 
 
+import swal from 'sweetalert';
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
 declare var firebase;
 @Component({
   selector: 'app-sign-in',
@@ -34,14 +37,18 @@ export class SignInComponent implements OnInit {
     // alert('clicked')
     console.log(email)
     this.alertMessage = "Verifying details..."
-    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
-    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-    let dismisser = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
+    // let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    // let dismisser = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
 
     // myAlert[0].style.display = "block";
     // theLoader[0].style.display = "block"
     // dismisser[0].style.display = "none"
+<<<<<<< HEAD
     let b = window.innerHeight;
+=======
+    // let b = window.innerHeight;
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
 
     // myAlert[0].style.top = (b / 3.5) + "px";
     // myAlert[0].style.left = "50%";
@@ -52,6 +59,7 @@ export class SignInComponent implements OnInit {
       // theLoader[0].style.display = "none";
       // dismisser[0].style.display = "block"
 
+      swal(this.alertMessage)
     } else
       if (email == "" || email == undefined) {
         this.alertMessage = "Please insert your email address";
@@ -59,6 +67,7 @@ export class SignInComponent implements OnInit {
         // theLoader[0].style.display = "none"
         // dismisser[0].style.display = "block"
         // alert('no email')
+        swal(this.alertMessage)
       }
       else if (password == "" || password == undefined) {
         this.alertMessage = "Please insert your password";
@@ -66,6 +75,7 @@ export class SignInComponent implements OnInit {
         // theLoader[0].style.display = "none"
         // dismisser[0].style.display = "block"
         // alert('no pass')
+        swal(this.alertMessage)
       }
       else {
 
@@ -79,6 +89,17 @@ export class SignInComponent implements OnInit {
             // myAlert[0].style.top = (b/3.5) + "px";
             // myAlert[0].style.left = "2.3%"; 
             // alert("logged in")
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            
+            Toast.fire({
+              type: 'success',
+              title: 'Signed in successfully'
+            })
             this.router.navigate(['/landing-page'])
           }, Error => {
             // alert("something's wrong")
@@ -99,6 +120,8 @@ export class SignInComponent implements OnInit {
             else {
               this.alertMessage = Error.message;
             }
+
+            swal(this.alertMessage)
             // theOK.style.display = "block";
             // leader[0].style.display = "none";
           })
@@ -118,6 +141,7 @@ export class SignInComponent implements OnInit {
           else {
             this.alertMessage = Error.message;
           }
+          swal(this.alertMessage)
         })
 
       }
@@ -133,11 +157,19 @@ export class SignInComponent implements OnInit {
 
 
   forgotpassword(email) {
+<<<<<<< HEAD
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
       // myAlert[0].style.display = "block";
       // theLoader[0].style.display = "block"
 
+=======
+    swal(this.alertMessage)
+    // let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    //   myAlert[0].style.display = "block";
+    //   theLoader[0].style.display = "block"
+>>>>>>> 590dffa6d74471e64e2006f634d83ec9f3a00fbe
 
       // this.alertMessage = "Loading..."
       if (email == undefined || email == "") {

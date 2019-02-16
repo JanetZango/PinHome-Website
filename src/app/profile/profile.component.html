@@ -1,4 +1,4 @@
-<head>
+<!-- <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -145,4 +145,92 @@
   </div>
 
 
+</body> -->
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="toMap" (click)=" goToMap()">
+    <i class="material-icons">map</i> <p>
+      
+    Go to map
+    </p>
+  </div>
+    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader">
+
+    <input type="file" accept="image/jpg, image/jpeg" id="galInput">
+  <div class="overlay">
+    <div class="addBranch">
+      <div class="dismisser" (click)="closeDIV()">
+        <i class="material-icons">close</i>
+      </div>
+      <label for="coverUploader">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="coverToUpload">
+      </label>
+      <h3>Edit branch details</h3>
+      <form action="">
+        <input type="text" placeholder="Branch Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="text" placeholder="Tel"><br>
+        <textarea name="" id="" cols="30" rows="4" placeholder="Address"></textarea><br>
+      </form>
+      <button id="submitter">submit</button>
+    </div>
+  </div>
+  <div class="gallery">
+    <h3 (click)="showGal(v)">
+      <i class="material-icons">view_list</i>
+      Gallery</h3>
+    <label for="galInput">
+      <div class="adder">
+          <i class="material-icons">add</i></div>
+    </label><br>
+    <div class="array">
+
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+    </div>
+  </div>
+  <div class="cont">
+    <div class="coverPhoto">
+      <div id="signOut" (click)="signOut()">
+        <i class="material-icons">directions_walk</i>
+        <p>Sign Out</p>
+      </div>
+      <div class="about">
+        <img src="../../assets/Sanca.png" alt="" class="logo">
+        <h3>About</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, reiciendis. Neque alias quae enim nihil, asperiores blanditiis possimus incidunt! Voluptas eveniet nobis saepe laudantium dolore numquam adipisci tempore et porro, repellat labore eligendi corporis reiciendis aperiam earum non quam id.</p>
+        <h3>Address</h3>
+        <p>4877 Ugago Street Protea Glen Soweto 1818</p>
+        <h3>Contact Details</h3>
+        <p>0788221584 <br>
+        spazy65@gmail.com</p>
+      </div>
+      <h2 id="orgName">Alpha World Ministries</h2>
+      <p class="paragraph">Old Age home</p>
+      <img src="../../assets/imgs/Resilience-Path.jpg" id="coverIMG" alt="">
+    </div>
+    <div class="branches">
+      <div class="list">
+        <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
+        <h2 class="keepFixed" color="">Branches</h2>
+        <div class="org" (click)="showDIV()">
+          <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">
+          <div class="listDetails">
+            <h3 id="branchHead">Green Village Branch</h3>
+            <p>4877 Ugago Street Protea Glen Extension 3 Soweto 1819 <br><hr>
+              email@mail.com <br>
+            0788221584</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>

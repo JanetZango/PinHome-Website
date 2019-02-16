@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { EINPROGRESS } from 'constants';
 import { userInfo } from 'os';
 import { log } from 'util';
+import { timeout } from 'q';
+
+import swal from 'sweetalert';
 declare var firebase;
 @Component({
   selector: 'app-profile',
@@ -39,6 +42,7 @@ export class ProfileComponent implements OnInit {
   galleryupload: string;
   imagesArr = [];
   gallery;
+  v = 0;
 
    
   constructor(private router: Router, private _ngZone: NgZone) {
@@ -244,7 +248,22 @@ export class ProfileComponent implements OnInit {
   }
 
   signOut(){
-    this.router.navigate(['/sign-in'])
+    swal({
+      title: "Confirm.",
+      text: "Click OK to sign out.",
+      icon: "warning",
+      // buttons: true,
+      dangerMode: true,
+    }).then((leave) => {
+      if (leave) {
+        this.router.navigate(['/sign-in'])
+      } else {
+        // swal("Your imaginary file is safe!");
+      }
+    });
+
+    
+    
  }
  profile(){
   this.router.navigate(['/profile'])
@@ -331,5 +350,58 @@ getImages(event:any) {
   }
 }
 
+closeDIV(){
+  var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+  var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+  var imgs = document.getElementsByClassName("gallery")  as HTMLCollectionOf <HTMLElement>;
+  imgs[0].style.filter = "blur(0)";
+  
+  bg[0].style.filter = "blur(0)"
+  x[0].style.opacity="0"
+  setTimeout(() => {
+    x[0].style.display ="none"
+  }, 300);
+}
+showDIV(){
+  
+  var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+  var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+  var imgs = document.getElementsByClassName("gallery")  as HTMLCollectionOf <HTMLElement>;
+
+  x[0].style.opacity="1"
+  x[0].style.display ="block"
+  bg[0].style.filter = "blur(6px)";
+  imgs[0].style.filter = "blur(6px)";
+}
+showGal(){
+  var y = document.getElementsByClassName("gallery") as HTMLCollectionOf <HTMLElement>;
+  var x = document.getElementsByClassName("adder") as HTMLCollectionOf <HTMLElement>;
+  var z = document.getElementsByClassName("array") as HTMLCollectionOf <HTMLElement>;
+  
+  
+
+  if(this.v == 0){
+    
+    y[0].style.right= "10px";
+    z[0].style.opacity = "1"
+    setTimeout(() => {
+      x[0].style.display = "block"
+    }, 300);
+    this.v = 1
+  }
+  else{
+    
+    // x[0].style.display = "none"
+    y[0].style.right= "-240px";
+    z[0].style.opacity = "0"
+    
+    setTimeout(() => {
+      x[0].style.display = "none"
+    }, 300);
+    this.v = 0
+  }
+
+
+}
 
 }

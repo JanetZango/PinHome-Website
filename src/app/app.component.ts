@@ -49,7 +49,7 @@ export class AppComponent {
         this.router.navigate(['/landing-page'])
       }
       else{
-          this.router.navigate(['/sign-in']);
+          this.router.navigate(['/landing-page']);
       }
     })   
   }
