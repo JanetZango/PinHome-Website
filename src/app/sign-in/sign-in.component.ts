@@ -38,9 +38,9 @@ export class SignInComponent implements OnInit {
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
     let dismisser = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
 
-    myAlert[0].style.display = "block";
-    theLoader[0].style.display = "block"
-    dismisser[0].style.display = "none"
+    // myAlert[0].style.display = "block";
+    // theLoader[0].style.display = "block"
+    // dismisser[0].style.display = "none"
     let b = window.innerHeight;
 
     // myAlert[0].style.top = (b / 3.5) + "px";
@@ -48,23 +48,23 @@ export class SignInComponent implements OnInit {
     // myAlert[0].style.transform = "translateX(-54%)"
     if (email == "" || email == undefined && password == "" || password == undefined) {
       this.alertMessage = "Please insert your email address and password to sign in.";
-      myAlert[0].style.display = "block";
-      theLoader[0].style.display = "none";
-      dismisser[0].style.display = "block"
+      // myAlert[0].style.display = "block";
+      // theLoader[0].style.display = "none";
+      // dismisser[0].style.display = "block"
 
     } else
       if (email == "" || email == undefined) {
         this.alertMessage = "Please insert your email address";
-        myAlert[0].style.display = "block";
-        theLoader[0].style.display = "none"
-        dismisser[0].style.display = "block"
+        // myAlert[0].style.display = "block";
+        // theLoader[0].style.display = "none"
+        // dismisser[0].style.display = "block"
         // alert('no email')
       }
       else if (password == "" || password == undefined) {
         this.alertMessage = "Please insert your password";
-        myAlert[0].style.display = "block";
-        theLoader[0].style.display = "none"
-        dismisser[0].style.display = "block"
+        // myAlert[0].style.display = "block";
+        // theLoader[0].style.display = "none"
+        // dismisser[0].style.display = "block"
         // alert('no pass')
       }
       else {
@@ -84,9 +84,9 @@ export class SignInComponent implements OnInit {
             // alert("something's wrong")
             alert(Error.message);
             // console.log(Error.message);
-            myAlert[0].style.display = "block";
-            theLoader[0].style.display = "none";
-            dismisser[0].style.display = "block"
+            // myAlert[0].style.display = "block";
+            // theLoader[0].style.display = "none";
+            // dismisser[0].style.display = "block"
             if (Error.message == "There is no user record corresponding to this identifier. The user may have been deleted.") {
               this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started..."
             }
@@ -103,9 +103,9 @@ export class SignInComponent implements OnInit {
             // leader[0].style.display = "none";
           })
         }, Error => {
-          myAlert[0].style.display = "block";
-          theLoader[0].style.display = "none";
-          dismisser[0].style.display = "block"
+          // myAlert[0].style.display = "block";
+          // theLoader[0].style.display = "none";
+          // dismisser[0].style.display = "block"
           if (Error.message == "There is no user record corresponding to this identifier. The user may have been deleted.") {
             this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started..."
           }
@@ -127,34 +127,34 @@ export class SignInComponent implements OnInit {
     this.alertMessage = ""
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-    myAlert[0].style.display = "none";
-    theLoader[0].style.display = "block"
+    // myAlert[0].style.display = "none";
+    // theLoader[0].style.display = "block"
   }
 
 
   forgotpassword(email) {
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-      myAlert[0].style.display = "block";
-      theLoader[0].style.display = "block"
+      // myAlert[0].style.display = "block";
+      // theLoader[0].style.display = "block"
 
 
       // this.alertMessage = "Loading..."
       if (email == undefined || email == "") {
         this.alertMessage = "Please enter your email address to reset your password"
-        myAlert[0].style.display = "block";
-        theLoader[0].style.display = "none"
+        // myAlert[0].style.display = "block";
+        // theLoader[0].style.display = "none"
       }
       else {
         return new Promise<void>((resolve, reject) => {
           firebase.auth().sendPasswordResetEmail(email).then(() => {
             this.alertMessage = "We have sent you a link to reset your password, check your email."
-            myAlert[0].style.display = "block";
-            theLoader[0].style.display = "none"
+            // myAlert[0].style.display = "block";
+            // theLoader[0].style.display = "none"
           }, Error => {
             this.alertMessage = Error.message
-            myAlert[0].style.display = "block";
-            theLoader[0].style.display = "none"
+            // myAlert[0].style.display = "block";
+            // theLoader[0].style.display = "none"
           });
         })
       }

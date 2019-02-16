@@ -1,57 +1,75 @@
+
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body class="thebody">
 
-    <div class="overlayer">
-        <div class="alerter">
-          <div class="dismissBtn" (click)="dismissAlert()">
-            <i class="material-icons">close</i>
-          </div>
-          <p>{{alertMessage}}</p>
-          <img class="loader" src="../../assets/imgs/custom alert/loading.gif" alt="">
-        </div>
-    
+<!-- <div class="maindiv">
+  <div class="box">
+    <div class="row">
+      <div class="column1">
+        <h1>PinHome</h1>
+        <p>______</p>
+        <h3>We're super excited to have you on board! <i class="material-icons">tag_faces</i> </h3>
+        <img class="theRocket" src="../../assets/imgs/PinHome icon.png" height="150px" weight="150px">
       </div>
-  <div class="container">
-    <div class="seperator">
-      <h1>Welcome</h1>
-     
-      <p>______</p>
-      <h3>We're super excited to have you on board!</h3>
-    </div>
+      <div class="column">
+        <h2>Sign In</h2>
+        <p class="Account">
+          Don't have an account ?
+          <b style=" font-weight: 100; text-decoration: underline" (click)="goToSignIn()">Create your account</b>
+        </p>
 
-    <div class="seperator2">
-      <h2>Sign In</h2>
-      <p class="message">
-        Don't have an account ?
-        <b style="color: blue;cursor: pointer; font-weight: 100; text-decoration: underline;" (click)="goToSignIn()">Create your account</b>, it takes less than a minute.
-      </p>
+        <label for="">
+        <i style="position: relative; top: 50px; left: 170px; color: #ffffff" class="material-icons">mail</i>
+      </label>
+      <input #email type="text" placeholder="Email">
 
-      <div class="textfield">
-        <input #email type="email" placeholder="Email">
-        <img class="person" src="../../assets/imgs/1x/baseline_person_black_18dp.png">
-      </div>
+        <label for="">
+          <i style="position: relative; top: 50px; left: 170px; color: #ffffff" class="material-icons">lock</i>
+        </label>
+        <input #password type="text" placeholder="Password">
 
-      <div class="textfield">
-        <input #password type="password" placeholder="Password">
-        <img class="person" src="../../assets/imgs/baseline_lock_black_18dp.png">
-      </div>
 
-      <!-- <table class="theTable">
-        <tr>
-          <td class="password" (click)="forgotpassword(email)"> Forgot Password?</td>
-        </tr>
-      </table> -->
 
-      <div class="password" (click)="forgotpassword(email.value)">
-        Forgot Password?
-      </div>
+        <button (click)="login(email.value, password.value)">Login</button>
+        <p class="thepassword" (click)="forgotpassword(email.value)"> Forgot your Password?</p>
 
-      <div class="divButton">
-        <button class="theBUTTON" (click)="login(email.value, password.value)">Login</button>
       </div>
     </div>
-
   </div>
-</body>
+</div> -->
+
+<div class="everything">
+  <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      </head>
+  <div class="row">
+    <div class="column" style="background-color:#018790;">
+      <h1>Welcome</h1>
+      <p>______</p>
+      <h3>We're super excited to have you on board!
+        <i class="material-icons">tag_faces</i>
+      </h3>
+      <img class="theRocket" src="../../assets/imgs/gps.png">
+    </div>
+    <div class="column" style="background-color: #10243D;">
+      <h2>Sign In</h2>
+      <p class="Account">
+        Don't have an account ?
+        <b style=" font-weight: 100; text-decoration: underline" (click)="goToSignIn()">Create your account</b>
+      </p>
+      <label for="">
+        <i style="position: relative; top: 50px; left: 210px; color: #ffffff" class="material-icons">mail</i>
+      </label>
+      <input #email="ngModel" type="text" placeholder="Email" ngModel required>
+      <span style="color: red" *ngIf="!email.valid && email.touched" class="help-block helptext">Please enter your email address</span>
+      <label for="">
+        <i style="position: relative; top: 50px; left: 210px; color: #ffffff" class="material-icons">lock</i>
+      </label>
+      <input #password="ngModel" type="password" placeholder="Password" ngModel required>
+      <span style="color: red" *ngIf="!password.valid && password.touched" class="help-block helptext">Please enter your password</span>
+      <p class="thepassword" (click)="forgotpassword(email.value)"> Forgot your Password?</p>
+      <button (click)="login(email.value, password.value)">Login</button>
+    </div>
+  </div>
+</div>
