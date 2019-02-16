@@ -81,7 +81,7 @@ export class LandingPageComponent implements OnInit {
       // console.log(this.displayProfileArr)
     })
 
-      this.getGallery()
+      this.getGallery();
     this.getBrunches().then((data: any) => {
       console.log(data);
       this.assignKeys(data.keys)
@@ -95,6 +95,7 @@ export class LandingPageComponent implements OnInit {
     })
 
   }
+
 
   public setName(name) {
     this.username2 = name

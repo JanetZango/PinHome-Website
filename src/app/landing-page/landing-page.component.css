@@ -708,14 +708,16 @@ i{
 
 .gal {
     /* position: relative; */
-    display: inline-block;
+    display: block;
+    /* border: 2px solid red; */
+    position: relative
     /* border-bottom: 1px dotted black; */
   }
   
   .gal .tooltiptext {
       transition: 700ms;
     visibility: hidden;
-    width: 100%;
+    /* width: 100%; */
     background-color: rgba(0, 0, 0, 0.575);
     color: #fff;
     text-align: center;
@@ -732,6 +734,7 @@ i{
   .gal:hover .tooltiptext {
     visibility: visible;
     position: absolute;
-    top: 0;
+    top: -10px;
     overflow: auto;
+    z-index: 10000
   }
