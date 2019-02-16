@@ -46,11 +46,11 @@ export class LandingPageComponent implements OnInit {
   name;
   clickState = 0;
   v = 0;
-  desc
+  desc = "Loading your organisation's description, please wait...";
   url
   logo
   tel
-  city
+  city = "Loading your organisation's address";
   cat
   alertMessage;
   profileArr=[];
@@ -530,7 +530,7 @@ export class LandingPageComponent implements OnInit {
         // this.router.navigate(['/profile']);
       }
     })
-    alert("clicked")
+    // alert("clicked")
     var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
     var blurMap = document.getElementById("map");
     blurMap.style.filter = "blur(6px)"
@@ -616,9 +616,9 @@ export class LandingPageComponent implements OnInit {
       y[0].style.right = "-240px";
       z[0].style.opacity = "0"
 
-      setTimeout(() => {
+      // setTimeout(() => {
         x[0].style.display = "none"
-      }, 300);
+      // }, 3);
       this.v = 0
     }
 
@@ -628,9 +628,14 @@ export class LandingPageComponent implements OnInit {
     // alert("clicked")
     var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
     var blurMap = document.getElementById("map");
+    var profil = document.getElementsByClassName("cont") as HTMLCollectionOf<HTMLElement>;
     blurMap.style.filter = "blur(0px)"
+    // profil[0].style.animation ="disappear 300ms";
+    
 
-    prof[0].style.display = "none"
+    setTimeout(() => {
+      prof[0].style.display = "none";
+    }, 700);
   }
 
 

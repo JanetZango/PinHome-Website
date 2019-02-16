@@ -44,7 +44,7 @@ export class SignInComponent implements OnInit {
     // myAlert[0].style.display = "block";
     // theLoader[0].style.display = "block"
     // dismisser[0].style.display = "none"
-    // let b = window.innerHeight;
+    let b = window.innerHeight;
 
     // myAlert[0].style.top = (b / 3.5) + "px";
     // myAlert[0].style.left = "50%";
@@ -153,11 +153,11 @@ export class SignInComponent implements OnInit {
 
 
   forgotpassword(email) {
-    swal(this.alertMessage)
-    // let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
-    // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
-    //   myAlert[0].style.display = "block";
-    //   theLoader[0].style.display = "block"
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+      // myAlert[0].style.display = "block";
+      // theLoader[0].style.display = "block"
+
 
       // this.alertMessage = "Loading..."
       if (email == undefined || email == "") {

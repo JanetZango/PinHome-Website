@@ -87,6 +87,16 @@ body{
 .form::-webkit-scrollbar { 
     display: none;
 }
+#mappp{
+    position: absolute;
+    left: 50px;
+    top: 22px;
+}
+.toHome{
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
 .section1{
     width: 100%;
     display: flex;
