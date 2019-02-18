@@ -1,97 +1,260 @@
+<!-- <head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
 <body>
 
-  <div class="container">
-    <div class="top">
-
-
-      <div class="imagesSection">
-        <img class="images" src="../../assets/imgs/dummy data/1.JPG" alt="">
+  <div class="start">
+    
+    <div class="tab">
+      <div class="DP">
+        <img [src]="profilePicture2" alt="">
+        <div class="name">
+          {{username2}}
+        </div>
+      </div>
+      <div class="action">
+        <div>
+          
+          <p id="my2001" (click)="gotToProfile()"><i class="material-icons" id="myIcon">account_balance</i> Organisation Profile
+          </p>
+        </div>
       </div>
     </div>
-    <div class="storyStart">
-      <div class="contact">
-        <div class="linkBtn">
-          Contact Us
-        </div>
-        <div class="linkBtn">
-          Follow Us
-        </div>
-        <div class="linkBtn">
-          Chase us
-        </div>
-        <div class="linkBtn">
-          Do Whatever
-        </div>
-        <div class="linkBtn">
-          Address
-        </div>
+    <div class="profOverlay">
+        <input type="file" accept="image/jpg, image/jpeg" id="coverUploader">
 
+        <input type="file" accept="image/jpg, image/jpeg" id="galInput">
+      <div class="overlay">
+        <div class="addBranch">
+          <div class="dismisser" (click)="closeDIV()">
+            <i class="material-icons" id="arrow">close</i>
+          </div>
+          <label for="coverUploader">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="coverToUpload">
+          </label>
+          <h3>Edit branch details</h3>
+          <form action="">
+            <input type="text" placeholder="Branch Name"><br>
+            <input type="email" placeholder="Email"><br>
+            <input type="text" placeholder="Tel"><br>
+            <textarea name="" id="" cols="30" rows="4" placeholder="Address"></textarea><br>
+          </form>
+          <button id="submitter">Submit</button>
+        </div>
       </div>
-      <div class="desc">
-        <h3 id="welcomeMessage">welcome to the PinHome Database</h3>
-
-        <div class="uploads">
-          <div class="img1">
-            <img class="uploaded" src="../../assets/imgs/background.jpg" alt="">
-            <br>
-            <br>
-            <p>
-              nbsdkfgsdkjvbklsdvkl sd vkjhsdfkl vjhsdfklvjhsdf lkhkljv hsdfklfvh sdfivh psdfiu vsdfiph vsdfjv ip
-            </p>
-          </div>
-          <div class="img1">
-            <img class="uploaded" src="../../assets/imgs/background.jpg" alt="">
-            <br>
-            <br>
-            <p>
-              nbsdkfgsdkjvbklsdvkl sd vkjhsdfkl vjhsdfklvjhsdf lkhkljv hsdfklfvh sdfivh psdfiu vsdfiph vsdfjv ip
-            </p>
-          </div>
-          <div class="img1">
-            <img class="uploaded" src="../../assets/imgs/background.jpg" alt="">
-            <br><br>
-            <p>
-              nbsdkfgsdkjvbklsdvkl sd vkjhsdfkl vjhsdfklvjhsdf lkhkljv hsdfklfvh sdfivh psdfiu vsdfiph vsdfjv ip
-            </p>
-          </div>
-
+      <div class="gallery">
+        <h3 (click)="showGal(v)">
+          <i class="material-icons">view_list</i>
+          Gallery</h3>
+        <label for="galInput">
+          <div class="adder">
+              <i class="material-icons">add</i></div>
+        </label><br>
+        <div class="array">
+    
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+            <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
         </div>
-
-        <p align="center" id="instruction"> Add your organisation Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Ut iusto
-          vitae laborum veritatis aliquam! Aut
-          sapiente inventore id animi saepe veniam, eligendi, quia nulla placeat similique quidem eaque corporis dicta
-          iure. Nam, corrupti iste quasi corporis soluta saepe cum repellendus consequuntur dolorem ipsam officiis
-          eveniet non dolorum aliquam quidem quae.
-        </p>
       </div>
-      <div class="orgNews">
-        <div class="labeler">
-          <p id="theID">New organisations</p>
+      <div class="cont">
+        
+          <div class="dismisser" id="profDismisser" (click)="closeProfile()">
+              <i class="material-icons" id="arrow">close</i>
+          </div>
+        <div class="coverPhoto">
+          <div id="signOut" (click)="signOut()">
+            <i class="material-icons">directions_walk</i>
+            <p>Sign Out</p>
+          </div>
+          <div class="about">
+            <img src="../../assets/Sanca.png" alt="" class="logo">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, reiciendis. Neque alias quae enim nihil, asperiores blanditiis possimus incidunt! Voluptas eveniet nobis saepe laudantium dolore numquam adipisci tempore et porro, repellat labore eligendi corporis reiciendis aperiam earum non quam id.</p>
+            <h3>Address</h3>
+            <p>4877 Ugago Street Protea Glen Soweto 1818</p>
+            <h3>Contact Details</h3>
+            <p>0788221584 <br>
+            spazy65@gmail.com</p>
+          </div>
+          <h2 id="orgName">Alpha World Ministries</h2>
+          <p class="paragraph">Old Age home</p>
+          <img src="../../assets/imgs/Resilience-Path.jpg" id="coverIMG" alt="">
         </div>
-
-        <br>
-        <br>
-        <br>
-        <div class="org">
-          <div class="aboutOrg">
-            <p>
-              <img class="recents" src="../../assets/imgs/dummy data/1.JPG" alt="">
-              Lorem ipsum dolor sit amet.
-            </p>
-
+        <div class="branches">
+          <div class="myList">
+            <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
+            <h2 class="keepFixed" color="">Branches</h2>
+            <div class="org" (click)="showDIV()">
+              <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">
+              <div class="listDetails">
+                <h3 id="branchHead">Green Village Branch</h3>
+                <p>4877 Ugago Street Protea Glen Extension 3 Soweto 1819 <br><hr>
+                  email@mail.com <br>
+                0788221584</p>
+              </div>
+            </div>
+            <div class="org" (click)="showDIV()">
+              <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">
+              <div class="listDetails">
+                <h3 id="branchHead">Green Village Branch</h3>
+                <p>4877 Ugago Street Protea Glen Extension 3 Soweto 1819 <br><hr>
+                  email@mail.com <br>
+                0788221584</p>
+              </div>
+            </div>
+            <div class="org" (click)="showDIV()">
+              <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">
+              <div class="listDetails">
+                <h3 id="branchHead">Green Village Branch</h3>
+                <p>4877 Ugago Street Protea Glen Extension 3 Soweto 1819 <br><hr>
+                  email@mail.com <br>
+                0788221584</p>
+              </div>
+            </div>
+            
           </div>
         </div>
-        <div class="org">
-          <div class="aboutOrg">
-            <p>
-              <img class="recents" src="../../assets/imgs/dummy data/1.JPG" alt="">
-              Lorem ipsum dolor sit amet.
-            </p>
+      </div>
+    </div>
+    <div class="content" id="map">
+      <div class="loader">
+        Loading Map...
+      </div>
+    </div>
 
+    <div class="absolutely">
+      <div class="arrow">
+        <div class="clicker" (click)="decideState()">
+          <i class="material-icons">keyboard_arrow_up</i>
+        </div>
+        <div class="list">
+          <div class="gal" id="push" *ngFor="let a of organizationArr">
+            <img src="{{a.Url}}" alt="">
           </div>
         </div>
       </div>
     </div>
   </div>
-</body>
+
+</body> -->
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <div class="start">
+      
+      <div class="tab">
+        <!-- <div class="DP">
+          <img [src]="profilePicture2" alt="">
+          <div class="name">
+            {{username2}}
+          </div>
+        </div> -->
+        <div class="action">
+          <div>
+            
+            <p id="my2001" (click)="gotToProfile()"><i class="material-icons" id="myIcon">account_balance</i> ORGANISATION PROFILE
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="profOverlay">
+          <input type="file" accept="image/jpg, image/jpeg" id="coverUploader" (change)="changeCover($event)">
+          <input type="file" accept="image/jpg, image/jpeg" id="galInput" [(ngModel)]="galleryupload" (change)="getImages($event)">
+          <div class="overlay">
+              <div class="addBranch">
+                <div class="dismisser" (click)="closeDIV()">
+                  <i class="material-icons">close</i>
+                </div>
+                <label for="coverUploader">
+                  <img src="{{url1}}" alt="" class="coverToUpload">
+                </label>
+                <h3>Edit branch details</h3>
+                <form action="">
+                  <input type="text" placeholder="Branch Name" [value]="name1" [(ngModel)]="name1"><br>
+                  <input type="email" placeholder="Email" [value]="email1" [(ngModel)]="email1"><br>
+                  <input type="text" placeholder="Tel" [value]="tel1" [(ngModel)]="tel1"><br>
+                  <textarea name="" id="" cols="30" rows="4" placeholder="Address" [(ngModel)]="city1" [value]="city1"></textarea><br>
+                </form>
+                <button id="submitter" (click)="edit()">submit</button>
+              </div>
+            </div>
+        <div class="gallery">
+          <h3 (click)="showGal()">
+            <i class="material-icons">view_list</i>
+            Gallery</h3>
+          <label for="galInput">
+            <div class="adder">
+                <i class="material-icons">add</i></div>
+          </label><br>
+          <div class="array" *ngFor="let x of imagesArr">
+            <img src="{{x.GalUrl}}" alt="" class="images">
+        </div>
+        </div>
+        <div class="cont">
+          
+            <div class="dismisser" id="profDismisser" (click)="closeProfile()">
+                <i class="material-icons" id="arrow">close</i>
+            </div>
+          <div class="coverPhoto">
+            <div id="signOut" (click)="signOut()">
+              <i class="material-icons">directions_walk</i>
+              <p>Sign Out</p>
+            </div>
+            <div class="about">
+              <img src="{{logo}}" alt="" class="logo">
+              <h3>About</h3>
+              <p>{{desc}}</p>
+              <h3>Address</h3>
+              <p>{{city}}</p>
+              <h3>Contact Details</h3>
+              <p>{{tel}}<br>
+              {{email}}</p>
+            </div>
+            <h2 id="orgName">{{name}}</h2>
+            <p class="paragraph">{{cat}}</p>
+            <img src="{{url}}" id="coverIMG" alt="">
+          </div>
+          <div class="branches">
+            <div class="myList">
+              <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
+              <h2 class="keepFixed" color="">Branches</h2>
+              <div class="org" (click)="displayData(b,i)"  *ngFor="let b of brunchesArr; let i =index">
+                <img src="{{b.Url}}" alt="" class="orgImg">
+                <div class="listDetails">
+                  <h3 id="branchHead">{{b.OrganizationName}}</h3>
+                  <p>{{b.OrganizationAddress}} <br><hr>
+                  {{b.Email}}<br>
+                  {{b.ContactDetails}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content" id="map">
+        <div class="loader">
+          Loading Map...
+        </div>
+      </div>
+      <div class="absolutely">
+        <div class="arrow">
+          <div class="clicker" (click)="decideState()">
+            <i class="material-icons">keyboard_arrow_up</i>
+          </div>
+          <div class="list">
+            <div class="gal" id="push" *ngFor="let a of organizationArr">
+                <span class="tooltiptext">{{a.desc}}</span>
+              <img src="{{a.Url}}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>

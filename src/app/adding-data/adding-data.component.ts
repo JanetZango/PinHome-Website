@@ -1,13 +1,11 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { promise, Capability } from 'protractor';
-import {AngularFireAuth} from 'angularfire2/auth';
-import {Router} from'@angular/router';
+import { Router } from '@angular/router';
 declare var google;
+declare var firebase;
+
 import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-adding-data',
@@ -29,49 +27,30 @@ export class AddingDataComponent {
   address: any
   lat: any;
   lng;
-  urlLogo: any;
-  urlGallery = undefined;
+  urlLogo: any = "../../assets/imgs/PinHome icon.png";
+  urlGallery = "../../assets/imgs/default image/default image for uploads.jpg";
   emailAdd;
   AboutOrg;
   select;
   price;
-  objectArray = new Array();;
-  homelist: AngularFireList<any>;
-  items: Observable<any[]>;
   state;
-  urlGallery1 =  undefined;
-  urlGallery2 = undefined;
-  city:any;
+  urlGallery1 = "../../assets/imgs/default image/default image for uploads.jpg";
+  urlGallery2 = "../../assets/imgs/default image/default image for uploads.jpg";
+  city: any;
 
-  constructor(public db: AngularFireDatabase, private authen : AngularFireAuth, private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
-    this._ngZone.run(() =>{
-    this.homelist = db.list('messages');
-    this.items = this.homelist.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
-    this.authen.auth.onAuthStateChanged(user =>{
-      console.log(user)
-      if (user){
-        this.state = 1;
+  alertMessage = "Please wait...";
 
-        this.router.navigate(['/adding-data'])
-      }
-      else{
-        console.log('no user')
-        this.state = 0;
-        this.router.navigate(['/sign-in'])
-      }
-     });
-    })
+  constructor(private router: Router, private cdRef: ChangeDetectorRef, private _ngZone: NgZone) {
+
+  }
+  ngOnInit() {
+
   }
 
   initMap(address) {
-    this._ngZone.run(() =>{
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, function (results, status) {
-      
+
       if (status == google.maps.GeocoderStatus.OK) {
         this.latitude = results[0].geometry.location.lat();
         this.longitude = results[0].geometry.location.lng();
@@ -79,8 +58,243 @@ export class AddingDataComponent {
       let myLatLng = { lat: this.latitude, lng: this.longitude };
       this.objectArray = "test"
       let map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 17,
+        zoom: 16,
         center: myLatLng,
+        disableDefaultUI: true,
+        styles: [
+          {
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#8ec3b9"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1a3646"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.country",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#4b6878"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#64779e"
+              }
+            ]
+          },
+          {
+            "featureType": "administrative.province",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#4b6878"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape.man_made",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#334e87"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape.natural",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#023e58"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#283d6a"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#6f9ba5"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#023e58"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#3C7680"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#304a7d"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#98a5be"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#2c6675"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "color": "#255763"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#b0d5ce"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#023e58"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#98a5be"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1d2c4d"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "color": "#283d6a"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.station",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#3a4762"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#0e1626"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#4e6d70"
+              }
+            ]
+          }
+        ],
+
         // mapTypeId: 'terrain'
       });
       let marker = new google.maps.Marker({
@@ -89,246 +303,307 @@ export class AddingDataComponent {
         title: 'Hello World!'
       });
     })
-  })
+
   }
 
-  change(value){
-    // this.cdRef.detectChanges();
-    console.log("changing");
-    this.contacts= value.length > 10 ? value.substring(0,1) : value;
+  // change() {
+  //   // this.cdRef.detectChanges();
+  //   // console.log(value);
+  //   // this.contacts= value.length > 10 ? value.substring(0,1) : value;
 
-    if(value == 0){
-      console.log("the val");
-      
+  //   // if(value == 0){
+  //   //   console.log("the val");
+
+  //   // }
+
+  //   let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+  //   let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+  //   var dismissBtn = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
+
+  //   this.alertMessage = "Please wait..."
+  //   myAlert[0].style.display = "block";
+  //   theLoader[0].style.display = "block";
+  //   dismissBtn[0].style.display = "none";
+  //   if (this.contacts < 100000000) {
+  //     console.log("less than 10");
+
+
+
+  //     this.alertMessage = "please check your phone numbers, your phone numbers are badly formatted."
+  //     myAlert[0].style.display = "block";
+  //     theLoader[0].style.display = "none";
+  //     dismissBtn[0].style.display = "block";
+  //   }
+  //   else if (this.contacts > 999999999){
+  //     console.log("greater than 10");
+
+  //     this.alertMessage = "please check your phone numbers, your phone numbers are badly formatted."
+  //     myAlert[0].style.display = "block";
+  //     theLoader[0].style.display = "none";
+  //     dismissBtn[0].style.display = "block";
+  //   }else{
+  //     myAlert[0].style.display = "none"
+  //   }
+
+  // }
+
+  getPhone(event) {
+    // alert(this.tel);
+
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    if (this.contacts > 999999999) {
+
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none"
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      // alert(this.tel);
     }
-    
+    else if (this.contacts < 100000000) {
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
+    }
+    console.log(event);
+  }
+  dismissAlert() {
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+
+    myAlert[0].style.display = "none"
   }
 
-  scroll(event){
+  scroll(event) {
     console.log("scrolling");
-    
+
   }
   getcoo(address) {
-
     return new Promise((accpt, rej) => {
-      this._ngZone.run(() =>{
-      let geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function (results, status) {
-        var arr = results[0].address_components;
-        var arr2 = arr[3]
-        if (status == google.maps.GeocoderStatus.OK) {
-          this.latitude = results[0].geometry.location.lat();
-          this.longitude = results[0].geometry.location.lng();
-          let position = {
-            lat: results[0].geometry.location.lat(),
-            lng: results[0].geometry.location.lng(),
-            city : arr2.long_name
+      this._ngZone.run(() => {
+        let geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function (results, status) {
+          var arr = results[0].address_components;
+          var arr2 = arr[3]
+          if (status == google.maps.GeocoderStatus.OK) {
+            this.latitude = results[0].geometry.location.lat();
+            this.longitude = results[0].geometry.location.lng();
+            let position = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+              city: arr2.long_name
+            }
+            console.log(position)
+            accpt(position)
           }
-          console.log(position)
-          accpt(position)
-        }
-      });
+        });
+      })
     })
-  })
   }
   InsertPicture(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlCover = event.target.result;
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlCover = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.coverPhoto = "Choose another cover photo"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.coverPhoto = "Choose another cover photo"
-    }
-  })
+    })
   }
   InsertLogo(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlLogo = event.target.result;
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlLogo = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.logoPhoto = "Choose a different logo";
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.logoPhoto = "Choose a different logo";
-    }
-  })
+    })
   }
-  InsertGallery(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlGallery = event.target.result;
+  pic1(event: any) {
+    alert('me')
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlGallery = event.target.result;
+          console.log(this.urlGallery);
+
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.galleryupload = "Upload More"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.galleryupload = "Upload More"
-    }
-  })
+    })
   }
-  InsertGallery1(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlGallery1 = event.target.result;
+
+  pic2(event: any) {
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlGallery1 = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.galleryupload = "Upload More"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.galleryupload = "Upload More"
-    }
-  })
+    })
   }
-  InsertGallery2(event: any) {
-    this._ngZone.run(() =>{
-    if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.urlGallery2 = event.target.result;
+
+  pic3(event: any) {
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.urlGallery2 = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this.galleryupload = "Upload More"
       }
-      reader.readAsDataURL(event.target.files[0]);
-      this.galleryupload = "Upload More"
-    }
-  })
+    })
   }
+
+
   AddingData(event) {
-    this._ngZone.run(() =>{
-    let emptySpace = document.getElementById("orgName");
-    let emptySpace1 = document.getElementById("orgContacts");
-    let emptySpace2 = document.getElementById("theEmail");
-    let emptySpace3 = document.getElementById("theAddress");
-    let emptySpace4 = document.getElementById("about");
-    let emptySpace5 = document.getElementById("selector");
-    let emptySpace6 = document.getElementById("myLogo");
 
-    let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
-    let mes = window.innerHeight;
-    console.log(this.select);
-    if (this.name == undefined) {
-      emptySpace.style.boxShadow = "0 0 5px red"
-      this.message = "Please enter the name of your organization";
+    let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
+    let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
+    var dismissBtn = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
+
+    myAlert[0].style.display = "block";
+    theLoader[0].style.display = "block";
+    dismissBtn[0].style.display = "none";
+    this.alertMessage = "Loading..."
+    if (this.contacts > 999999999) {
+
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block";
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted"
+      // alert(this.tel);
     }
-    else if (this.contacts == undefined) {
-
-      emptySpace1.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter your organisation's phone";
+    else if (this.contacts < 100000000) {
+      myAlert[0].style.display = "block";
+      theLoader[0].style.display = "none";
+      dismissBtn[0].style.display = "block"
+      this.alertMessage = "please check your phone numbers, something isn't right, your phone numbers are badly formatted";
     }
-    else if (this.emailAdd == undefined) {
-      // alerter[0].style.top = (mes/1.5) + "px";
-      // alerter[0].style.left = "50%"; 
-
-
-      emptySpace2.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter the email Address of your organization";
-    }
-    else if (this.OrganizationAdress == undefined) {
-      // alerter[0].style.top = (mes/1.5) + "px";
-      // alerter[0].style.left = "2.3%"; 
-
-
-      emptySpace3.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter the Physical Address of your organization";
-    }
-    else if (this.AboutOrg == undefined) {
-      // alerter[0].style.top = (mes/1.5) + "px";
-      // alerter[0].style.left = "2.3%"; 
-
-
-      emptySpace4.style.boxShadow = "0 0 5px red";
-      this.message = "Please enter the description of your organization";
-    }
-    else if (this.select == undefined) {
-      // alerter[0].style.top = (mes/1.5) + "px";
-      // alerter[0].style.left = "2.3%"; 
-
-
-      emptySpace5.style.boxShadow = "0 0 5px red";
-      this.message = "Please select the category for your organization";
-    }
-    else if (this.logoPhoto != "Choose a different logo") {
-      // alerter[0].style.top = (mes/1.5) + "px";
-      // alerter[0].style.left = "2.3%"; 
-
-
-      emptySpace6.style.boxShadow = "0 0 5px red";
-      this.message = "Please upload the logo of your organization";
-    }
-  else if (this.urlGallery == undefined || this.urlGallery1 == undefined || this.urlGallery2 == undefined){
-    this.message = "Please upload at least 3 Gallery pictures";
-  }
-  else if(this.contacts.length  < 10|| this.contacts.length > 10){
-    this.message = "Phone number not complete";
-  }
-  
     else {
-      this.getcoo(this.OrganizationAdress).then((data: any) => {
-        this.long = data.lat;
-        this.homelist = this.db.list('OrganizationList');
-        this.homelist.push({
-          OrganizationName: this.name,
-          OrganizationAdress: this.OrganizationAdress,
-          ContactDetails: "0" + this.contacts,
-          Email: this.emailAdd,
-          AboutOrg: this.AboutOrg,
-          Category: this.select,
-          Url: this.urlCover,
-          Logo:this.urlLogo,
-          Gallery:this.urlGallery,
-          Gallery1:this.urlGallery1,
-          Gallery2:this.urlGallery2,
-          longitude: data.lng,
-          city : data.city,
-          latitude: data.lat
-        });
-        alerter[0].style.top = (mes/1.5) + "px";
-        alerter[0].style.left = "50%"; 
+      if (this.name == "" || this.name == null) {
 
-        this.message = "Your information has been added."
-        this.emailAdd = "";
-        this.AboutOrg = "";
-        this.select = "";
-        this.OrganizationAdress = "";
-        this.name = "";
-        this.urlGallery = "";
-        this.urlGallery1 = "";
-        this.urlGallery2 = "";
-        this.urlCover = "";
-        this.urlLogo = "";
-        this.contacts = "";
-      })
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter your branch name."
+      }
+      else if (this.OrganizationAdress == "" || this.OrganizationAdress == null) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter your branch address."
+      }
+      else if (this.emailAdd == "" || this.emailAdd == null) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter your branch email address."
+      }
+      else if (this.contacts = "" || this.contacts == undefined || this.contacts == null) {
+        myAlert[0].style.display = "block";
+        theLoader[0].style.display = "none";
+        dismissBtn[0].style.display = "block"
+        this.alertMessage = "Please enter the branch contact numbers."
+      }
+      else {
+        firebase.auth().onAuthStateChanged(user => {
+          this.getcoo(this.OrganizationAdress).then((data: any) => {
+            this.long = data.lat;
+            firebase.database().ref('Brunches/' + user.uid + '/').push({
+              OrganizationName: this.name,
+              OrganizationAdress: this.OrganizationAdress,
+              ContactDetails: this.contacts,
+              Email: this.emailAdd,
+              Url: this.urlCover,
+              Logo: this.urlLogo,
+              longitude: data.lng,
+              city: data.city,
+              latitude: data.lat
+            }, Error => {
+              this.alertMessage = Error.message;
+
+              myAlert[0].style.display = "block";
+              theLoader[0].style.display = "none";
+              dismissBtn[0].style.display = "block"
+            });
+            // alerter[0].style.top = (mes/1.5) + "px";
+            // alerter[0].style.left = "50%"; 
+
+            // this.message = "Your information has been added."
+            this.emailAdd = "";
+            this.select = "";
+            this.OrganizationAdress = "";
+            this.name = "";
+            this.urlCover = "../../assets/imgs/default-cover.jpg";
+            this.contacts = "";
+
+            this.router.navigate(['/profile'])
+
+            // alert('data added')
+            console.log(this.OrganizationAdress)
+          })
+        })
+      }
     }
 
-    if (this.name != undefined) {
-      emptySpace.style.boxShadow = "0 0 5px transparent";
-    }
-    if (this.contacts != undefined || this.contacts != null) {
-      emptySpace1.style.boxShadow = "0 0 5px transparent";
-    }
-    if (this.emailAdd != undefined) {
-      emptySpace2.style.boxShadow = "0 0 5px transparent";
-    }
-    if (this.OrganizationAdress == undefined ||this.OrganizationAdress == " " || this.OrganizationAdress == null) {
-      emptySpace3.style.boxShadow = "0 0 5px transparent";
-    }
-    if (this.AboutOrg != undefined) {
-      emptySpace4.style.boxShadow = "0 0 5px transparent";
-    }
-    if (this.select == undefined) {
-      emptySpace5.style.boxShadow = "0 0 5px transparent";
-    }
-    if (this.logoPhoto == "Choose a different logo") {
-      emptySpace6.style.boxShadow = "0 0 5px transparent";
-    }
-
-    alerter[0].style.top = (mes / 1.5) + "px";
-    alerter[0].style.left = "50%";
-    alerter[0].style.transform = "translateX(-54%)"
-  })
   }
 
-  dismissAlert() {
-    let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf<HTMLElement>;
-    alerter[0].style.left = "-100%";
-    this.message = "";
+  CheckNumber() {
+
+  }
+
+  goToMap() {
+    this.router.navigate(['/landing-page'])
+  }
+  goToProfile() {
+    this.router.navigate(['/profile'])
+  }
+  goToSignIn(){
+    alert("clicked")
+  }
+  decideState() {
+    if (this.state == 0) {
+      this.showSlide()
+    }
+    else {
+      this.hideSlide()
+    }
+
+    console.log(this.state);
+
+  }
+
+  showSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+    arrow[0].style.left = "48%";
+    arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(180DEG)";
+    slider[0].style.bottom = "0";
+
+    this.state = 1;
+
+  }
+  hideSlide() {
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<HTMLElement>;
+
+    arrow[0].style.left = "48%";
+    arrow[0].style.transform = "translateX(-60%)";
+    arrow[0].style.transform = "rotateZ(0DEG)";
+    slider[0].style.bottom = "-200px";
+
+    this.state = 0
   }
 }

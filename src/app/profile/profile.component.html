@@ -1,109 +1,236 @@
-<div class="content">
-<div class="container" *ngFor="let i of Orgs | async">
-  <h1>
-    Your Acccount
-  </h1>
+<!-- <head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-  <div align="center">
-    <img class="ProPic" src="{{i.downloadurl}}">
+<body class="thebody" id="map">
+  <div class="absolutely">
+    <div class="arrow">
+      <div class="clicker" (click)="decideState()">
+        &Lambda;
+      </div>
+    </div>
+    <div class="list" >
+      <div class="gal" id="push" *ngFor="let i of imagesArr">
+        <img [src]="i.GalUrl" alt="">
+      </div>
+      <div class="gal" id="toUpload" (click)="openUploader()">
+        <h1>
+          <i class="material-icons">add</i>
+        </h1>
+      </div>
+
+    </div>
+  </div>
+  <div class="tabTop">
+    <p (click)="goToMap()">Map</p>
+    <p id="prof" (click)="signOut()">Sign out</p>
+  </div>
+  <div class="overrall">
+
+    <div class="container2">
+      <div class="closer">
+        <div class="closeBtn" (click)="dismissEdit()">
+          <i class="material-icons">
+            close
+          </i>
+        </div>
+      </div>
+      <div class="heading">
+        <img class="logoOnEdit" src="{{logo}}" alt="">
+        <div class="orgNameEdit">
+          {{name1}}
+        </div>
+      </div>
+      <div class="restOfBody">
+        <div class="num2">
+          <div class="sgubhu">
+            <h3>Edit branch details</h3>
+            <div class="texts">
+              <input type="text" value={{name1}} placeholder="Branch Name">
+              <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">business</i>
+            </div>
+            <div class="texts">
+              <input type="email" value={{email1}} placeholder="Branch Email">
+              <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">mail</i>
+            </div>
+            <div class="texts">
+              <input type="tel" value={{tel1}} placeholder="Phone (eg: 829876543)">
+              <i style="color: white;height: 30px; position: absolute; right: 20px;" class="person" class="material-icons">phone</i>
+            </div>
+            <div class="texts">
+              <textarea type="text" value={{city1}} placeholder="Address" maxlength="250" style="resize: none"></textarea>
+              <i style="color: white;height: 30px; position: absolute; right: 20px;top: 40px; " class="person" class="material-icons">pin_drop</i>
+            </div>
+            <div class="submitterDiv">
+              <div class="submitter" (click)="edit()">
+                Update
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="bar">
-    <h1 class="h1">Account Details</h1>
+  <div class="forUploading">
+    <div class="adder">
+        <div class="closeBtn" (click)="dismissUploader()">
+            <i class="material-icons">
+              close
+            </i>
+          </div>
+      <div class="upload">
+          <label for="imgUpload" id="uploaderLbl">
+              <i class="material-icons">
+                add
+              </i>
+            </label>
+      </div>
+      
+      <input type="file"  id="imgUpload" (change)="getImages($event)" multiple>
+    </div>
+  </div>
+  <div class="container">
+    <div class="cover">
+      <div class="round">
+        <img class="theImage" src="{{logo}}">
+      </div>
+      <h3 id="orgNameMain">{{name}}</h3>
+      <img class="cover2" src="{{url}}">
+    </div>
+    <div class="seperator">
+      <h1>Edit your organisation profile</h1>
+      <div class="textfield">
+        <input value={{name}} class="upper" [(ngModel)]="name" type="text" placeholder="Organisation Name" disabled>
+        <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">business</i>
+      </div>
+      <div class="textfield">
+        <input value={{cat}} class="upper" [(ngModel)]="cat" type="text" placeholder="Organisation Type" disabled>
+        <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">business</i>
+      </div>
+      <div class="textfield">
+        <input value={{email}} [(ngModel)]="email" type="email" placeholder="Email" disabled>
+        <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">mail</i>
+      </div>
+      <div class="textfield">
+        <input value={{tel}} class="upper" [(ngModel)]="tel" type="number" placeholder="Phone No." disabled>
+        <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">phone</i>
+      </div>
+      <div class="textfield">
+        <input value={{city}} class="upper" [(ngModel)]="city" type="text" placeholder="City" disabled>
+        <i style=" color: white;height: 30px; position: relative; left: -25px;" class="person" class="material-icons">pin_drop</i>
+      </div>
+      <textarea value={{desc}} [(ngModel)]="desc" class="theDescription" placeholder="Description" maxlength="230" id="about"
+        type="text" disabled></textarea>
+    </div>
+    <div class="seperator2">
+      <h1 class="theH1">Organisation Branches <br>
+        <button class="BranchButton" (click)="addBrunch()">
+          <i style="color: #2c747a; position: relative;right: 0px;" class="material-icons">add</i>Add Branch</button>
+      </h1>
+
+      <div class="branches">
+        <div class="orgBranch" *ngFor="let i of brunchesArr" (click)="showinfo(i)">
+          <div class="branchName">
+            {{i.city}}
+          </div>
+          <br>
+          <img src="{{i.Url}}" alt="">
+        </div>
+
+
+
+      </div>
+    </div>
   </div>
 
-  <table align="center">
-    <tr>
-      <td valign="top" class="leftTD">
-        Name :
-      </td>
-      <td valign="top" class="rightTD">
-        {{i.Firstname}}
-      </td>
-    </tr>
 
-    <tr>
-      <td valign="top" class="leftTD">
-        Surname :
-      </td>
-      <td valign="top" class="rightTD">
-        {{i.Lastname}}
-      </td>
-    </tr>
+</body> -->
 
-    <tr>
-      <td valign="top" class="leftTD">
-        Email Adress :
-      </td>
-      <td class="rightTD">
-        {{email}}
-      </td>
-    </tr>
-
-    <tr>
-      <td valign="top" class="leftTD">
-        Mobile No. :
-      </td>
-      <td valign="top" class="rightTD">
-        {{i.Mobile}}
-      </td>
-    </tr>
-  </table>
-
-  <div class="bar">
-    <h1 class="h1">Organisation Details</h1>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="toMap" (click)=" goToMap()">
+    <i class="material-icons">map</i> <p>
+      
+    Go to map
+    </p>
   </div>
+    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader">
 
-  <div >
-    <img class="coverPic" src="../../assets/imgs/default-cover.jpg">
+    <input type="file" accept="image/jpg, image/jpeg" id="galInput">
+  <div class="overlay">
+    <div class="addBranch">
+      <div class="dismisser" (click)="closeDIV()">
+        <i class="material-icons">close</i>
+      </div>
+      <label for="coverUploader">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="coverToUpload">
+      </label>
+      <h3>Edit branch details</h3>
+      <form action="">
+        <input type="text" placeholder="Branch Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="text" placeholder="Tel"><br>
+        <textarea name="" id="" cols="30" rows="4" placeholder="Address"></textarea><br>
+      </form>
+      <button id="submitter">submit</button>
+    </div>
   </div>
+  <div class="gallery">
+    <h3 (click)="showGal(v)">
+      <i class="material-icons">view_list</i>
+      Gallery</h3>
+    <label for="galInput">
+      <div class="adder">
+          <i class="material-icons">add</i></div>
+    </label><br>
+    <div class="array">
 
-  <div align="center" class="logo">
-    <img  class="round2" src="../../assets/imgs/icon.png">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+        <img src="../../assets/imgs/Resilience-Path.jpg" alt="" class="images">
+    </div>
   </div>
-  
-  <table align="center">
-    <tr>
-      <td valign="top" class="leftTD">
-        Organisation Name:
-      </td>
-
-      <td valign="top" class="rightTD">
-        Little Rose
-
-      </td>
-     </tr>
-      <tr>
-        <td valign="top" class="leftTD">
-          Organisation Cat :
-        </td>
-
-        <td valign="top" class="rightTD">
-
-          Old aged home
-        </td>
-      </tr>
-
-      <tr>
-        <td valign="top" class="leftTD">
-          Organisation Tel. :
-        </td>
-
-        <td valign="top" class="rightTD">
-
-          {{i.Telephone}}
-        </td>
-      </tr> 
-      <tr>
-        <td valign="top" class="leftTD">
-          Description :
-        </td>
-        <td valign="top" class="rightTD">
-          {{i.AboutOrg}}
-        </td>
-      </tr>  
-  </table>
-</div>
-
-</div>
-
+  <div class="cont">
+    <div class="coverPhoto">
+      <div id="signOut" (click)="signOut()">
+        <i class="material-icons">directions_walk</i>
+        <p>Sign Out</p>
+      </div>
+      <div class="about">
+        <img src="../../assets/Sanca.png" alt="" class="logo">
+        <h3>About</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, reiciendis. Neque alias quae enim nihil, asperiores blanditiis possimus incidunt! Voluptas eveniet nobis saepe laudantium dolore numquam adipisci tempore et porro, repellat labore eligendi corporis reiciendis aperiam earum non quam id.</p>
+        <h3>Address</h3>
+        <p>4877 Ugago Street Protea Glen Soweto 1818</p>
+        <h3>Contact Details</h3>
+        <p>0788221584 <br>
+        spazy65@gmail.com</p>
+      </div>
+      <h2 id="orgName">Alpha World Ministries</h2>
+      <p class="paragraph">Old Age home</p>
+      <img src="../../assets/imgs/Resilience-Path.jpg" id="coverIMG" alt="">
+    </div>
+    <div class="branches">
+      <div class="list">
+        <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
+        <h2 class="keepFixed" color="">Branches</h2>
+        <div class="org" (click)="showDIV()">
+          <img src="../../assets/imgs/Dp.jpg" alt="" class="orgImg">
+          <div class="listDetails">
+            <h3 id="branchHead">Green Village Branch</h3>
+            <p>4877 Ugago Street Protea Glen Extension 3 Soweto 1819 <br><hr>
+              email@mail.com <br>
+            0788221584</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -16,7 +16,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SlideshowModule } from 'ng-simple-slideshow';
+
+
 
 
 
@@ -30,6 +31,7 @@ import { SlideshowModule } from 'ng-simple-slideshow';
     GreetingComponent,
     ProfileComponent,
     LandingPageComponent,
+
     
 
 
@@ -37,11 +39,10 @@ import { SlideshowModule } from 'ng-simple-slideshow';
   imports: [
     BrowserModule,
     routes,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    SlideshowModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import {AngularFireAuth} from 'angularfire2/auth';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import {Router} from'@angular/router';
-// import { AngularFireDatabase } from 'angularfire2/database';
-// import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { log } from 'util';
+
+declare var firebase
 
 @Component({
   selector: 'app-root',
@@ -16,41 +13,51 @@ export class AppComponent {
   url: any;
   state;
   img = "../assets/imgs/Dp.jpg"
-  orgDetails: AngularFireList<any>;
- Orgs: Observable<any[]>
  userId;
  dbPath;
  message;
  email;
 
-  constructor(private authen : AngularFireAuth, public router: Router, private db: AngularFireDatabase){
-    console.log('ok')
-    let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
-    let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
+  constructor( private router: Router){
+    // console.log('ok')
+    // let prof = document.getElementsByClassName("profile") as HTMLCollectionOf <HTMLElement>;
+    // let signOutBtn = document.getElementsByClassName("buttonClick") as HTMLCollectionOf <HTMLElement>;
 
-    this.authen.auth.onAuthStateChanged(user =>{
-      console.log(user)
-      if (user){
-        this.state = 1;
-        prof[0].style.display = "block";
-        signOutBtn[0].style.display = "block";
-        this.router.navigate(['/adding-data']);
+  this.redirect()
+  }
+
+
+  nav(){
+    return new Promise ((pass,fail) =>{
+      firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user);
+        if (user) {
+          pass(1)
+        } else {
+          console.log('no user')
+        pass(0)
+        }
+      });
+    })
+ 
+  }
+
+  redirect(){
+ 
+    this.nav().then((x:any) =>{
+      if (x == 1){
+        this.router.navigate(['/landing-page'])
       }
       else{
-        console.log('no user')
-        this.state = 0;
-        this.router.navigate(['/landing-page']);
-        prof[0].style.display = "none";
-        signOutBtn[0].style.display = "none";
+          this.router.navigate(['/landing-page']);
       }
-     });
+    })   
   }
 
 
-
-  show(){
-    this.router.navigate(['/adding-data']);
-  }
+  // show(){
+  //   this.router.navigate(['/adding-data']);
+  // }
 
   // dismissAlert(){
   //   let alerter = document.getElementsByClassName('customAlert') as HTMLCollectionOf <HTMLElement>;

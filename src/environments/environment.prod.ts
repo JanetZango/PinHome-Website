@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyAqOYQVilf8j49rk0uf6kj_UtgbG9uLfAA",
-    authDomain: "pinhomedatabase.firebaseapp.com",
-    databaseURL: "https://pinhomedatabase.firebaseio.com",
-    projectId: "pinhomedatabase",
-    storageBucket: "",
-    messagingSenderId: "1004548425362"
-  }
+  // firebase: {
+  //   apiKey: "AIzaSyAnA4VKmhzvKoT9fkYNjr_XnElRpOAyfL0",
+  //   authDomain: "finalpinhomedatabase.firebaseapp.com",
+  //   databaseURL: "https://finalpinhomedatabase.firebaseio.com",
+  //   projectId: "finalpinhomedatabase",
+  //   storageBucket: "",
+  //   messagingSenderId: "976373818419"
+  // }
 
 };
