@@ -176,18 +176,18 @@
                   <img src="{{url1}}" alt="" class="coverToUpload">
                 </label>
                 <h3>Edit branch details</h3>
-                <form action="">
+                <div class="editForm">
                   <input type="text" placeholder="Branch Name" [value]="name1" [(ngModel)]="name1"><br>
                   <input type="email" placeholder="Email" [value]="email1" [(ngModel)]="email1"><br>
                   <input type="text" placeholder="Tel" [value]="tel1" [(ngModel)]="tel1"><br>
                   <textarea name="" id="" cols="30" rows="4" placeholder="Address" [(ngModel)]="city1" [value]="city1"></textarea><br>
-                </form>
+                </div>
                 <button id="submitter" (click)="edit()">submit</button>
               </div>
             </div>
         <div class="gallery">
-          <h3 (click)="showGal()">
-            <i class="material-icons">view_list</i>
+          <h3 class="GAlNAme" (click)="showGal()">
+            <i id="GalIcon" class="material-icons">view_list</i>
             Gallery</h3>
           <label for="galInput">
             <div class="adder">
@@ -196,6 +196,7 @@
           <div class="array" *ngFor="let x of imagesArr">
             <img src="{{x.GalUrl}}" alt="" class="images">
         </div>
+        
         </div>
         <div class="cont">
           
@@ -214,7 +215,7 @@
               <h3>Address</h3>
               <p>{{city}}</p>
               <h3>Contact Details</h3>
-              <p>{{tel}}<br>
+              <p>0{{tel}}<br>
               {{email}}</p>
             </div>
             <h2 id="orgName">{{name}}</h2>

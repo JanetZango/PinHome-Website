@@ -7,6 +7,7 @@ declare var google;
 declare var firebase;
 
 import { ChangeDetectorRef } from '@angular/core';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-adding-data',
   templateUrl: './adding-data.component.html',
@@ -347,8 +348,11 @@ export class AddingDataComponent {
 
   // }
 
+  cell;
   getPhone(event) {
     // alert(this.tel);
+console.log(this.contacts);
+this.cell =  this.contacts
 
     let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
@@ -516,13 +520,16 @@ export class AddingDataComponent {
         this.alertMessage = "Please enter the branch contact numbers."
       }
       else {
+        console.log(this.contacts);
+        console.log(this.cell);
+        
         firebase.auth().onAuthStateChanged(user => {
           this.getcoo(this.OrganizationAdress).then((data: any) => {
             this.long = data.lat;
-            firebase.database().ref('Brunches/' + user.uid + '/').push({
+            firebase.database().ref('OrganizationList/' + user.uid + '/').push({
               OrganizationName: this.name,
               OrganizationAdress: this.OrganizationAdress,
-              ContactDetails: this.contacts,
+              ContactDetails: "0" + this.cell,
               Email: this.emailAdd,
               Url: this.urlCover,
               Logo: this.urlLogo,
@@ -546,8 +553,18 @@ export class AddingDataComponent {
             this.name = "";
             this.urlCover = "../../assets/imgs/default-cover.jpg";
             this.contacts = "";
-
-            this.router.navigate(['/profile'])
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            
+            Toast.fire({
+              type: 'success',
+              title: 'Branch added successfully'
+            })
+            this.router.navigate(['/landing-page'])
 
             // alert('data added')
             console.log(this.OrganizationAdress)

@@ -37,6 +37,8 @@ export class SignInComponent implements OnInit {
     // alert('clicked')
     console.log(email)
     this.alertMessage = "Verifying details..."
+
+    
     // let myAlert = document.getElementsByClassName("overlayer") as HTMLCollectionOf<HTMLElement>;
     // let theLoader = document.getElementsByClassName("loader") as HTMLCollectionOf<HTMLElement>;
     // let dismisser = document.getElementsByClassName("dismissBtn") as HTMLCollectionOf<HTMLElement>;
@@ -74,13 +76,23 @@ export class SignInComponent implements OnInit {
         swal(this.alertMessage)
       }
       else {
-
+        Swal.fire({
+          title: 'Loading',
+          html: this.alertMessage,
+          // timer: 4000,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+          }
+        }).then((result) => {
+          
+        })
         this.alertMessage = "Signing in...";
         // theOK.style.display = "none";
         // leader[0].style.display = "block"
 
         firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
           firebase.auth().onAuthStateChanged(data => {
+            Swal.close();
             this.userId = data.uid;
             // myAlert[0].style.top = (b/3.5) + "px";
             // myAlert[0].style.left = "2.3%"; 
@@ -105,19 +117,23 @@ export class SignInComponent implements OnInit {
             // theLoader[0].style.display = "none";
             // dismisser[0].style.display = "block"
             if (Error.message == "There is no user record corresponding to this identifier. The user may have been deleted.") {
-              this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started..."
+              this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started...";
+              Swal.hideLoading();
             }
             else if (Error.message == "The password is invalid or the user does not have a password.") {
-              this.alertMessage = "Please ensure that your password is correct."
+              this.alertMessage = "Please ensure that your password is correct.";
+              Swal.hideLoading();
             }
             else if (Error.message == "The email address is badly formatted.") {
-              this.alertMessage = "Please check if your email address is correct, something's not right."
+              this.alertMessage = "Please check if your email address is correct, something's not right.";
+              Swal.hideLoading();
             }
             else {
               this.alertMessage = Error.message;
             }
 
             swal(this.alertMessage)
+            Swal.close();
             // theOK.style.display = "block";
             // leader[0].style.display = "none";
           })
@@ -126,18 +142,26 @@ export class SignInComponent implements OnInit {
           // theLoader[0].style.display = "none";
           // dismisser[0].style.display = "block"
           if (Error.message == "There is no user record corresponding to this identifier. The user may have been deleted.") {
-            this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started..."
+            this.alertMessage = "We do not have a record of this email address, please check your email address or sign up and get started...";
+            Swal.hideLoading();
+            Swal.close();
           }
           else if (Error.message == "The password is invalid or the user does not have a password.") {
-            this.alertMessage = "Please ensure that your password is correct."
+            this.alertMessage = "Please ensure that your password is correct.";
+            Swal.hideLoading();
+            Swal.close();
           }
           else if (Error.message == "The email address is badly formatted.") {
-            this.alertMessage = "Please check if your email address is correct, something's not right."
+            this.alertMessage = "Please check if your email address is correct, something's not right.";
+            Swal.hideLoading();
+            Swal.close();
           }
           else {
-            this.alertMessage = Error.message;
+            this.alertMessage = Error.message;;
+            Swal.hideLoading();
           }
-          swal(this.alertMessage)
+          swal(this.alertMessage);
+          Swal.close();
         })
 
       }

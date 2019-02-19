@@ -8,6 +8,7 @@ import { PassThrough } from 'stream';
 import swal from 'sweetalert';
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
+import { timingSafeEqual } from 'crypto';
 
 declare var google;
 declare var firebase;
@@ -36,7 +37,7 @@ export class LandingPageComponent implements OnInit {
   i = 180;
   initially;
   tempArr = []
-
+  urlGallery1 =  "../../assets/imgs/default image/default image for uploads.jpg";
   images = ["assets/imgs/1.png", "assets/imgs/2.png", "assets/imgs/3.png", "assets/imgs/4.png", "assets/imgs/7.png", "assets/imgs/4.png", "assets/imgs/5.png", "assets/imgs/6.png"]
   url1;
   email1;
@@ -57,9 +58,20 @@ export class LandingPageComponent implements OnInit {
   imagesArr=[];
   brunchesArr=[];
   userId;
+  galleryupload: string;
   displayProfileArr=[];
   constructor(private _ngZone: NgZone, private router: Router) {
-
+    this.name="";
+    this.desc="";
+    this.url="";
+    this.logo="";
+    this.tel="";
+    this.city="";
+    this.cat="";
+    this.email="";
+    this.key="";
+    this.profileArr=[0],
+    this.displayProfileArr=[0]
     this.getDetails().then((data: any) => {
       console.log(data);
       this.username2 = data.name
@@ -100,7 +112,18 @@ export class LandingPageComponent implements OnInit {
   public setName(name) {
     this.username2 = name
   }
-
+  changeCover(event: any) {
+    this._ngZone.run(() => {
+      if (event.target.files && event.target.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.url1 = event.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        // this.coverPhoto = "Choose another cover photo"
+      }
+    });
+  }
   getDetails() {
     return new Promise((accpt, reject) => {
       firebase.auth().onAuthStateChanged(function (user) {
@@ -144,6 +167,31 @@ export class LandingPageComponent implements OnInit {
       }
       this.initMap()
     })
+  }
+  dismissUploader(){
+    var uploader = document.getElementsByClassName("forUploading") as HTMLCollectionOf <HTMLElement>;
+  
+    uploader[0].style.display = "none"
+  
+  }
+  getImages(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.urlGallery1 = event.target.result;
+        console.log(this.urlGallery1);
+        var user = firebase.auth().currentUser.uid
+        console.log(user);
+       firebase.database().ref('Gallery/' + user + '/').push({
+         GalUrl: this.urlGallery1})
+         this.getGallery()
+      this.dismissUploader();
+        }, Error=>{
+         alert(Error)
+       }
+      reader.readAsDataURL(event.target.files[0]);
+      this.galleryupload = "Upload More"
+    }
   }
   addBrunch() {
     this.router.navigate(['/adding-data']);
@@ -512,7 +560,7 @@ export class LandingPageComponent implements OnInit {
         if (user) {
           if (user.emailVerified == false) {
             user.sendEmailVerification()
-            swal('please verify your email')
+            swal('Please check your email for a verification link.')
             accpt(0)
           }
           else {
@@ -573,7 +621,6 @@ export class LandingPageComponent implements OnInit {
   showinfo(x) {
     this.clickState = 1;
     console.log(x);
-
     this.name1 = x.OrganizationName
     this.tel1 = x.ContactDetails;
     this.city1 = x.city;
@@ -736,7 +783,7 @@ export class LandingPageComponent implements OnInit {
   getBrunches() {
     return new Promise((accpt, rej) => {
       firebase.auth().onAuthStateChanged(function (user) {
-        var dbPath = 'Brunches/' + user.uid + '/';
+        var dbPath = 'OrganizationList/' + user.uid + '/';
         firebase.database().ref(dbPath).on("value", (data: any) => {
           console.log(data.val());
           if (data.val() != null || data.val() != undefined) {
@@ -773,11 +820,11 @@ export class LandingPageComponent implements OnInit {
     console.log(this.keyss);
     
       if(this.email == ""){
-        this.alertMessage = "Please enter the brnch's email"
+        this.alertMessage = "Please enter the branch's email"
   
       }
       else if(this.tel > 999999999 || this.tel < 100000000){
-        this.alertMessage = "Please enter the branch's Phone number"
+        this.alertMessage = "Please enter the branch's phone number"
   
       }
       if(this.desc == ""){
@@ -785,7 +832,7 @@ export class LandingPageComponent implements OnInit {
       }
       else {
         var user = firebase.auth().currentUser.uid
-        firebase.database().ref('Brunches/' + user + '/' + this.key + '/').update({
+        firebase.database().ref('OrganizationList/' + user + '/' + this.key + '/').update({
            Email: this.email1,
            OrganizationName: this.name1,
            ContactDetails: this.tel1,
@@ -797,11 +844,22 @@ export class LandingPageComponent implements OnInit {
         });
       // }
          
-      alert("updated")
+      // alert("updated")
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      
+      Toast.fire({
+        type: 'success',
+        title: 'Updated successfully'
+      })
   
       }
       
-      alert(this.alertMessage)
+      // alert(this.alertMessage) 
   
     }
   

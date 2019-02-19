@@ -34,7 +34,7 @@
           <div class="left">
             <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
             <br>
-            <textarea class="txtBig" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)" placeholder="Address" maxlength="230"
+            <textarea class="txtBig" rows="2" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)" placeholder="Address" maxlength="230"
               id="about" type="text"></textarea>
             <input [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
             <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (change)="getPhone($event)" class="textField" placeholder="e.g(821234567)"

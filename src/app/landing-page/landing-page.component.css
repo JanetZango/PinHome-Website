@@ -11,6 +11,15 @@
     margin-left: -30px;
     margin-top: -10px;
 }
+#GalIcon{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.GAlNAme{
+    padding-left: 30px;
+    padding-top: 21px;
+}
 html, body {
     height: 100%;
     margin: 0;
@@ -280,7 +289,7 @@ html, body {
     text-align: center;
     padding: 10px;
 }
-form{
+.editForm{
     width: 90%;
     /* height: 90%; */
     margin: 0 auto;
@@ -291,8 +300,8 @@ form{
     padding-top: 30px;
     padding-bottom: 30px; 
 }
-form input, textarea{
-    width: 420px;
+.editForm input, textarea{
+    width: 90%;
     padding: 10px;
     resize: none;
     margin-top: 15px;
@@ -314,7 +323,7 @@ textarea{
     color: grey;
 }
 #submitter{
-    width: 430px;
+    width: 90%;
     padding: 10px;
     margin: 10px;
     background: #018790;
@@ -398,13 +407,14 @@ this part handles the gallery tab */
     width: 300px;
     height:98%;
     position: fixed;
-    background: whitesmoke;
+    background: #018790;
     top: 10px;
     right:-240px;
     overflow-y: scroll;
     text-align: center;
     border-radius: 5px;
     display: block;
+    color: white;
 }
 .gallery h3{
     cursor: pointer;
@@ -418,8 +428,12 @@ this part handles the gallery tab */
     width: 90%;
     margin-top: 10px;
     height: 200px;
+    object-fit: cover;
     /* border: 2px solid black; */
     
+}
+img{
+    object-fit: cover;
 }
 .array{
     transition: 300ms;
@@ -432,7 +446,7 @@ this part handles the gallery tab */
     width: 90%;
     margin: 0 auto;
     height: 200px;
-    border: 2px solid black;
+    border: 2px solid white;
     text-align: center;
     /* display: none; */
 }
@@ -470,7 +484,7 @@ This handles the profile Pop up */
     height: 80%;
     /* border: 2px solid red; */
     position: relative;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     left: 50%;
     top: 48%;
     transform: translate(-50%,-50%);
@@ -564,10 +578,12 @@ button{
 }
 #orgName{
     position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
+    transform: translate(-50%,-50%);
     /* top: 125px; */
-    line-height: 250px;
+    /* line-height: 250px; */
     color: white;
     text-shadow: 0 5px 5px black
 }
@@ -671,6 +687,7 @@ button{
 }
 
 #branchHead{
+    text-transform: capitalize;
     margin-top: 0;
     color: black
 }

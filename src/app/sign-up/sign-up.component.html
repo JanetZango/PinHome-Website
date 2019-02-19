@@ -1,8 +1,10 @@
-<div class="everything">
   <head>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader">
+    <div class="everything">
+
+    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader"   (change)="InsertPicture($event)">
+    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader2"  (change)="InsertLogo($event)">
     <div class="row" id="firstpage">
       <div class="column" style="background-color:#018790;">
         <p class="appname">PinHome</p>
@@ -35,17 +37,19 @@
         <label for="">
           <i style="position: relative; top: 34.5px; left: 190px; color: #ffffff" class="material-icons">business</i>
         </label>
-        <input class="Input1" #name="ngModel" type="text" placeholder="Organisation Name" ngModel required>
-        <span style="color: red" *ngIf="!name.valid && name.touched" class="help-block helptext">Please enter the organisation name</span>
+        <input class="Input1" #orgName="ngModel" type="text" placeholder="Organisation Name" ngModel required>
+        <span style="color: red" *ngIf="!orgName.valid && orgName.touched" class="help-block helptext">Please enter the organisation's name</span>
         <label for="">
           <i style="position: relative; top: 34.5px; left: 190px; color: #ffffff" class="material-icons">mail</i>
         </label>
-        <input class="Input1" [(ngModel)]="email" type="email" placeholder="Organisation Email">
+        <input class="Input1" #email="ngModel" ngModel required type="email" placeholder="Organisation Email">
+        <span style="color: red" *ngIf="!email.valid && email.touched" class="help-block helptext">Please enter the organisation's email</span>
         <label for="">
           <i style="position: relative; top: 34.5px; left: 190px; color: #ffffff" class="material-icons">lock</i>
         </label>
-        <input class="Input1" [(ngModel)]="password" type="password" placeholder="Password">
-        <button class="submitBtn" (click)="Reg()">Register</button>
+        <input class="Input1" #password="ngModel" ngModel required type="password" placeholder="Password">
+        <span style="color: red" *ngIf="!password.valid && password.touched" class="help-block helptext">Please enter the organisation's password</span>
+        <button class="submitBtn" (click)="showPage2(select.value, orgName.value,email.value, password.value)">Register</button>
       </div>
     </div>
     <!-- second page -->
@@ -59,35 +63,34 @@
       <div class="column" style="background-color:#10243D;">
           <h2 id="theinstrution">Add you cover and logo images</h2>
           <div class="everyimage">
-              <label for="coverUploader" class="round2">
+              <label for="coverUploader2" class="round2">
                 <i class="material-icons" id="add2">add</i>
-                <img src="../../assets/imgs/Dp.jpg" alt="" class="coverToUpload" id="logo2">
+                <img src="{{urlLogo}}" alt="" class="coverUploader2" id="logo2">
                </label>
                <label for="coverUploader" class="Thecover2">
                  <h4>Add your cover image</h4>
-                  <img src="../../assets/imgs/default-cover.jpg" alt="" class="coverToUpload" id="cover2">
+                  <img src="{{urlCover}}" alt="" class="coverToUploader" id="cover2">
                 </label>
               </div>
               <label for="">
                   <i class="material-icons">person</i>
                 </label>
-                <input class="input2" style="height: 38px" [(ngModel)]="orgName" type="text" placeholder="Full Name(Representative)">
+                <input class="input2" style="height: 38px" [(ngModel)]="fName" type="text" placeholder="Full Name(Representative)">
                 <label for="">
                   <i class="material-icons">phone</i>
                 </label>
                 <input class="input2" style="height: 38px" #contact="ngModel" type="number" placeholder="Phone" ngModel required>
-                <span style="color: red" *ngIf="!contact.valid && contact.touched" class="help-block helptext">Please enter the numbers</span>
+                <span style="color: red" *ngIf="!contact.valid && contact.touched" class="help-block helptext"></span>
                 <label for="">
                   <i class="material-icons">description</i>
                 </label>
-                <textarea style="height: 68px" class="thetextarea" #desc="ngModel" type="text" placeholder="Decription" ngModel required></textarea>
-                <span style="color: red" *ngIf="!desc.valid && desc.touched" class="help-block helptext">Please type in the decription</span>
+                <textarea style="height: 68px" class="thetextarea" #desc="ngModel" type="text" maxlength="200" placeholder="Decription (max: 200 characters)" ngModel required></textarea>
                 <label for="">
                   <i class="material-icons">location_on</i>
                 </label>
-                <textarea style="height: 68px" class="thetextarea" [(ngModel)]="password" type="password" placeholder="Address"></textarea>
+                <textarea style="height: 68px" class="thetextarea" [(ngModel)]="address" type="password" placeholder="Address"></textarea>
                 <div class="theSumbitButton">
-                  <button class="submitBtn2" (click)="showPage2()">Submit</button>
+                  <button class="submitBtn2" (click)="Reg(contact.value, desc.value)">Submit</button>
                 </div>
         
       </div>
