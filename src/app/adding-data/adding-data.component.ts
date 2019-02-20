@@ -547,12 +547,12 @@ this.cell =  this.contacts
             // alerter[0].style.left = "50%"; 
 
             // this.message = "Your information has been added."
-            this.emailAdd = "";
-            this.select = "";
-            this.OrganizationAdress = "";
-            this.name = "";
-            this.urlCover = "../../assets/imgs/default-cover.jpg";
-            this.contacts = "";
+            // this.emailAdd = "";
+            // this.select = "";
+            // this.OrganizationAdress = "";
+            // this.name = "";
+            // this.urlCover = "../../assets/imgs/default-cover.jpg";
+            // this.contacts = "";
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',

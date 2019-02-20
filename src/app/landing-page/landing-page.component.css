@@ -261,6 +261,12 @@ html, body {
     background: rgba(0, 0, 0, 0.192);
     display: none;
 }
+.keepFixed{
+    position: absolute;
+    right: -50%;
+    top: 150px;
+    color: white;
+}
 .overlay{
     width: 100%;
     height: 100%;
@@ -339,7 +345,8 @@ textarea{
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background: red;
+    background: white;
+    box-shadow: 0 0 10px black;
     border-radius: 40px;
     position: absolute;
     animation: flash 1s;
@@ -349,8 +356,10 @@ textarea{
     text-align: center;
     top: -20px;
 }
+
 .dismisser i{
     line-height: 40px;
+    color: black;
 }
 .coverToUpload{
     cursor: pointer;
@@ -480,7 +489,7 @@ This handles the profile Pop up */
 
 .cont{
     transition: 700ms;
-    width: 50%;
+    width: 1000px;
     height: 80%;
     /* border: 2px solid red; */
     position: relative;
@@ -498,7 +507,7 @@ This handles the profile Pop up */
 
 @keyframes prof {
     0%{
-        width: 55%;
+        width: 1150px;
     height: 85%;
         opacity: 0;
     }
@@ -507,7 +516,7 @@ This handles the profile Pop up */
     }
     100%{
         
-        width: 50%;
+        width: 1000px;
     height: 80%;
     }
 }
@@ -647,13 +656,14 @@ button{
     /* border: 2px solid red; */
 }
 .myList{
+    padding-top: 50px;
     width: 68%;
     height: 98%;
     color: white;
     font-family: arial;
     /* background: grey; */
     float: right;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     overflow-y: scroll; 
 }
 .org{

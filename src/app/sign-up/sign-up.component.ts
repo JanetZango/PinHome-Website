@@ -368,14 +368,16 @@ export class SignUpComponent implements OnInit {
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(
             () => {
+              
               firebase.auth().onAuthStateChanged(user => {
+                var user = firebase.auth().currentUser
                 this.getcoo(this.address).then((data: any) => {
-                  var user = firebase.auth().currentUser
+                    
                   this.userId = user.uid;
                   firebase
                     .database()
-                    .ref("Websiteprofiles/" + user.uid)
-                    .set({
+                    .ref("Websiteprofiles/" + user.uid + '/')
+                    .push({
                       respName: this.fName,
                       OrganisationName: this.orgName,
                       Url: this.urlCover,
@@ -385,12 +387,13 @@ export class SignUpComponent implements OnInit {
                       desc: this.desc,
                       city: data.city,
                       category: this.select,
-                      latitude: data.lat
+                      latitude: data.lat,
+                      Email : user.email
                     });
                   Swal.close();
                   this.router.navigate(["/landing-page"]);
                   this.alertMessage =
-                    "We've sent you an email with a verification link, please check your email and click the link to verify your account";
+                    "We've sent you an email with a verification link, please check your email and click the link to verify your account to continue.";
                   Swal.hideLoading();
                   Swal.close();
                   //   myAlert[0].style.display = "block";
@@ -420,6 +423,7 @@ export class SignUpComponent implements OnInit {
               } else {
                 this.alertMessage = Error.message;
                 swal(this.alertMessage);
+                Swal.close();
                 // this.alertMessage = "Something went wrong, please check if your information is correct, try logging in or try again later."
               }
             }

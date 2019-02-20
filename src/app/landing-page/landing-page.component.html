@@ -170,7 +170,7 @@
           <div class="overlay">
               <div class="addBranch">
                 <div class="dismisser" (click)="closeDIV()">
-                  <i class="material-icons">close</i>
+                  <i style="color: black" id="DismisIcon" class="material-icons">close</i>
                 </div>
                 <label for="coverUploader">
                   <img src="{{url1}}" alt="" class="coverToUpload">
@@ -217,6 +217,7 @@
               <h3>Contact Details</h3>
               <p>0{{tel}}<br>
               {{email}}</p>
+              <h2 class="keepFixed" color="">Branches</h2>
             </div>
             <h2 id="orgName">{{name}}</h2>
             <p class="paragraph">{{cat}}</p>
@@ -225,7 +226,7 @@
           <div class="branches">
             <div class="myList">
               <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
-              <h2 class="keepFixed" color="">Branches</h2>
+              <!-- <h2 class="keepFixed" color="">Branches</h2> -->
               <div class="org" (click)="displayData(b,i)"  *ngFor="let b of brunchesArr; let i =index">
                 <img src="{{b.Url}}" alt="" class="orgImg">
                 <div class="listDetails">

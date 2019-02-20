@@ -112,6 +112,7 @@ margin-top: 80px;
 height: 150px;
 }
 .thepassword{
+  cursor: pointer;
 text-align: center;
 padding-top: 20px;
 }
