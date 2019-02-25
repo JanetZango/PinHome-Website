@@ -148,6 +148,16 @@
   </head>
   <body>
     <div class="start">
+        <div class="needs">
+          <p>Use this section to add your organisation's needs to get support from your potential sponsors and contributors.</p>
+          <input type="text" placeholder="title" class="inp">
+          <textarea name="" id="descr" placeholder="Describe your needs here..." rows="5"></textarea>
+          <div class="theBtn">Add to list</div>
+          <br>
+          <div class="drag" (click)="pullDown()">
+            <i class="material-icons" id="orger">keyboard_arrow_down</i>
+          </div>
+        </div>
         <!-- <div class="chartOverlay">
             <div class="chart">
               <canvas id="ourRatings"></canvas>

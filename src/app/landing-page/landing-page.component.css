@@ -11,6 +11,63 @@
   margin-left: -30px;
   margin-top: -10px;
 }
+.needs{
+    transition: 700ms;
+    position: absolute;
+    z-index: 1000000000;
+    padding: 10px;
+    background: #10243d;
+    text-align: center;
+    color:white;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 5px;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-85%);
+    
+}
+.theBtn{
+    width: 90%;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 10px;
+    background: #018790;
+    border-radius: 50px;
+}
+.theBtn:hover{
+    cursor: pointer;
+    padding: 10px;
+    background: #009faa;
+    border-radius: 50px;
+}
+.theBtn:active{
+    cursor: pointer;
+    padding: 10px;
+    background: #00cbda;
+    border-radius: 50px;
+}
+.drag{
+    cursor: pointer;
+    background: #018790;    
+}
+.needs .inp{
+    width:90%;
+    min-width: 300px;
+    max-width: 500px;
+    color: white;
+    padding:10px;
+    background: #10243d;
+    border: 2px solid white;
+    /* animation: imageFlash 1s;
+    animation-iteration-count: infinite; */
+}
+.needs #descr{
+    width:90%;
+    min-width: 300px;
+    max-width: 500px;
+    padding:10px;
+}
 #GalIcon {
   position: absolute;
   left: 5px;
@@ -39,7 +96,10 @@ body {
   position: absolute;
   z-index: 10;
 }
-
+#myIcon{
+    z-index: 100000000000000000000000000000000000000000000000000000;
+    color: white;
+}
 .content {
   width: 99.7%;
   height: 99.7%;
@@ -317,7 +377,7 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.editForm input,
+.editForm input, .inp,
 textarea {
   width: 90%;
   padding: 10px;
@@ -622,6 +682,10 @@ button {
   line-height: 30px;
   /* margin-top: 10px; */
 }
+#orger{
+    transition: 700ms;
+    
+}
 #signOut p {
   margin-top: 0;
 }
@@ -849,7 +913,7 @@ i {
         opacity: 0;
     }
     100%{
-        right: -240px;
+        right: -260px;
         opacity: 1;
     }
   }
@@ -1028,6 +1092,7 @@ p#breaker{
       display:none
   }
   #my2001{
+      top: 50px;
     right: -220px
   }
   .coverPhoto .paragraph {
@@ -1091,7 +1156,7 @@ p#breaker{
     width: 90%;
     min-width: 300px;
     padding-top: 10px;
-    border: 2px solid red;    
+    /* border: 2px solid red;     */
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;

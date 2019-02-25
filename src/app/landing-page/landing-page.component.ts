@@ -21,6 +21,7 @@ declare var firebase;
   styleUrls: ["./landing-page.component.css"]
 })
 export class LandingPageComponent implements OnInit {
+  tribute = 0;
   chart = [];
   key;
   proArr = [];
@@ -788,8 +789,11 @@ getAllRatings(prokey){
     this.hideSlide();
     // alert("clicked")
     var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
-
+    var profil = document.getElementsByClassName("cont") as HTMLCollectionOf<HTMLElement>;
+    var theGal = document.getElementsByClassName("gallery") as HTMLCollectionOf<HTMLElement>;
     prof[0].style.display = "block";
+    profil[0].style.opacity = "1";
+    theGal[0].style.opacity = "1";
   }
 
   closeDIV() {
@@ -797,7 +801,7 @@ getAllRatings(prokey){
     var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
     var imgs = document.getElementsByClassName("gallery") as HTMLCollectionOf <HTMLElement>;
     imgs[0].style.filter = "blur(0)";
-
+    imgs[0].style.opacity = "1"
     bg[0].style.filter = "blur(0)";
     x[0].style.opacity = "0";
     setTimeout(() => {
@@ -852,12 +856,27 @@ getAllRatings(prokey){
       this.v = 1;
     } else {
       // x[0].style.display = "none"
-      y[0].style.right = "-240px";
+      y[0].style.right = "-260px";
 
       setTimeout(() => {
         x[0].style.display = "none";
       }, 300);
       this.v = 0;
+    }
+  }
+  pullDown(){
+    var needer = document.getElementsByClassName("needs") as HTMLCollectionOf <HTMLElement>;
+    
+    if(this.tribute == 0){
+      needer[0].style.transform = "translate(-50%, 0%)";
+      this.tribute = 1;
+      document.getElementById("orger").style.transform = "rotateZ(180DEG)"
+    }
+    else{
+      needer[0].style.transform = "translate(-50%, -85%)";
+      
+      document.getElementById("orger").style.transform = "rotateZ(0DEG)"
+      this.tribute = 0
     }
   }
   
@@ -871,20 +890,23 @@ getAllRatings(prokey){
     var y = document.getElementsByClassName("gallery") as HTMLCollectionOf<HTMLElement>;
     var q = document.getElementsByClassName("adder") as HTMLCollectionOf<HTMLElement>;
     blurMap.style.filter = "blur(0px)";
-    y[0].style.right = "-240px";
+    y[0].style.right = "-260px";
+    y[0].style.opacity = "0";
     q[0].style.display = "none";
+    profil[0].style.opacity = "0";
+    setTimeout(()=>{
+      if(this.v == 0){
 
-    setTimeout(()=>)
-    if(this.v == 0){
-
-      prof[0].style.display = "none";
-    }
-    else{
-      setTimeout(() => {
         prof[0].style.display = "none";
-      }, 500);
-    }
-    this.v = 0;
+      }
+      else{
+        setTimeout(() => {
+          prof[0].style.display = "none";
+        }, 500);
+      }
+      this.v = 0;
+    },700)
+    
     // profil[0].style.animation ="disappear 300ms";
 
     
