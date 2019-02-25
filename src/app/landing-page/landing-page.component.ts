@@ -716,16 +716,12 @@ getAllRatings(prokey){
 
   showSlide() {
     var blurMap = document.getElementById("map");
-    let slider = document.getElementsByClassName(
-      "absolutely"
-    ) as HTMLCollectionOf<HTMLElement>;
-    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementById("myArrow");
 
     // arrow[0].style.left = "48%";
     // arrow[0].style.transform = "translateX(-60%)";
-    arrow[0].style.transform = "rotateZ(180deg)";
+    arrow.style.transform = "rotateZ(180deg)";
     // arrow[0].style.transform = "translateX(-50%)";
     slider[0].style.bottom = "0";
     blurMap.style.filter = "blur(3px)";
@@ -733,18 +729,14 @@ getAllRatings(prokey){
   }
   hideSlide() {
     var blurMap = document.getElementById("map");
-    let slider = document.getElementsByClassName(
-      "absolutely"
-    ) as HTMLCollectionOf<HTMLElement>;
-    let arrow = document.getElementsByClassName("clicker") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    let slider = document.getElementsByClassName("absolutely") as HTMLCollectionOf<HTMLElement>;
+    let arrow = document.getElementById("myArrow");
 
     // arrow[0].style.left = "48%";
     // arrow[0].style.transform = "translateX(-60%)";
     // arrow[0].style.transform = "rotateZ(0DEG)";
     slider[0].style.bottom = "-200px";
-    arrow[0].style.transform = "rotateZ(0deg)";
+    arrow.style.transform = "rotateZ(0deg)";
     blurMap.style.filter = "blur(0px)";
 
     this.state = 0;
@@ -792,6 +784,8 @@ getAllRatings(prokey){
     prof[0].style.display = "block";
   }
   goToProfile() {
+    
+    this.hideSlide();
     // alert("clicked")
     var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
 
@@ -847,18 +841,11 @@ getAllRatings(prokey){
   }
 
   showGal() {
-    var y = document.getElementsByClassName("gallery") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var x = document.getElementsByClassName("adder") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var z = document.getElementsByClassName("array") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    var y = document.getElementsByClassName("gallery") as HTMLCollectionOf<HTMLElement>;
+    var x = document.getElementsByClassName("adder") as HTMLCollectionOf<HTMLElement>;
     if (this.v == 0) {
       y[0].style.right = "10px";
-      z[0].style.opacity = "1";
+      
       setTimeout(() => {
         x[0].style.display = "block";
       }, 300);
@@ -866,27 +853,43 @@ getAllRatings(prokey){
     } else {
       // x[0].style.display = "none"
       y[0].style.right = "-240px";
-      z[0].style.opacity = "0";
 
-      // setTimeout(() => {
-      x[0].style.display = "none";
-      // }, 3);
+      setTimeout(() => {
+        x[0].style.display = "none";
+      }, 300);
       this.v = 0;
     }
   }
+  
   closeProfile() {
     // alert("clicked")
+    
+    this.hideSlide();
     var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
     var blurMap = document.getElementById("map");
-    var profil = document.getElementsByClassName("cont") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    var profil = document.getElementsByClassName("cont") as HTMLCollectionOf<HTMLElement>;
+    var y = document.getElementsByClassName("gallery") as HTMLCollectionOf<HTMLElement>;
+    var q = document.getElementsByClassName("adder") as HTMLCollectionOf<HTMLElement>;
     blurMap.style.filter = "blur(0px)";
+    y[0].style.right = "-240px";
+    q[0].style.display = "none";
+
+    setTimeout(()=>)
+    if(this.v == 0){
+
+      prof[0].style.display = "none";
+    }
+    else{
+      setTimeout(() => {
+        prof[0].style.display = "none";
+      }, 500);
+    }
+    this.v = 0;
     // profil[0].style.animation ="disappear 300ms";
 
-    // setTimeout(() => {
-      prof[0].style.display = "none";
-    // }, 700);
+    
+
+    
   }
 
   //

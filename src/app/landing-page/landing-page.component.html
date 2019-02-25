@@ -148,18 +148,20 @@
   </head>
   <body>
     <div class="start">
+        <!-- <div class="chartOverlay">
+            <div class="chart">
+              <canvas id="ourRatings"></canvas>
+          </div>
+          <div class="chart">
+              <canvas id="Overall" ></canvas>
+          </div>
+          </div> -->
       
       <div class="tab">
-        <!-- <div class="DP">
-          <img [src]="profilePicture2" alt="">
-          <div class="name">
-            {{username2}}
-          </div>
-        </div> -->
         <div class="action">
           <div>
             
-            <p id="my2001" (click)="goToProfile()"><i class="material-icons" id="myIcon">account_balance</i> ORGANISATION PROFILE
+            <p id="my2001" (click)="goToProfile()"><i class="material-icons" id="myIcon">account_balance</i> <b id="Orgo">ORGANISATION PROFILE</b>
             </p>
           </div>
         </div>
@@ -211,22 +213,32 @@
             <div class="about">
               <img src="{{logo}}" alt="" class="logo">
               <h3>About</h3>
-              <p>{{desc}}</p>
+              <p id="breaker">{{desc}}</p>
               <h3>Address</h3>
-              <p>{{city}}</p>
+              <p id="breaker">{{city}}</p>
               <h3>Contact Details</h3>
-              <p>0{{tel}}<br>
+              <p id="breaker">0{{tel}}<br>
               {{email}}</p>
-              <h2 class="keepFixed" color="">Branches</h2>
+              <h2 class="keepFixed">Branches</h2>
             </div>
             <h2 id="orgName">{{name}}</h2>
             <p class="paragraph">{{cat}}</p>
             <img src="{{url}}" id="coverIMG" alt="">
+            
           </div>
           <div class="branches">
+              <div class="smallDetails">
+                <b>About</b>
+                <br>
+                <p>{{desc}}</p>
+                <b>Address</b>
+                <p>{{city}}</p>
+                <b>Contact Details</b>
+                <p>0{{tel}}<br>
+                  {{email}}</p>
+              </div>
             <div class="myList">
               <div class="FAB" (click)="addBrunch()"><i class="material-icons">add</i></div>
-              <!-- <h2 class="keepFixed" color="">Branches</h2> -->
               <div class="org" (click)="displayData(b,i)"  *ngFor="let b of brunchesArr; let i =index">
                 <img src="{{b.Url}}" alt="" class="orgImg">
                 <div class="listDetails">
@@ -240,14 +252,7 @@
           </div>
         </div>
       </div>
-      <div class="chartOverlay">
-        <div class="chart">
-          <canvas id="ourRatings"></canvas>
-      </div>
-      <div class="chart">
-          <canvas id="Overall" ></canvas>
-      </div>
-      </div>
+      
       
       <div class="content" id="map">
        
@@ -258,7 +263,7 @@
       <div class="absolutely">
         <div class="arrow">
           <div class="clicker" (click)="decideState()">
-            <i class="material-icons">keyboard_arrow_up</i>
+            <i class="material-icons" id="myArrow">keyboard_arrow_up</i>
           </div>
           <div class="list">
             <div class="gal" id="push" *ngFor="let a of organizationArr">

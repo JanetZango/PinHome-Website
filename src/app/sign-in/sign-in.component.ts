@@ -86,11 +86,7 @@ export class SignInComponent implements OnInit {
       // theOK.style.display = "none";
       // leader[0].style.display = "block"
 
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(
-          () => {
+      firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
             firebase.auth().onAuthStateChanged(
               data => {
                 Swal.close();
