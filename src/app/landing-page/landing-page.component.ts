@@ -3,12 +3,14 @@ import { Router } from "@angular/router";
 import { FLAGS } from "@angular/core/src/render3/interfaces/view";
 import { reject } from "q";
 import { PassThrough } from "stream";
+import * as moment from 'moment';
 
 import swal from "sweetalert";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 import { timingSafeEqual } from "crypto";
-
+import {Chart} from "chart.js";
+import { observable } from "rxjs";
 declare var google;
 declare var firebase;
 // import {SlideshowModule} from 'ng-simple-slideshow';
@@ -19,6 +21,7 @@ declare var firebase;
   styleUrls: ["./landing-page.component.css"]
 })
 export class LandingPageComponent implements OnInit {
+  chart = [];
   key;
   proArr = [];
   dbPathdecideS;
@@ -87,6 +90,11 @@ export class LandingPageComponent implements OnInit {
     this.getDetails2().then((data: any) => {
       console.log(data);
       this.name = data.name;
+      this.proKey = data.key;
+      this.getAllRatings(this.proKey).then((data2:any) =>{
+        console.log(data2);
+        this.ratinCharts(data2)
+      })
       this.desc = data.desc;
       this.url = data.img;
       this.logo = data.logo;
@@ -110,6 +118,60 @@ export class LandingPageComponent implements OnInit {
       }
     });
   }
+dates =  new Array();
+labels =  new Array();
+
+  ratinCharts(data){
+    for (var x = 0; x < data.length; x++){
+      this.dates.push(data[x].date);
+      this.labels.push(data[x].value);
+    }
+    console.log(this.dates);
+    console.log(this.labels);
+    
+    
+    this.chart = new Chart("ourRatings", {
+      type: 'line',
+      data: {
+          labels: ["Orphanage", "Disability", "Old Age Homes", "Theraphy", "Psychiatric centres/Hospital", "Social Centre", "Rehab"],
+          datasets: [{
+              label: 'Ratings',
+              data: [this.orph, this.disablty, this.oldAge, this.theraphy, this.Psychiatric, this.sCenter, this.Rehab],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 40, 1)',
+                  'rgba(20, 162, 70, 1)',
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+  }
+
+
+
 
   public setName(name) {
     this.username2 = name;
@@ -143,7 +205,8 @@ export class LandingPageComponent implements OnInit {
                 this.profilePicture2 = details[keys[0]].Url;
                 let obj = {
                   name: this.username2,
-                  img: this.profilePicture2
+                  img: this.profilePicture2,
+                  key : keys[0]
                 };
                 accpt(obj);
               }
@@ -155,7 +218,126 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
+proKey;
+assignKey(x){
+  this.proKey = x;
+}
+
+public ratingArr = [];
+getAllRatings(prokey){
+  return new Promise((accpt, reject) => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        firebase
+          .database()
+          .ref("comments/" + prokey)
+          .on("value", (data: any) => {
+            if (data.val() != null || data.val() != undefined) {
+              var com = data.val();
+              var keys = Object.keys(com);
+              console.log(data.val()); 
+              var y = [];
+              for (var x = 0; x < keys.length; x++){
+                var k = keys[x]
+                var x = 0;
+                var date = moment(com[k].date, 'MMMM Do YYYY, h:mm:ss a').format('ll');
+                for (var i = 0; i < keys.length; i++){
+                  if (date ==  moment(com[k].date, 'MMMM Do YYYY, h:mm:ss a').format('ll')){
+                    x++;
+                  }
+                }
+                let obj = {
+                  date : date,
+                  value : x
+                }
+                y.push(obj)
+              }
+              accpt(y)
+            }
+        });
+      }
+    });
+  });
+}
+  loadChart(){
+      this.chart = new Chart("Overall", {
+      type: 'doughnut',
+      data: {
+          labels: ["Orphanage", "Disability", "Old Age Homes", "Theraphy", "Psychiatric centres/Hospital", "Social Centre", "Rehab"],
+          datasets: [{
+              label: 'Number of Orgs',
+              data: [this.orph, this.disablty, this.oldAge, this.theraphy, this.Psychiatric, this.sCenter, this.Rehab],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 40, 1)',
+                  'rgba(20, 162, 70, 1)',
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+  }
+
+  orph = 0;
+  disablty = 0;
+  oldAge = 0;
+  theraphy = 0;
+  Psychiatric = 0;
+  sCenter = 0;
+  Rehab = 0;
+  getAllcat(){
+    for (var x = 0; x < this.organizationArr.length; x++){
+        if (this.organizationArr[x].category == "Orphanage"){
+          this.orph++
+        }
+        else if (this.organizationArr[x].category == "Disability"){
+          this.disablty++;
+        }
+        else if (this.organizationArr[x].category == "old age"){
+          this.oldAge++;
+        }
+        else if (this.organizationArr[x].category =="theraphy"){
+          this.theraphy++;
+        }
+        else if (this.organizationArr[x].category == "Psychiatric"){
+          this.Psychiatric++;
+        }
+        else if (this.organizationArr[x].category == "social centre"){
+          this.sCenter++;
+        }
+        else if (this.organizationArr[x].category == "Rehab"){
+          this.Rehab++;
+        }
+    }
+    this.loadChart();
+  }
+
+
+
   ngOnInit() {
+
     firebase
       .database()
       .ref("Websiteprofiles/")
@@ -176,6 +358,7 @@ export class LandingPageComponent implements OnInit {
               });
           }
         }
+        this.getAllcat()
         this.initMap();
       });
   }
@@ -602,9 +785,7 @@ export class LandingPageComponent implements OnInit {
       }
     });
     // alert("clicked")
-    var prof = document.getElementsByClassName(
-      "profOverlay"
-    ) as HTMLCollectionOf<HTMLElement>;
+    var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
     var blurMap = document.getElementById("map");
     blurMap.style.filter = "blur(6px)";
 
@@ -612,47 +793,33 @@ export class LandingPageComponent implements OnInit {
   }
   goToProfile() {
     // alert("clicked")
-    var prof = document.getElementsByClassName(
-      "profOverlay"
-    ) as HTMLCollectionOf<HTMLElement>;
+    var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
 
     prof[0].style.display = "block";
   }
 
   closeDIV() {
-    var x = document.getElementsByClassName("overlay") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var bg = document.getElementsByClassName("cont") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var imgs = document.getElementsByClassName("gallery") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+    var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+    var imgs = document.getElementsByClassName("gallery") as HTMLCollectionOf <HTMLElement>;
     imgs[0].style.filter = "blur(0)";
 
     bg[0].style.filter = "blur(0)";
     x[0].style.opacity = "0";
     setTimeout(() => {
       x[0].style.display = "none";
-    }, 300);
+    }, 700);
   }
-  showDIV() {
-    var x = document.getElementsByClassName("overlay") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var bg = document.getElementsByClassName("cont") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var imgs = document.getElementsByClassName("gallery") as HTMLCollectionOf<
-      HTMLElement
-    >;
+  // showDIV() {
+  //   var x = document.getElementsByClassName("overlay") as HTMLCollectionOf <HTMLElement>;
+  //   var bg = document.getElementsByClassName("cont") as HTMLCollectionOf <HTMLElement>;
+  //   var imgs = document.getElementsByClassName("gallery") as HTMLCollectionOf <HTMLElement>;
 
-    x[0].style.opacity = "1";
-    x[0].style.display = "block";
-    bg[0].style.filter = "blur(6px)";
-    imgs[0].style.filter = "blur(6px)";
-  }
+  //   x[0].style.opacity = "1";
+  //   x[0].style.display = "block";
+  //   bg[0].style.filter = "blur(6px)";
+  //   imgs[0].style.filter = "blur(6px)";
+  // }
 
   showinfo(x) {
     this.clickState = 1;
@@ -709,9 +876,7 @@ export class LandingPageComponent implements OnInit {
   }
   closeProfile() {
     // alert("clicked")
-    var prof = document.getElementsByClassName(
-      "profOverlay"
-    ) as HTMLCollectionOf<HTMLElement>;
+    var prof = document.getElementsByClassName("profOverlay") as HTMLCollectionOf<HTMLElement>;
     var blurMap = document.getElementById("map");
     var profil = document.getElementsByClassName("cont") as HTMLCollectionOf<
       HTMLElement
@@ -719,9 +884,9 @@ export class LandingPageComponent implements OnInit {
     blurMap.style.filter = "blur(0px)";
     // profil[0].style.animation ="disappear 300ms";
 
-    setTimeout(() => {
+    // setTimeout(() => {
       prof[0].style.display = "none";
-    }, 700);
+    // }, 700);
   }
 
   //
@@ -918,7 +1083,6 @@ export class LandingPageComponent implements OnInit {
         title: "Updated successfully"
       });
     }
-
-    // alert(this.alertMessage)
+  // alert(this.alertMessage)
   }
 }

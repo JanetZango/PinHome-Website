@@ -159,7 +159,7 @@
         <div class="action">
           <div>
             
-            <p id="my2001" (click)="gotToProfile()"><i class="material-icons" id="myIcon">account_balance</i> ORGANISATION PROFILE
+            <p id="my2001" (click)="goToProfile()"><i class="material-icons" id="myIcon">account_balance</i> ORGANISATION PROFILE
             </p>
           </div>
         </div>
@@ -240,7 +240,17 @@
           </div>
         </div>
       </div>
+      <div class="chartOverlay">
+        <div class="chart">
+          <canvas id="ourRatings"></canvas>
+      </div>
+      <div class="chart">
+          <canvas id="Overall" ></canvas>
+      </div>
+      </div>
+      
       <div class="content" id="map">
+       
         <div class="loader">
           Loading Map...
         </div>

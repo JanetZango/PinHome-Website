@@ -27,7 +27,17 @@ html, body {
     color:black;
     font-family: arial;
   }
-  
+  .chart{
+      background: white;
+      width: 30vw;
+      height: 30%;
+      border: 2px solid black;
+      color: red;
+  }
+  .chartOverlay{
+      position: absolute;
+      z-index: 10;
+  }
 
 .content{
     width: 99.7%;
@@ -268,6 +278,7 @@ html, body {
     color: white;
 }
 .overlay{
+    transition: 699ms;
     width: 100%;
     height: 100%;
     display: none;
