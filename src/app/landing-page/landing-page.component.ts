@@ -1222,46 +1222,22 @@ addContributes(){
   if(this.title  == null || this.title == "" || this.title == undefined){
     this.title = " "
   }
-  if(this.description == null || this.description == "" || this.description == undefined ){
-    swal("Please state your organisational needs in the fields provided")
+  if(this.description == null || this.description == " " || this.description == "" || this.description == undefined ){
+    swal("Please state your organisational needs in the fields provided");
   }
   else{
-    firebase.auth().onAuthStateChanged(user => {
-      firebase.database().ref('contributes/' + user.uid + '/').push({
-        Title: this.title,
-        Description: this.description,
-      }, Error => {
-        this.alertMessage = Error.message;
-      });
-   
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
-      
-      Toast.fire({
-        type: 'success',
-        title: 'You have successfully added a contribute'
-      })
-    this.title="";
-    this.description="";
-    
-  });
-  this.pullDown();
-  }
+
   firebase.auth().onAuthStateChanged(user => {
       firebase.database().ref('contributes/' + user.uid + '/').push({
         Title: this.title,
         Description: this.description,
       }, Error => {
-        this.alertMessage = Error.message;
+        swal(Error.message);
       });
    
       const Toast = Swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: 'center',
         showConfirmButton: false,
         timer: 3000
       });
@@ -1274,7 +1250,7 @@ addContributes(){
     this.description="";
     this.pullDown();
   })
-
+  }
 }
 
 }
