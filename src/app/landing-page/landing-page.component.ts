@@ -28,6 +28,7 @@ export class LandingPageComponent implements OnInit {
   dbPathdecideS;
   email;
   OrganizationKey;
+
   organizationArr = [];
   latestOrgs = [];
   oldOrgs = [];
@@ -69,6 +70,9 @@ export class LandingPageComponent implements OnInit {
   imagesArr = [];
   brunchesArr = [];
   userId;
+
+  description
+  title;
   galleryupload: string;
   displayProfileArr = [];
   constructor(private _ngZone: NgZone, private router: Router) {
@@ -96,6 +100,11 @@ export class LandingPageComponent implements OnInit {
         console.log(data2);
         this.ratinCharts(data2)
       })
+      this.getReviews().then((data2:any) =>{
+        console.log(data2);
+        this.ratinView(data2)
+      })
+
       this.desc = data.desc;
       this.url = data.img;
       this.logo = data.logo;
@@ -119,6 +128,8 @@ export class LandingPageComponent implements OnInit {
       }
     });
   }
+
+  
 dates =  new Array();
 labels =  new Array();
 
@@ -127,34 +138,87 @@ labels =  new Array();
       this.dates.push(data[x].date);
       this.labels.push(data[x].value);
     }
+  
     console.log(this.dates);
     console.log(this.labels);
     
     
     this.chart = new Chart("ourRatings", {
-      type: 'line',
+      type: 'bar',
       data: {
-          labels: ["Orphanage", "Disability", "Old Age Homes", "Theraphy", "Psychiatric centres/Hospital", "Social Centre", "Rehab"],
+          labels:this.dates,
           datasets: [{
               label: 'Ratings',
-              data: [this.orph, this.disablty, this.oldAge, this.theraphy, this.Psychiatric, this.sCenter, this.Rehab],
+              data:this.labels,
               backgroundColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 40, 1)',
-                  'rgba(20, 162, 70, 1)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
               ],
               borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
-                  'rgba(54, 162, 235, 1)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+  }
+
+
+  Views =  new Array();
+  date =  new Array();
+  ratinView(data){
+    for (var x = 0; x < data.length; x++){
+      this.date.push(data[x].date);
+      this.Views.push(data[x].Views);
+    }
+  
+    console.log(this.Views);
+    
+    
+    this.chart = new Chart("views", {
+      type: 'bar',
+      data: {
+          labels:this.date,
+          datasets: [{
+              label: 'Number of people who viewed your profile',
+              data:this.Views,
+              backgroundColor: [
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+              ],
+              borderColor: [
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
+                  'rgb(7,134,143)',
               ],
               borderWidth: 1
           }]
@@ -252,6 +316,47 @@ getAllRatings(prokey){
                   value : x
                 }
                 y.push(obj)
+                console.log(y)
+              }
+              accpt(y)
+            }
+        });
+      }
+    });
+  });
+}
+
+
+getReviews(){
+
+  return new Promise((accpt, reject) => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      console.log(user.uid);
+      if (user) {
+        firebase
+          .database()
+          .ref("Websiteprofiles/"+ user.uid)
+          .on("value", (data: any) => {
+            if (data.val() != null || data.val() != undefined) {
+              var com = data.val();
+              var keys = Object.keys(com);
+              console.log(data.val()); 
+              var y = [];
+              for (var x = 0; x < keys.length; x++){
+                var k = keys[x]
+                var x = 0;
+                var date = moment(com[k].date, 'MMMM Do YYYY, h:mm:ss a').format('ll');
+                for (var i = 0; i < keys.length; i++){
+                  if (date ==  moment(com[k].date, 'MMMM Do YYYY, h:mm:ss a').format('ll')){
+                    x++;
+                  }
+                }
+                let obj = {
+                  Views : com[k].Views,
+                  date : date,
+                }
+                y.push(obj)
+                console.log(y)
               }
               accpt(y)
             }
@@ -269,22 +374,22 @@ getAllRatings(prokey){
               label: 'Number of Orgs',
               data: [this.orph, this.disablty, this.oldAge, this.theraphy, this.Psychiatric, this.sCenter, this.Rehab],
               backgroundColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 40, 1)',
-                  'rgba(20, 162, 70, 1)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
               ],
               borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
-                  'rgba(54, 162, 235, 1)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
+                'rgb(9,64,89)',
               ],
               borderWidth: 1
           }]
@@ -333,6 +438,7 @@ getAllRatings(prokey){
         }
     }
     this.loadChart();
+    
   }
 
 
@@ -1110,4 +1216,65 @@ getAllRatings(prokey){
     }
   // alert(this.alertMessage)
   }
+
+addContributes(){
+
+  if(this.title  == null || this.title == "" || this.title == undefined){
+    this.title = " "
+  }
+  if(this.description == null || this.description == "" || this.description == undefined ){
+    swal("Please state your organisational needs in the fields provided")
+  }
+  else{
+    firebase.auth().onAuthStateChanged(user => {
+      firebase.database().ref('contributes/' + user.uid + '/').push({
+        Title: this.title,
+        Description: this.description,
+      }, Error => {
+        this.alertMessage = Error.message;
+      });
+   
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      
+      Toast.fire({
+        type: 'success',
+        title: 'You have successfully added a contribute'
+      })
+    this.title="";
+    this.description="";
+    
+  });
+  this.pullDown();
+  }
+  firebase.auth().onAuthStateChanged(user => {
+      firebase.database().ref('contributes/' + user.uid + '/').push({
+        Title: this.title,
+        Description: this.description,
+      }, Error => {
+        this.alertMessage = Error.message;
+      });
+   
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      
+      Toast.fire({
+        type: 'success',
+        title: 'You have successfully added a contribute'
+      })
+    this.title="";
+    this.description="";
+    this.pullDown();
+  })
+
+}
+
 }
