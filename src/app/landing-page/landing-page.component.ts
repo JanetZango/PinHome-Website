@@ -842,7 +842,7 @@ getReviews(){
     // arrow[0].style.left = "48%";
     // arrow[0].style.transform = "translateX(-60%)";
     // arrow[0].style.transform = "rotateZ(0DEG)";
-    slider[0].style.bottom = "-200px";
+    slider[0].style.bottom = "-180px";
     arrow.style.transform = "rotateZ(0deg)";
     blurMap.style.filter = "blur(0px)";
 

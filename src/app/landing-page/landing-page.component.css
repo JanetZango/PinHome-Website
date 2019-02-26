@@ -481,14 +481,14 @@ textarea {
 @keyframes fadeIn {
   0% {
     width: 40%;
-    opacity: 0;
+    /* opacity: 0; */
   }
   25% {
-    opacity: 0;
+    /* opacity: 0; */
   }
   100% {
     width: 30%;
-    opacity: 1;
+    /* opacity: 1; */
   }
 }
 /* =================================================================================================================================
@@ -564,12 +564,12 @@ img {
   /* display: none; */
 }
 
-@keyframes faderIn{
+@keyframes faderI2n{
     0%{
-        opacity: 0
+        /* opacity: 0 */
     }
     100%{
-        opacity: 1;
+        /* opacity: 1; */
     }
 }
 .adder:hover {
@@ -621,10 +621,10 @@ This handles the profile Pop up */
     filter: blur(10px);
     width: 1150px;
     height: 85%;
-    opacity: 0;
+    /* opacity: 0; */
   }
   75% {
-    opacity: 1;
+    /* opacity: 1; */
   }
   100% {
     width: 1000px;
@@ -634,10 +634,10 @@ This handles the profile Pop up */
 }
 @keyframes disappear {
   0% {
-    opacity: 1;
+    /* opacity: 1; */
   }
   100% {
-    opacity: 0;
+    /* opacity: 0; */
     display: none;
   }
 }
@@ -922,11 +922,11 @@ i {
 @keyframes appear{
     0%{
         right: -360px;
-        opacity: 0;
+        /* opacity: 0; */
     }
     100%{
         right: -260px;
-        opacity: 1;
+        /* opacity: 1; */
     }
   }
 @media screen and (max-width: 1600px) {
@@ -1038,7 +1038,7 @@ p#breaker{
       filter: blur(10px);
       width: 1150px;
       height: 105%;
-      opacity: 0;
+      /* opacity: 0; */
     }
     75% {
       
@@ -1047,7 +1047,7 @@ p#breaker{
       width: 90%;
       height: 99%;
       filter: blur(0);
-      opacity: 1;
+      /* opacity: 1; */
     }
   }
  
@@ -1196,7 +1196,7 @@ p#breaker{
     transition: 450ms;
     position: absolute;
     width: 105%;
-    bottom: -200px;
+    bottom: -180px;
     height: 200px;
     /* border: 2px solid green; */
     overflow-x: visible;
