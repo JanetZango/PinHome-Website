@@ -507,7 +507,7 @@ this part handles the gallery tab */
   border-radius: 5px;
   display: block;
   color: white;
-  z-index: 1000;
+  z-index: 100000;
   animation: appear 700ms;
   animation-iteration-count: initial;
 }
@@ -988,7 +988,7 @@ i {
     border-radius: 5px;
     display: block;
     color: white;
-    z-index: 1000;
+    z-index: 100000;
     animation: appear 700ms;
     animation-iteration-count: initial;
   }

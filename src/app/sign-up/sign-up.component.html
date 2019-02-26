@@ -1,98 +1,99 @@
-  <head>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-    <div class="everything">
-
-    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader"   (change)="InsertPicture($event)">
-    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader2"  (change)="InsertLogo($event)">
-    <div class="row" id="firstpage">
-      <div class="column" style="background-color:#018790;">
-        <p class="appname">PinHome</p>
-        <p>______</p>
-        <h3>Welcome to PinHome, please fill in the form to get started with adding your non-profit organisation
-        </h3>
-        <div class="theButton">
-          <button class="loginBtn" (click)="goToSignIn()">Sign In</button>
-        </div>
-      </div>
-      <div class="column" style="background-color: #10243D;">
-        <h2 class="SignUp">Sign Up</h2>
-        <p class="Account">
-          Please make sure that the information you provide is true and accurate.
-          <b style=" font-weight: 100; text-decoration: underline" (click)="goToSignIn()"></b>
-        </p>
-        <div class="textfield">
-          <label for="selectBox" id="mySelect">Select Category</label>
-          <select #select="ngModel" id="selectBox" (change)="comboBox()" ngModel required>
-            <option value="Orphanage">Orphanage</option>
-            <option value="Disability">Disability</option>
-            <option value="old age">Old Age Homes</option>
-            <option value="theraphy">Theraphy</option>
-            <option value="Psychiatric">Psychiatric centres/Hospital</option>
-            <option value="social centre">Social Centre</option>
-            <option value="Rehab">Rehab</option>
-          </select>
-          <span style="color: red" *ngIf="!select.valid && select.touched" class="help-block helptext">Please choose a category</span>
-        </div>
-        <label for="">
-          <i style="position: relative; top: 34.5px; left: 190px; color: #ffffff" class="material-icons">business</i>
-        </label>
-        <input class="Input1" #orgName="ngModel" type="text" placeholder="Organisation Name" ngModel required>
-        <span style="color: red" *ngIf="!orgName.valid && orgName.touched" class="help-block helptext">Please enter the organisation's name</span>
-        <label for="">
-          <i style="position: relative; top: 34.5px; left: 190px; color: #ffffff" class="material-icons">mail</i>
-        </label>
-        <input class="Input1" #email="ngModel" ngModel required type="email" placeholder="Organisation Email">
-        <span style="color: red" *ngIf="!email.valid && email.touched" class="help-block helptext">Please enter the organisation's email</span>
-        <label for="">
-          <i style="position: relative; top: 34.5px; left: 190px; color: #ffffff" class="material-icons">lock</i>
-        </label>
-        <input class="Input1" #password="ngModel" ngModel required type="password" placeholder="Password">
-        <span style="color: red" *ngIf="!password.valid && password.touched" class="help-block helptext">Please enter the organisation's password</span>
-        <button class="submitBtn" (click)="showPage2(select.value, orgName.value,email.value, password.value)">Register</button>
-      </div>
-    </div>
-    <!-- second page -->
-    <div class="row" id="secondpage">
-      <div class="column" style="background-color:#018790;;">
-          <div class="thelogo2">
-              <img class="PinHome2" src="../../assets/imgs/PinHome icon.png">
-            </div>
-            <h1>Please fill in a few more spaces to finish signing up and we're good to go</h1>
-      </div>
-      <div class="column" style="background-color:#10243D;">
-          <h2 id="theinstrution">Add you cover and logo images</h2>
-          <div class="everyimage">
-              <label for="coverUploader2" class="round2">
-                <i class="material-icons" id="add2">add</i>
-                <img src="{{urlLogo}}" alt="" class="coverUploader2" id="logo2">
-               </label>
-               <label for="coverUploader" class="Thecover2">
-                 <h4>Add your cover image</h4>
-                  <img src="{{urlCover}}" alt="" class="coverToUploader" id="cover2">
-                </label>
-              </div>
-              <label for="">
-                  <i class="material-icons">person</i>
-                </label>
-                <input class="input2" style="height: 38px" [(ngModel)]="fName" type="text" placeholder="Full Name(Representative)">
-                <label for="">
-                  <i class="material-icons">phone</i>
-                </label>
-                <input class="input2" style="height: 38px" #contact="ngModel" type="number" placeholder="Phone" ngModel required>
-                <span style="color: red" *ngIf="!contact.valid && contact.touched" class="help-block helptext"></span>
-                <label for="">
-                  <i class="material-icons">description</i>
-                </label>
-                <textarea style="height: 68px" class="thetextarea" #desc="ngModel" type="text" maxlength="200" placeholder="Decription (max: 200 characters)" ngModel required></textarea>
-                <label for="">
-                  <i class="material-icons">location_on</i>
-                </label>
-                <textarea style="height: 68px" class="thetextarea" [(ngModel)]="address" type="password" placeholder="Full Address(Including Postal Code)"></textarea>
-                <div class="theSumbitButton">
-                  <button class="submitBtn2" (click)="Reg(contact.value, desc.value)">Submit</button>
-                </div>
-        
-      </div>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<div class="everything">
+<input type="file" accept="image/jpg, image/jpeg" id="coverUploader"   (change)="InsertPicture($event)">
+<input type="file" accept="image/jpg, image/jpeg" id="coverUploader2"  (change)="InsertLogo($event)">
+<div class="row" id="firstpage">
+  <div class="column" style="background-color:#018790;">
+    <p class="appname">PinHome</p>
+    <p class="TheLine">______</p>
+    <h3>Welcome to PinHome, please fill in the form to get started with adding your non-profit organisation
+    </h3>
+    <div class="theButton">
+      <button class="loginBtn" (click)="goToSignIn()">Sign In</button>
     </div>
   </div>
+  <div class="column" style="background-color: #10243D;">
+    <h2 class="SignUp">Sign Up</h2>
+    <p class="Account">
+      Please make sure that the information you provide is true and accurate.
+      <b style=" font-weight: 100; text-decoration: underline" (click)="goToSignIn()"></b>
+    </p>
+    <div class="textfield">
+      <label for="selectBox" id="mySelect">Select Category</label>
+      <select #select="ngModel" id="selectBox" (change)="comboBox()" ngModel required>
+        <option value="Orphanage">Orphanage</option>
+        <option value="Disability">Disability</option>
+        <option value="old age">Old Age Homes</option>
+        <option value="theraphy">Theraphy</option>
+        <option value="Psychiatric">Psychiatric centres/Hospital</option>
+        <option value="social centre">Social Centre</option>
+        <option value="Rehab">Rehab</option>
+      </select>
+      <span style="color: red" *ngIf="!select.valid && select.touched" class="help-block helptext">Please choose a category</span>
+    </div>
+    <label for="" class="IconLabel">
+      <i style="color: #ffffff" class="material-icons">business</i>
+    </label>
+    <input class="Input1" #orgName="ngModel" type="text" placeholder="Organisation Name" ngModel required>
+    <span style="color: red" *ngIf="!orgName.valid && orgName.touched" class="help-block helptext">Please enter the organisation's name</span>
+    <label for="" class="IconLabel">
+      <i class="material-icons">mail</i>
+    </label>
+    <input class="Input1" #email="ngModel" ngModel required type="email" placeholder="Organisation Email">
+    <span style="color: red" *ngIf="!email.valid && email.touched" class="help-block helptext">Please enter the organisation's email</span>
+    <label for="" class="IconLabel">
+      <i class="material-icons">lock</i>
+    </label>
+    <input class="Input1" #password="ngModel" ngModel required type="password" placeholder="Password">
+    <span style="color: red" *ngIf="!password.valid && password.touched" class="help-block helptext">Please enter the organisation's password</span>  
+    <div id="check">
+      <button class="submitBtn" (click)="showPage2(select.value, orgName.value,email.value, password.value)">Register</button>
+    </div>
+  </div>
+</div>
+<!-- second page -->
+<div class="row" id="secondpage">
+  <div class="column" style="background-color:#018790;">
+      <div class="thelogo2">
+          <img class="PinHome2" src="../../assets/imgs/PinHome icon.png">
+        </div>
+        <h1>Please fill in a few more spaces to finish signing up and we're good to go</h1>
+  </div>
+  <div class="column" style="background-color:#10243D;">
+      <h2 id="theinstrution">Add you cover and logo images</h2>
+      <div class="everyimage">
+          <label for="coverUploader2" class="round2">
+            <i class="material-icons" id="add2">add</i>
+            <img src="{{urlLogo}}" alt="" class="coverUploader2" id="logo2">
+           </label>
+           <label for="coverUploader" class="Thecover2">
+             <h4>Add your cover image</h4>
+              <img src="{{urlCover}}" alt="" class="coverToUploader" id="cover2">
+            </label>
+          </div>
+          <label for="" class="IconLabel2">
+              <i class="material-icons">person</i>
+            </label>
+            <input class="input2" style="height: 38px" [(ngModel)]="fName" type="text" placeholder="Full Name(Representative)">
+            <label for="" class="IconLabel2">
+              <i class="material-icons">phone</i>
+            </label>
+            <input class="input2" style="height: 38px" #contact="ngModel" type="number" placeholder="Phone" ngModel required>
+            <span style="color: red" *ngIf="!contact.valid && contact.touched" class="help-block helptext"></span>
+            <label for="" class="IconLabel2">
+              <i class="material-icons">description</i>
+            </label>
+            <textarea style="height: 68px" class="thetextarea" #desc="ngModel" type="text" maxlength="200" placeholder="Decription (max: 200 characters)" ngModel required></textarea>
+            <label for="" class="IconLabel2">
+              <i class="material-icons">location_on</i>
+            </label>
+            <textarea style="height: 68px" class="thetextarea" [(ngModel)]="address" type="password" placeholder="Full Address(Including Postal Code)"></textarea>
+            <div class="theSumbitButton">
+              <button class="submitBtn2" (click)="Reg(contact.value, desc.value)">Submit</button>
+            </div>
+    
+  </div>
+</div>
+</div>
