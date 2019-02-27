@@ -501,7 +501,7 @@ this part handles the gallery tab */
   position: fixed;
   background: #018790;
   top: 10px;
-  right: -240px;
+  right: -260px;
   overflow-y: scroll;
   text-align: center;
   border-radius: 5px;
@@ -931,7 +931,7 @@ i {
   }
 @media screen and (max-width: 1600px) {
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1058px) {
   .addBranch {
     width: 100%;
     height: 100%;

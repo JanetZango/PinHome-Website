@@ -1,4 +1,4 @@
-<head>
+<!-- <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <input type="file" accept="image/jpg, image/jpeg" id="coverUploader" (change)="InsertPicture($event)" >
@@ -34,8 +34,8 @@
           <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
           <br>
           <textarea class="txtBig" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)" placeholder="Address" maxlength="230"
-            id="about" type="text"></textarea>
-          <input [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email">
+            id="about" type="text"></textarea><br>
+          <input [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email"><br>
           <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (change)="getPhone()" class="textField" placeholder="e.g(821234567)"
             id="orgContacts" type="number" min="0" max="10">
         </div>
@@ -58,4 +58,45 @@
       </div>
     </div>
   </div>
-</body>
+</body> -->
+<html>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="container">
+    <input type="file" accept="image/jpg, image/jpeg" id="coverUploader" (change)="InsertPicture($event)" >
+
+  <div class="nav">
+      <i class="material-icons" (click)="goToMap()">map</i> <p (click)="goToMap()">
+          Go to map
+          </p>
+  </div>
+  <div class="wrap">
+      <div class="instruction">
+        <p>Enter new branch details</p>
+      </div>
+      <div class="CoverDiv">
+        <label for="coverUploader" class="Thecover2">
+          <h2>Add your cover image</h2>
+           <img src="{{urlCover}}" alt="" class="coverToUpload" id="cover2">
+         </label>
+      </div>
+      <div class="section1">
+          <div class="left">
+            <input class="textField" type="text" placeholder="Branch Name" [(ngModel)]="name">
+            <br>
+            <textarea class="txtBig" [(ngModel)]="OrganizationAdress" (change)="initMap(address.value)" placeholder="Address" maxlength="230"
+              id="about" type="text" rows="4"></textarea><br>
+            <input [(ngModel)]="emailAdd" class="textField" placeholder="Email" id="theEmail" type="email"><br>
+            <input #contactDetails [(ngModel)]="contacts" [value]="contacts" (change)="getPhone($event)" class="textField" placeholder="e.g(821234567)" id="orgContacts" type="number" min="0" max="10"><br>
+              
+            <div class="submit" (click)="AddingData()">Submit</div>
+          </div>
+        </div>
+      
+
+
+  </div>
+  
+</body>  
+</html>

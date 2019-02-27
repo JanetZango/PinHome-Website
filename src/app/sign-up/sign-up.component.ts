@@ -1,6 +1,6 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 import { Router } from "@angular/router";
-
+import * as moment from 'moment';
 import swal from "sweetalert";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
@@ -374,6 +374,7 @@ export class SignUpComponent implements OnInit {
                 this.getcoo(this.address).then((data: any) => {
                     
                   this.userId = user.uid;
+                  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
                   firebase
                     .database()
                     .ref("Websiteprofiles/" + user.uid + '/')
@@ -388,7 +389,8 @@ export class SignUpComponent implements OnInit {
                       city: data.city,
                       category: this.select,
                       latitude: data.lat,
-                      Email : user.email
+                      Email : user.email,
+                      date : day
                     });
                   Swal.close();
                   this.router.navigate(["/landing-page"]);
