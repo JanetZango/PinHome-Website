@@ -671,12 +671,12 @@ button{
     #theinstrution{
         font-weight: 100;
         color: white;
-        font-size: 1.5em;
+        font-size: 1.2em;
         text-align: center;
         position: relative;
         bottom: 110px;
         position: relative;
-        right: 5%;
+        right: 4%;
     }
     /* h3{
         font-size: 1.5em; 
@@ -703,7 +703,7 @@ button{
         padding-left: 20px;
         color: white;
         position: relative;
-        left: 40%;
+        left: 38%;
         transform:translateX(-55%);
     }
     textarea{
@@ -716,7 +716,7 @@ button{
         padding-left: 20px;
         position: relative;
         top: 68px;
-        right: 2%;
+        right: 3%;
         z-index: 10;
         resize: none;
         font-family: Arial, Helvetica, sans-serif;
@@ -737,6 +737,7 @@ button{
             font-weight: 100;
             background-color: #018790;
             position: relative;
+            right: 5%;
             top: 90px;
            
       
@@ -750,10 +751,10 @@ button{
     #cover2{
         height: 150px;
         object-fit: cover;
-        width: 400px;
+        width: 300px;
         position: relative;
         bottom: 110px;
-        right: 2%;
+        right: 5%;
     }
     .Thecover2{
         position: relative;
@@ -765,6 +766,8 @@ button{
         width: 80px;
         border-radius: 100px;
         object-fit: cover;
+        position: relative;
+        right: 10%;
         z-index: 10000000000000000000;
     }
     .round2{
@@ -830,7 +833,8 @@ button{
     }
     h4{
         position: absolute;
-        left: 115px;
+        left: 20%;
+        transform: translate(-5%);
         bottom: 155px;
         color: rgba(255, 255, 255, 0.534);
         text-shadow: 0 0 10px black;
@@ -1302,4 +1306,450 @@ button{
         }
     
     }
+}
+
+@media screen and (max-width:500px){
+
+    .everything{
+        position: absolute;
+        display: flex;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 110%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23018790' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-size: cover;
+        background-repeat: no-repeat;
+  
+    }
+    * {
+        box-sizing: border-box;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+        float: left;
+        padding: 10px;
+        height: 620px; /* Should be removed. Only for demonstration */
+        width: 100%;  
+        justify-content: center;
+        align-items: center;    
+        display: flex;
+        flex-direction: column;
+
+      }  
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        justify-content: center;
+        width: 100%;
+        margin-left: 50%;
+      }
+      .SignUp{
+        text-align: left;
+        width: 100%;
+        font-size: 2.5em;
+        color: white;
+        font-weight: 100;
+        padding: 40px;
+        margin: 0px;
+    }
+    .appname{
+        text-align: center;
+        width: 80%;
+        font-size: 3em;
+        color: white;
+        font-weight: 100;
+        position: relative;
+        top: 80px;
+        /* padding-bottom: 30px; */
+
+    }
+    #coverToUpload2{
+        display: none;
+    }
+     p{
+        color: white;
+        text-align: center;
+    }
+    h3{
+        font-size: 1.5em; 
+        font-weight: 100;
+        color: white;
+        text-align: center;
+        padding: 40px;
+        position: relative;
+        top: 15%;
+    }
+
+    .TheLine{
+        position: relative;
+        top: 100px;
+    }
+    .Account{
+        text-align: left;
+        color: white;
+        font-size: 100%;
+        padding-left: 0px;
+        padding-right: 0px; 
+        padding-bottom: 20px;
+    }
+    .Input1{
+        width: 80%;
+        min-width: 300px;
+        height: 60px;
+        border: 2px #ffffff solid;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 1em;
+        padding-left: 20px;
+        color: white;
+        
+    }
+    ::-webkit-input-placeholder{
+        color: white;
+    }
+    .loginBtn{
+            height: 45px;
+            width: 300px;
+            color:white;
+            font-size: 1em;
+            font-weight: 100;
+            background-color: #10243D;
+            margin-top: 30%;
+            border-bottom: 0px;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            box-shadow: 0 0 10px #10243D;
+      
+        
+    }
+    .submitBtn{
+            height: 45px;
+            width: 75%;
+            width: 300px;
+            border: #018790 2px solid;
+            box-shadow: 0 0 10px #018790;
+            background-color: white;
+            color:white;
+            font-size: 1em;
+            font-weight: 100;
+            background-color: #018790;
+            margin-top: 30px;
+      
+    }
+    .textfield{
+        width: 80%;
+        min-width: 300px;
+        color: white;
+        font-size: 1em;
+    }
+    select{
+        cursor: pointer;
+        margin: 0px;
+        height: 50px;
+        width: 100%;
+        background-color: #01879000;
+        color: white;
+        border-radius: 100px;
+        border: solid 2px white;
+        font-size: 1em;
+        padding: 0px;
+    }
+     option{
+         color: black;
+     }
+
+     .IconLab{
+         position: relative;
+         right: 78px;
+         /* width: 10px;
+         height: 10px;
+         background: red;  */
+     }
+
+     .IconLabel{
+         position: relative;
+         right: 18%;
+         top: 0.5%;
+         /* width: 10px;
+         height: 10px;
+         background: red; */
+  
+     }
+
+
+
+
+
+     /*secondpage */
+
+
+
+     
+     .maindiv2{
+        position: absolute;
+        top: 0%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 413px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #d6fcfe;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23018790' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+   
+    .box2{
+        position: absolute;
+        top: 0%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+     /*.column2 {
+        float: left;
+        width: 550px;
+        padding: 10px;
+        height: 700px;  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #10243D; 
+        overflow-y: scroll; 
+        overflow-x: hidden;
+        
+    }*/
+    .column2::-webkit-scrollbar{
+        display: none;
+    }
+
+ 
+    /* .column12{
+        
+     
+        background-color:   #018790;
+        float: left;
+        width: 550px;
+        padding: 10px;
+        height: 700px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-size: cover;
+        background-repeat: no-repeat; 
+        box-shadow: 0 0 10px white;
+    } */
+    h1{
+        font-weight: 100;
+        color: white;
+        font-size: 1.5em; 
+        text-align: center;
+        padding-left: 20%;
+        padding-right: 20%;
+        /* margin-top: 20%; */
+    
+    }
+    #theinstrution{
+        font-weight: 100;
+        color: white;
+        font-size: 1.8em;
+        text-align: center;
+        position: relative;
+        bottom: 100px;
+    }
+    /* h3{
+        font-size: 1.5em; 
+        font-weight: 100;
+        color: white;
+        text-align: center;
+    } */
+    p{
+        width: 80%;
+        text-align: center;
+        color: white;
+    } 
+    .input2{
+        width: 75%;
+        min-width: 300px;
+        height: 50000000%;
+        border-bottom: 2px #ffffff solid;
+        border-top: 2px #ffff solid;
+        border-right: 2px solid white;
+        border-left: 2px solid white;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 1em;
+        padding-left: 20px;
+        color: white;
+        position: relative;
+        top: 68px;
+    }
+    textarea{
+        height: 1000%;    
+        width: 75%;
+        color: rgb(255, 255, 255);
+        background-color: #01879000;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding-left: 20px;
+        position: relative;
+        top: 68px;
+        z-index: 10;
+        resize: none;
+        font-family: Arial, Helvetica, sans-serif;
+     }
+    ::-webkit-input-placeholder{
+        color: white;
+    }
+    .submitBtn2{
+            height: 55px;
+            width: 75%;
+            width: 300px;
+            border: #018790 2px solid;
+            box-shadow: 0 0 10px #018790;
+            border-radius: 100px;
+            background-color: white;
+            color:white;
+            font-size: 1em;
+            font-weight: 100;
+            background-color: #018790;
+            position: relative;
+            top: 90px;
+           
+      
+    }
+    .thetextarea2::-webkit-input-placeholder{
+        color: rgb(255, 255, 255);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5em;
+     
+    }
+    #cover2{
+        height: 150px;
+        object-fit: cover;
+        width: 400px;
+        position: relative;
+        bottom: 110px;
+    }
+    .Thecover2{
+        position: relative;
+        bottom: 50px;
+    }
+    #logo2{
+        height: 80px;
+        width: 80px;
+        border-radius: 100px;
+        object-fit: cover;
+        z-index: 10000000000000000000;
+    }
+    .round2{
+     z-index: 100000000000000;
+     position: absolute;
+     bottom: 175%;
+     left: 50%;
+     transform: translateX(-50%)
+     
+    }
+    .swal-overlay{
+        background: red;
+        z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    }
+    .swal-modal{
+        background: red;
+    }
+    i{
+        color: white;
+        position: relative; 
+        top: 105px;
+        left: 190px;
+    }
+    .PinHome2{
+        height: 100px;
+    }
+    .AddDiv2{
+        z-index: 100000000000000000000000000000;
+        position: relative;
+        bottom: 65px;
+        left: 17px;
+    }
+    #add2{
+       background: #01879000;
+       border-right: 0px;
+       border-left: 0px;
+       border-bottom: 0px;
+       border-top: 0px;
+       color: rgba(255, 255, 255, 0.692);
+       text-shadow: 0 0 10px rgb(0, 0, 0);
+       font-size: 2.5em;
+       position: absolute;
+       left: 21px;
+       top: 23px;
+       z-index: 100000;
+    }
+    .AddCover2{
+        position: relative;
+        left: 80px;
+        top: 90px;
+    }
+    #firstpage{
+        display: block;
+    }
+    #secondpage{
+        display: none
+    }
+    #coverUploader{
+        display: none;
+    }
+    #coverUploader2{
+        display:none;
+    }
+    h4{
+        position: absolute;
+        left: 150px;
+        bottom: 155px;
+        color: rgba(255, 255, 255, 0.534);
+        text-shadow: 0 0 10px black;
+        z-index: 1000000000000;
+    }
+    .everyimage{
+        position: absolute;
+    }
+    button{
+        cursor: pointer;
+    }
+
+    .IconLabel2{
+        position: relative;
+        left: 8%;
+       
+    }
+    .IconLabel{
+        /* border: solid red 2px; */
+        position: relative;
+        top: -10%; 
+        left: 10%;
+    }
+
 }
