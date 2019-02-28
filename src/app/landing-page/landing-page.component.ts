@@ -94,15 +94,35 @@ export class LandingPageComponent implements OnInit {
 
     this.getDetails2().then((data: any) => {
       console.log(data);
+      var srt1 = 0;
+      var str2 = 0;
       this.name = data.name;
       this.proKey = data.key;
       this.getAllRatings(this.proKey).then((data2:any) =>{
         console.log(data2);
-        this.ratinCharts(data2)
+        document.getElementById("myViews").style.display = "none" 
+        document.getElementById("myRate").style.display = "none"
+        if (data2.length != 0)
+        {
+          this.ratinCharts(data2)
+          this.showContainer();
+          document.getElementById("myRate").style.display = "block"
+          document.getElementById("myViews").style.display = "none" 
+          srt1 = 1;
+        }
       })
       this.getReviews().then((data2:any) =>{
-        console.log(data2);
-        this.ratinView(data2)
+        if (data2.length != 0 && srt1 == 0)
+        {
+          this.showContainer();
+          document.getElementById("myViews").style.display = "block" 
+          document.getElementById("myRate").style.display = "none"
+       
+          console.log(data2);
+          this.ratinView(data2)
+          str2 = 1;
+        }
+
       })
 
       this.desc = data.desc;
@@ -113,6 +133,9 @@ export class LandingPageComponent implements OnInit {
       (this.cat = data.cat), (this.email = data.email), (this.key = data.key);
       // this.displayProfileArr =data
       // console.log(this.displayProfileArr)
+      if (str2 == 1 || srt1 == 1){
+        this.showContainer();
+      }
     });
 
     this.getGallery();
@@ -129,110 +152,125 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
+  showContainer(){
+    var Charts = document.getElementsByClassName("chartOverlay") as HTMLCollectionOf<HTMLElement>;
+     Charts[0].style.display = "block"
+  }
   
 dates =  new Array();
 labels =  new Array();
 
   ratinCharts(data){
-    for (var x = 0; x < data.length; x++){
-      this.dates.push(data[x].date);
-      this.labels.push(data[x].value);
+    if (data.length == 0){
+      document.getElementById("myRate").style.display = "none" 
     }
-  
-    console.log(this.dates);
-    console.log(this.labels);
-    
-    
-    this.chart = new Chart("ourRatings", {
-      type: 'bar',
-      data: {
-          labels:this.dates,
-          datasets: [{
-              label: 'Ratings',
-              data:this.labels,
-              backgroundColor: [
-                  'rgb(9,64,89)',
-                  'rgb(9,64,89)',
-                  'rgb(9,64,89)',
-                  'rgb(9,64,89)',
-                  'rgb(9,64,89)',
-                  'rgb(9,64,89)',
-                  'rgb(9,64,89)',
-              ],
-              borderColor: [
-                'rgb(9,64,89)',
-                'rgb(9,64,89)',
-                'rgb(9,64,89)',
-                'rgb(9,64,89)',
-                'rgb(9,64,89)',
-                'rgb(9,64,89)',
-                'rgb(9,64,89)',
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
+    else{
+      // this.showContainer();
+      for (var x = 0; x < data.length; x++){
+        this.dates.push(data[x].date);
+        this.labels.push(data[x].value);
       }
-  });
+    
+      console.log(this.dates);
+      console.log(this.labels);
+      
+      
+      this.chart = new Chart("ourRatings", {
+        type: 'bar',
+        data: {
+            labels:this.dates,
+            datasets: [{
+                label: 'Ratings',
+                data:this.labels,
+                backgroundColor: [
+                    'rgb(9,64,89)',
+                    'rgb(9,64,89)',
+                    'rgb(9,64,89)',
+                    'rgb(9,64,89)',
+                    'rgb(9,64,89)',
+                    'rgb(9,64,89)',
+                    'rgb(9,64,89)',
+                ],
+                borderColor: [
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                  'rgb(9,64,89)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    }
+   
   }
 
 
   Views =  new Array();
   date =  new Array();
   ratinView(data){
-    for (var x = 0; x < data.length; x++){
-      this.date.push(data[x].date);
-      this.Views.push(data[x].Views);
+    if (data.length == 0){
+      document.getElementById("myViews").style.display = "none" 
     }
-  
-    console.log(this.Views);
-    
-    
-    this.chart = new Chart("views", {
-      type: 'bar',
-      data: {
-          labels:this.date,
-          datasets: [{
-              label: 'Number of people who viewed your profile',
-              data:this.Views,
-              backgroundColor: [
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-              ],
-              borderColor: [
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-                  'rgb(7,134,143)',
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
+    else{
+      // this.showContainer();
+      for (var x = 0; x < data.length; x++){
+        this.date.push(data[x].date);
+        this.Views.push(data[x].Views + 1);
       }
-  });
+    
+      console.log(this.Views);
+      this.chart = new Chart("views", {
+        type: 'bar',
+        data: {
+            labels:this.date,
+            datasets: [{
+                label: 'Number of people who viewed your profile',
+                data:this.Views,
+                backgroundColor: [
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                ],
+                borderColor: [
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                    'rgb(7,134,143)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+    }
   }
 
 
@@ -352,7 +390,7 @@ getReviews(){
                   }
                 }
                 let obj = {
-                  Views : com[k].Views,
+                  Views : com[k].views,
                   date : date,
                 }
                 y.push(obj)
@@ -451,6 +489,8 @@ getReviews(){
       .on("value", (data: any) => {
         if (data.val() != null || data.val() != undefined) {
           var DisplayData = data.val();
+          console.log(DisplayData);
+          
           var keys = Object.keys(DisplayData);
           for (var x = 0; x < keys.length; x++) {
             firebase
@@ -513,6 +553,7 @@ getReviews(){
   }
   initMap() {
     console.log(this.organizationArr);
+    if (this.organizationArr.length != 0){
     setTimeout(() => {
       let myLatLng = {
         lat: this.organizationArr[0].latitude,
@@ -805,6 +846,7 @@ getReviews(){
     }, 3000);
 
     console.log("at the end");
+  }
   }
 
   getStarted() {
@@ -1109,6 +1151,7 @@ getReviews(){
           .database()
           .ref(dbPath)
           .on("value", (data: any) => {
+            if (data.val() != undefined || data.val() != null){
             let details = data.val();
             let key = Object.keys(details);
 
@@ -1118,6 +1161,7 @@ getReviews(){
             };
             console.log(obj);
             accpt(obj);
+          }
           });
       });
     });

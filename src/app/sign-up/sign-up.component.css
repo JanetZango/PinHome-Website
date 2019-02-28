@@ -14,6 +14,13 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+#check{
+    /* border: 2px solid red; */
+    /* width: 100%; */
+
+}
+
+
 * {
     box-sizing: border-box;
   }
@@ -21,7 +28,7 @@
   /* Create two equal columns that floats next to each other */
   .column {
     float: left;
-    padding: 10px;
+    /* padding: 10px; */
     height: 700px; /* Should be removed. Only for demonstration */
     width: 650px;  
     justify-content: center;
@@ -124,7 +131,7 @@ h3{
         font-size: 1em;
         font-weight: 100;
         background-color: #018790;
-        margin-top: 30px;
+        margin: 30px;
   
 }
 .textfield{
@@ -1662,10 +1669,10 @@ button{
         width: 80px;
         border-radius: 100px;
         object-fit: cover;
-        z-index: 10000000000000000000;
+        z-index: 10;
     }
     .round2{
-     z-index: 100000000000000;
+     /* z-index: 10z0000000000000; */
      position: absolute;
      bottom: 175%;
      left: 50%;
@@ -1674,10 +1681,11 @@ button{
     }
     .swal-overlay{
         background: red;
-        z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        /* z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000 */
     }
     .swal-modal{
         background: red;
+        z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
     }
     i{
         color: white;
@@ -1763,8 +1771,8 @@ button{
         }
         .TheLine{
             position: relative;
-            top: 40%;
-            right: 5%;
+            top: 43%;
+            left: 0%;
         }
         h3{
             padding-left: 10%;
@@ -1784,8 +1792,58 @@ button{
             font-size: 1em;
             padding-left: 20px;
             color: white;
-            
+            position: relative;
+            right: 1.5%;
         }
+
+        .textfield{
+            width: 75%; 
+            position: relative;
+            right: 10px;
+        }
+
+        .submitBtn{
+            position: relative;
+            left: 18%;
+        }
+
+        .IconLabel{
+            position: relative;
+            left: 1%;
+            top: -10%;
+        }
+
+        .IconLabel2{
+            position: relative;
+            left: -3px;
+        }
+
+        .SignUp{
+            width: 90%;
+        }
+        #logo2{
+            height: 80px;
+            width: 80px;
+            border-radius: 100px;
+            object-fit: cover;
+            /* z-index: 10; */
+        }
+
+
+        #add2{
+            background: #01879000;
+            border-right: 0px;
+            border-left: 0px;
+            border-bottom: 0px;
+            border-top: 0px;
+            color: rgba(255, 255, 255, 0.692);
+            text-shadow: 0 0 10px rgb(0, 0, 0);
+            font-size: 2.5em;
+            position: absolute;
+            left: 15px;
+            top: 23px;
+            z-index: 100000;
+         }
 
     }
     }

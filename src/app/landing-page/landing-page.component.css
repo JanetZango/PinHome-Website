@@ -94,6 +94,7 @@ body {
   color: red;
 }
 .chartOverlay {
+  display: none;
   position: absolute;
   padding-top: 50px;
   z-index: 10;
@@ -975,6 +976,9 @@ i {
     top: 30px;
   }
 
+  /* #theGreenOne{
+    display: none;
+  } */
   .gallery {
     transition: 300ms;
     width: 300px;

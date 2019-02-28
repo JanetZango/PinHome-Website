@@ -122,12 +122,12 @@ export class SignUpComponent implements OnInit {
 
     var firstPage = document.getElementById("firstpage");
     var secondPage = document.getElementById("secondpage");
-    var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<
-      HTMLElement
-    >;
-    var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    // var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<
+    //   HTMLElement
+    // >;
+    // var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<
+    //   HTMLElement
+    // >;
     var page2 = document.getElementById("secondpage");
 
     if (this.select == "" || this.select == null) {
@@ -172,10 +172,10 @@ export class SignUpComponent implements OnInit {
         // alert(this.password)
       firstPage.style.display = "none";
       secondPage.style.display = "block";
-      signIn[0].style.color = "black";
-      signUp[0].style.color = "#00eaff";
-      signUp[0].style.borderBottom = "5px solid #00eaff";
-      signIn[0].style.borderBottom = "5px solid transparent";
+      // signIn[0].style.color = "black";
+      // signUp[0].style.color = "#00eaff";
+      // signUp[0].style.borderBottom = "5px solid #00eaff";
+      // signIn[0].style.borderBottom = "5px solid transparent";
     }
   }
 
@@ -224,17 +224,17 @@ export class SignUpComponent implements OnInit {
   showPage1($event) {
     var firstPage = document.getElementById("firstpage");
     var secondPage = document.getElementById("secondpage");
-    var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<
-      HTMLElement
-    >;
+    // var signIn = document.getElementsByClassName("signIn") as HTMLCollectionOf<
+    //   HTMLElement
+    // >;
     var signUp = document.getElementsByClassName("signUp") as HTMLCollectionOf<
       HTMLElement
     >;
 
     firstPage.style.display = "block";
-    signIn[0].style.color = "#00eaff";
+    // signIn[0].style.color = "#00eaff";
     signUp[0].style.color = "black";
-    signIn[0].style.borderBottom = "5px solid #00eaff";
+    // signIn[0].style.borderBottom = "5px solid #00eaff";
     signUp[0].style.borderBottom = "5px solid transparent";
   }
   getPhone() {
@@ -369,7 +369,6 @@ export class SignUpComponent implements OnInit {
           .then(
             () => {
               
-              firebase.auth().onAuthStateChanged(user => {
                 var user = firebase.auth().currentUser
                 this.getcoo(this.address).then((data: any) => {
                     
@@ -390,7 +389,8 @@ export class SignUpComponent implements OnInit {
                       category: this.select,
                       latitude: data.lat,
                       Email : user.email,
-                      date : day
+                      date : day,
+                      views : 0
                     });
                   Swal.close();
                   this.router.navigate(["/landing-page"]);
@@ -401,7 +401,6 @@ export class SignUpComponent implements OnInit {
                   //   myAlert[0].style.display = "block";
                   //  theLoader[0].style.display = "none"
                   //  dismissBtn[0].style.display = "block"
-                });
               });
             },
             Error => {
